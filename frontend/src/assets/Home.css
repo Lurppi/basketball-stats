@@ -1,0 +1,37 @@
+/* Container für Slider und Tabellen */
+.slider-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.stats-card {
+  background-color: #333;
+  border-radius: 8px;
+  margin: 0 auto;
+  padding: 15px;
+  width: 90%; /* Sicherstellen, dass es nicht zu breit ist */
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 8px;
+  border: 1px solid #444;
+  text-align: left;
+}
+
+.table th {
+  background-color: #555;
+}
+
+.table td {
+  background-color: #333;
+}

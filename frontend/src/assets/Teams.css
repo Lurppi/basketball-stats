@@ -1,0 +1,98 @@
+/* src/assets/Teams.css */
+body {
+  font-family: 'Roboto Slab', serif;
+  margin: 0;
+  padding: 0;
+  background-color: #222; /* Dunkler Hintergrund für den gesamten Body */
+  color: #fff; /* Weiße Schriftfarbe für den gesamten Body */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+  font-size: 2rem; /* Doppelte Größe der Überschrift */
+}
+
+.filters {
+  margin-bottom: 20px;
+}
+
+.filter-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.filter-row label {
+  display: flex;
+  flex-direction: column;
+  color: white; /* Filter-Beschriftungen in Weiß */
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: #333; /* Dunkler Hintergrund für die Tabelle */
+  color: white; /* Weiße Schrift für den Tabelleninhalt */
+}
+
+thead th {
+  background-color: #444; /* Etwas dunklerer Hintergrund für Überschriften */
+  color: white; /* Weiße Schrift für Überschriften */
+  padding: 8px;
+  font-size: 11px; /* Schriftgröße der Tabellenüberschriften */
+  cursor: pointer; /* Zeiger ändern beim Hover über Überschriften */
+  text-overflow: ellipsis; /* Überlaufenden Text ellipsieren */
+  overflow: hidden; /* Überlaufenden Text verbergen */
+  white-space: nowrap; /* Verhindert Zeilenumbruch */
+}
+
+tbody td {
+  padding: 8px; /* Etwas größere Polsterung für die Tabelleninhalte */
+  font-size: 0.85rem; /* Schriftgröße der Tabelleninhalte */
+  border-bottom: 1px solid #444; /* Dunkler Rand zwischen den Zeilen */
+  text-overflow: ellipsis; /* Überlaufenden Text ellipsieren */
+  overflow: hidden; /* Überlaufenden Text verbergen */
+  white-space: nowrap; /* Verhindert Zeilenumbruch */
+}
+
+.row-number {
+  width: 50px; /* Feste Breite für Zeilennummerierung */
+  text-align: center;
+}
+
+thead th:first-child,
+tbody td:first-child {
+  width: 50px; /* Feste Breite für die "TEAM"-Spalte */
+  text-align: left;
+}
+
+thead th:not(:first-child),
+tbody td:not(:first-child) {
+  width: 15px; /* Feste Breite für andere Spalten */
+  text-align: center;
+  /* Verhindert Textüberlauf in den schmalen Spalten */
+}
+
+/* Optional: Zusätzliches Styling für die Filter */
+.filters select {
+  font-size: 1rem; /* Schriftgröße der Dropdown-Menüs */
+}
+
+/* Entfernen des Paginators (Optionale Stile) */
+.pagination {
+  display: none;
+}

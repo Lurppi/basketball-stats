@@ -1,0 +1,46 @@
+/* Allgemeines Container-Styling */
+.container {
+  position: relative;
+  margin: 20px;
+}
+
+/* Header */
+.header h1 {
+  font-size: var(--header-font-size, 26px); /* Standardgröße 26px, kann durch CSS-Variable angepasst werden */
+  margin: 30px;
+  padding: 0;
+}
+
+/* Wrapper für die Tabelle */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+/* Tabelle */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+/* Zellen */
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Kopfzeilen */
+th {
+  background-color: #f4f4f4;
+}
+
+/* Show More Button */
+.show-more-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
