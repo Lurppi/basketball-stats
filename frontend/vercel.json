@@ -1,5 +1,4 @@
 {
-    "root": "frontend",  // Falls dein Frontend-Projekt in einem Unterordner wie "frontend" liegt
     "rewrites": [
       { "source": "/(.*)", "destination": "/" }
     ],
@@ -8,10 +7,10 @@
         "NODE_ENV": "production"
       }
     },
-    "outputDirectory": "dist",  // Stelle sicher, dass das Output-Verzeichnis korrekt ist, z.B. "dist" bei Vite
-    "framework": "vite", // Spezifiziere das Framework, wenn du Vite verwendest
-    "installCommand": "yarn install", // Installiert die Abhängigkeiten
-    "buildCommand": "yarn build", // Führt den Build-Befehl aus
-    "cleanUrls": true // Entfernt .html aus URLs
+    "outputDirectory": "dist",  // Stelle sicher, dass das Output-Verzeichnis korrekt ist
+    "framework": "vite",        // Entferne diesen Eintrag, falls er Probleme verursacht
+    "installCommand": "yarn install",
+    "buildCommand": "yarn build",
+    "cleanUrls": true
   }
   
