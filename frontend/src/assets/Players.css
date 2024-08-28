@@ -2,14 +2,15 @@
 .container {
   position: relative;
   margin: 20px;
-  overflow-x: auto; /* Ermöglicht horizontales Scrollen für das gesamte Container-Element */
+  overflow-x: hidden; /* Verhindert horizontales Scrollen */
 }
 
 /* Header */
 .header h1 {
-  font-size: var(--header-font-size, 26px); /* Standardgröße 26px, kann durch CSS-Variable angepasst werden */
-  margin: 30px;
+  font-size: 24px; /* Angepasste Standardgröße für mobile Geräte */
+  margin: 20px;
   padding: 0;
+  text-align: center; /* Zentriert die Überschrift */
 }
 
 /* Wrapper für die Tabelle */
@@ -21,11 +22,9 @@
 /* Tabelle */
 table {
   width: 100%;
-  min-width: 600px; /* Mindestbreite gesetzt für besseren Inhalt */
   border-collapse: collapse;
   margin-bottom: 20px;
-  display: block; /* Sicherstellen, dass die Tabelle innerhalb des Containers scrollen kann */
-  overflow-x: auto; /* Ermöglicht horizontales Scrollen */
+  display: block;
 }
 
 /* Zellen */
@@ -53,8 +52,8 @@ th {
 /* Responsive Anpassungen */
 @media (max-width: 768px) {
   .header h1 {
-    font-size: 22px;
-    margin: 20px;
+    font-size: 20px;
+    margin: 10px;
   }
 
   th, td {
@@ -68,15 +67,27 @@ th {
 
   table {
     font-size: 0.85em;
-    min-width: 100%; /* Sicherstellen, dass die Tabelle mindestens die Breite des Containers hat */
+    width: 100%; /* Sicherstellen, dass die Tabelle die volle Breite des Containers einnimmt */
   }
 
   .container {
-    padding: 0 10px; /* Reduziert den horizontalen Innenabstand des Containers, um mehr Platz zu schaffen */
+    padding: 0 10px;
   }
 
   th, td {
-    white-space: nowrap; /* Verhindert Zeilenumbruch in den Zellen */
+    white-space: nowrap;
+  }
+
+  .filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .filter-row label {
+    flex: 1 1 48%; /* Stellt sicher, dass die Filter in zwei Reihen angeordnet sind */
+    margin-bottom: 10px;
   }
 }
 
@@ -87,7 +98,7 @@ th {
   }
 
   table {
-    font-size: 1em; /* Passe die Schriftgröße an, wenn das Gerät quer gehalten wird */
+    font-size: 1em;
   }
 
   .header h1 {

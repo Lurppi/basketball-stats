@@ -2,22 +2,22 @@ body {
   font-family: 'Roboto Slab', serif;
   margin: 0;
   padding: 0;
-  background-color: #222; /* Dunkler Hintergrund für den gesamten Body */
-  color: #fff; /* Weiße Schriftfarbe für den gesamten Body */
+  background-color: #222;
+  color: #fff;
 }
 
 .container {
   max-width: 100%;
   margin: 0 auto;
   padding: 20px;
-  overflow-x: auto; /* Ermöglicht horizontales Scrollen für das gesamte Container-Element */
+  overflow-x: hidden; /* Verhindert horizontales Scrollen */
 }
 
 .header {
   text-align: center;
   margin-bottom: 20px;
   color: white;
-  font-size: 2rem; /* Doppelte Größe der Überschrift */
+  font-size: 2rem;
 }
 
 .filters {
@@ -26,15 +26,17 @@ body {
 
 .filter-row {
   display: flex;
-  flex-wrap: wrap; /* Macht die Filter flexibler, damit sie sich bei wenig Platz umbrechen */
+  flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
 }
 
 .filter-row label {
+  flex: 1 1 48%; /* Stellt sicher, dass die Filter in zwei Reihen angeordnet sind */
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
-  color: white; /* Filter-Beschriftungen in Weiß */
+  color: white;
 }
 
 .table-wrapper {
@@ -43,64 +45,58 @@ body {
 
 table {
   width: 100%;
-  min-width: 600px; /* Mindestbreite gesetzt für besseren Inhalt */
   border-collapse: collapse;
   margin-bottom: 20px;
-  background-color: #333; /* Dunkler Hintergrund für die Tabelle */
-  color: white; /* Weiße Schrift für den Tabelleninhalt */
-  overflow-x: auto; /* Ermöglicht horizontales Scrollen */
-  display: block; /* Sicherstellen, dass die Tabelle innerhalb des Containers scrollen kann */
+  background-color: #333;
+  color: white;
+  display: block;
 }
 
 thead th {
-  background-color: #444; /* Etwas dunklerer Hintergrund für Überschriften */
-  color: white; /* Weiße Schrift für Überschriften */
+  background-color: #444;
+  color: white;
   padding: 8px;
-  font-size: 11px; /* Schriftgröße der Tabellenüberschriften */
-  cursor: pointer; /* Zeiger ändern beim Hover über Überschriften */
-  text-overflow: ellipsis; /* Überlaufenden Text ellipsieren */
-  overflow: hidden; /* Überlaufenden Text verbergen */
-  white-space: nowrap; /* Verhindert Zeilenumbruch */
+  font-size: 11px;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 tbody td {
-  padding: 8px; /* Etwas größere Polsterung für die Tabelleninhalte */
-  font-size: 0.85rem; /* Schriftgröße der Tabelleninhalte */
-  border-bottom: 1px solid #444; /* Dunkler Rand zwischen den Zeilen */
-  text-overflow: ellipsis; /* Überlaufenden Text ellipsieren */
-  overflow: hidden; /* Überlaufenden Text verbergen */
-  white-space: nowrap; /* Verhindert Zeilenumbruch */
+  padding: 8px;
+  font-size: 0.85rem;
+  border-bottom: 1px solid #444;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .row-number {
-  width: 50px; /* Feste Breite für Zeilennummerierung */
+  width: 50px;
   text-align: center;
 }
 
 thead th:first-child,
 tbody td:first-child {
-  width: 50px; /* Feste Breite für die "TEAM"-Spalte */
+  width: 50px;
   text-align: left;
 }
 
 thead th:not(:first-child),
 tbody td:not(:first-child) {
-  width: 15px; /* Feste Breite für andere Spalten */
+  width: 15px;
   text-align: center;
-  /* Verhindert Textüberlauf in den schmalen Spalten */
 }
 
-/* Optional: Zusätzliches Styling für die Filter */
 .filters select {
-  font-size: 1rem; /* Schriftgröße der Dropdown-Menüs */
+  font-size: 1rem;
 }
 
-/* Entfernen des Paginators (Optionale Stile) */
 .pagination {
   display: none;
 }
 
-/* Responsive Anpassungen */
 @media (max-width: 768px) {
   .header {
     font-size: 1.5rem;
@@ -110,33 +106,32 @@ tbody td:not(:first-child) {
     padding: 5px;
   }
 
-  .filter-row {
-    flex-direction: column;
-    gap: 10px;
-  }
-
   table {
     font-size: 0.85em;
-    min-width: 100%; /* Sicherstellen, dass die Tabelle mindestens die Breite des Containers hat */
+    width: 100%;
   }
 
   .container {
-    padding: 0 10px; /* Reduziert den horizontalen Innenabstand des Containers, um mehr Platz zu schaffen */
+    padding: 0 10px;
   }
 
   th, td {
-    white-space: nowrap; /* Verhindert Zeilenumbruch in den Zellen */
+    white-space: nowrap;
+  }
+
+  .filter-row {
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 
-/* Querformat-Stile */
 @media (orientation: landscape) {
   .container {
     padding: 10px;
   }
 
   table {
-    font-size: 1em; /* Passe die Schriftgröße an, wenn das Gerät quer gehalten wird */
+    font-size: 1em;
   }
 
   .header {
