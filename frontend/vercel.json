@@ -1,15 +1,5 @@
 {
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/" }
-    ],
-    "build": {
-      "env": {
-        "NODE_ENV": "production"
-      }
-    },
-    "installCommand": "yarn install",
-    "buildCommand": "yarn build",
-    "outputDirectory": "dist",
-    "cleanUrls": true
-  }
-  
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
