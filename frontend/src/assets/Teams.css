@@ -10,7 +10,7 @@ body {
   max-width: 100%;
   margin: 0 auto;
   padding: 20px;
-  overflow-x: hidden; /* Verhindert horizontales Scrollen */
+  overflow-x: hidden;
 }
 
 .header {
@@ -27,12 +27,12 @@ body {
 .filter-row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   gap: 10px;
 }
 
 .filter-row label {
-  flex: 1 1 48%; /* Stellt sicher, dass die Filter in zwei Reihen angeordnet sind */
+  flex: 1 1 48%;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
