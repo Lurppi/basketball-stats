@@ -49,6 +49,20 @@ th {
   cursor: pointer;
 }
 
+/* Filter Styling */
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.filter-row label {
+  flex: 1 1 48%;
+  margin-bottom: 10px;
+  min-width: 150px; /* Ensures minimum width for filters */
+}
+
 /* Responsive Anpassungen */
 @media (max-width: 768px) {
   .header h1 {
@@ -79,15 +93,8 @@ th {
   }
 
   .filter-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-direction: row;
     justify-content: space-between;
-  }
-
-  .filter-row label {
-    flex: 1 1 48%;
-    margin-bottom: 10px;
   }
 }
 
