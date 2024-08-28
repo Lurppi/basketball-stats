@@ -1,3 +1,26 @@
+# Node modules
 node_modules/
-.env
+
+# Log files
 *.log
+
+# Environment variables
+.env
+
+# Build output
+dist/
+build/
+
+# Dependency directories
+*.tgz
+
+# IDE und Editor spezifische Dateien
+.vscode/
+.idea/
+
+# OS spezifische Dateien
+.DS_Store
+Thumbs.db
+
+# Vercel-specific
+.vercel/
