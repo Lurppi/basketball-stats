@@ -1,28 +1,29 @@
-// src/api.jsx
-export const fetchPlayers = async (league, statsType) => {
+const API_BASE_URL = "https://backend-sandy-rho.vercel.app/api";
+
+export const fetchPlayersData = async () => {
   try {
-    // Die URL hier anpassen
-    const response = await fetch(`http://localhost:5000/api/players/${league}/${statsType}`);
+    const response = await fetch(`${API_BASE_URL}/players/Regular/Totals`);
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error("Network response was not ok");
     }
-    return response.json();
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.error('Failed to fetch players:', error);
-    throw error;
+    console.error("Fetch players data failed:", error);
+    return [];
   }
 };
 
-export const fetchTeams = async (league, statsType) => {
+export const fetchTeamsData = async () => {
   try {
-    // Die URL hier anpassen
-    const response = await fetch(`http://localhost:5000/api/teams/${league}/${statsType}`);
+    const response = await fetch(`${API_BASE_URL}/teams/Regular/Totals`);
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error("Network response was not ok");
     }
-    return response.json();
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.error('Failed to fetch teams:', error);
-    throw error;
+    console.error("Fetch teams data failed:", error);
+    return [];
   }
 };
