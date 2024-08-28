@@ -7,9 +7,10 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 20px;
+  overflow-x: auto; /* Ermöglicht horizontales Scrollen für das gesamte Container-Element */
 }
 
 .header {
@@ -42,12 +43,12 @@ body {
 
 table {
   width: 100%;
-  min-width: 600px; /* Setze eine minimale Breite, um das Scrollen zu ermöglichen */
+  min-width: 100%; /* Setze die minimale Breite auf 100%, um sicherzustellen, dass die Tabelle den gesamten Container füllt */
   border-collapse: collapse;
   margin-bottom: 20px;
   background-color: #333; /* Dunkler Hintergrund für die Tabelle */
   color: white; /* Weiße Schrift für den Tabelleninhalt */
-  overflow-x: auto;
+  overflow-x: auto; /* Ermöglicht horizontales Scrollen */
   display: block; /* Sicherstellen, dass die Tabelle innerhalb des Containers scrollen kann */
 }
 
@@ -116,7 +117,11 @@ tbody td:not(:first-child) {
 
   table {
     font-size: 0.85em;
-    min-width: unset; /* Entferne die feste minimale Breite auf sehr kleinen Bildschirmen */
+    min-width: 100%; /* Sicherstellen, dass die Tabelle mindestens die Breite des Containers hat */
+  }
+
+  .container {
+    padding: 0 10px; /* Reduziert den horizontalen Innenabstand des Containers, um mehr Platz zu schaffen */
   }
 }
 

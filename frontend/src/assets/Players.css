@@ -2,6 +2,7 @@
 .container {
   position: relative;
   margin: 20px;
+  overflow-x: auto; /* Ermöglicht horizontales Scrollen für das gesamte Container-Element */
 }
 
 /* Header */
@@ -20,11 +21,11 @@
 /* Tabelle */
 table {
   width: 100%;
-  min-width: 600px; /* Setze eine minimale Breite, um das Scrollen zu ermöglichen */
+  min-width: 100%; /* Setze die minimale Breite auf 100%, um sicherzustellen, dass die Tabelle den gesamten Container füllt */
   border-collapse: collapse;
   margin-bottom: 20px;
-  overflow-x: auto;
   display: block; /* Sicherstellen, dass die Tabelle innerhalb des Containers scrollen kann */
+  overflow-x: auto; /* Ermöglicht horizontales Scrollen */
 }
 
 /* Zellen */
@@ -66,7 +67,11 @@ th {
 
   table {
     font-size: 0.9em;
-    min-width: unset; /* Entferne die feste minimale Breite auf sehr kleinen Bildschirmen */
+    min-width: 100%; /* Sicherstellen, dass die Tabelle mindestens die Breite des Containers hat */
+  }
+
+  .container {
+    padding: 0 10px; /* Reduziert den horizontalen Innenabstand des Containers, um mehr Platz zu schaffen */
   }
 }
 
