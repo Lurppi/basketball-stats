@@ -21,7 +21,7 @@
 /* Tabelle */
 table {
   width: 100%;
-  min-width: 100%; /* Setze die minimale Breite auf 100%, um sicherzustellen, dass die Tabelle den gesamten Container füllt */
+  min-width: 600px; /* Mindestbreite gesetzt für besseren Inhalt */
   border-collapse: collapse;
   margin-bottom: 20px;
   display: block; /* Sicherstellen, dass die Tabelle innerhalb des Containers scrollen kann */
@@ -33,6 +33,7 @@ th, td {
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+  word-wrap: break-word; /* Längere Wörter brechen, um sie in kleineren Spalten anzuzeigen */
 }
 
 /* Kopfzeilen */
@@ -66,12 +67,16 @@ th {
   }
 
   table {
-    font-size: 0.9em;
+    font-size: 0.85em;
     min-width: 100%; /* Sicherstellen, dass die Tabelle mindestens die Breite des Containers hat */
   }
 
   .container {
     padding: 0 10px; /* Reduziert den horizontalen Innenabstand des Containers, um mehr Platz zu schaffen */
+  }
+
+  th, td {
+    white-space: nowrap; /* Verhindert Zeilenumbruch in den Zellen */
   }
 }
 

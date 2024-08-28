@@ -26,9 +26,9 @@ body {
 
 .filter-row {
   display: flex;
+  flex-wrap: wrap; /* Macht die Filter flexibler, damit sie sich bei wenig Platz umbrechen */
   justify-content: center;
-  gap: 20px;
-  margin-bottom: 10px;
+  gap: 10px;
 }
 
 .filter-row label {
@@ -43,7 +43,7 @@ body {
 
 table {
   width: 100%;
-  min-width: 100%; /* Setze die minimale Breite auf 100%, um sicherzustellen, dass die Tabelle den gesamten Container füllt */
+  min-width: 600px; /* Mindestbreite gesetzt für besseren Inhalt */
   border-collapse: collapse;
   margin-bottom: 20px;
   background-color: #333; /* Dunkler Hintergrund für die Tabelle */
@@ -122,6 +122,10 @@ tbody td:not(:first-child) {
 
   .container {
     padding: 0 10px; /* Reduziert den horizontalen Innenabstand des Containers, um mehr Platz zu schaffen */
+  }
+
+  th, td {
+    white-space: nowrap; /* Verhindert Zeilenumbruch in den Zellen */
   }
 }
 
