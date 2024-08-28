@@ -35,3 +35,19 @@
 .table td {
   background-color: #333;
 }
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+  .stats-card {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .table th, .table td {
+    padding: 5px;
+  }
+
+  .table {
+    font-size: 0.9em;
+  }
+}

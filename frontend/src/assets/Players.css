@@ -44,3 +44,24 @@ th {
   font-size: 16px;
   cursor: pointer;
 }
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 22px;
+    margin: 20px;
+  }
+
+  th, td {
+    padding: 5px;
+  }
+
+  .show-more-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  table {
+    font-size: 0.9em;
+  }
+}
