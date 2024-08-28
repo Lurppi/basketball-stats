@@ -42,10 +42,13 @@ body {
 
 table {
   width: 100%;
+  min-width: 600px; /* Setze eine minimale Breite, um das Scrollen zu ermöglichen */
   border-collapse: collapse;
   margin-bottom: 20px;
   background-color: #333; /* Dunkler Hintergrund für die Tabelle */
   color: white; /* Weiße Schrift für den Tabelleninhalt */
+  overflow-x: auto;
+  display: block; /* Sicherstellen, dass die Tabelle innerhalb des Containers scrollen kann */
 }
 
 thead th {
@@ -113,5 +116,21 @@ tbody td:not(:first-child) {
 
   table {
     font-size: 0.85em;
+    min-width: unset; /* Entferne die feste minimale Breite auf sehr kleinen Bildschirmen */
+  }
+}
+
+/* Querformat-Stile */
+@media (orientation: landscape) {
+  .container {
+    padding: 10px;
+  }
+
+  table {
+    font-size: 1em; /* Passe die Schriftgröße an, wenn das Gerät quer gehalten wird */
+  }
+
+  .header {
+    font-size: 1.5rem;
   }
 }

@@ -19,7 +19,11 @@
 
 .table {
   width: 100%;
+  min-width: 600px; /* Setze eine minimale Breite, um das Scrollen zu ermöglichen */
   border-collapse: collapse;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  display: block; /* Sicherstellen, dass die Tabelle innerhalb des Containers scrollen kann */
 }
 
 .table th, .table td {
@@ -49,5 +53,21 @@
 
   .table {
     font-size: 0.9em;
+    min-width: unset; /* Entferne die feste minimale Breite auf sehr kleinen Bildschirmen */
+  }
+}
+
+/* Querformat-Stile */
+@media (orientation: landscape) {
+  .container {
+    padding: 10px;
+  }
+
+  table {
+    font-size: 1em; /* Passe die Schriftgröße an, wenn das Gerät quer gehalten wird */
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
   }
 }
