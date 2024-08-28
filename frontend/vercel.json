@@ -7,10 +7,9 @@
         "NODE_ENV": "production"
       }
     },
-    "framework": "vite",
-    "outputDirectory": "dist",
     "installCommand": "yarn install",
     "buildCommand": "yarn build",
+    "outputDirectory": "dist",
     "cleanUrls": true
   }
   
