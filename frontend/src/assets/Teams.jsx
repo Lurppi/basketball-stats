@@ -1,4 +1,3 @@
-// src/assets/Teams.jsx
 import React, { useState, useEffect } from 'react';
 import { fetchTeams } from '../api';
 import './Teams.css';
