@@ -15,6 +15,71 @@ const Teams = () => {
     sortColumn: ''
   });
   
+  const glossary = {
+    "#": "Rank",
+    "DIV": "Division",
+    "POS": "Position",
+    "BORN": "Year of Birth",
+    "GP": "Games Played",
+    "MP": "Minutes Played",
+    "PT": "Points",
+    "RB": "Rebounds",
+    "AS": "Assists",
+    "ST": "Steals",
+    "BS": "Blocked Shots",
+    "TO": "Turnovers",
+    "PF": "Personal Fouls",
+    "EF": "Efficiency",
+    "EF/Gm": "Efficiency per Game",
+    "DD": "Double Doubles",
+    "TD": "Triple Doubles",
+    "2PM": "2-Pointer Made",
+    "2PA": "2-Point Attempts",
+    "2P%": "2-Point Percentage",
+    "3PM": "3-Pointer Made",
+    "3PA": "3-Point Attempts",
+    "3P%": "3-Point Percentage",
+    "FGM": "Field Goals Made",
+    "FGA": "Field Goal Attempts",
+    "FG%": "Field Goal Percentage",
+    "FTM": "Free Throws Made",
+    "FTA": "Free Throw Attempts",
+    "FT%": "Free Throw Percentage",
+    "ORTG": "Offensive Rating",
+    "DRTG": "Defensive Rating",
+    "NRTG": "Net Rating",
+    "OBPM": "Offensive Boxscore Plus/Minus",
+    "DBPM": "Defensive Boxscore Plus/Minus",
+    "BPM": "Boxscore Plus/Minus",
+    "VORP": "Value over Replacement Player",
+    "OWS": "Offensive Win Shares",
+    "DWS": "Defensive Win Shares",
+    "WS": "Win Shares",
+    "WS/40": "Win Shares per 40 Minutes",
+    "PER": "Player Efficiency Rating",
+    "FIC": "Floor Impact Counter",
+    "FIC/Gm": "Floor Impact Counter per Game",
+    "PIE": "Player Impact Estimate",
+    "AS RATIO": "Assist Ratio (Assists per 100 Possessions)",
+    "AS RATE": "Assist Rate (High Value = High Passing Tendency)",
+    "AS/TO": "Assist to Turnover Ratio",
+    "REB%": "Rebound Percentage",
+    "ST%": "Steal Percentage",
+    "BS%": "Block Percentage",
+    "USAGE": "Usage Rate",
+    "TS%": "True Shooting Percentage",
+    "EFG%": "Effective Field Goal Percentage",
+    "TOV%": "Turnover Percentage",
+    "ORB%": "Offensive Rebound Percentage",
+    "FT-RATE": "Free Throw Rate",
+    "OPP EFG%": "Opponent Effective Field Goal Percentage",
+    "OPP TOV%": "Opponent Turnover Percentage",
+    "OPP ORB%": "Opponent Offensive Rebound Percentage",
+    "OPP FT-RATE": "Opponent Free Throw Rate",
+    "PPP": "Points per Possession",
+    "PACE": "Team Pace (Possessions per Game)"
+  };
+
   useEffect(() => {
     const loadTeams = async () => {
       setLoading(true);
@@ -114,7 +179,7 @@ const Teams = () => {
             <tr>
               <th className="row-number">#</th>
               {tableHeaders.map((header, index) => (
-                <th key={index} className={index >= 2 ? 'uniform-width' : ''}>{header}</th>
+                <th key={index} title={glossary[header] || ''}>{header}</th>
               ))}
             </tr>
           </thead>
@@ -124,7 +189,7 @@ const Teams = () => {
                 <tr key={index}>
                   <td className="row-number">{index + 1}</td>
                   {tableHeaders.map((header, idx) => (
-                    <td key={idx} className={idx >= 2 ? 'uniform-width' : ''}>{team[header]}</td>
+                    <td key={idx}>{team[header]}</td>
                   ))}
                 </tr>
               ))
