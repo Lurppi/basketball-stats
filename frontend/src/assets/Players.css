@@ -3,9 +3,9 @@
   position: relative;
   margin: 20px;
   padding: 0 10px;
-  overflow-x: auto; /* Ändert hidden zu auto */
-  max-width: 100%;
-  box-sizing: border-box;
+  overflow-x: auto; /* Sicherstellen, dass Inhalte nicht abgeschnitten werden */
+  max-width: 100%; 
+  box-sizing: border-box; 
 }
 
 /* Header */
