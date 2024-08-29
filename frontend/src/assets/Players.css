@@ -2,10 +2,10 @@
 .container {
   position: relative;
   margin: 20px;
-  padding: 0 10px; /* Fügt Innenabstand hinzu, um sicherzustellen, dass nichts abgeschnitten wird */
+  padding: 0 10px;
   overflow-x: hidden;
-  max-width: 100%; /* Sicherstellen, dass der Container nicht breiter als der Bildschirm ist */
-  box-sizing: border-box; /* Padding und Border werden in die Breite eingerechnet */
+  max-width: 100%; 
+  box-sizing: border-box; 
 }
 
 /* Header */
@@ -22,7 +22,8 @@
   overflow-x: auto;
   margin-top: 20px;
   background-color: #fff;
-  max-width: 100%; /* Sicherstellen, dass der Wrapper nicht breiter als der Bildschirm ist */
+  max-width: 100%;
+  box-sizing: border-box; 
 }
 
 /* Tabelle */
@@ -33,8 +34,7 @@ table {
   background-color: #fff;
   color: #333;
   border: none;
-  max-width: 100%; /* Sicherstellen, dass die Tabelle sich an die Breite des Bildschirms anpasst */
-  box-sizing: border-box; /* Sicherstellen, dass Padding die Breite nicht beeinflusst */
+  box-sizing: border-box; 
 }
 
 /* Zellen */
@@ -99,20 +99,21 @@ th {
   background-color: #181717ad;
 }
 
-/* Filter Styling */
+/* Modernes Filter Styling */
 .filters {
   width: 100%;
   margin: 0 auto 20px auto;
-  padding: 0 10px; /* Fügt Innenabstand hinzu, um sicherzustellen, dass nichts abgeschnitten wird */
-  box-sizing: border-box; /* Sicherstellen, dass Padding die Breite nicht beeinflusst */
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
 .filter-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
   gap: 10px;
   margin-bottom: 10px;
+  overflow: hidden; /* Verhindert, dass die Filter über den Bildschirm hinausgehen */
 }
 
 .filter-row label {
@@ -121,14 +122,33 @@ th {
   display: flex;
   flex-direction: column;
   font-family: 'Roboto', sans-serif;
+  color: #555; /* Dezente Schriftfarbe für die Label */
 }
 
 .filter-row select,
 .filter-row input {
-  padding: 6px;
+  padding: 8px 12px; /* Etwas mehr Padding für eine moderne Optik */
   font-size: 14px;
   width: 100%;
   max-width: 100%;
+  border: 1px solid #ccc; /* Dezenter Rand */
+  border-radius: 6px; /* Abgerundete Ecken für modernes Design */
+  background-color: #f9f9f9; /* Leichtes Grau für das Hintergrund */
+  color: #333; /* Dunklere Schriftfarbe */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leichter Schatten für Tiefe */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Weiche Übergänge bei Interaktion */
+}
+
+.filter-row select:focus,
+.filter-row input:focus {
+  border-color: #007acc; /* Fokusfarbe passend zum Corporate Design */
+  box-shadow: 0 2px 8px rgba(0, 122, 204, 0.3); /* Verstärkter Schatten bei Fokus */
+  outline: none; /* Entfernen des Standard-Fokus-Rings */
+}
+
+.filter-row select:hover,
+.filter-row input:hover {
+  border-color: #999; /* Leicht dunklerer Rand bei Hover */
 }
 
 /* Responsive Anpassungen */
@@ -149,7 +169,6 @@ th {
 
   table {
     font-size: 0.85em;
-    max-width: 100%;
   }
 
   .container {
@@ -158,6 +177,10 @@ th {
 
   th, td {
     white-space: nowrap;
+  }
+
+  .filter-row {
+    flex-wrap: wrap;
   }
 
   .filter-row label {
