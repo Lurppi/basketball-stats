@@ -11,6 +11,7 @@ body {
   margin: 0 auto;
   padding: 20px;
   overflow-x: hidden;
+  box-sizing: border-box; /* Sicherstellen, dass Padding die Breite nicht beeinflusst */
 }
 
 /* Header */
@@ -24,27 +25,27 @@ body {
 /* Filter Styling */
 .filters {
   width: 100%;
-  margin: 0 auto 20px auto; /* Zentriert den Filterbereich und sorgt für Abstand nach unten */
-  padding: 0 10px; /* Fügt etwas Innenabstand hinzu */
+  margin: 0 auto 20px auto;
+  padding: 0 10px; /* Fügt Innenabstand hinzu, um sicherzustellen, dass nichts abgeschnitten wird */
   box-sizing: border-box;
 }
 
 .filter-row {
   display: flex;
-  flex-wrap: nowrap; /* Stellt sicher, dass die Filter in einer einzigen Zeile angeordnet sind */
+  flex-wrap: nowrap; /* Verhindert das Umbruch der Filter */
   justify-content: space-between;
   gap: 10px;
   margin-bottom: 10px;
 }
 
 .filter-row label {
-  flex: 1 1 22%; /* Alle Filter nehmen gleichmäßig 22% der Breite ein, damit sie in einer Zeile Platz finden */
-  min-width: 180px;
+  flex: 1 1 180px;
   font-size: 14px;
   display: flex;
   flex-direction: column;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .filter-row select,
@@ -70,6 +71,7 @@ table {
   display: block;
   border: none;
   max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Zellen */
@@ -82,6 +84,7 @@ th, td {
   background-color: #fff;
   font-family: 'Roboto', sans-serif;
   font-size: 0.85em;
+  box-sizing: border-box;
 }
 
 /* Spalte 1 (#) zentriert */
@@ -117,6 +120,7 @@ th {
   padding: 10px;
   font-family: 'Roboto', sans-serif;
   width: 8px;
+  box-sizing: border-box;
 }
 
 /* Responsive Anpassungen */
@@ -143,11 +147,11 @@ th {
   }
 
   .filter-row {
-    flex-wrap: wrap; /* Bei kleineren Bildschirmen können die Filter umgebrochen werden */
+    flex-wrap: wrap;
   }
 
   .filter-row label {
-    flex: 1 1 48%; /* Bei kleinen Bildschirmen nehmen die Filter 48% der Breite ein, also zwei pro Zeile */
+    flex: 1 1 calc(50% - 20px);
   }
 }
 

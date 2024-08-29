@@ -2,15 +2,16 @@
 .container {
   position: relative;
   margin: 20px;
+  padding: 0 10px; /* Fügt Innenabstand hinzu, um sicherzustellen, dass nichts abgeschnitten wird */
   overflow-x: hidden;
   max-width: 100%; /* Sicherstellen, dass der Container nicht breiter als der Bildschirm ist */
+  box-sizing: border-box; /* Padding und Border werden in die Breite eingerechnet */
 }
 
 /* Header */
 .header h1 {
   font-size: 24px;
-  margin: 30px;
-  padding: 0;
+  margin: 30px 0;
   text-align: center;
   color: #444;
   font-family: 'Roboto', sans-serif;
@@ -29,11 +30,11 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
-  display: block;
   background-color: #fff;
   color: #333;
   border: none;
   max-width: 100%; /* Sicherstellen, dass die Tabelle sich an die Breite des Bildschirms anpasst */
+  box-sizing: border-box; /* Sicherstellen, dass Padding die Breite nicht beeinflusst */
 }
 
 /* Zellen */
@@ -44,6 +45,7 @@ th, td {
   font-family: 'Roboto', sans-serif;
   font-size: 0.85em;
   text-align: center;
+  box-sizing: border-box;
 }
 
 /* Spalte 1 (#) zentriert */
@@ -76,6 +78,7 @@ th {
   text-transform: uppercase;
   padding: 10px;
   font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
 }
 
 /* Show More Button */
@@ -98,23 +101,22 @@ th {
 
 /* Filter Styling */
 .filters {
-  width: 100%; /* Stellt sicher, dass der Filterbereich sich an die Breite des Containers anpasst */
-  margin: 0 auto 20px auto; /* Zentriert den Filterbereich und sorgt für Abstand nach unten */
-  padding: 0 10px; /* Fügt etwas Innenabstand hinzu */
-  box-sizing: border-box; /* Sorgt dafür, dass Padding den Gesamtbereich nicht über die Breite hinaus erweitert */
+  width: 100%;
+  margin: 0 auto 20px auto;
+  padding: 0 10px; /* Fügt Innenabstand hinzu, um sicherzustellen, dass nichts abgeschnitten wird */
+  box-sizing: border-box; /* Sicherstellen, dass Padding die Breite nicht beeinflusst */
 }
 
 .filter-row {
   display: flex;
-  flex-wrap: wrap; /* Erlaubt Umbruch der Filterelemente bei Platzmangel */
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 10px;
   margin-bottom: 10px;
 }
 
 .filter-row label {
-  flex: 1 1 200px; /* Setzt eine flexible Breite mit einer Mindestbreite */
-  min-width: 180px;
+  flex: 1 1 180px;
   font-size: 14px;
   display: flex;
   flex-direction: column;
@@ -125,19 +127,15 @@ th {
 .filter-row input {
   padding: 6px;
   font-size: 14px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  color: #333;
   width: 100%;
-  max-width: 100%; /* Stellt sicher, dass die Eingabefelder sich nicht über die Label-Breite hinaus erweitern */
+  max-width: 100%;
 }
 
 /* Responsive Anpassungen */
 @media (max-width: 768px) {
   .header h1 {
     font-size: 20px;
-    margin: 10px;
+    margin: 10px 0;
   }
 
   th, td {
