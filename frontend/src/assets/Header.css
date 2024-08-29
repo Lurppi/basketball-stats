@@ -4,29 +4,28 @@ header {
   align-items: center;
   padding: 1rem;
   background-color: #fff;
-  color: #000; /* Schwarzer Text */
+  color: #000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  font-family: 'Roboto', sans-serif; /* Roboto Schriftart für das Header */
-  width: 100%; /* Sicherstellen, dass das Header-Element die volle Breite des Bildschirms nutzt */
-  box-sizing: border-box; /* Einschließen von Padding und Border in die Breite */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 nav {
   display: flex;
   gap: 1rem;
-  justify-content: center; /* Zentriert die Navigationselemente */
-  flex-wrap: wrap; /* Erlaubt das Umbruch der Links, falls nötig */
-  width: 100%; /* Sicherstellen, dass das Nav-Element die volle Breite nutzt */
+  justify-content: center;
+  flex-wrap: nowrap; /* Kein Umbruch der Links */
+  width: 100%;
   box-sizing: border-box;
 }
 
 nav a {
-  color: #000; /* Schwarzer Text */
+  color: #000;
   text-decoration: none;
   padding: 0.5rem 1rem;
   transition: background-color 0.3s ease, color 0.3s ease;
-  font-family: 'Roboto', sans-serif; /* Roboto Schriftart für die Links */
-  border-radius: 4px; /* Abgerundete Ecken für ein moderneres Design */
+  font-family: 'Roboto', sans-serif;
+  border-radius: 4px;
 }
 
 nav a:hover {
@@ -34,20 +33,13 @@ nav a:hover {
   color: #fff;
 }
 
-/* Responsive Anpassungen */
 @media (max-width: 768px) {
-  header {
-    padding: 0.5rem;
-  }
-
   nav {
-    flex-direction: column; /* Stapelt die Links untereinander bei kleineren Bildschirmen */
-    align-items: center;
+    justify-content: space-between; /* Verteilt Links gleichmäßig */
   }
 
   nav a {
-    padding: 0.5rem 0.75rem;
-    width: 100%; /* Stellt sicher, dass die Links die gesamte Breite einnehmen */
+    flex: 1;
     text-align: center;
   }
 }

@@ -10,8 +10,8 @@ const Teams = () => {
   const [filters, setFilters] = useState({ 
     league: 'Regular', 
     statsType: 'Totals',
-    division: '', // Filterfeld für Division
-    sortColumn: '' // Filterfeld für Sortierung
+    division: '', 
+    sortColumn: '' 
   });
   
   useEffect(() => {
@@ -19,7 +19,6 @@ const Teams = () => {
       setLoading(true);
       try {
         const teamsData = await fetchTeams(filters.league, filters.statsType);
-        // Filter out empty rows if needed
         const filteredTeamsData = teamsData.filter(team => Object.values(team).some(value => value !== ''));
         setTeams(filteredTeamsData);
         setSortedTeams(filteredTeamsData);
@@ -45,7 +44,6 @@ const Teams = () => {
         const aValue = a[filters.sortColumn];
         const bValue = b[filters.sortColumn];
 
-        // Umwandlung in Zahlen für eine korrekte numerische Sortierung
         const aNumber = isNaN(aValue) ? aValue : parseFloat(aValue);
         const bNumber = isNaN(bValue) ? bValue : parseFloat(bValue);
 
@@ -64,13 +62,12 @@ const Teams = () => {
 
   const tableHeaders = teams.length > 0 ? Object.keys(teams[0]) : [];
 
-  // Filter für die Sortieroptionen erstellen (ab Spalte 3) und in Reihenfolge
   const sortOptions = tableHeaders.slice(2).filter(header => header !== 'TEAM' && header !== 'DIV');
-  const divisionOptions = [...new Set(teams.map(team => team.DIV))].sort(); // Einzigartige und alphabetisch sortierte Divisionen
+  const divisionOptions = [...new Set(teams.map(team => team.DIV))].sort();
 
   return (
     <div className="container">
-      <h2 className="header">NBBL Team Statistics</h2>
+      {/* Überschrift entfernt */}
       <div className="filters">
         <div className="filter-row">
           <label>
