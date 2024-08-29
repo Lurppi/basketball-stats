@@ -10,7 +10,7 @@ body {
   max-width: 100%;
   margin: 0 auto;
   padding: 20px;
-  overflow-x: hidden;
+  overflow-x: auto; /* Ändert hidden zu auto */
   box-sizing: border-box;
 }
 
@@ -45,33 +45,33 @@ body {
   display: flex;
   flex-direction: column;
   font-family: 'Roboto', sans-serif;
-  color: #555; /* Dezente Schriftfarbe für die Label */
+  color: #555;
 }
 
 .filter-row select,
 .filter-row input {
-  padding: 8px 12px; /* Etwas mehr Padding für eine moderne Optik */
+  padding: 8px 12px;
   font-size: 14px;
   width: 100%;
   max-width: 100%;
-  border: 1px solid #ccc; /* Dezenter Rand */
-  border-radius: 6px; /* Abgerundete Ecken für modernes Design */
-  background-color: #f9f9f9; /* Leichtes Grau für das Hintergrund */
-  color: #333; /* Dunklere Schriftfarbe */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leichter Schatten für Tiefe */
-  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Weiche Übergänge bei Interaktion */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .filter-row select:focus,
 .filter-row input:focus {
-  border-color: #007acc; /* Fokusfarbe passend zum Corporate Design */
-  box-shadow: 0 2px 8px rgba(0, 122, 204, 0.3); /* Verstärkter Schatten bei Fokus */
-  outline: none; /* Entfernen des Standard-Fokus-Rings */
+  border-color: #007acc;
+  box-shadow: 0 2px 8px rgba(0, 122, 204, 0.3);
+  outline: none;
 }
 
 .filter-row select:hover,
 .filter-row input:hover {
-  border-color: #999; /* Leicht dunklerer Rand bei Hover */
+  border-color: #999;
 }
 
 /* Tabelle */
