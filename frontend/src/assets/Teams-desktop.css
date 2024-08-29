@@ -4,6 +4,7 @@
   margin-bottom: 20px;
   background-color: #fff;
   color: #333;
+  border: 1px solid #fff; /* Weißer Rahmen */
 }
 
 .teams-container .table-wrapper th,

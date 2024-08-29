@@ -6,25 +6,25 @@
     background-color: #f9f9f9;
   }
   
-  .filters {
+.filters {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-  }
+}
   
-  .table-wrapper {
+.table-wrapper {
     overflow-x: auto; /* Ermöglicht horizontales Scrollen */
-  }
+}
   
-  table {
+table {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.9em;
-  }
+    border: 1px solid #fff; /* Weißer Rahmen */
+}
   
-  th, td {
+th, td {
     padding: 8px;
     border: 1px solid #ddd;
     text-align: center;
-  }
-  
+}

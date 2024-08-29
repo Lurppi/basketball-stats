@@ -20,6 +20,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.9em;
+    border: 1px solid #fff; /* Weißer Rahmen */
 }
   
 th, td {

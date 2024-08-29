@@ -1,0 +1,29 @@
+.footer-container {
+    background-color: #ffffff9c;
+    color: #ffffff00;
+    text-align: center;
+    padding: 1px 0;
+    position: sticky;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .footer-container p {
+    margin: 1.0px 0;
+  }
+  
+  .footer-link {
+    color: #000000;
+    text-decoration: none;
+    padding: 5px 10px; /* Optional: fügt etwas Platz um den Text hinzu */
+    border-radius: 4px; /* Optional: macht die Ecken leicht abgerundet */
+  }
+  
+  .footer-link:hover {
+    background-color: #000;
+    color: #fff;
+    text-decoration: none; /* Entfernt die Unterstreichung beim Hover */
+    transition: background-color 0.3s, color 0.3s; /* Fügt einen sanften Übergang hinzu */
+  }
+  
