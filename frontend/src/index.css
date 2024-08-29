@@ -17,9 +17,10 @@
 
 html, body {
   width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Verhindert horizontales Scrollen */
+  overflow-x: auto; /* Ermöglicht das horizontale Scrollen */
 }
 
 body {
@@ -30,7 +31,7 @@ body {
   min-height: 100vh;
   background-color: #fff;
   color: #333;
-  box-sizing: border-box; /* Sicherstellen, dass Padding und Border in die Breite eingerechnet werden */
+  box-sizing: border-box;
 }
 
 h1 {
