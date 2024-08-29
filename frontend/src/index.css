@@ -8,29 +8,37 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box; /* Globales Box-Sizing */
+}
+
+*, *::before, *::after {
+  box-sizing: inherit; /* Inherit Box-Sizing von :root */
 }
 
 body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  place-items: center;
+  align-items: center; /* Korrigiert 'place-items' auf 'align-items' für besseren Support */
   min-width: 320px;
   min-height: 100vh;
   background-color: #fff;
   color: #333;
+  box-sizing: border-box; /* Sicherstellen, dass Padding und Border in die Breite eingerechnet werden */
 }
 
 h1 {
   font-size: 2.5em;
   line-height: 1.2;
   color: #444;
+  margin: 0.67em 0; /* Standardmäßiger h1 Margin für bessere Konsistenz */
 }
 
 a {
   font-weight: 500;
   color: #007acc;
   text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 a:hover {
@@ -62,6 +70,15 @@ button:focus-visible {
 /* Schriftgröße in den Tabelleninhalten leicht reduziert */
 table {
   font-size: 0.9em;
+  width: 100%; /* Sicherstellen, dass Tabellen die volle Breite nutzen */
+  border-collapse: collapse;
+}
+
+/* Responsive Anpassungen für Tabellen */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.85em; /* Noch kleinere Schriftgröße auf mobilen Geräten */
+  }
 }
 
 @media (prefers-color-scheme: light) {

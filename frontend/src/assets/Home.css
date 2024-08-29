@@ -3,6 +3,7 @@
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  box-sizing: border-box; /* Sicherstellen, dass Padding und Border in die Breite eingerechnet werden */
 }
 
 .stats-card {
@@ -11,10 +12,13 @@
   margin: 0 auto;
   padding: 15px;
   width: 90%;
+  box-sizing: border-box; /* Padding und Border in die Breite einrechnen */
 }
 
 .table-container {
   overflow-x: auto;
+  max-width: 100%; /* Sicherstellen, dass die Tabelle die volle Breite des Containers nutzt */
+  box-sizing: border-box; /* Padding und Border in die Breite einrechnen */
 }
 
 .table {
@@ -22,14 +26,15 @@
   min-width: 600px;
   border-collapse: collapse;
   margin-bottom: 20px;
-  overflow-x: auto;
   display: block;
+  box-sizing: border-box; /* Padding und Border in die Breite einrechnen */
 }
 
 .table th, .table td {
   padding: 8px;
   border: 1px solid #444;
   text-align: left;
+  box-sizing: border-box; /* Sicherstellen, dass das Padding nicht die Breite beeinflusst */
 }
 
 .table th {
@@ -45,6 +50,7 @@
   .stats-card {
     width: 100%;
     padding: 10px;
+    box-sizing: border-box;
   }
 
   .table th, .table td {
