@@ -4,6 +4,8 @@
   background-color: #fff;
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box; /* Sicherstellen, dass die Breite der Navbar korrekt berechnet wird */
 }
 
 .navbar a {
@@ -13,9 +15,24 @@
   font-size: 16px;
   font-family: 'Roboto', sans-serif; /* Roboto Schriftart für die Navbar */
   transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 4px; /* Runde Ecken für Links */
 }
 
 .navbar a:hover {
   background-color: #000 !important; /* Schwarzer Hintergrund bei Mouseover */
   color: #fff !important; /* Weißer Text bei Mouseover */
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar a {
+    padding: 10px 15px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
 }

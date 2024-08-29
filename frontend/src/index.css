@@ -15,8 +15,14 @@
   box-sizing: inherit; /* Inherit Box-Sizing von :root */
 }
 
-body {
+html, body {
+  width: 100%;
   margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Verhindert horizontales Scrollen */
+}
+
+body {
   display: flex;
   flex-direction: column;
   align-items: center; /* Korrigiert 'place-items' auf 'align-items' für besseren Support */
