@@ -1,19 +1,21 @@
 .navbar {
   display: flex;
-  justify-content: center; /* Zentriert horizontal */
-  background-color: #333;
+  justify-content: center;
+  background-color: #fff;
   padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar a {
-  color: white;
+  color: #000; /* Schwarzer Text */
   padding: 12px 20px;
   text-decoration: none;
   font-size: 16px;
+  font-family: 'Roboto', sans-serif; /* Roboto Schriftart für die Navbar */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navbar a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: #000 !important; /* Schwarzer Hintergrund bei Mouseover */
+  color: #fff !important; /* Weißer Text bei Mouseover */
 }

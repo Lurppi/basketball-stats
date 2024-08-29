@@ -1,11 +1,12 @@
-/* src/assets/Header.css */
 header {
   display: flex;
-  justify-content: center; /* Zentriert horizontal */
-  align-items: center; /* Zentriert vertikal */
+  justify-content: center;
+  align-items: center;
   padding: 1rem;
-  background-color: #333;
-  color: white;
+  background-color: #fff;
+  color: #000; /* Schwarzer Text */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif; /* Roboto Schriftart für das Header */
 }
 
 nav {
@@ -14,10 +15,14 @@ nav {
 }
 
 nav a {
-  color: white;
+  color: #000; /* Schwarzer Text */
   text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Roboto', sans-serif; /* Roboto Schriftart für die Links */
 }
 
 nav a:hover {
-  text-decoration: underline;
+  background-color: #080808;
+  color: #fff;
 }

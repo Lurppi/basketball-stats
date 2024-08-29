@@ -132,10 +132,7 @@ const Players = () => {
 
   return (
     <div className="container">
-      <div className="header">
-        <h1>NBBL Player Statistics</h1>
-      </div>
-
+      {/* Überschrift entfernt */}
       <div className="filters">
         <div className="filter-row">
           <label>
@@ -157,20 +154,22 @@ const Players = () => {
             </select>
           </label>
           <label>
-            Team:
-            <select name="team" value={filters.team} onChange={handleFilterChange}>
-              <option value="">All</option>
-              {filterOptions.teams.map((team, index) => (
-                <option key={index} value={team}>{team}</option>
-              ))}
-            </select>
-          </label>
-          <label>
             Division:
             <select name="division" value={filters.division} onChange={handleFilterChange}>
               <option value="">All</option>
               {filterOptions.divisions.map((division, index) => (
                 <option key={index} value={division}>{division}</option>
+              ))}
+            </select>
+          </label>
+        </div>
+        <div className="filter-row">
+          <label>
+            Team:
+            <select name="team" value={filters.team} onChange={handleFilterChange}>
+              <option value="">All</option>
+              {filterOptions.teams.map((team, index) => (
+                <option key={index} value={team}>{team}</option>
               ))}
             </select>
           </label>
@@ -241,7 +240,9 @@ const Players = () => {
               <tr key={index}>
                 <td>{index + 1}</td>
                 {Object.values(player).map((value, subIndex) => (
-                  <td key={subIndex}>{value}</td>
+                  <td key={subIndex} className={subIndex === 2 ? "team-column" : ""}>
+                    {value}
+                  </td>
                 ))}
               </tr>
             ))}

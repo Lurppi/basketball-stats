@@ -21,23 +21,35 @@ body {
 }
 
 .filters {
+  margin-top: 40px; /* Abstand zwischen Navbar und Filtern */
   margin-bottom: 20px;
+  margin-right: 80px;
 }
 
 .filter-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* Verhindert das Umbruch der Filter */
   justify-content: space-between;
-  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .filter-row label {
-  flex: 1 1 48%;
-  margin-bottom: 10px;
-  min-width: 150px; /* Ensures minimum width for filters */
+  flex: 1 1 150px; /* Setzt eine feste Breite für die Filter */
+  min-width: 140px;
+  font-size: 14px;
   display: flex;
   flex-direction: column;
-  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.filter-row select,
+.filter-row input {
+  padding: 2px;
+  font-size: 14px;
+  width: 100%;
+  max-width: 200px;
+  margin: 0;
 }
 
 .table-wrapper {
@@ -48,64 +60,64 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
-  background-color: #333;
-  color: white;
+  background-color: #fff;
+  color: #333;
   display: block;
+  border: none; /* Äußerer Rahmen entfernt */
 }
 
-thead th {
-  background-color: #444;
-  color: white;
-  padding: 8px;
-  font-size: 11px;
-  cursor: pointer;
+th, td {
+  padding: 6px;
+  border-bottom: 1px solid #ddd;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.85em; /* Schriftgröße leicht verringert */
 }
 
-tbody td {
-  padding: 8px;
-  font-size: 0.85rem;
-  border-bottom: 1px solid #444;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+/* Spalte 1 (#) zentriert */
+td:first-child {
+  text-align: center !important;
+  width: 40px;
 }
 
-.row-number {
-  width: 50px;
-  text-align: center;
+/* Spalte 2 (Team) linksbündig */
+td:nth-child(2) {
+  text-align: left !important;
 }
 
-thead th:first-child,
-tbody td:first-child {
-  width: 50px;
-  text-align: left;
+/* Spalte 3 (DIV) zentriert */
+td:nth-child(3) {
+  text-align: center !important;
+  width: 8px; /* Einheitliche Spaltenbreite ab hier */
 }
 
-thead th:not(:first-child),
-tbody td:not(:first-child) {
-  width: 15px;
-  text-align: center;
+/* Ab Spalte 3 alle Zellen zentriert und mit einheitlicher Breite */
+td:nth-child(n+3) {
+  text-align: center !important;
+  width: 8px;
 }
 
-.filters select {
-  font-size: 1rem;
+th {
+  background-color: #fff;
+  color: #000;
+  text-align: center !important;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  width: 8px; /* Einheitliche Spaltenbreite für Kopfzeilen */
 }
 
-.pagination {
-  display: none;
-}
-
-/* Responsive Anpassungen */
 @media (max-width: 768px) {
   .header {
     font-size: 1.5rem;
   }
 
   th, td {
-    padding: 5px;
+    padding: 4px;
   }
 
   table {
@@ -119,11 +131,6 @@ tbody td:not(:first-child) {
 
   th, td {
     white-space: nowrap;
-  }
-
-  .filter-row {
-    flex-direction: row;
-    justify-content: space-between;
   }
 }
 
@@ -140,3 +147,21 @@ tbody td:not(:first-child) {
     font-size: 1.5rem;
   }
 }
+
+/* Reihenfolge der Filter anpassen */
+.filter-row label:nth-child(1) {
+  order: 1; /* League bleibt an erster Stelle */
+}
+
+.filter-row label:nth-child(2) {
+  order: 2; /* Stats Type bleibt an zweiter Stelle */
+}
+
+.filter-row label:nth-child(3) {
+  order: 3; /* Division kommt nun an dritte Stelle */
+}
+
+.filter-row label:nth-child(4) {
+  order: 4; /* Sort Column wird an die vierte Stelle verschoben */
+}
+

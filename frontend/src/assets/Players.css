@@ -8,15 +8,18 @@
 /* Header */
 .header h1 {
   font-size: 24px;
-  margin: 20px;
+  margin: 30px;
   padding: 0;
   text-align: center;
+  color: #444;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Wrapper für die Tabelle */
 .table-wrapper {
   overflow-x: auto;
   margin-top: 20px;
+  background-color: #fff;
 }
 
 /* Tabelle */
@@ -25,42 +28,114 @@ table {
   border-collapse: collapse;
   margin-bottom: 20px;
   display: block;
+  background-color: #fff;
+  color: #333;
+  border: none;
 }
 
 /* Zellen */
 th, td {
-  padding: 8px;
-  text-align: left;
+  padding: 6px;
   border-bottom: 1px solid #ddd;
-  word-wrap: break-word;
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.85em;
+  text-align: center !important; /* Standardmäßig zentriert mit !important */
+}
+
+/* Spalte 1 (#) zentriert */
+td:first-child {
+  text-align: center !important;
+  width: 40px;
+}
+
+/* Spalte 2 (Player) linksbündig */
+td:nth-child(2) {
+  text-align: left !important;
+}
+
+/* Spalte 3 (Team) linksbündig */
+td:nth-child(3) {
+  text-align: left !important; /* Erzwingt die Linksbündigkeit */
+}
+
+/* Ab Spalte 4 alle Zellen zentriert */
+td:nth-child(n+4) {
+  text-align: center !important;
 }
 
 /* Kopfzeilen */
 th {
-  background-color: #f4f4f4;
+  background-color: #fff;
+  color: #000;
+  text-align: center !important;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Show More Button */
 .show-more-button {
   display: block;
   margin: 20px auto;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.show-more-button:hover {
+  background-color: #181717ad;
 }
 
 /* Filter Styling */
 .filter-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-wrap: nowrap; /* Verhindert das Umbruch der Filter */
   justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 10px;
 }
 
 .filter-row label {
-  flex: 1 1 48%;
-  margin-bottom: 10px;
-  min-width: 150px; /* Ensures minimum width for filters */
+  flex: 1 1 150px; /* Setzt eine feste Breite für die Filter */
+  min-width: 140px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+}
+
+.filters {
+  margin-top: 40px; /* Abstand zwischen Navbar und Filtern */
+  margin-bottom: 20px;
+  margin-left: 140px;
+}
+
+/* Reihenfolge der Filter anpassen */
+.filter-row label:nth-child(3) {
+  order: 4; /* Platz von Division mit Team getauscht */
+}
+
+.filter-row label:nth-child(4) {
+  order: 3;
+}
+
+.filter-row select,
+.filter-row input {
+  padding: 6px;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #333;
+  width: 100%;
+  max-width: 180px;
 }
 
 /* Responsive Anpassungen */
@@ -71,17 +146,16 @@ th {
   }
 
   th, td {
-    padding: 5px;
+    padding: 4px;
   }
 
   .show-more-button {
-    font-size: 14px;
-    padding: 8px 16px;
+    font-size: 12px;
+    padding: 6px 12px;
   }
 
   table {
     font-size: 0.85em;
-    width: 100%;
   }
 
   .container {
@@ -92,23 +166,36 @@ th {
     white-space: nowrap;
   }
 
-  .filter-row {
-    flex-direction: row;
-    justify-content: space-between;
+  .filter-row label {
+    flex: 1 1 calc(50% - 20px);
+  }
+
+  .filter-row select,
+  .filter-row input {
+    max-width: 160px;
   }
 }
 
-/* Querformat-Stile */
-@media (orientation: landscape) {
-  .container {
-    padding: 10px;
-  }
+/* Filter Styling */
+.filter-row {
+  display: flex;
+  flex-wrap: nowrap; /* Verhindert das Umbruch der Filter */
+  justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 10px;
+}
 
-  table {
-    font-size: 1em;
-  }
+.filter-row label {
+  flex: 0 0 180px; /* Setzt eine feste Breite für die Filter */
+  min-width: 180px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+}
 
-  .header h1 {
-    font-size: 1.5rem;
-  }
+.filters {
+  margin-top: 40px; /* Abstand zwischen Navbar und Filtern */
+  margin-bottom: 20px;
+  margin-left: 140px;
 }
