@@ -2,7 +2,7 @@
   max-width: 100%;
   margin: 0 auto;
   padding: 20px;
-  overflow-x: hidden;
+  overflow-x: auto; /* Ermöglicht das horizontale Scrollen */
   box-sizing: border-box;
 }
 
@@ -14,7 +14,7 @@
   gap: 15px;
   margin: 20px 0;
   padding: 15px;
-  background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+  background: #f8f9fa; /* Entfernt den blauen Hintergrund */
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -102,6 +102,7 @@ th, td {
 
   .container {
     padding: 0 10px;
+    overflow-x: auto; /* Ermöglicht das horizontale Scrollen auf mobilen Geräten */
   }
 
   th, td {
