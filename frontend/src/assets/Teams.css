@@ -13,6 +13,7 @@ body {
   overflow-x: hidden;
 }
 
+/* Header */
 .header {
   text-align: center;
   margin-bottom: 20px;
@@ -20,22 +21,25 @@ body {
   font-size: 2rem;
 }
 
+/* Filter Styling */
 .filters {
-  margin-top: 40px; /* Abstand zwischen Navbar und Filtern */
-  margin-bottom: 20px;
-  margin-right: 80px;
+  width: 100%;
+  margin: 0 auto 20px auto; /* Zentriert den Filterbereich und sorgt für Abstand nach unten */
+  padding: 0 10px; /* Fügt etwas Innenabstand hinzu */
+  box-sizing: border-box;
 }
 
 .filter-row {
   display: flex;
-  flex-wrap: nowrap; /* Verhindert das Umbruch der Filter */
+  flex-wrap: nowrap; /* Stellt sicher, dass die Filter in einer einzigen Zeile angeordnet sind */
   justify-content: space-between;
+  gap: 10px;
   margin-bottom: 10px;
 }
 
 .filter-row label {
-  flex: 1 1 150px; /* Setzt eine feste Breite für die Filter */
-  min-width: 140px;
+  flex: 1 1 22%; /* Alle Filter nehmen gleichmäßig 22% der Breite ein, damit sie in einer Zeile Platz finden */
+  min-width: 180px;
   font-size: 14px;
   display: flex;
   flex-direction: column;
@@ -45,15 +49,16 @@ body {
 
 .filter-row select,
 .filter-row input {
-  padding: 2px;
+  padding: 6px;
   font-size: 14px;
   width: 100%;
-  max-width: 200px;
-  margin: 0;
+  max-width: 100%;
 }
 
+/* Tabelle */
 .table-wrapper {
   overflow-x: auto;
+  max-width: 100%;
 }
 
 table {
@@ -63,9 +68,11 @@ table {
   background-color: #fff;
   color: #333;
   display: block;
-  border: none; /* Äußerer Rahmen entfernt */
+  border: none;
+  max-width: 100%;
 }
 
+/* Zellen */
 th, td {
   padding: 6px;
   border-bottom: 1px solid #ddd;
@@ -74,43 +81,45 @@ th, td {
   white-space: nowrap;
   background-color: #fff;
   font-family: 'Roboto', sans-serif;
-  font-size: 0.85em; /* Schriftgröße leicht verringert */
+  font-size: 0.85em;
 }
 
 /* Spalte 1 (#) zentriert */
 td:first-child {
-  text-align: center !important;
+  text-align: center;
   width: 40px;
 }
 
 /* Spalte 2 (Team) linksbündig */
 td:nth-child(2) {
-  text-align: left !important;
+  text-align: left;
 }
 
 /* Spalte 3 (DIV) zentriert */
 td:nth-child(3) {
-  text-align: center !important;
-  width: 8px; /* Einheitliche Spaltenbreite ab hier */
+  text-align: center;
+  width: 8px;
 }
 
 /* Ab Spalte 3 alle Zellen zentriert und mit einheitlicher Breite */
 td:nth-child(n+3) {
-  text-align: center !important;
+  text-align: center;
   width: 8px;
 }
 
+/* Kopfzeilen */
 th {
   background-color: #fff;
   color: #000;
-  text-align: center !important;
+  text-align: center;
   font-size: 14px;
   text-transform: uppercase;
   padding: 10px;
   font-family: 'Roboto', sans-serif;
-  width: 8px; /* Einheitliche Spaltenbreite für Kopfzeilen */
+  width: 8px;
 }
 
+/* Responsive Anpassungen */
 @media (max-width: 768px) {
   .header {
     font-size: 1.5rem;
@@ -132,6 +141,14 @@ th {
   th, td {
     white-space: nowrap;
   }
+
+  .filter-row {
+    flex-wrap: wrap; /* Bei kleineren Bildschirmen können die Filter umgebrochen werden */
+  }
+
+  .filter-row label {
+    flex: 1 1 48%; /* Bei kleinen Bildschirmen nehmen die Filter 48% der Breite ein, also zwei pro Zeile */
+  }
 }
 
 @media (orientation: landscape) {
@@ -147,21 +164,3 @@ th {
     font-size: 1.5rem;
   }
 }
-
-/* Reihenfolge der Filter anpassen */
-.filter-row label:nth-child(1) {
-  order: 1; /* League bleibt an erster Stelle */
-}
-
-.filter-row label:nth-child(2) {
-  order: 2; /* Stats Type bleibt an zweiter Stelle */
-}
-
-.filter-row label:nth-child(3) {
-  order: 3; /* Division kommt nun an dritte Stelle */
-}
-
-.filter-row label:nth-child(4) {
-  order: 4; /* Sort Column wird an die vierte Stelle verschoben */
-}
-

@@ -3,6 +3,7 @@
   position: relative;
   margin: 20px;
   overflow-x: hidden;
+  max-width: 100%; /* Sicherstellen, dass der Container nicht breiter als der Bildschirm ist */
 }
 
 /* Header */
@@ -20,6 +21,7 @@
   overflow-x: auto;
   margin-top: 20px;
   background-color: #fff;
+  max-width: 100%; /* Sicherstellen, dass der Wrapper nicht breiter als der Bildschirm ist */
 }
 
 /* Tabelle */
@@ -31,6 +33,7 @@ table {
   background-color: #fff;
   color: #333;
   border: none;
+  max-width: 100%; /* Sicherstellen, dass die Tabelle sich an die Breite des Bildschirms anpasst */
 }
 
 /* Zellen */
@@ -40,35 +43,35 @@ th, td {
   background-color: #fff;
   font-family: 'Roboto', sans-serif;
   font-size: 0.85em;
-  text-align: center !important; /* Standardmäßig zentriert mit !important */
+  text-align: center;
 }
 
 /* Spalte 1 (#) zentriert */
 td:first-child {
-  text-align: center !important;
+  text-align: center;
   width: 40px;
 }
 
 /* Spalte 2 (Player) linksbündig */
 td:nth-child(2) {
-  text-align: left !important;
+  text-align: left;
 }
 
 /* Spalte 3 (Team) linksbündig */
 td:nth-child(3) {
-  text-align: left !important; /* Erzwingt die Linksbündigkeit */
+  text-align: left;
 }
 
 /* Ab Spalte 4 alle Zellen zentriert */
 td:nth-child(n+4) {
-  text-align: center !important;
+  text-align: center;
 }
 
 /* Kopfzeilen */
 th {
   background-color: #fff;
   color: #000;
-  text-align: center !important;
+  text-align: center;
   font-size: 14px;
   text-transform: uppercase;
   padding: 10px;
@@ -94,36 +97,28 @@ th {
 }
 
 /* Filter Styling */
+.filters {
+  width: 100%; /* Stellt sicher, dass der Filterbereich sich an die Breite des Containers anpasst */
+  margin: 0 auto 20px auto; /* Zentriert den Filterbereich und sorgt für Abstand nach unten */
+  padding: 0 10px; /* Fügt etwas Innenabstand hinzu */
+  box-sizing: border-box; /* Sorgt dafür, dass Padding den Gesamtbereich nicht über die Breite hinaus erweitert */
+}
+
 .filter-row {
   display: flex;
-  flex-wrap: nowrap; /* Verhindert das Umbruch der Filter */
+  flex-wrap: wrap; /* Erlaubt Umbruch der Filterelemente bei Platzmangel */
   justify-content: space-between;
-  margin-bottom: 10px;
   gap: 10px;
+  margin-bottom: 10px;
 }
 
 .filter-row label {
-  flex: 1 1 150px; /* Setzt eine feste Breite für die Filter */
-  min-width: 140px;
+  flex: 1 1 200px; /* Setzt eine flexible Breite mit einer Mindestbreite */
+  min-width: 180px;
   font-size: 14px;
   display: flex;
   flex-direction: column;
   font-family: 'Roboto', sans-serif;
-}
-
-.filters {
-  margin-top: 40px; /* Abstand zwischen Navbar und Filtern */
-  margin-bottom: 20px;
-  margin-left: 140px;
-}
-
-/* Reihenfolge der Filter anpassen */
-.filter-row label:nth-child(3) {
-  order: 4; /* Platz von Division mit Team getauscht */
-}
-
-.filter-row label:nth-child(4) {
-  order: 3;
 }
 
 .filter-row select,
@@ -135,7 +130,7 @@ th {
   border-radius: 4px;
   color: #333;
   width: 100%;
-  max-width: 180px;
+  max-width: 100%; /* Stellt sicher, dass die Eingabefelder sich nicht über die Label-Breite hinaus erweitern */
 }
 
 /* Responsive Anpassungen */
@@ -156,6 +151,7 @@ th {
 
   table {
     font-size: 0.85em;
+    max-width: 100%;
   }
 
   .container {
@@ -174,28 +170,4 @@ th {
   .filter-row input {
     max-width: 160px;
   }
-}
-
-/* Filter Styling */
-.filter-row {
-  display: flex;
-  flex-wrap: nowrap; /* Verhindert das Umbruch der Filter */
-  justify-content: space-between;
-  margin-bottom: 10px;
-  gap: 10px;
-}
-
-.filter-row label {
-  flex: 0 0 180px; /* Setzt eine feste Breite für die Filter */
-  min-width: 180px;
-  font-size: 14px;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Roboto', sans-serif;
-}
-
-.filters {
-  margin-top: 40px; /* Abstand zwischen Navbar und Filtern */
-  margin-bottom: 20px;
-  margin-left: 140px;
 }
