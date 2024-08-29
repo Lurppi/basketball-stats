@@ -8,7 +8,18 @@
     <meta name="keywords" content="React, Vite, Web App, Responsive, Modern Design">
     <meta name="author" content="Dennis U">
     <title>NBBL Stats Dashboard</title>
-    <link rel="stylesheet" href="./index.css"> <!-- Sicherstellen, dass der Pfad zu deiner CSS-Datei korrekt ist -->
+    
+    <!-- Standard-Styles für Desktop -->
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./App.css">
+    
+    <!-- Spezifische Styles für Desktop -->
+    <link rel="stylesheet" href="./Teams-desktop.css" media="(min-width: 769px)">
+    <link rel="stylesheet" href="./Players-desktop.css" media="(min-width: 769px)">
+
+    <!-- Spezifische Styles für Mobile -->
+    <link rel="stylesheet" href="./Teams-mobile.css" media="(max-width: 768px)">
+    <link rel="stylesheet" href="./Players-mobile.css" media="(max-width: 768px)">
   </head>
   <body>
     <div id="root"></div>

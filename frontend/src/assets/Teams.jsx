@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { fetchTeams } from '../api';
-import './Teams.css';
+import './Teams-desktop.css'; // Desktop-Styling
+import './Teams-mobile.css';  // Mobile-Styling
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
   const [sortedTeams, setSortedTeams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [filters, setFilters] = useState({ 
+  const [filters, setFilters] = useState({
     league: 'Regular', 
-    statsType: 'Totals',
+    statsType: 'Totals', 
     division: '', 
-    sortColumn: '' 
+    sortColumn: ''
   });
   
   useEffect(() => {
@@ -61,13 +62,11 @@ const Teams = () => {
   };
 
   const tableHeaders = teams.length > 0 ? Object.keys(teams[0]) : [];
-
   const sortOptions = tableHeaders.slice(2).filter(header => header !== 'TEAM' && header !== 'DIV');
   const divisionOptions = [...new Set(teams.map(team => team.DIV))].sort();
 
   return (
-    <div className="container">
-      {/* Überschrift entfernt */}
+    <div className="teams-container">
       <div className="filters">
         <div className="filter-row">
           <label>
@@ -115,9 +114,7 @@ const Teams = () => {
             <tr>
               <th className="row-number">#</th>
               {tableHeaders.map((header, index) => (
-                <th key={index}>
-                  {header}
-                </th>
+                <th key={index} className={index >= 2 ? 'uniform-width' : ''}>{header}</th>
               ))}
             </tr>
           </thead>
@@ -127,7 +124,7 @@ const Teams = () => {
                 <tr key={index}>
                   <td className="row-number">{index + 1}</td>
                   {tableHeaders.map((header, idx) => (
-                    <td key={idx}>{team[header]}</td>
+                    <td key={idx} className={idx >= 2 ? 'uniform-width' : ''}>{team[header]}</td>
                   ))}
                 </tr>
               ))

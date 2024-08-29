@@ -20,13 +20,14 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: auto; /* Ermöglicht das horizontale Scrollen */
+  overflow-x: hidden; /* Verhindert horizontales Scrollen */
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Korrigiert 'place-items' auf 'align-items' für besseren Support */
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
   background-color: #fff;

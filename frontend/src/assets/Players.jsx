@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchPlayers } from '../api';
-import './Players.css';
+import './Players-desktop.css'; // Desktop-Styling
+import './Players-mobile.css';  // Mobile-Styling
 
 const Players = () => {
   const [players, setPlayers] = useState([]);
@@ -131,8 +132,7 @@ const Players = () => {
   if (error) return <p>Error loading data</p>;
 
   return (
-    <div className="container">
-      {/* Überschrift entfernt */}
+    <div className="players-container">
       <div className="filters">
         <div className="filter-row">
           <label>
@@ -231,7 +231,7 @@ const Players = () => {
             <tr>
               <th>#</th>
               {Object.keys(players[0] || {}).map((key, index) => (
-                <th key={index}>{key}</th>
+                <th key={index} className={index >= 2 ? 'uniform-width' : ''}>{key}</th>
               ))}
             </tr>
           </thead>
@@ -240,7 +240,7 @@ const Players = () => {
               <tr key={index}>
                 <td>{index + 1}</td>
                 {Object.values(player).map((value, subIndex) => (
-                  <td key={subIndex} className={subIndex === 2 ? "team-column" : ""}>
+                  <td key={subIndex} className={subIndex >= 2 ? 'uniform-width' : ''}>
                     {value}
                   </td>
                 ))}

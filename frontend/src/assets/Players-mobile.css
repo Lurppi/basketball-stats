@@ -1,0 +1,47 @@
+.players-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+  
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+  
+.table-wrapper {
+    overflow-x: auto; /* Ermöglicht horizontales Scrollen */
+}
+  
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+  
+th, td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Show More Button */
+.show-more-button {
+  display: block;
+  margin: 20px auto; /* Zentriert den Button */
+  padding: 10px 20px;
+  background-color: #000; /* Schwarze Farbe */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.show-more-button:hover {
+  background-color: #333; /* Dunkleres Schwarz bei Hover */
+}

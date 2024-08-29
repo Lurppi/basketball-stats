@@ -1,0 +1,30 @@
+.teams-container .table-wrapper table {
+  width: 100% !important;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: #fff;
+  color: #333;
+}
+
+.teams-container .table-wrapper th,
+.teams-container .table-wrapper td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+
+/* Spaltenbreite für TEAM-Spalte */
+.teams-container .table-wrapper th:nth-child(2),
+.teams-container .table-wrapper td:nth-child(2) {
+  width: 30% !important; /* Breite der TEAM-Spalte */
+  text-align: left;
+}
+
+/* Spaltenbreiten für alle anderen Spalten */
+.teams-container .table-wrapper th:nth-child(n+3),
+.teams-container .table-wrapper td:nth-child(n+3) {
+  width: calc(70% / (100% - 30%)) !important; /* Gleiche Breite für alle anderen Spalten */
+  text-align: center;
+}
