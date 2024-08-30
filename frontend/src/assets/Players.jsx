@@ -9,6 +9,7 @@ const Players = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [sortColumn, setSortColumn] = useState('GP');
+  const [sortDirection, setSortDirection] = useState('desc'); // Standard auf absteigend
   const [filters, setFilters] = useState({
     league: 'Regular',
     statsType: 'Totals',
@@ -162,20 +163,24 @@ const Players = () => {
         const bValue = b[sortColumn];
         const isNumericColumn = !isNaN(parseFloat(aValue)) && !isNaN(parseFloat(bValue));
 
-        if (isNumericColumn) {
-          return parseFloat(bValue) - parseFloat(aValue);
+        if (sortDirection === 'asc') {
+          return isNumericColumn ? parseFloat(aValue) - parseFloat(bValue) : String(aValue).localeCompare(String(bValue));
         } else {
-          return String(bValue).localeCompare(String(aValue));
+          return isNumericColumn ? parseFloat(bValue) - parseFloat(aValue) : String(bValue).localeCompare(String(aValue));
         }
       });
     }
 
     setSortedPlayers(sorted);
     setShowingPlayersCount(playersPerPage); // Reset the showing players count
-  }, [players, sortColumn, filters]);
+  }, [players, sortColumn, sortDirection, filters]);
 
   const handleSortColumnChange = (e) => {
     setSortColumn(e.target.value);
+  };
+
+  const handleSortDirectionChange = (e) => {
+    setSortDirection(e.target.value);
   };
 
   const handleFilterChange = (e) => {
@@ -200,6 +205,7 @@ const Players = () => {
     <div className="players-container">
       <div className="filters">
         <div className="filter-row">
+          {/* Bestehende Filterelemente */}
           <label>
             League:
             <select name="league" value={filters.league} onChange={handleFilterChange}>
@@ -285,6 +291,13 @@ const Players = () => {
               {sortOptions.map((column, index) => (
                 <option key={index} value={column}>{column}</option>
               ))}
+            </select>
+          </label>
+          <label>
+            Sort Direction:
+            <select name="sortDirection" value={sortDirection} onChange={handleSortDirectionChange}>
+              <option value="asc">Up</option>
+              <option value="desc">Down</option>
             </select>
           </label>
         </div>

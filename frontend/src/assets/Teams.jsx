@@ -8,12 +8,14 @@ const Teams = () => {
   const [sortedTeams, setSortedTeams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [sortColumn, setSortColumn] = useState('');
+  const [sortDirection, setSortDirection] = useState('desc'); // Standardmäßig auf absteigend
   const [filters, setFilters] = useState({
-    league: 'Regular', 
-    statsType: 'Totals', 
-    division: '', 
-    sortColumn: ''
+    league: 'Regular',
+    statsType: 'Totals',
+    division: '',
   });
+
   
   const glossary = {
     "#": "Rank",
@@ -100,30 +102,42 @@ const Teams = () => {
 
   useEffect(() => {
     let filteredData = [...teams];
-    
+
     if (filters.division) {
       filteredData = filteredData.filter(team => team.DIV === filters.division);
     }
 
-    if (filters.sortColumn) {
-      filteredData = filteredData.sort((a, b) => {
-        const aValue = a[filters.sortColumn];
-        const bValue = b[filters.sortColumn];
+    if (sortColumn) {
+      filteredData.sort((a, b) => {
+        const aValue = a[sortColumn];
+        const bValue = b[sortColumn];
+        const isNumericColumn = !isNaN(parseFloat(aValue)) && !isNaN(parseFloat(bValue));
 
-        const aNumber = isNaN(aValue) ? aValue : parseFloat(aValue);
-        const bNumber = isNaN(bValue) ? bValue : parseFloat(bValue);
-
-        if (aNumber < bNumber) return 1;
-        if (aNumber > bNumber) return -1;
-        return 0;
+        if (sortDirection === 'asc') {
+          return isNumericColumn ? parseFloat(aValue) - parseFloat(bValue) : String(aValue).localeCompare(String(bValue));
+        } else {
+          return isNumericColumn ? parseFloat(bValue) - parseFloat(aValue) : String(bValue).localeCompare(String(aValue));
+        }
       });
     }
 
     setSortedTeams(filteredData);
-  }, [filters.sortColumn, filters.division, teams]);
+  }, [sortColumn, sortDirection, filters.division, teams]);
 
   const handleFilterChange = (e) => {
     setFilters({ ...filters, [e.target.name]: e.target.value });
+  };
+
+  const handleSortColumnChange = (e) => {
+    const selectedColumn = e.target.value;
+    setSortColumn(selectedColumn);
+    if (!sortDirection) {
+      setSortDirection('desc'); // Wenn keine Sortierrichtung ausgewählt ist, standardmäßig auf absteigend setzen
+    }
+  };
+
+  const handleSortDirectionChange = (e) => {
+    setSortDirection(e.target.value);
   };
 
   const tableHeaders = teams.length > 0 ? Object.keys(teams[0]) : [];
@@ -163,11 +177,18 @@ const Teams = () => {
           </label>
           <label>
             Sort Column:
-            <select name="sortColumn" value={filters.sortColumn} onChange={handleFilterChange}>
+            <select name="sortColumn" value={sortColumn} onChange={handleSortColumnChange}>
               <option value="">Select column to sort</option>
               {sortOptions.map((option, index) => (
                 <option key={index} value={option}>{option}</option>
               ))}
+            </select>
+          </label>
+          <label>
+            Sort Direction:
+            <select name="sortDirection" value={sortDirection} onChange={handleSortDirectionChange}>
+              <option value="asc">Up</option>
+              <option value="desc">Down</option>
             </select>
           </label>
         </div>
