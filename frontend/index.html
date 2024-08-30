@@ -9,22 +9,6 @@
     <meta name="author" content="Dennis U">
     <title>NBBL Stats Dashboard</title>
 
-    <!-- Termly Cookie Consent Banner -->
-    <script
-      type="text/javascript"
-      src="https://app.termly.io/resource-blocker/6aa6a197-4863-4668-99b3-3b4c017f1f46?autoBlock=on"
-    ></script>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QJRW1LMP85"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QJRW1LMP85');
-</script>
-
     <!-- Standard-Styles für Desktop -->
     <link rel="stylesheet" href="./src/index.css">
     <link rel="stylesheet" href="./src/App.css">
@@ -36,10 +20,38 @@
     <!-- Spezifische Styles für Mobile -->
     <link rel="stylesheet" href="./Teams-mobile.css" media="(max-width: 768px)">
     <link rel="stylesheet" href="./Players-mobile.css" media="(max-width: 768px)">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJRW1LMP85"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QJRW1LMP85');
+    </script>
   </head>
   <body>
     <div id="root"></div>
 
+    <!-- Termly Cookie Consent Banner -->
+    <script
+      type="text/javascript"
+      src="https://app.termly.io/resource-blocker/6aa6a197-4863-4668-99b3-3b4c017f1f46?autoBlock=on"
+    ></script>
+
     <script type="module" src="/src/main.jsx"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const consentLink = document.querySelector('.termly-display-preferences');
+        if (consentLink) {
+          consentLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            window.TermlyDisplayPreferences();
+          });
+        }
+      });
+    </script>
   </body>
 </html>
