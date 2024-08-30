@@ -62,10 +62,10 @@ const Home = () => {
                 <img src={`./src/images/img${index + 1}.jpg`} alt={`Slide ${index + 1}`} />
                 <div className="content">
                   <div className="author">NBBL</div>
-                  <div className="title">Season</div>
-                  <div className="topic">Leaders</div>
+                  <div className="title">Season Leaders</div>
+                  <div className="topic"></div>
                   <div className="des">
-                    Advanced Metrics 
+                    
                   </div>
                   <div className="buttons">
                     <Link to="/players">
