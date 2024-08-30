@@ -4,13 +4,6 @@
   padding: 50px 20px;
 }
 
-.home-header {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 30px;
-}
-
 .button-container {
   margin: 0px 0;
   display: flex;
@@ -69,25 +62,24 @@
   transform: translateX(-50%);
   padding-right: 30%;
   box-sizing: border-box;
-  color: #ffffff;
+  color: #fff;
   text-shadow: 0 5px 10px #0004;
 }
 
 .carousel .list .item .author {
   font-weight: bold;
   letter-spacing: 10px;
-  color: #ffffff;
-  }
+}
 
 .carousel .list .item .title,
 .carousel .list .item .topic {
-  font-size: 2em;
+  font-size: 5em;
   font-weight: bold;
   line-height: 1.3em;
 }
 
 .carousel .list .item .topic {
-  color: #f5f4f3;
+  color: #f5f3f3;
 }
 
 .carousel .list .item .buttons {
@@ -96,14 +88,14 @@
   grid-template-rows: 40px;
   gap: 5px;
   margin-top: 20px;
+  margin-left: 150px;
 }
 
 .carousel .list .item .buttons button {
   border: none;
-  background-color: solid;
-  background-color: #eeeeeecc;
-    border: 1px solid #fff;
-  color: #050505;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #eee;
   letter-spacing: 3px;
   font-family: Poppins;
   font-weight: 500;

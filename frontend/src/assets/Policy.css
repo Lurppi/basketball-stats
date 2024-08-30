@@ -1,0 +1,41 @@
+.policy-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.policy-container h1, .policy-container h2 {
+    color: #333;
+}
+
+.policy-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.policy-container h2 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+.policy-container p, .policy-container ul {
+    margin: 10px 0;
+}
+
+.policy-container ul {
+    padding-left: 20px;
+}
+
+.policy-container a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+.policy-container a:hover {
+    text-decoration: underline;
+}

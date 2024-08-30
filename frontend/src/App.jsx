@@ -5,8 +5,9 @@ import Home from './assets/Home';
 import Players from './assets/Players';
 import Teams from './assets/Teams';
 import Impressum from './assets/Impressum';
-import Glossary from './assets/Glossary';  // Importiere die Glossary-Seite
+import Glossary from './assets/Glossary'; 
 import Footer from './assets/Footer';
+import Policy from './assets/Policy';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <Route path="/players" element={<Players />} />
         <Route path="/teams" element={<Teams />} />
         <Route path="/impressum" element={<Impressum />} />
-        <Route path="/glossary" element={<Glossary />} />  {/* Route für Glossary */}
+        <Route path="/glossary" element={<Glossary />} />  
+        <Route path="/privacy-policy" element={<Policy />} />  
       </Routes>
       <Footer />
     </Router>
