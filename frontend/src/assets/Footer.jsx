@@ -8,8 +8,7 @@ const Footer = () => {
       <p>&copy; 2024 NBBL Stats Dashboard</p>
       <p>
         <Link to="/impressum" className="footer-link">Impressum</Link> | {/* Trennzeichen hinzufügen */}
-        <Link to="/glossary" className="footer-link">Glossary</Link> | {/* Trennzeichen hinzufügen */}
-        <a href="#" className="footer-link termly-display-preferences">Consent Preferences</a>
+        <Link to="/glossary" className="footer-link">Glossary</Link>
       </p>
     </footer>
   );
