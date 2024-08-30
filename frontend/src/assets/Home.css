@@ -68,6 +68,7 @@
 
 .carousel .list .item .author {
   font-weight: bold;
+  font-size: 30px;
   letter-spacing: 10px;
 }
 
@@ -93,16 +94,17 @@
 
 .carousel .list .item .buttons button {
   border: none;
-  background-color: transparent;
+  background-color: solid;
+  background-color: #eee;
   border: 1px solid #fff;
-  color: #eee;
+  color: #000000;
   letter-spacing: 3px;
   font-family: Poppins;
   font-weight: 500;
 }
 
 .carousel .list .item .buttons button:nth-child(2) {
-  background-color: transparent;
+  background-color: solid;
   border: 1px solid #fff;
   color: #eee;
 }
