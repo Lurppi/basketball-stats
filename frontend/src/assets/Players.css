@@ -7,8 +7,8 @@
 }
 
 .filter-container {
-  width: 1200px;
-  margin: 0 auto;
+  width: 1200px; /* Breite auf 1200px gesetzt */
+  margin: 0 auto; /* Zentriert den Container */
   background: rgba(255, 255, 255, 0.5);
   border-radius: 16px;
   padding: 20px;
@@ -29,7 +29,7 @@
   flex-direction: column;
   margin-bottom: 10px;
   flex-grow: 1;
-  font-size: 0.7em;
+  font-size: 0.6em;
 }
 
 .filters select,
@@ -38,7 +38,7 @@
   padding: 6px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 11px;
+  font-size: 1.0em;
   width: 100%;
 }
 
@@ -54,7 +54,7 @@
   margin-top: 30px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   overflow-x: auto;
-  position: relative;
+  position: relative; /* Ermöglicht die absolute Positionierung des Paginators */
 }
 
 .paginator-container {
@@ -65,7 +65,7 @@
 }
 
 .paginator-container *:not(.paginator-button) {
-  font-size: 5px !important;
+  font-size: 5px !important; /* Verkleinert die Schriftgröße für alle Textelemente im Paginator außerhalb der Buttons */
 }
 
 .paginator-button {
@@ -120,22 +120,16 @@
   font-size: 11px;
 }
 
-.table-container th.row-number-column,
-.table-container td.row-number-column {
-  width: 20px; /* Ändert die Breite der Zeilennummernspalte */
-  text-align: right; /* Zentriert den Text in der Zeilennummernspalte */
+.table-container th:nth-of-type(1),
+.table-container td:nth-of-type(1) {
+  text-align: left;
+  width: 150px;
 }
 
-.table-container th:nth-child(2),
-.table-container td:nth-child(2) {
-  width: 200px; /* Ändert die Breite der Zeilennummernspalte */
-  text-align: left; /* Linksbündigkeit für die zweite Spalte */
-}
-
-.table-container th:nth-child(3),
-.table-container td:nth-child(3) {
-  width: 100px; /* Ändert die Breite der Zeilennummernspalte */
-  text-align: left; /* Linksbündigkeit für die zweite Spalte */
+.table-container th:nth-of-type(2),
+.table-container td:nth-of-type(2) {
+  text-align: left;
+  width: 100px;
 }
 
 .footer {
@@ -154,6 +148,7 @@
   display: none;
 }
 
+/* Header Style */
 header {
   position: fixed;
   top: 0;

@@ -158,7 +158,7 @@ const Players = () => {
         if (data && data.length > 0) {
           const selectedColumns = columnMappings[filters.statsType];
           const rawHeaders = Object.keys(data[0])[0].split(';');
-          const headers = ['#', ...selectedColumns.map(index => rawHeaders[index])];
+          const headers = selectedColumns.map(index => rawHeaders[index]);
           setHeaders(headers);
 
           const filteredData = data.map(entry => {
@@ -379,8 +379,7 @@ const Players = () => {
             <table className="table-container">
               <thead>
                 <tr>
-                  <th className="row-number-column">#</th> {/* Zeilennummer-Header */}
-                  {headers.slice(1).map((header, idx) => ( // Überspringt den ersten Header, da er die Zeilennummer ist
+                  {headers.map((header, idx) => (
                     <th key={idx} className={idx === 17 ? 'hidden-column' : ''}>
                       <abbr data-title={getTooltip(header)}>{header}</abbr>
                     </th>
@@ -390,7 +389,6 @@ const Players = () => {
               <tbody>
                 {displayedPlayers.map((row, idx) => (
                   <tr key={idx}>
-                    <td className="row-number-column">{(currentPage - 1) * rowsPerPage + idx + 1}</td> {/* Zeilennummer */}
                     {row.map((cell, cellIdx) => (
                       <td key={cellIdx} className={cellIdx === 17 ? 'hidden-column' : ''}>
                         {cell}
