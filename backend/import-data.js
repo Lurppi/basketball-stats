@@ -13,33 +13,54 @@ const importCSVToDB = (filePath, tableName) => {
       .pipe(csv())
       .on('data', (data) => results.push(data))
       .on('end', () => {
+        if (results.length === 0) {
+          console.error(`No data found in ${filePath}`);
+          return reject(new Error(`No data found in ${filePath}`));
+        }
+
         db.serialize(() => {
-          // Dynamische Tabellenerstellung basierend auf CSV-Daten
-          const columns = Object.keys(results[0]).join(', ');
+          const columns = Object.keys(results[0]).map(col => `"${col}"`).join(', ');  // Escape column names
           const placeholders = Object.keys(results[0]).map(() => '?').join(', ');
-          db.run(`CREATE TABLE IF NOT EXISTS ${tableName} (id INTEGER PRIMARY KEY AUTOINCREMENT, ${columns})`);
+          
+          console.log(`Creating table if not exists: CREATE TABLE IF NOT EXISTS ${tableName} (id INTEGER PRIMARY KEY AUTOINCREMENT, ${columns})`);
+          db.run(`CREATE TABLE IF NOT EXISTS ${tableName} (id INTEGER PRIMARY KEY AUTOINCREMENT, ${columns})`, (err) => {
+            if (err) {
+              console.error(`Error creating table ${tableName}:`, err.message);
+              return reject(err);
+            }
+          });
+
           const stmt = db.prepare(`INSERT INTO ${tableName} (${columns}) VALUES (${placeholders})`);
+          
           results.forEach(row => {
             const values = Object.values(row);
-            stmt.run(values);
+            console.log(`Inserting into ${tableName}:`, values);
+            stmt.run(values, (err) => {
+              if (err) {
+                console.error(`Error inserting into ${tableName}:`, err.message);
+              }
+            });
           });
-          stmt.finalize();
-          resolve();
+
+          stmt.finalize((err) => {
+            if (err) {
+              console.error(`Error finalizing statement for ${tableName}:`, err.message);
+              return reject(err);
+            }
+            resolve();
+          });
         });
       })
-      .on('error', reject);
+      .on('error', (err) => {
+        console.error(`Error reading CSV file ${filePath}:`, err.message);
+        reject(err);
+      });
   });
 };
 
 // Alle CSV-Dateien importieren
 const files = [
   // Weekly Stats
-  { path: path.join(__dirname, 'data', 'points-week.csv'), table: 'players_weekly' },
-  { path: path.join(__dirname, 'data', 'rebounds-week.csv'), table: 'players_weekly' },
-  { path: path.join(__dirname, 'data', 'assists-week.csv'), table: 'players_weekly' },
-  { path: path.join(__dirname, 'data', 'steals-week.csv'), table: 'players_weekly' },
-  { path: path.join(__dirname, 'data', 'blocks-week.csv'), table: 'players_weekly' },
-  { path: path.join(__dirname, 'data', 'per-week.csv'), table: 'players_weekly' },
 
   // Regular Season Stats
   { path: path.join(__dirname, 'data', 'points-regular.csv'), table: 'players_regular' },

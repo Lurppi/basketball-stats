@@ -1,46 +1,25 @@
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  background-color: #fff;
-  color: #000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  box-sizing: border-box;
-}
-
-nav {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: nowrap; /* Kein Umbruch der Links */
-  width: 100%;
-  box-sizing: border-box;
-}
-
-nav a {
-  color: #000;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  font-family: 'Poppins', sans-serif; /* Schriftart geändert */
-  font-weight: 600; /* Schriftart fett gemacht */
-  border-radius: 4px;
-}
-
-nav a:hover {
-  background-color: #080808;
-  color: #fff;
-}
-
-@media (max-width: 768px) {
-  nav {
-    justify-content: space-between; /* Verteilt Links gleichmäßig */
+.header {
+    width: 100%;
+    background-color: #fff; /* Weißer Balken */
+    padding: 10px 0; /* Vertikale Polsterung */
+    position: fixed; /* Fixiert den Header am oberen Rand */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Hält den Header oben, auch wenn andere Elemente darüber sind */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Leichter Schatten für Tiefe */
   }
-
-  nav a {
-    flex: 1;
+  
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     text-align: center;
+    z-index: 1000;
+    background-size: cover; /* Deckt den gesamten Header ab */
+    background-position: center; /* Zentriert das Hintergrundbild */
+    backdrop-filter: blur(10px); /* Optional: Unschärfe-Effekt für Text und andere Elemente */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 8px 15px; /* Höhe des Headers verringern */
   }
-}
+  

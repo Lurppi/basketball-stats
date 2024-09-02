@@ -1,3 +1,4 @@
+// api.jsx
 const BASE_URL = 'https://backend-sandy-rho.vercel.app/api';
 
 const handleFetchResponse = async (response) => {
@@ -8,12 +9,12 @@ const handleFetchResponse = async (response) => {
   return response.json();
 };
 
-export const fetchPlayers = async (league, statsType) => {
-  const response = await fetch(`${BASE_URL}/players/${league}/${statsType}`);
+export const fetchPlayers = async (file) => {
+  const response = await fetch(`${BASE_URL}/players?file=${file}`);
   return handleFetchResponse(response);
 };
 
-export const fetchTeams = async (league, statsType) => {
-  const response = await fetch(`${BASE_URL}/teams/${league}/${statsType}`);
+export const fetchTeams = async (file) => {
+  const response = await fetch(`${BASE_URL}/teams?file=${file}`);
   return handleFetchResponse(response);
 };
