@@ -110,10 +110,6 @@
   white-space: nowrap;
   border-bottom: 1px solid #ddd;
   font-size: 10px;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .table-container td {
@@ -122,29 +118,24 @@
   white-space: nowrap;
   border-bottom: 1px solid #ddd;
   font-size: 11px;
-  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .table-container th.row-number-column,
 .table-container td.row-number-column {
-  width: 20px;
-  text-align: right;
+  width: 20px; /* Ändert die Breite der Zeilennummernspalte */
+  text-align: right; /* Zentriert den Text in der Zeilennummernspalte */
 }
 
 .table-container th:nth-child(2),
 .table-container td:nth-child(2) {
-  width: 200px;
-  text-align: left;
-  position: sticky;
-  left: 0;
-  z-index: 2;
-  background-color: rgba(255, 255, 255, 0.9);
+  width: 200px; /* Ändert die Breite der Zeilennummernspalte */
+  text-align: left; /* Linksbündigkeit für die zweite Spalte */
 }
 
 .table-container th:nth-child(3),
 .table-container td:nth-child(3) {
-  width: 100px;
-  text-align: left;
+  width: 100px; /* Ändert die Breite der Zeilennummernspalte */
+  text-align: left; /* Linksbündigkeit für die zweite Spalte */
 }
 
 .footer {
