@@ -383,8 +383,8 @@ const Players = () => {
               <thead>
                 <tr>
                   {headers.map((header, idx) => (
-                    <th key={idx} data-title={getTooltip(header)} className={idx === 17 || idx === 18 ? 'players-hidden-column' : ''}>
-                      <abbr>{header}</abbr>
+                    <th key={idx} className={idx === 17 || idx === 18 ? 'players-hidden-column' : ''}>
+                      <abbr title={getTooltip(header)}>{header}</abbr>
                     </th>
                   ))}
                 </tr>

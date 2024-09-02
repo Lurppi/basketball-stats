@@ -163,9 +163,10 @@ const Teams = () => {
 
           setTeams(filteredData);
 
+          // Create unique division options based on index 1 (Division)
           const divisionsSet = new Set();
           filteredData.forEach(row => {
-            if (row[2]) divisionsSet.add(row[2]);
+            if (row[1]) divisionsSet.add(row[1]);  // Bezug auf Spalte 1 (Index 1 in der CSV-Datei)
           });
           setDivisions([...divisionsSet].sort());
         } else {
@@ -205,7 +206,7 @@ const Teams = () => {
 
   const applyFilters = (data) => {
     return data.filter(row => {
-      const divisionMatch = filters.division === 'All' || row[2] === filters.division;
+      const divisionMatch = filters.division === 'All' || row[1] === filters.division;  // Filtern nach Division (Index 1)
       return divisionMatch;
     });
   };
@@ -225,6 +226,13 @@ const Teams = () => {
   const getTooltip = (header) => {
     return glossary[header] || 'No description available';
   };
+
+  const sortOptions = useMemo(() => {
+    // Überschriften ab der vierten Spalte (Index 3) als Optionen anbieten
+    return headers.slice(3).map((header, idx) => (
+      <option key={idx} value={header}>{header}</option>
+    ));
+  }, [headers]);
 
   return (
     <div className="teams-grid-container">
@@ -266,9 +274,7 @@ const Teams = () => {
                 onChange={e => setFilters({ ...filters, sortStat: e.target.value })}
               >
                 <option value="">Select Stat</option>
-                {headers.map((header, idx) => (
-                  <option key={idx} value={header}>{header}</option>
-                ))}
+                {sortOptions}
               </select>
             </label>
             <label>
@@ -309,8 +315,8 @@ const Teams = () => {
               <thead>
                 <tr>
                   {headers.map((header, idx) => (
-                    <th key={idx} data-title={getTooltip(header)} className={idx === 17 ? 'teams-hidden-column' : ''}>
-                      <abbr>{header}</abbr>
+                    <th key={idx} className={idx === 17 ? 'teams-hidden-column' : ''}>
+                      <abbr title={getTooltip(header)}>{header}</abbr>
                     </th>
                   ))}
                 </tr>
