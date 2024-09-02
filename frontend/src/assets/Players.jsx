@@ -57,16 +57,17 @@ const teamNameMapping = {
 };
 
 const glossary = {
-  "TEAM": "Team",
-  "ROLE": "Offensive Role",
-  "﻿PLAYER": "Player",
   "DIV": "Division",
   "POS": "Position",
+  "﻿PLAYER": "Player",
+  "TEAM": "Team",
   "BORN": "Year of Birth",
   "GP": "Games Played",
   "MP": "Minutes Played",
   "PT": "Points",
   "RB": "Rebounds",
+  "OR": "Offensive Rebounds",
+  "DR": "Defensive Rebounds",
   "AS": "Assists",
   "ST": "Steals",
   "BS": "Blocked Shots",
@@ -74,8 +75,8 @@ const glossary = {
   "PF": "Personal Fouls",
   "EF": "Efficiency",
   "EF/Gm": "Efficiency per Game",
-  "DD": "Double Doubles",
-  "TD": "Triple Doubles",
+  "DD": "Double Double",
+  "TD": "Triple Double",
   "2PM": "2-Pointer Made",
   "2PA": "2-Point Attempts",
   "2P%": "2-Point Percentage",
@@ -120,6 +121,8 @@ const glossary = {
   "OPP ORB%": "Opponent Offensive Rebound Percentage",
   "OPP FT-RATE": "Opponent Free Throw Rate",
   "PPP": "Points per Possession",
+  "ROLE": "Offensive Role",
+  "WINS": "Game Wins",
   "PACE": "Team Pace (Possessions per Game)",
 };
 
@@ -252,11 +255,11 @@ const Players = () => {
   };
 
   return (
-    <div className="grid-container">
+    <div className="players-grid-container">
       <Header />
-      <div className="grid-item">
-        <div className="filter-container">
-          <div className="filters">
+      <div className="players-grid-item">
+        <div className="players-filter-container">
+          <div className="players-filters">
             <label>
               Season Type:
               <select name="league" value={filters.league} onChange={e => setFilters({ ...filters, league: e.target.value })}>
@@ -357,31 +360,31 @@ const Players = () => {
         </div>
 
         <div className="players-container">
-          <div className="pagination">
+          <div className="players-pagination players-pagination-top-right">
             {totalRows} Player - Page {currentPage} of {totalPages}
             <button
               onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
-              className="paginator-button"
+              className="players-paginator-button"
             >
               {"<"}
             </button>
             <button
               onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
-              className="paginator-button"
+              className="players-paginator-button"
             >
               {">"}
             </button>
           </div>
 
-          <div className="table-wrapper">
-            <table className="table-container">
+          <div className="players-table-wrapper">
+            <table className="players-table-container">
               <thead>
                 <tr>
                   {headers.map((header, idx) => (
-                    <th key={idx} className={idx === 17 ? 'hidden-column' : ''}>
-                      <abbr data-title={getTooltip(header)}>{header}</abbr>
+                    <th key={idx} data-title={getTooltip(header)} className={idx === 17 || idx === 18 ? 'players-hidden-column' : ''}>
+                      <abbr>{header}</abbr>
                     </th>
                   ))}
                 </tr>
@@ -390,7 +393,7 @@ const Players = () => {
                 {displayedPlayers.map((row, idx) => (
                   <tr key={idx}>
                     {row.map((cell, cellIdx) => (
-                      <td key={cellIdx} className={cellIdx === 17 ? 'hidden-column' : ''}>
+                      <td key={cellIdx} className={cellIdx === 17 ? 'players-hidden-column' : ''}>
                         {cell}
                       </td>
                     ))}

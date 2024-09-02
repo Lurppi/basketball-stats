@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
 import './Home.css';
 
 // Importiere alle 16 Bilder aus dem src/images Ordner
@@ -27,6 +29,13 @@ const Home = () => {
     const carouselDom = document.querySelector('.carousel');
     const sliderDom = carouselDom.querySelector('.list');
     const thumbnailBorderDom = document.querySelector('.thumbnail');
+    
+    // Warte, bis alle DOM-Elemente geladen sind
+    if (!sliderDom || !thumbnailBorderDom) {
+      console.error("Slider or Thumbnail DOM not found.");
+      return;
+    }
+
     const thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
     const timeRunning = 3000;
     const timeAutoNext = 7000;
@@ -34,11 +43,21 @@ const Home = () => {
     let runTimeOut;
     let runNextAuto;
 
-    thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+    // Vergewissere dich, dass thumbnailItemsDom nicht leer ist
+    if (thumbnailItemsDom.length > 0) {
+      thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+    } else {
+      console.error("No thumbnail items found.");
+    }
 
     const showSlider = (type) => {
       const sliderItemsDom = sliderDom.querySelectorAll('.item');
       const thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
+
+      if (sliderItemsDom.length === 0 || thumbnailItemsDom.length === 0) {
+        console.error("No slider or thumbnail items found.");
+        return;
+      }
 
       if (type === 'next') {
         sliderDom.appendChild(sliderItemsDom[0]);
@@ -119,6 +138,7 @@ const Home = () => {
           <div className="time"></div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,13 +1,15 @@
-.grid-container {
+/* General Styles */
+.players-grid-container {
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr;
   height: 100vh;
   width: 100%;
+  overflow-x: auto;
 }
 
-.filter-container {
-  width: 1200px; /* Breite auf 1200px gesetzt */
+.players-filter-container {
+  width: 1200px;
   margin: 0 auto; /* Zentriert den Container */
   background: rgba(255, 255, 255, 0.5);
   border-radius: 16px;
@@ -17,34 +19,36 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-.filters {
+.players-filters {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-  align-items: flex-start;
+  align-items: center;
 }
 
-.filters label {
+.players-filters label {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
   flex-grow: 1;
-  font-size: 0.6em;
+  font-size: 0.7em;
 }
 
-.filters select,
-.filters input {
+.players-filters select,
+.players-filters input {
+  display: flex;
   margin-top: 5px;
   padding: 6px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 1.0em;
+  font-size: 10.5px;
   width: 100%;
 }
 
 .players-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
   width: 1200px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.5);
@@ -53,86 +57,94 @@
   margin-bottom: 20px;
   margin-top: 30px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  overflow-x: auto;
-  position: relative; /* Ermöglicht die absolute Positionierung des Paginators */
 }
 
-.paginator-container {
-  position: absolute;
-  top: -40px;
-  left: 100px;
-  z-index: 1;
-}
-
-.paginator-container *:not(.paginator-button) {
-  font-size: 5px !important; /* Verkleinert die Schriftgröße für alle Textelemente im Paginator außerhalb der Buttons */
-}
-
-.paginator-button {
-  background: #ffffff;
-  box-shadow: 0 8px 32px 0 rgba(248, 248, 248, 0.2);
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 1px 9px;
-  font-size: 0.9em;
-  font-weight: bold;
-  color: #000000;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
-}
-
-.paginator-button:hover {
-  background: #070707d3;
-  color: #ffffff;
-}
-
-.table-wrapper {
+.players-pagination {
   width: 100%;
-  overflow-x: auto;
+  margin: 0 auto 20px auto;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  font-size: 0.8em;
+  display: flex;
 }
 
-.table-container {
+.players-pagination button {
+  background: transparent;
+  border: 1px solid black;
+  font-size: 1em;
+  padding: 1px 5px;
+  cursor: pointer;
+  color: black;
+}
+
+.players-pagination button:hover {
+  background-color: black;
+  color: white;
+}
+
+.players-pagination button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.players-table-wrapper {
   width: 100%;
-  max-width: 1200px;
+}
+
+.players-table-container {
+  width: 100%;
   margin: 0 auto;
-}
-
-.table-container table {
-  width: 100%;
-  min-width: 1200px;
   border-collapse: collapse;
-  table-layout: fixed;
 }
 
-.table-container th {
+.players-table-container table {
+  width: 100%; 
+  border-collapse: collapse;
+}
+
+.players-table-container th,
+.players-table-container td {
   padding: 6px 8px;
   text-align: center;
   white-space: nowrap;
   border-bottom: 1px solid #ddd;
-  font-size: 10px;
+  font-size: 11px; /* Standardgröße für die Schrift */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Überlaufenden Text abschneiden und durch ... anzeigen */
+  position: relative; /* Notwendig für die Fixierung */
 }
 
-.table-container td {
-  padding: 6px 8px;
-  text-align: center;
-  white-space: nowrap;
-  border-bottom: 1px solid #ddd;
-  font-size: 11px;
-}
-
-.table-container th:nth-of-type(1),
-.table-container td:nth-of-type(1) {
+/* Fixiert die erste Spalte */
+.players-table-container th:nth-of-type(1),
+.players-table-container td:nth-of-type(1) {
+  position: sticky;
+  left: 0;
   text-align: left;
+  width: 200px;
+  background: rgba(255, 255, 255, 0.918); /* Hintergrund, um den Text lesbar zu halten */
+  z-index: 1; /* Damit die erste Spalte über den restlichen Zellen bleibt */
+}
+
+.players-table-container th:nth-of-type(1) {
+  z-index: 3; /* Damit die erste Spalte der Kopfzeile über der fixierten Kopfzeile bleibt */
+}
+
+.players-table-container th:nth-of-type(2),
+.players-table-container td:nth-of-type(2) {
   width: 150px;
+  
+  z-index: 1; /* Damit die erste Spalte über den restlichen Zellen bleibt */
 }
 
-.table-container th:nth-of-type(2),
-.table-container td:nth-of-type(2) {
-  text-align: left;
-  width: 100px;
+/* Hide the 18th column */
+.players-table-container th:nth-of-type(18),
+.players-table-container td:nth-of-type(18) {
+  display: none;
 }
 
-.footer {
+.players-footer {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -142,10 +154,6 @@
   padding: 60px 0;
   width: 100%;
   z-index: 1000;
-}
-
-.hidden-column {
-  display: none;
 }
 
 /* Header Style */
@@ -164,25 +172,25 @@ header {
 
 /* Responsive Filter Layout */
 @media (max-width: 1120px) {
-  .filters label {
+  .players-filters label {
     flex-basis: 20%;
   }
 }
 
 @media (max-width: 975px) {
-  .filters label {
+  .players-filters label {
     flex-basis: 48%;
   }
 }
 
 @media (max-width: 768px) {
-  .filters label {
+  .players-filters label {
     flex-basis: 85%;
   }
 }
 
 @media (max-width: 450px) {
-  .filters label {
+  .players-filters label {
     flex-basis: 100%;
   }
 }

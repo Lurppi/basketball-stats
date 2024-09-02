@@ -1,5 +1,5 @@
 // api.jsx
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'https://backend-sandy-rho.vercel.app/api';
 
 const handleFetchResponse = async (response) => {
   if (!response.ok) {
