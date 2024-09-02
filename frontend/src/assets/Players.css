@@ -29,7 +29,7 @@
   flex-direction: column;
   margin-bottom: 10px;
   flex-grow: 1;
-  font-size: 0.6em;
+  font-size: 0.7em;
 }
 
 .filters select,
@@ -38,7 +38,7 @@
   padding: 6px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 1.0em;
+  font-size: 11px;
   width: 100%;
 }
 
@@ -110,6 +110,10 @@
   white-space: nowrap;
   border-bottom: 1px solid #ddd;
   font-size: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .table-container td {
@@ -118,24 +122,29 @@
   white-space: nowrap;
   border-bottom: 1px solid #ddd;
   font-size: 11px;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .table-container th.row-number-column,
 .table-container td.row-number-column {
-  width: 20px; /* Ändert die Breite der Zeilennummernspalte */
-  text-align: right; /* Zentriert den Text in der Zeilennummernspalte */
+  width: 20px;
+  text-align: right;
 }
 
 .table-container th:nth-child(2),
 .table-container td:nth-child(2) {
-  width: 200px; /* Ändert die Breite der Zeilennummernspalte */
-  text-align: left; /* Linksbündigkeit für die zweite Spalte */
+  width: 200px;
+  text-align: left;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .table-container th:nth-child(3),
 .table-container td:nth-child(3) {
-  width: 100px; /* Ändert die Breite der Zeilennummernspalte */
-  text-align: left; /* Linksbündigkeit für die zweite Spalte */
+  width: 100px;
+  text-align: left;
 }
 
 .footer {

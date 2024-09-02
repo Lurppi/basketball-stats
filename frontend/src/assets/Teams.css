@@ -29,7 +29,7 @@
   flex-direction: column;
   margin-bottom: 10px;
   flex-grow: 1;
-  font-size: 0.6em;
+  font-size: 0.7em;
 }
 
 .filters select,
@@ -38,7 +38,7 @@
   padding: 6px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 1.0em;
+  font-size: 11px;
   width: 100%;
 }
 
@@ -134,7 +134,7 @@
 .table-container th:nth-child(2),
 .table-container td:nth-child(2) {
   width: 200px;
-  }
+}
 
 .table-container th:nth-child(3),
 .table-container td:nth-child(3) {
@@ -153,8 +153,6 @@
   width: 50px;
   text-align: center;
 }
-
-
 
 .table-container tr:hover {
   background-color: rgba(255, 255, 255, 0.4);
