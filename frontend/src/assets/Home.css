@@ -103,7 +103,7 @@
 }
 
 .carousel .list .item .buttons button:nth-child(2) {
-  background-color: solid;
+  background-color: transparent;
   border: 1px solid #fff;
   color: #eee;
 }

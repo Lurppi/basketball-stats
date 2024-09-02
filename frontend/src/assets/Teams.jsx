@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { fetchTeams } from '../api';
-import './Teams-desktop.css'; // Desktop-Styling
-import './Teams-mobile.css';  // Mobile-Styling
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
@@ -123,6 +121,22 @@ const Teams = () => {
 
     setSortedTeams(filteredData);
   }, [sortColumn, sortDirection, filters.division, teams]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+      if (isMobile) {
+        import('./Teams-mobile.css');
+      } else {
+        import('./Teams-desktop.css');
+      }
+    };
+
+    handleResize(); // Initial load
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleFilterChange = (e) => {
     setFilters({ ...filters, [e.target.name]: e.target.value });

@@ -24,7 +24,8 @@ nav a {
   text-decoration: none;
   padding: 0.5rem 1rem;
   transition: background-color 0.3s ease, color 0.3s ease;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif; /* Schriftart geändert */
+  font-weight: 600; /* Schriftart fett gemacht */
   border-radius: 4px;
 }
 

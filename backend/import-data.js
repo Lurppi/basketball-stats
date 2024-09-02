@@ -85,7 +85,14 @@ const files = [
   { path: path.join(__dirname, 'data', 'TPO_Shooting.csv'), table: 'teams_playoffs_shooting' },
   { path: path.join(__dirname, 'data', 'TPO_Advanced.csv'), table: 'teams_playoffs_advanced1' },
   { path: path.join(__dirname, 'data', 'TPO_Opponent.csv'), table: 'teams_playoffs_advanced2' },
-  { path: path.join(__dirname, 'data', 'TPO_FourFactors.csv'), table: 'teams_playoffs_four_factors' }
+  { path: path.join(__dirname, 'data', 'TPO_FourFactors.csv'), table: 'teams_playoffs_four_factors' },
+
+  // New Files
+  { path: path.join(__dirname, 'data', 'PLAYERS_1.csv'), table: 'players_1' },
+  { path: path.join(__dirname, 'data', 'PLAYERS_PO.csv'), table: 'players_po' },
+  { path: path.join(__dirname, 'data', 'PLAYERS_RS.csv'), table: 'players_rs' },
+  { path: path.join(__dirname, 'data', 'TEAMS_PO.csv'), table: 'teams_po' },
+  { path: path.join(__dirname, 'data', 'TEAMS_RS.csv'), table: 'teams_rs' }
 ];
 
 // Importiere alle CSV-Dateien

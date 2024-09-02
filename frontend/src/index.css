@@ -1,5 +1,5 @@
 :root {
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: #333;
@@ -9,6 +9,19 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box; /* Globales Box-Sizing */
+
+  /* Farb- und Layout-Variablen */
+  --primary-color: #007acc;
+  --primary-hover-color: #005f99;
+  --background-color: #f5f5f5;
+  --text-color: #333;
+  --heading-color: #444;
+  --button-background-color: var(--primary-color);
+  --button-hover-background-color: var(--primary-hover-color);
+  --container-max-width: 1200px;
+  --container-padding: 20px;
+  --border-radius: 4px;
+  --font-size-table: 0.9em;
 }
 
 *, *::before, *::after {
@@ -30,43 +43,49 @@ body {
   justify-content: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #fff;
-  color: #333;
+  background-color: var(--background-color);
+  color: var(--text-color);
   box-sizing: border-box;
 }
 
 h1 {
   font-size: 2.5em;
   line-height: 1.2;
-  color: #444;
+  color: var(--heading-color);
   margin: 0.67em 0; /* Standardmäßiger h1 Margin für bessere Konsistenz */
+}
+
+h1, h2, h3 {
+  color: var(--text-color);
+  margin: 10px 0;
 }
 
 a {
   font-weight: 500;
-  color: #007acc;
+  color: var(--primary-color);
   text-decoration: none;
   transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 a:hover {
-  color: #005f99;
+  color: var(--primary-hover-color);
 }
 
 button {
-  border-radius: 8px;
+  font-family: 'Poppins', Arial, sans-serif;
+  border-radius: var(--border-radius);
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  background-color: #007acc;
+  background-color: var(--button-background-color);
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #00060a;
+  background-color: var(--button-hover-background-color);
   border-color: #00060a;
 }
 
@@ -75,9 +94,15 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--container-padding);
+}
+
 /* Schriftgröße in den Tabelleninhalten leicht reduziert */
 table {
-  font-size: 0.9em;
+  font-size: var(--font-size-table);
   width: 100%; /* Sicherstellen, dass Tabellen die volle Breite nutzen */
   border-collapse: collapse;
 }
@@ -89,18 +114,19 @@ table {
   }
 }
 
+/* Light Mode Anpassungen */
 @media (prefers-color-scheme: light) {
   :root {
-    color: #333;
-    background-color: #fff;
+    color: var(--text-color);
+    background-color: var(--background-color);
   }
 
   a:hover {
-    color: #005f99;
+    color: var(--primary-hover-color);
   }
 
   button {
-    background-color: #2f18fab7;
+    background-color: var(--button-background-color);
     color: #fff;
   }
 }

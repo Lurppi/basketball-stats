@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { fetchPlayers } from '../api';
-import './Players-desktop.css'; // Desktop-Styling
-import './Players-mobile.css';  // Mobile-Styling
 
 const Players = () => {
   const [players, setPlayers] = useState([]);
@@ -9,7 +7,7 @@ const Players = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [sortColumn, setSortColumn] = useState('GP');
-  const [sortDirection, setSortDirection] = useState('desc'); // Standard auf absteigend
+  const [sortDirection, setSortDirection] = useState('desc');
   const [filters, setFilters] = useState({
     league: 'Regular',
     statsType: 'Totals',
@@ -175,6 +173,22 @@ const Players = () => {
     setShowingPlayersCount(playersPerPage); // Reset the showing players count
   }, [players, sortColumn, sortDirection, filters]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+      if (isMobile) {
+        import('./Players-mobile.css');
+      } else {
+        import('./Players-desktop.css');
+      }
+    };
+
+    handleResize(); // Initial load
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const handleSortColumnChange = (e) => {
     setSortColumn(e.target.value);
   };
@@ -303,6 +317,29 @@ const Players = () => {
         </div>
       </div>
 
+      <div className="cards-wrapper">
+        {displayPlayers.length > 0 ? (
+          displayPlayers.map((player, index) => {
+            console.log(player.PLAYER); // Überprüfen, ob der PLAYER-Wert existiert
+            return (
+              <div className="player-card" key={index}>
+                <h3>{player.PLAYER || 'Unknown Player Name'}</h3>
+                <p><span>Team:</span> {player.TEAM || 'Unknown Team'}</p>
+                <p><span>Position:</span> {player.POS || 'Unknown Position'}</p>
+                <p><span>Games Played:</span> {player.GP || 'N/A'}</p>
+                <p>
+                  <span>{sortColumn ? (glossary[sortColumn] || sortColumn) : "Choose Stat in Sort column"}:</span> 
+                  {sortColumn ? (player[sortColumn] || 'N/A') : ''}
+                </p>
+              </div>
+            );
+          })
+        ) : (
+          <p>No players available</p>
+        )}
+      </div>
+
+      {/* Tabellenansicht für Desktop */}
       <div className="table-wrapper">
         <table>
           <thead>
@@ -317,8 +354,8 @@ const Players = () => {
             {displayPlayers.map((player, index) => (
               <tr key={index}>
                 <td>{index + 1}</td>
-                {Object.values(player).map((value, subIndex) => (
-                  <td key={subIndex}>{value}</td>
+                {Object.keys(players[0] || {}).map((key, subIndex) => (
+                  <td key={subIndex}>{player[key]}</td>
                 ))}
               </tr>
             ))}
