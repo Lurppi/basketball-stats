@@ -382,7 +382,7 @@ const Players = () => {
                   <th className="row-number-column">#</th> {/* Zeilennummer-Header */}
                   {headers.slice(1).map((header, idx) => ( // Überspringt den ersten Header, da er die Zeilennummer ist
                     <th key={idx} className={idx === 17 ? 'hidden-column' : ''}>
-                      <abbr className="tooltip" data-title={getTooltip(header)}>
+                      <abbr data-title={getTooltip(header)}>
                         {header}                
                       </abbr>
                     </th>
