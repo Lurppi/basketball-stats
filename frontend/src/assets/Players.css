@@ -117,7 +117,15 @@
 }
 
 /* Fixiert die erste Spalte */
-.players-table-container th:nth-of-type(1),
+.players-table-container th:nth-of-type(1){
+  position: sticky;
+  left: 0;
+  width: 200px;
+  background: rgba(255, 255, 255, 0.918); /* Hintergrund, um den Text lesbar zu halten */
+  z-index: 1; /* Damit die erste Spalte über den restlichen Zellen bleibt */
+}
+
+/* Fixiert die erste Spalte */
 .players-table-container td:nth-of-type(1) {
   position: sticky;
   left: 0;

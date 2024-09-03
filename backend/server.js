@@ -10,6 +10,8 @@ const corsOptions = {
   origin: [
     'https://www.nbbl-stats.de',
     'http://localhost:5174',
+    'http://localhost:5173',
+    'http://localhost:5172',
     'https://frontend-iota-seven-93.vercel.app',
     'https://frontend-lurppis-projects.vercel.app'
   ],
