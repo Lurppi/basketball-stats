@@ -11,9 +11,11 @@ const getPlayersData = (req, res) => {
   const filePath = path.join(__dirname, `../data/${file}.csv`);
   const results = [];
 
+  res.set('Access-Control-Allow-Origin', '*'); // CORS-Header gleich zu Beginn setzen
+
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
-      res.set('Access-Control-Allow-Origin', '*');
+      console.error(`File not found: ${filePath}`); // Loggen des genauen Dateipfads
       return res.status(404).send(`File not found: ${filePath}`);
     }
 
@@ -21,12 +23,10 @@ const getPlayersData = (req, res) => {
       .pipe(csv({ separator: ',' })) // Separator je nach CSV-Datei anpassen
       .on('data', (data) => results.push(data))
       .on('end', () => {
-        res.set('Access-Control-Allow-Origin', '*');
         res.json(results);
       })
       .on('error', (err) => {
-        res.set('Access-Control-Allow-Origin', '*');
-        console.error(`Error reading the CSV file: ${err}`);
+        console.error(`Error reading the CSV file: ${err}`); // Fehler loggen
         res.status(500).send('Error reading the CSV file');
       });
   });
