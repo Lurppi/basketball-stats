@@ -7,8 +7,15 @@ const homeRoutes = require('./routes/home');
 
 // CORS configuration
 const corsOptions = {
-  origin: 'https://www.nbbl-stats.de', // Allow requests from this origin
-  optionsSuccessStatus: 200 // For legacy browser support
+  origin: [
+    'https://www.nbbl-stats.de',
+    'http://localhost:5174',
+    'https://frontend-iota-seven-93.vercel.app',
+    'https://frontend-lurppis-projects.vercel.app'
+  ],
+  optionsSuccessStatus: 200, // Für legacy browser support
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Erlaubte Methoden
+  allowedHeaders: 'Content-Type, Authorization', // Erlaubte Header
 };
 
 // Middleware
