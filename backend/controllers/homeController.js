@@ -1,7 +1,4 @@
-// backend/routes/home.js
-const express = require('express');
-const router = express.Router();
+// backend/controllers/homeController.js
+// Hier könnten zukünftige Controller-Funktionen definiert werden.
 
-// Hier könnten zukünftige Routen definiert werden.
-
-module.exports = router;
+module.exports = {};
