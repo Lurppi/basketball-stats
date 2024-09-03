@@ -2,6 +2,9 @@
 const express = require('express');
 const router = express.Router();
 
-// Hier könnten zukünftige Routen definiert werden.
+// Beispielroute für zukünftige Implementierungen
+router.get('/', (req, res) => {
+  res.send('Welcome to the home route');
+});
 
 module.exports = router;

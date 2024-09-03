@@ -1,3 +1,4 @@
+// backend/controllers/teamsController.js
 const fs = require('fs');
 const path = require('path');
 const csv = require('csv-parser');
@@ -11,11 +12,9 @@ const getTeamsData = (req, res) => {
   const filePath = path.join(__dirname, `../data/${file}.csv`);
   const results = [];
 
-  res.set('Access-Control-Allow-Origin', '*'); // CORS-Header gleich zu Beginn setzen
-
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
-      console.error(`File not found: ${filePath}`); // Loggen des genauen Dateipfads
+      console.error(`File not found: ${filePath}`);
       return res.status(404).send(`File not found: ${filePath}`);
     }
 
@@ -26,7 +25,7 @@ const getTeamsData = (req, res) => {
         res.json(results);
       })
       .on('error', (err) => {
-        console.error(`Error reading the CSV file: ${err}`); // Fehler loggen
+        console.error(`Error reading the CSV file: ${err}`);
         res.status(500).send('Error reading the CSV file');
       });
   });
