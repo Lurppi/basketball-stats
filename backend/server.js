@@ -22,6 +22,9 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
+// Handle preflight requests for all routes
+app.options('*', cors(corsOptions));  // <- Dies fügt Unterstützung für Preflight-Anfragen hinzu
+
 // Routes
 app.use('/api/players', playersRoutes);
 app.use('/api/teams', teamsRoutes);
