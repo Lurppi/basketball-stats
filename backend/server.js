@@ -15,9 +15,9 @@ const corsOptions = {
     'https://frontend-iota-seven-93.vercel.app',
     'https://frontend-lurppis-projects.vercel.app'
   ],
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'], // Erlaubte Methoden
+  allowedHeaders: ['Content-Type', 'Authorization'], // Erlaubte Header
   optionsSuccessStatus: 200, // Für legacy browser support
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Erlaubte Methoden
-  allowedHeaders: 'Content-Type, Authorization', // Erlaubte Header
 };
 
 // Middleware
@@ -40,6 +40,12 @@ app.get('/', (req, res) => {
 // Error handling for 404
 app.use((req, res) => {
   res.status(404).send('Not Found');
+});
+
+// Global error handling middleware
+app.use((err, req, res, next) => {
+  console.error('Internal Server Error:', err.stack);
+  res.status(500).send('Internal Server Error');
 });
 
 // Start server
