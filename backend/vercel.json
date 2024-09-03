@@ -11,8 +11,5 @@
       "src": "/api/(.*)",
       "dest": "/server.js"
     }
-  ],
-  "build": {
-    "ignoreCommand": "git diff --quiet HEAD^ HEAD ./frontend/"
-  }
+  ]
 }
