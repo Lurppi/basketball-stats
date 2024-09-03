@@ -1,12 +1,18 @@
 const express = require('express');
-const cors = require('cors'); 
+const cors = require('cors');
 const app = express();
 const playersRoutes = require('./routes/players');
 const teamsRoutes = require('./routes/teams');
 const homeRoutes = require('./routes/home');
 
+// CORS configuration
+const corsOptions = {
+  origin: 'https://www.nbbl-stats.de', // Allow requests from this origin
+  optionsSuccessStatus: 200 // For legacy browser support
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Routes
