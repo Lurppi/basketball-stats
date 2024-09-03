@@ -9,6 +9,7 @@ const sanitizeFileName = (fileName) => {
 const getPlayersData = (req, res) => {
   const file = sanitizeFileName(req.query.file);
   const filePath = path.join(__dirname, `../data/${file}.csv`);
+  console.log(`Attempting to access file at: ${filePath}`);
   const results = [];
 
   res.set('Access-Control-Allow-Origin', '*'); // CORS-Header gleich zu Beginn setzen
