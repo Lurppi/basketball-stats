@@ -23,7 +23,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // Handle preflight requests for all routes
-app.options('*', cors(corsOptions));  // <- Dies fügt Unterstützung für Preflight-Anfragen hinzu
+app.options('*', cors(corsOptions));  // <- Dies stellt sicher, dass Preflight-Anfragen korrekt beantwortet werden
 
 // Routes
 app.use('/api/players', playersRoutes);
