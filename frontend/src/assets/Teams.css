@@ -116,18 +116,25 @@
   position: relative; /* Notwendig für die Fixierung */
 }
 
-/* Fixiert die erste Spalte */
 .teams-table-container th:nth-of-type(1),
 .teams-table-container td:nth-of-type(1) {
+ width: 20px;
+ text-align: right;
+
+}
+
+/* Fixiert die erste Spalte */
+.teams-table-container th:nth-of-type(2),
+.teams-table-container td:nth-of-type(2) {
   position: sticky;
   left: 0;
   text-align: left;
-  width: 180px;
+  width: 170px;
   background: rgba(255, 255, 255, 0.9); /* Hintergrund, um den Text lesbar zu halten */
   z-index: 1; /* Damit die erste Spalte über den restlichen Zellen bleibt */
 }
 
-.teams-table-container th:nth-of-type(1) {
+.teams-table-container th:nth-of-type(2) {
   z-index: 3; /* Damit die erste Spalte der Kopfzeile über der fixierten Kopfzeile bleibt */
 }
 

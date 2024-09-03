@@ -314,6 +314,7 @@ const Teams = () => {
             <table className="teams-table-container">
               <thead>
                 <tr>
+                  <th>#</th> {/* Zeilennummerierung hinzufügen */}
                   {headers.map((header, idx) => (
                     <th key={idx} className={idx === 17 ? 'teams-hidden-column' : ''}>
                       <abbr title={getTooltip(header)}>{header}</abbr>
@@ -322,8 +323,9 @@ const Teams = () => {
                 </tr>
               </thead>
               <tbody>
-                {displayedTeams.map((row, idx) => (
-                  <tr key={idx}>
+                {displayedTeams.map((row, rowIdx) => (
+                  <tr key={rowIdx}>
+                    <td>{(currentPage - 1) * rowsPerPage + rowIdx + 1}</td> {/* Zeilennummerierung */}
                     {row.map((cell, cellIdx) => (
                       <td key={cellIdx}>
                         {cell}

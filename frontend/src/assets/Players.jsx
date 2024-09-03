@@ -241,7 +241,8 @@ const Players = () => {
   const displayedPlayers = useMemo(() => {
     return applyFilters(players)
       .slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage)
-      .filter(row => row.some(cell => cell !== null && cell !== ''));
+      .filter(row => row.some(cell => cell !== null && cell !== ''))
+      .map((row, index) => [((currentPage - 1) * rowsPerPage) + index + 1, ...row]);
   }, [players, filters, currentPage, rowsPerPage]);
 
   const totalRows = useMemo(() => {
@@ -382,6 +383,7 @@ const Players = () => {
             <table className="players-table-container">
               <thead>
                 <tr>
+                  <th>#</th>
                   {headers.map((header, idx) => (
                     <th key={idx} className={idx === 17 || idx === 18 ? 'players-hidden-column' : ''}>
                       <abbr title={getTooltip(header)}>{header}</abbr>
