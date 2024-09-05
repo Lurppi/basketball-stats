@@ -28,8 +28,7 @@ const getPlayersData = (req, res) => {
         });
 
         // Log formatted row for debugging
-        console.log("Row data:", formattedData);
-
+        
         results.push(formattedData);
       })
       .on('end', () => {
