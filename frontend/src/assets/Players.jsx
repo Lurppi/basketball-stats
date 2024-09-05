@@ -5,12 +5,30 @@ import Footer from './Footer';
 import './Players.css';
 
 const columnMappings = {
-  Totals: [5, 4, 6, 7, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 0, 1, 2, 3, 11, 12, 13],
-  Averages: [5, 4, 6, 7, 12, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 0, 1, 2, 3, 11, 12, 13],
-  Shooting: [5, 4, 6, 7, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 0, 1, 2, 3, 11, 12, 13],
-  'Advanced 1': [5, 4, 6, 7, 66, 33, 34, 58, 59, 47, 48, 49, 50, 51, 52, 53, 0, 1, 2, 3, 11, 12, 13],
-  'Advanced 2': [5, 4, 6, 7, 66, 33, 34, 68, 69, 70, 71, 67, 54, 55, 56, 57, 0, 1, 2, 3, 11, 12, 13],
-  'Advanced 3': [5, 4, 6, 7, 66, 33, 34, 60, 61, 62, 64, 65, 63, 47, 48, 49, 0, 1, 2, 3, 11, 12, 13],
+  Totals: [
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'GP', 'MP', 'PT', 'RB', 'AS', 'ST', 'BS', 'TO', 'PF', 'EF', 'DD', 'TD', 
+    'SEASON', 'LEAGUE', 'DIV', 'SEASON TYPE', 'GP', 'MP', 'BORN'
+  ],
+  Averages: [
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'MPG', 'PPG', 'RPG', 'AGP', 'SPG', 'BPG', 'TOPG', 'PFPG', 'EFPG', 'PER', 'PIE', 
+    'SEASON', 'LEAGUE', 'DIV', 'SEASON TYPE', 'GP', 'MP', 'BORN'
+  ],
+  Shooting: [
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', '2PM', '2PA', '2P%', '3PM', '3PA', '3P%', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%',
+    'SEASON', 'LEAGUE', 'DIV', 'SEASON TYPE', 'GP', 'MP', 'BORN'
+  ],
+  'Advanced 1': [
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'FIC', 'FIC Gm', 'AS RATIO', 'AS RATE', 'AS TO', 'REB%', 'ST%', 'BS%', 
+    'SEASON', 'LEAGUE', 'DIV', 'SEASON TYPE', 'GP', 'MP', 'BORN'
+  ],
+  'Advanced 2': [
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'TS%', 'EFG%', 'TOV%', 'ORB%', 'FT RATE', 'ORTG', 'DRTG', 'NRTG', 
+    'SEASON', 'LEAGUE', 'DIV', 'SEASON TYPE', 'GP', 'MP', 'BORN'
+  ],
+  'Advanced 3': [
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'OBPM', 'DBPM', 'BPM', 'VORP', 'OWS', 'DWS', 'WS', 'WS 40', 
+    'SEASON', 'LEAGUE', 'DIV', 'SEASON TYPE', 'GP', 'MP', 'BORN'
+  ],
 };
 
 const teamNameMapping = {
@@ -167,23 +185,22 @@ const Players = () => {
         const data = await fetchPlayers({
           season: filters.season !== 'All' ? filters.season : undefined,
         });
-
+  
+        console.log("Daten vom Backend:", data); // Debugging
+        
         if (data && data.length > 0) {
-          // Header verarbeiten
-          const rawHeaders = Object.keys(data[0])[0].split(';').map(header => header.trim());
-          const selectedColumns = columnMappings[filters.statsType];
-          const headers = selectedColumns.map(index => rawHeaders[index]);
-          setHeaders(headers);
-
-          // Daten verarbeiten
-          const processedData = data.map(entry => {
-            const rowValues = Object.values(entry)[0].split(';').map(value => value.trim());
-            return selectedColumns.map(index => rowValues[index]);
+          // Überprüfe die Header
+          const selectedColumns = columnMappings[filters.statsType];  // Hier nutzen wir die Mappings
+          setHeaders(selectedColumns);  // Setze die ausgewählten Spalten als Header
+          
+          // Verarbeite die Daten für die Tabelle
+          const processedData = data.map((entry) => {
+            return selectedColumns.map((column) => entry[column] || '');  // Mapping der Spalten auf die Werte
           });
-
+  
           setAllPlayers(processedData);
           setFilteredData(processedData);
-
+  
           // Filteroptionen dynamisch extrahieren
           const seasonsSet = new Set();
           const leaguesSet = new Set();
@@ -193,20 +210,20 @@ const Players = () => {
           const offensiveRolesSet = new Set();
           const bornYearsSet = new Set();
           const seasonTypesSet = new Set();
-
-          processedData.forEach(row => {
-            seasonsSet.add(row[16]);
-            leaguesSet.add(row[17]);
-            divisionsSet.add(row[18]);
-            teamsSet.add(row[1]);
-            positionsSet.add(row[2]);
-            offensiveRolesSet.add(row[3]);
-            bornYearsSet.add(row[20]);
-            seasonTypesSet.add(row[19]);
+  
+          data.forEach(entry => {
+            seasonsSet.add(entry.SEASON);
+            leaguesSet.add(entry.LEAGUE);
+            divisionsSet.add(entry.DIV);
+            teamsSet.add(entry.TEAM);
+            positionsSet.add(entry.POS);
+            offensiveRolesSet.add(entry.ROLE);
+            bornYearsSet.add(entry.BORN);
+            seasonTypesSet.add(entry['SEASON TYPE']);
           });
-
-          setSeasons([...seasonsSet].sort().map(s => `${s.slice(0, 4)}-${s.slice(4)}`)); // Format zu '2022-2023'
-          setLeagues([...leaguesSet].filter(l => l).sort()); // Leere Werte entfernen
+  
+          setSeasons([...seasonsSet].sort().map(s => `${s.slice(0, 4)}-${s.slice(4)}`));  // Format zu '2022-2023'
+          setLeagues([...leaguesSet].filter(l => l).sort());  // Leere Werte entfernen
           setDivisions([...divisionsSet].filter(d => d).sort());
           setTeams([...teamsSet].filter(t => t).sort());
           setPositions([...positionsSet].filter(p => p).sort());
@@ -214,7 +231,7 @@ const Players = () => {
           setBornYears([...bornYearsSet].filter(b => b).sort((a, b) => a - b));
           setSeasonTypes([...seasonTypesSet].filter(s => s).sort());
         }
-
+  
         setLoading(false);
       } catch (error) {
         console.error('Fehler beim Laden der Daten:', error);
@@ -222,7 +239,7 @@ const Players = () => {
         setLoading(false);
       }
     };
-
+  
     fetchData();
   }, [filters.season, filters.statsType]);
 

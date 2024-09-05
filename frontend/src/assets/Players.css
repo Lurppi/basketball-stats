@@ -204,20 +204,4 @@ header {
   }
 }
 
-/* Spalten 17 bis 23 ausblenden */
-.players-table-container th:nth-of-type(24),
-.players-table-container td:nth-of-type(24),
-.players-table-container th:nth-of-type(18),
-.players-table-container td:nth-of-type(18),
-.players-table-container th:nth-of-type(19),
-.players-table-container td:nth-of-type(19),
-.players-table-container th:nth-of-type(20),
-.players-table-container td:nth-of-type(20),
-.players-table-container th:nth-of-type(21),
-.players-table-container td:nth-of-type(21),
-.players-table-container th:nth-of-type(22),
-.players-table-container td:nth-of-type(22),
-.players-table-container th:nth-of-type(23),
-.players-table-container td:nth-of-type(23) {
-  display: none;
-}
+
