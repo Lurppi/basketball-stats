@@ -173,84 +173,51 @@ const Players = () => {
         });
   
         if (data && data.length > 0) {
-          console.log('Fetched data:', data);  // Debugging: Zeigt die erhaltenen Daten an
-
-          // Da die Daten als Objekte vorliegen, können wir die Schlüssel der Objekte als Header verwenden
+          // Debug: Prüfe, was in data[0] vorhanden ist
+          console.log('Fetched data[0]:', data[0]);
+  
           const rawHeaders = Object.keys(data[0]);  // Verwende die Schlüssel des ersten Objekts als Header
-          console.log('rawHeaders:', rawHeaders);  // Debugging: Zeigt die Header an
-
+          
+          console.log('rawHeaders:', rawHeaders);  // Debug: Prüfe, was in rawHeaders enthalten ist
+  
           const selectedColumns = columnMappings[filters.statsType];  // Wähle die Spalten basierend auf dem gewählten Stat-Typ
-          console.log('selectedColumns:', selectedColumns);  // Debugging: Zeigt die ausgewählten Spalten an
-
-          // Prüfe, ob der Header existiert, bevor trim() aufgerufen wird
+          console.log('selectedColumns:', selectedColumns);  // Debug: Überprüfe die ausgewählten Spalten
+  
+          // Überprüfe, ob die Indizes in rawHeaders existieren
           const headers = selectedColumns.map(index => rawHeaders[index] ? rawHeaders[index].trim() : 'Unknown Header');
           setHeaders(headers);  // Setze die Tabellenüberschriften
-          console.log('Set headers:', headers);  // Debugging: Zeigt die gesetzten Header an
-
-          // Verarbeite die restlichen Daten
+          console.log('Set headers:', headers);  // Debug: Zeige die gesetzten Header
+  
           const filteredData = data.map(entry => {
-            return selectedColumns.map(index => entry[rawHeaders[index]] || '');  // Hole die Daten für die ausgewählten Spalten
+            return selectedColumns.map(index => entry[rawHeaders[index]]);  // Hole die Daten für die ausgewählten Spalten
           });
-
-          console.log('Filtered data:', filteredData);  // Debugging: Zeigt die gefilterten Daten an
-
-          // Aktualisiere die Daten
+  
           setAllPlayers(filteredData);
           setFilteredData(filteredData);
-
-          // Dynamische Filteroptionen extrahieren
-          const seasonsSet = new Set();
-          const leaguesSet = new Set();
-          const divisionsSet = new Set();
-          const teamsSet = new Set();
-          const positionsSet = new Set();
-          const offensiveRolesSet = new Set();
-          const bornYearsSet = new Set();
-  
-          filteredData.forEach(row => {
-            seasonsSet.add(row[0]);  // Saison
-            leaguesSet.add(row[1]);  // Liga
-            divisionsSet.add(row[2]);  // Division
-            teamsSet.add(row[4]);  // Team
-            positionsSet.add(row[6]);  // Position
-            offensiveRolesSet.add(row[7]);  // Offensive Rolle
-            bornYearsSet.add(row[11]);  // Geburtsjahr
-          });
-  
-          // Setze die Filter-Optionen
-          setSeasons([...seasonsSet].sort());
-          setLeagues([...leaguesSet].sort());
-          setDivisions([...divisionsSet].sort());
-          setTeams([...teamsSet].sort());
-          setPositions([...positionsSet].sort());
-          setOffensiveRoles([...offensiveRolesSet].sort());
-          setBornYears([...bornYearsSet].sort((a, b) => a - b));  // Sortiere die Geburtsjahre aufsteigend
-
-        } else {
-          console.warn('No data available from the API');  // Debugging: Zeigt eine Warnung, wenn keine Daten zurückkommen
         }
   
         setLoading(false);  // Ladezustand beenden
       } catch (error) {
-        console.error('Fehler beim Laden der Daten:', error);  // Zeigt den Fehler an, falls der Abruf fehlschlägt
+        console.error('Fehler beim Laden der Daten:', error);
         setError(error);
         setLoading(false);  // Bei Fehler ebenfalls Ladezustand beenden
       }
     };
   
     fetchData();
-  }, [filters.season, filters.league, filters.division, filters.born, filters.gamesPlayed, filters.minutesPlayed]);
+  }, [filters.season, filters.league, filters.division, filters.born, filters.gamesPlayed, filters.minutesPlayed, filters.statsType]);
 
   // Lokale Filter für Team, Position, Offensive Role anwenden
-  const applyFilters = (data) => {
-    return data.filter(row => {
-      const teamMatch = filters.team === 'All' || row[4] === filters.team;
-      const positionMatch = filters.position === 'All' || row[6] === filters.position;
-      const offensiveRoleMatch = filters.offensiveRole === 'All' || row[7] === filters.offensiveRole;
+  // Lokale Filter für Team, Position, Offensive Role anwenden
+const applyFilters = (data) => {
+  return data.filter(row => {
+    const teamMatch = filters.team === 'All' || row[4] === filters.team;
+    const positionMatch = filters.position === 'All' || row[6] === filters.position; // Filter für Position
+    const offensiveRoleMatch = filters.offensiveRole === 'All' || row[7] === filters.offensiveRole;
 
-      return teamMatch && positionMatch && offensiveRoleMatch;
-    });
-  };
+    return teamMatch && positionMatch && offensiveRoleMatch;
+  });
+};
 
   // Sortierlogik
   const sortData = (data) => {
@@ -327,6 +294,19 @@ const Players = () => {
                   <option key={idx} value={division}>{division}</option>
                 ))}
               </select>
+            </label>
+
+             <label>
+               Stats Type:
+               <select
+                 name="statsType"
+                 value={filters.statsType}
+                 onChange={e => setFilters({ ...filters, statsType: e.target.value })}
+              >
+                {Object.keys(columnMappings).map((type, idx) => (
+                  <option key={idx} value={type}>{type}</option>
+                ))}
+             </select>
             </label>
 
             {/* Born Dropdown */}
