@@ -18,13 +18,13 @@ const getPlayersData = (req, res) => {
     fs.createReadStream(filePath)
       .pipe(csv({ separator: ';' }))  // Ensure you're using the correct separator
       .on('headers', (csvHeaders) => {
-        headers = csvHeaders.map(header => header.trim()); // Trim headers for cleanliness
+        headers = csvHeaders; // No trimming of headers
       })
       .on('data', (row) => {
         const formattedData = {};
 
         headers.forEach((header) => {
-          formattedData[header] = row[header] ? row[header].trim() : ''; // Trim and process data
+          formattedData[header] = row[header] ? row[header] : ''; // No trimming of row data
         });
 
         // Log formatted row for debugging
