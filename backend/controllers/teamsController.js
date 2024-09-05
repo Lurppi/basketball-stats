@@ -2,13 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const csv = require('csv-parser');
 
-const sanitizeFileName = (fileName) => {
-  return fileName.replace(/[^a-z0-9_-]/gi, '');
-};
-
 const getTeamsData = (req, res) => {
-  const file = sanitizeFileName(req.query.file);
-  const filePath = path.join(__dirname, `../data/${file}.csv`);
+  const filePath = path.join(__dirname, '../data/TEAMS.csv'); // Feste Datei "TEAMS.csv"
+  console.log(`Attempting to access file at: ${filePath}`);
   const results = [];
 
   fs.access(filePath, fs.constants.F_OK, (err) => {
@@ -18,7 +14,7 @@ const getTeamsData = (req, res) => {
     }
 
     fs.createReadStream(filePath)
-      .pipe(csv({ separator: ',' })) // Separator je nach CSV-Datei anpassen
+      .pipe(csv({ separator: ',' })) // Passe den Separator an, falls nötig
       .on('data', (data) => results.push(data))
       .on('end', () => {
         res.json(results);
