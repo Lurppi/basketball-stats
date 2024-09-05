@@ -109,11 +109,8 @@ const files = [
   { path: path.join(__dirname, 'data', 'TPO_FourFactors.csv'), table: 'teams_playoffs_four_factors' },
 
   // New Files
-  { path: path.join(__dirname, 'data', 'PLAYERS_1.csv'), table: 'players_1' },
-  { path: path.join(__dirname, 'data', 'PLAYERS_PO.csv'), table: 'players_po' },
-  { path: path.join(__dirname, 'data', 'PLAYERS_RS.csv'), table: 'players_rs' },
-  { path: path.join(__dirname, 'data', 'TEAMS_PO.csv'), table: 'teams_po' },
-  { path: path.join(__dirname, 'data', 'TEAMS_RS.csv'), table: 'teams_rs' }
+  { path: path.join(__dirname, 'data', 'PLAYERS.csv'), table: 'players' }, // New PLAYERS.csv file
+  { path: path.join(__dirname, 'data', 'TEAMS.csv'), table: 'teams' }     // New TEAMS.csv file
 ];
 
 // Importiere alle CSV-Dateien

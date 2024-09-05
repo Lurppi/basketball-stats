@@ -153,12 +153,6 @@
   z-index: 1; /* Damit die erste Spalte über den restlichen Zellen bleibt */
 }
 
-/* Update to hide columns */
-.players-table-container th:nth-of-type(19),
-.players-table-container td:nth-of-type(19) {
-  display: none;
-}
-
 .players-footer {
   position: fixed;
   bottom: 0;
