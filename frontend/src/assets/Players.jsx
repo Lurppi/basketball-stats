@@ -6,28 +6,28 @@ import './Players.css';
 
 const columnMappings = {
   Totals: [
-    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'GP', 'MP', 'PT', 'RB', 'AS', 'ST', 'BS', 'TO', 'PF', 'EF', 'DD', 'TD', 
-    'SEASON', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP', 'BORN'
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'GP', 'MP', 'PT', 'RB', 'AS', 'ST', 'BS', 'TO', 'PF', 'EF', 'DD', 'TD',
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
   Averages: [
-    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'MPG', 'PPG', 'RPG', 'AGP', 'SPG', 'BPG', 'TOPG', 'PFPG', 'EFPG', 'PER', 'PIE', 
-    'SEASON', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP', 'BORN'
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'MPG', 'PPG', 'RPG', 'APG', 'SPG', 'BPG', 'TOPG', 'PFPG', 'EFPG', 'PER', 'PIE',
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
   Shooting: [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', '2PM', '2PA', '2P%', '3PM', '3PA', '3P%', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%',
-    'SEASON', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP', 'BORN'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
   'Advanced 1': [
-    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'FIC', 'FIC_Gm', 'AS_RATIO', 'AS_RATE', 'AS_TO', 'REB%', 'ST%', 'BS%', 
-    'SEASON', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP', 'BORN'
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'FIC', 'FIC_Gm', 'AS_RATIO', 'AS_RATE', 'AS_TO', 'REB%', 'ST%', 'BS%',
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
   'Advanced 2': [
-    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'TS%', 'EFG%', 'TOV%', 'ORB%', 'FT RATE', 'ORTG', 'DRTG', 'NRTG', 
-    'SEASON', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP', 'BORN'
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'TS%', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE', 'ORTG', 'DRTG', 'NRTG',
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
   'Advanced 3': [
-    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'OBPM', 'DBPM', 'BPM', 'VORP', 'OWS', 'DWS', 'WS', 'WS_40', 
-    'SEASON', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP', 'BORN'
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'OBPM', 'DBPM', 'BPM', 'VORP', 'OWS', 'DWS', 'WS', 'WS_40',
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
 };
 
