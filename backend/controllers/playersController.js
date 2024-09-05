@@ -5,6 +5,7 @@ const csv = require('csv-parser');
 const getPlayersData = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv'); // Fester Dateipfad
   const results = [];
+  let headers = [];
 
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
@@ -13,22 +14,21 @@ const getPlayersData = (req, res) => {
     }
 
     fs.createReadStream(filePath)
-      .pipe(csv({ separator: ';' }))  // Verwende das ';' als Trennzeichen
-      .on('data', (data) => {
-        // Verarbeite die Datenzeilen
+      .pipe(csv({ separator: ';', mapHeaders: ({ header }) => header.trim() }))  // Trimme Leerzeichen und nutze das ';' als Trennzeichen
+      .on('headers', (csvHeaders) => {
+        headers = csvHeaders.map(header => header.trim());  // Speichere die Header separat und trimme Leerzeichen
+      })
+      .on('data', (row) => {
         const formattedData = {};
-        const headers = Object.keys(data)[0].split(';');  // Header aus der ersten Zeile der CSV-Datei
-        const values = Object.values(data)[0].split(';');  // Werte aus der Zeile der CSV-Datei
 
-        // Übersetze die Zeile in ein Key-Value-Objekt
         headers.forEach((header, index) => {
-          formattedData[header.trim()] = values[index].trim();  // Entferne Leerzeichen an den Rändern
+          formattedData[header] = row[header] ? row[header].trim() : '';  // Verarbeite die Werte und trimme Leerzeichen
         });
 
         results.push(formattedData);
       })
       .on('end', () => {
-        res.json(results);
+        res.json(results);  // Sende die Ergebnisse im JSON-Format an das Frontend
       })
       .on('error', (err) => {
         console.error(`Error reading the CSV file: ${err}`);
