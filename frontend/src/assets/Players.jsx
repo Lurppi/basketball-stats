@@ -201,7 +201,7 @@ const Players = () => {
             teamsSet.add(row[1]);
             positionsSet.add(row[2]);
             offensiveRolesSet.add(row[3]);
-            bornYearsSet.add(row[19]);
+            bornYearsSet.add(row[20]);
             seasonTypesSet.add(row[19]);
           });
 
@@ -235,9 +235,9 @@ const Players = () => {
       const positionMatch = filters.position === 'All' || row[2] === filters.position;
       const offensiveRoleMatch = filters.offensiveRole === 'All' || row[3] === filters.offensiveRole;
       const seasonTypeMatch = filters.seasonType === 'All' || row[19] === filters.seasonType; // Season Type Filter
-      const bornMatch = filters.born === 'All' || row[19] === filters.born;
-      const gamesPlayedMatch = !filters.gamesPlayed || parseInt(row[20], 10) >= parseInt(filters.gamesPlayed, 10);
-      const minutesPlayedMatch = !filters.minutesPlayed || parseInt(row[21], 10) >= parseInt(filters.minutesPlayed, 10);
+      const bornMatch = filters.born === 'All' || row[20] === filters.born;
+      const gamesPlayedMatch = !filters.gamesPlayed || parseInt(row[21], 10) >= parseInt(filters.gamesPlayed, 10);
+      const minutesPlayedMatch = !filters.minutesPlayed || parseInt(row[22], 10) >= parseInt(filters.minutesPlayed, 10);
 
       return (
         leagueMatch &&
