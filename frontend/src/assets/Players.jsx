@@ -7,27 +7,27 @@ import './Players.css';
 const columnMappings = {
   Totals: [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'GP', 'MP', 'PT', 'RB', 'AS', 'ST', 'BS', 'TO', 'PF', 'EF', 'DD', 'TD', 
-    'SEASON', 'LEAGUE', 'DIV', 'SEASON TYPE', 'GP', 'MP', 'BORN'
+    'SEASON', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP', 'BORN'
   ],
   Averages: [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'MPG', 'PPG', 'RPG', 'AGP', 'SPG', 'BPG', 'TOPG', 'PFPG', 'EFPG', 'PER', 'PIE', 
-    'SEASON', 'LEAGUE', 'DIV', 'SEASON TYPE', 'GP', 'MP', 'BORN'
+    'SEASON', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP', 'BORN'
   ],
   Shooting: [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', '2PM', '2PA', '2P%', '3PM', '3PA', '3P%', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%',
-    'SEASON', 'LEAGUE', 'DIV', 'SEASON TYPE', 'GP', 'MP', 'BORN'
+    'SEASON', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP', 'BORN'
   ],
   'Advanced 1': [
-    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'FIC', 'FIC Gm', 'AS RATIO', 'AS RATE', 'AS TO', 'REB%', 'ST%', 'BS%', 
-    'SEASON', 'LEAGUE', 'DIV', 'SEASON TYPE', 'GP', 'MP', 'BORN'
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'FIC', 'FIC_Gm', 'AS_RATIO', 'AS_RATE', 'AS_TO', 'REB%', 'ST%', 'BS%', 
+    'SEASON', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP', 'BORN'
   ],
   'Advanced 2': [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'TS%', 'EFG%', 'TOV%', 'ORB%', 'FT RATE', 'ORTG', 'DRTG', 'NRTG', 
-    'SEASON', 'LEAGUE', 'DIV', 'SEASON TYPE', 'GP', 'MP', 'BORN'
+    'SEASON', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP', 'BORN'
   ],
   'Advanced 3': [
-    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'OBPM', 'DBPM', 'BPM', 'VORP', 'OWS', 'DWS', 'WS', 'WS 40', 
-    'SEASON', 'LEAGUE', 'DIV', 'SEASON TYPE', 'GP', 'MP', 'BORN'
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'OBPM', 'DBPM', 'BPM', 'VORP', 'OWS', 'DWS', 'WS', 'WS_40', 
+    'SEASON', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP', 'BORN'
   ],
 };
 
@@ -150,13 +150,13 @@ const Players = () => {
   const [headers, setHeaders] = useState([]);
   const [filters, setFilters] = useState({
     season: '20232024', // Standardmäßige Saison
-    league: 'All', // League nur für Filterung in der Tabelle
-    statsType: 'Totals', // Auswahl für die Metriken
+    league: 'All', 
+    statsType: 'Totals', 
     division: 'All',
     team: 'All',
     position: 'All',
     offensiveRole: 'All',
-    seasonType: 'All', // Neuer Season Type Filter
+    seasonType: 'All', 
     born: 'All',
     gamesPlayed: '',
     minutesPlayed: '',
@@ -178,7 +178,6 @@ const Players = () => {
   const rowsPerPage = 20;
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Daten von der API laden, basierend auf Season und Stats Type
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -186,22 +185,17 @@ const Players = () => {
           season: filters.season !== 'All' ? filters.season : undefined,
         });
   
-        console.log("Daten vom Backend:", data); // Debugging
-        
         if (data && data.length > 0) {
-          // Überprüfe die Header
-          const selectedColumns = columnMappings[filters.statsType];  // Hier nutzen wir die Mappings
-          setHeaders(selectedColumns);  // Setze die ausgewählten Spalten als Header
+          const selectedColumns = columnMappings[filters.statsType];  
+          setHeaders(selectedColumns);  
           
-          // Verarbeite die Daten für die Tabelle
           const processedData = data.map((entry) => {
-            return selectedColumns.map((column) => entry[column] || '');  // Mapping der Spalten auf die Werte
+            return selectedColumns.map((column) => entry[column] || '');  
           });
   
           setAllPlayers(processedData);
           setFilteredData(processedData);
   
-          // Filteroptionen dynamisch extrahieren
           const seasonsSet = new Set();
           const leaguesSet = new Set();
           const divisionsSet = new Set();
@@ -222,8 +216,8 @@ const Players = () => {
             seasonTypesSet.add(entry['SEASON TYPE']);
           });
   
-          setSeasons([...seasonsSet].sort().map(s => `${s.slice(0, 4)}-${s.slice(4)}`));  // Format zu '2022-2023'
-          setLeagues([...leaguesSet].filter(l => l).sort());  // Leere Werte entfernen
+          setSeasons([...seasonsSet].sort().map(s => `${s.slice(0, 4)}-${s.slice(4)}`));  
+          setLeagues([...leaguesSet].filter(l => l).sort());  
           setDivisions([...divisionsSet].filter(d => d).sort());
           setTeams([...teamsSet].filter(t => t).sort());
           setPositions([...positionsSet].filter(p => p).sort());
@@ -243,7 +237,6 @@ const Players = () => {
     fetchData();
   }, [filters.season, filters.statsType]);
 
-  // Lokale Filter anwenden
   const applyFilters = (data) => {
     return data.filter(row => {
       const leagueMatch = filters.league === 'All' || row[17] === filters.league;
@@ -251,7 +244,7 @@ const Players = () => {
       const teamMatch = filters.team === 'All' || row[1] === filters.team;
       const positionMatch = filters.position === 'All' || row[2] === filters.position;
       const offensiveRoleMatch = filters.offensiveRole === 'All' || row[3] === filters.offensiveRole;
-      const seasonTypeMatch = filters.seasonType === 'All' || row[19] === filters.seasonType; // Season Type Filter
+      const seasonTypeMatch = filters.seasonType === 'All' || row[19] === filters.seasonType; 
       const bornMatch = filters.born === 'All' || row[20] === filters.born;
       const gamesPlayedMatch = !filters.gamesPlayed || parseInt(row[21], 10) >= parseInt(filters.gamesPlayed, 10);
       const minutesPlayedMatch = !filters.minutesPlayed || parseInt(row[22], 10) >= parseInt(filters.minutesPlayed, 10);
@@ -270,7 +263,6 @@ const Players = () => {
     });
   };
 
-  // Daten sortieren
   const sortData = (data) => {
     if (!filters.sortStat) return data;
 
@@ -282,7 +274,6 @@ const Players = () => {
     });
   };
 
-  // Angezeigte Daten berechnen
   const displayedPlayers = useMemo(() => {
     const filtered = applyFilters(filteredData);
     const sorted = sortData(filtered);
@@ -504,7 +495,7 @@ const Players = () => {
 
         <div className="players-container">
           <div className="players-pagination players-pagination-top-right">
-            {totalRows} Player - Page {currentPage} of {totalPages}
+            {totalRows} Players - Page {currentPage} of {totalPages}
             <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
               {"<"}
             </button>
