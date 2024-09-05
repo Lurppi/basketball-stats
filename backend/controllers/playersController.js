@@ -3,8 +3,7 @@ const path = require('path');
 const csv = require('csv-parser');
 
 const getPlayersData = (req, res) => {
-  const filePath = path.join(__dirname, '../data/PLAYERS.csv'); // Feste Datei "PLAYERS.csv"
-  console.log(`Attempting to access file at: ${filePath}`);
+  const filePath = path.join(__dirname, '../data/PLAYERS.csv'); // Fester Dateipfad
   const results = [];
 
   fs.access(filePath, fs.constants.F_OK, (err) => {
@@ -14,8 +13,20 @@ const getPlayersData = (req, res) => {
     }
 
     fs.createReadStream(filePath)
-      .pipe(csv({ separator: ',' })) // Passe den Separator an, falls die Datei einen anderen verwendet
-      .on('data', (data) => results.push(data))
+      .pipe(csv({ separator: ';' }))  // Verwende das ';' als Trennzeichen
+      .on('data', (data) => {
+        // Verarbeite die Datenzeilen
+        const formattedData = {};
+        const headers = Object.keys(data)[0].split(';');  // Header aus der ersten Zeile der CSV-Datei
+        const values = Object.values(data)[0].split(';');  // Werte aus der Zeile der CSV-Datei
+
+        // Übersetze die Zeile in ein Key-Value-Objekt
+        headers.forEach((header, index) => {
+          formattedData[header.trim()] = values[index].trim();  // Entferne Leerzeichen an den Rändern
+        });
+
+        results.push(formattedData);
+      })
       .on('end', () => {
         res.json(results);
       })

@@ -171,21 +171,28 @@ const Players = () => {
           gamesPlayed: filters.gamesPlayed,
           minutesPlayed: filters.minutesPlayed,
         });
-
+  
         if (data && data.length > 0) {
-          const processedData = data.map(entry => {
-            const row = Object.values(entry)[0];
-            return row.split(';');
+          console.log('Fetched data:', data);  // Debugging: Zeigt die erhaltenen Daten an
+
+          // Da die Daten als Objekte vorliegen, können wir die Schlüssel der Objekte als Header verwenden
+          const rawHeaders = Object.keys(data[0]);  // Verwende die Schlüssel des ersten Objekts als Header
+          console.log('rawHeaders:', rawHeaders);  // Debugging: Zeigt die Header an
+
+          const selectedColumns = columnMappings[filters.statsType];  // Wähle die Spalten basierend auf dem gewählten Stat-Typ
+          console.log('selectedColumns:', selectedColumns);  // Debugging: Zeigt die ausgewählten Spalten an
+
+          // Prüfe, ob der Header existiert, bevor trim() aufgerufen wird
+          const headers = selectedColumns.map(index => rawHeaders[index] ? rawHeaders[index].trim() : 'Unknown Header');
+          setHeaders(headers);  // Setze die Tabellenüberschriften
+          console.log('Set headers:', headers);  // Debugging: Zeigt die gesetzten Header an
+
+          // Verarbeite die restlichen Daten
+          const filteredData = data.map(entry => {
+            return selectedColumns.map(index => entry[rawHeaders[index]] || '');  // Hole die Daten für die ausgewählten Spalten
           });
 
-          const rawHeaders = processedData[0];
-          const selectedColumns = columnMappings[filters.statsType];
-          const headers = selectedColumns.map(index => rawHeaders[index]);
-          setHeaders(headers);
-
-          const filteredData = processedData.slice(1).map(row => {
-            return selectedColumns.map(index => row[index]);
-          });
+          console.log('Filtered data:', filteredData);  // Debugging: Zeigt die gefilterten Daten an
 
           // Aktualisiere die Daten
           setAllPlayers(filteredData);
@@ -199,34 +206,38 @@ const Players = () => {
           const positionsSet = new Set();
           const offensiveRolesSet = new Set();
           const bornYearsSet = new Set();
-
+  
           filteredData.forEach(row => {
-            seasonsSet.add(row[0]);
-            leaguesSet.add(row[1]);
-            divisionsSet.add(row[2]);
-            teamsSet.add(row[4]);
-            positionsSet.add(row[6]);
-            offensiveRolesSet.add(row[7]);
-            bornYearsSet.add(row[11]);
+            seasonsSet.add(row[0]);  // Saison
+            leaguesSet.add(row[1]);  // Liga
+            divisionsSet.add(row[2]);  // Division
+            teamsSet.add(row[4]);  // Team
+            positionsSet.add(row[6]);  // Position
+            offensiveRolesSet.add(row[7]);  // Offensive Rolle
+            bornYearsSet.add(row[11]);  // Geburtsjahr
           });
-
+  
+          // Setze die Filter-Optionen
           setSeasons([...seasonsSet].sort());
           setLeagues([...leaguesSet].sort());
           setDivisions([...divisionsSet].sort());
           setTeams([...teamsSet].sort());
           setPositions([...positionsSet].sort());
           setOffensiveRoles([...offensiveRolesSet].sort());
-          setBornYears([...bornYearsSet].sort((a, b) => a - b));
-        }
+          setBornYears([...bornYearsSet].sort((a, b) => a - b));  // Sortiere die Geburtsjahre aufsteigend
 
-        setLoading(false);
+        } else {
+          console.warn('No data available from the API');  // Debugging: Zeigt eine Warnung, wenn keine Daten zurückkommen
+        }
+  
+        setLoading(false);  // Ladezustand beenden
       } catch (error) {
-        console.error('Fehler beim Laden der Daten:', error);
+        console.error('Fehler beim Laden der Daten:', error);  // Zeigt den Fehler an, falls der Abruf fehlschlägt
         setError(error);
-        setLoading(false);
+        setLoading(false);  // Bei Fehler ebenfalls Ladezustand beenden
       }
     };
-
+  
     fetchData();
   }, [filters.season, filters.league, filters.division, filters.born, filters.gamesPlayed, filters.minutesPlayed]);
 
