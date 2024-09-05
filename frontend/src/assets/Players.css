@@ -1,3 +1,4 @@
+/* General Styles */
 .players-grid-container {
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -9,11 +10,11 @@
 
 .players-filter-container {
   width: 1200px;
-  margin: 0 auto; 
+  margin: 0 auto; /* Zentriert den Container */
   background: rgba(255, 255, 255, 0.5);
   border-radius: 16px;
   padding: 20px;
-  margin-top: 50px;
+  margin-top: 150px;
   margin-bottom: 20px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
@@ -21,24 +22,26 @@
 .players-filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 5px;
   align-items: center;
 }
 
 .players-filters label {
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
   flex-grow: 1;
-  font-size: 1em;
+  font-size: 0.7em;
 }
 
 .players-filters select,
 .players-filters input {
-  margin-top: 8px;
-  padding: 10px;
+  display: flex;
+  margin-top: 5px;
+  padding: 6px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 1em;
+  font-size: 10.5px;
   width: 100%;
 }
 
@@ -57,22 +60,33 @@
 }
 
 .players-pagination {
+  width: 100%;
+  margin: 0 auto 20px auto;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  font-size: 0.8em;
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 20px;
-  font-size: 0.9em;
 }
 
 .players-pagination button {
-  background: none;
+  background: transparent;
   border: 1px solid black;
-  padding: 5px;
+  font-size: 1em;
+  padding: 1px 5px;
   cursor: pointer;
+  color: black;
 }
 
 .players-pagination button:hover {
   background-color: black;
   color: white;
+}
+
+.players-pagination button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
 }
 
 .players-table-wrapper {
@@ -85,33 +99,47 @@
   border-collapse: collapse;
 }
 
+.players-table-container table {
+  width: 100%; 
+  border-collapse: collapse;
+}
+
 .players-table-container th,
 .players-table-container td {
   padding: 6px 8px;
   text-align: center;
   white-space: nowrap;
   border-bottom: 1px solid #ddd;
-  font-size: 11px;
+  font-size: 11px; /* Standardgröße für die Schrift */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Überlaufenden Text abschneiden und durch ... anzeigen */
+  position: relative; /* Notwendig für die Fixierung */
 }
 
+/* Fixiere die Kopfzeile */
 .players-table-container th {
-  background: rgba(255, 255, 255, 0.9);
   position: sticky;
-  top: 0;
+  top: 0; /* Fixiere die Kopfzeile am oberen Rand */
+  background: rgba(255, 255, 255, 0.918); /* Hintergrundfarbe für bessere Lesbarkeit */
+  z-index: 2; /* Stellt sicher, dass die Kopfzeile über den anderen Inhalten liegt */
+  border-bottom: 2px solid #ddd; /* Optional: untere Grenze für bessere Sichtbarkeit */
 }
 
 .players-table-container th:nth-of-type(1),
-.players-table-container td:nth-of-type(1) {
+.players-table-container td:nth-of-type(1){
+  width: 20px;
   text-align: right;
 }
 
+/* Fixiert die erste Spalte */
 .players-table-container th:nth-of-type(2),
-.players-table-container td:nth-of-type(2) {
+.players-table-container td:nth-of-type(2){
   text-align: left;
   position: sticky;
   left: 0;
-  background: rgba(255, 255, 255, 0.9);
-  z-index: 1;
+  width: 200px;
+  background: rgba(255, 255, 255, 0.918); /* Hintergrund, um den Text lesbar zu halten */
+  z-index: 1; /* Damit die erste Spalte über den restlichen Zellen bleibt */
 }
 
 .players-table-container th:nth-of-type(2) {

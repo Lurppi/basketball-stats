@@ -185,45 +185,23 @@ const Players = () => {
           season: filters.season !== 'All' ? filters.season : undefined,
         });
   
+        console.log("Daten vom Backend:", data); // Debugging
+  
         if (data && data.length > 0) {
           const selectedColumns = columnMappings[filters.statsType];  
-          setHeaders(selectedColumns);  
+          console.log("Selected Columns: ", selectedColumns);  // Debugging
+          console.log("First Entry in Data: ", data[0]);  // Debugging
           
+          setHeaders(selectedColumns);  
+  
           const processedData = data.map((entry) => {
             return selectedColumns.map((column) => entry[column] || '');  
           });
   
+          console.log("Processed Data: ", processedData);  // Debugging
+  
           setAllPlayers(processedData);
           setFilteredData(processedData);
-  
-          const seasonsSet = new Set();
-          const leaguesSet = new Set();
-          const divisionsSet = new Set();
-          const teamsSet = new Set();
-          const positionsSet = new Set();
-          const offensiveRolesSet = new Set();
-          const bornYearsSet = new Set();
-          const seasonTypesSet = new Set();
-  
-          data.forEach(entry => {
-            seasonsSet.add(entry.SEASON);
-            leaguesSet.add(entry.LEAGUE);
-            divisionsSet.add(entry.DIV);
-            teamsSet.add(entry.TEAM);
-            positionsSet.add(entry.POS);
-            offensiveRolesSet.add(entry.ROLE);
-            bornYearsSet.add(entry.BORN);
-            seasonTypesSet.add(entry['SEASON TYPE']);
-          });
-  
-          setSeasons([...seasonsSet].sort().map(s => `${s.slice(0, 4)}-${s.slice(4)}`));  
-          setLeagues([...leaguesSet].filter(l => l).sort());  
-          setDivisions([...divisionsSet].filter(d => d).sort());
-          setTeams([...teamsSet].filter(t => t).sort());
-          setPositions([...positionsSet].filter(p => p).sort());
-          setOffensiveRoles([...offensiveRolesSet].filter(o => o).sort());
-          setBornYears([...bornYearsSet].filter(b => b).sort((a, b) => a - b));
-          setSeasonTypes([...seasonTypesSet].filter(s => s).sort());
         }
   
         setLoading(false);
