@@ -16,23 +16,26 @@ const getPlayersData = (req, res) => {
 
     // CSV-Datei einlesen und verarbeiten
     fs.createReadStream(filePath)
-      .pipe(csv({ separator: ';', mapHeaders: ({ header }) => header.trim() }))  // Trimme Leerzeichen und nutze ';' als Trennzeichen
+      .pipe(csv({ separator: ';' }))  // Verwende das ';' als Trennzeichen
       .on('headers', (csvHeaders) => {
-        headers = csvHeaders.map(header => header.trim());  // Speichere die Header und trimme Leerzeichen
+        // Aufsplitten des ersten Headers falls er zusammenhängend ist
+        if (csvHeaders.length === 1 && csvHeaders[0].includes(';')) {
+          headers = csvHeaders[0].split(';').map(header => header.trim());  // Spalte und trimme Leerzeichen
+        } else {
+          headers = csvHeaders.map(header => header.trim());  // Normaler Fall
+        }
       })
       .on('data', (row) => {
         const formattedData = {};
 
-        // Fülle das Key-Value-Objekt basierend auf den Headern
-        headers.forEach((header) => {
+        headers.forEach((header, index) => {
           formattedData[header] = row[header] ? row[header].trim() : '';  // Verarbeite die Werte und trimme Leerzeichen
         });
 
         results.push(formattedData);
       })
       .on('end', () => {
-        // Sende die Ergebnisse im JSON-Format an das Frontend
-        res.json(results);
+        res.json(results);  // Sende die Ergebnisse im JSON-Format an das Frontend
       })
       .on('error', (err) => {
         console.error(`Error reading the CSV file: ${err}`);

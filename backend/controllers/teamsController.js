@@ -16,16 +16,21 @@ const getTeamsData = (req, res) => {
 
     // CSV-Datei einlesen und verarbeiten
     fs.createReadStream(filePath)
-      .pipe(csv({ separator: ';', mapHeaders: ({ header }) => header.trim() }))  // Verwende das ';' als Trennzeichen und trimme Leerzeichen
+      .pipe(csv({ separator: ';' }))  // Verwende das ';' als Trennzeichen
       .on('headers', (csvHeaders) => {
-        headers = csvHeaders.map(header => header.trim());  // Speichere die Header und trimme Leerzeichen
+        // Aufsplitten des ersten Headers, falls er zusammenhängend ist
+        if (csvHeaders.length === 1 && csvHeaders[0].includes(';')) {
+          headers = csvHeaders[0].split(';').map(header => header.trim());  // Spalte und trimme Leerzeichen
+        } else {
+          headers = csvHeaders.map(header => header.trim());  // Normaler Fall
+        }
       })
-      .on('data', (data) => {
+      .on('data', (row) => {
         const formattedData = {};
 
         // Erstelle das Key-Value-Objekt basierend auf den Headern
         headers.forEach((header) => {
-          formattedData[header] = data[header] ? data[header].trim() : '';  // Entferne Leerzeichen und überprüfe auf undefined
+          formattedData[header] = row[header] ? row[header].trim() : '';  // Entferne Leerzeichen und überprüfe auf undefined
         });
 
         results.push(formattedData);
