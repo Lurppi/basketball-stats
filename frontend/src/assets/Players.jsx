@@ -184,20 +184,24 @@ const Players = () => {
         const data = await fetchPlayers({
           season: filters.season !== 'All' ? filters.season : undefined,
         });
-  
-        console.log("Data received from backend:", data);  // Log the data to inspect
-  
+    
+        console.log("Data received from backend:", data);  // Log all received data for inspection
+    
         if (data && data.length > 0) {
-          const selectedColumns = columnMappings[filters.statsType];  
-          setHeaders(selectedColumns);  
-          
+          const selectedColumns = columnMappings[filters.statsType];
+          setHeaders(selectedColumns);
+    
           const processedData = data.map((entry) => {
-            return selectedColumns.map((column) => entry[column] || '');  
+            // Log to see if SEASON_YEAR exists in the entry
+            console.log("Entry:", entry); // Inspect individual entries
+            
+            // Gracefully handle missing SEASON_YEAR
+            return selectedColumns.map((column) => entry[column] || 'N/A');  
           });
-  
+    
           setAllPlayers(processedData);
           setFilteredData(processedData);
-  
+    
           const seasonsSet = new Set();
           const leaguesSet = new Set();
           const divisionsSet = new Set();
@@ -206,10 +210,12 @@ const Players = () => {
           const offensiveRolesSet = new Set();
           const bornYearsSet = new Set();
           const seasonTypesSet = new Set();
-  
+    
           data.forEach(entry => {
-            console.log("Entry from backend:", entry);  // Check if SEASON_YEAR exists here
-            seasonsSet.add(entry.SEASON_YEAR);  // Ensure SEASON_YEAR is present
+            console.log("Inspecting entry for SEASON_YEAR:", entry);  // Check if SEASON_YEAR is present in all entries
+            if (entry.SEASON_YEAR) {
+              seasonsSet.add(entry.SEASON_YEAR);
+            }
             leaguesSet.add(entry.LEAGUE);
             divisionsSet.add(entry.DIV);
             teamsSet.add(entry.TEAM);
@@ -218,17 +224,20 @@ const Players = () => {
             bornYearsSet.add(entry.BORN);
             seasonTypesSet.add(entry.SEASON_TYPE);
           });
-  
-          setSeasons([...seasonsSet].sort().map(s => `${s.slice(0, 4)}-${s.slice(4)}`));  
-          setLeagues([...leaguesSet].filter(l => l).sort());  
+    
+          console.log("Seasons Set:", [...seasonsSet]);  // Log to check values in seasonsSet
+          setSeasons([...seasonsSet].sort().map(s => s ? `${s.slice(0, 4)}-${s.slice(4)}` : 'Unknown'));
+          setLeagues([...leaguesSet].filter(l => l).sort());
           setDivisions([...divisionsSet].filter(d => d).sort());
           setTeams([...teamsSet].filter(t => t).sort());
           setPositions([...positionsSet].filter(p => p).sort());
           setOffensiveRoles([...offensiveRolesSet].filter(o => o).sort());
           setBornYears([...bornYearsSet].filter(b => b).sort((a, b) => a - b));
           setSeasonTypes([...seasonTypesSet].filter(s => s).sort());
+        } else {
+          console.warn('No data received or data is empty');
         }
-  
+    
         setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);

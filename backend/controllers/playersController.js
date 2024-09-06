@@ -18,7 +18,7 @@ const getPlayersData = (req, res) => {
     fs.createReadStream(filePath)
       .pipe(csv({ separator: ';' }))  // Ensure you're using the correct separator
       .on('headers', (csvHeaders) => {
-        headers = csvHeaders; // No trimming of headers, using them as is
+        headers = csvHeaders.map(header => header.trim()); // Trim and store headers as is
         console.log("Headers from CSV:", headers); // Log the headers for debugging
       })
       .on('data', (row) => {
@@ -29,8 +29,10 @@ const getPlayersData = (req, res) => {
         });
 
         // Log formatted row for debugging
-        console.log("Row data:", formattedData);
-        
+        if (!formattedData['SEASON_YEAR']) {
+          console.warn("Missing SEASON_YEAR in row:", formattedData);
+        }
+
         results.push(formattedData);
       })
       .on('end', () => {
