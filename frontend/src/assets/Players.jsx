@@ -7,7 +7,7 @@ import './Players.css';
 const columnMappings = {
   Totals: [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'GP', 'MP', 'PT', 'RB', 'AS', 'ST', 'BS', 'TO', 'PF', 'EF', 'DD', 'TD',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP'
   ],
   Averages: [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'MPG', 'PPG', 'RPG', 'APG', 'SPG', 'BPG', 'TOPG', 'PFPG', 'EFPG', 'PER', 'PIE',
@@ -251,15 +251,15 @@ const Players = () => {
 
   const applyFilters = (data) => {
     return data.filter(row => {
-      const leagueMatch = filters.league === 'All' || row[17] === filters.league;
-      const divisionMatch = filters.division === 'All' || row[18] === filters.division;
+      const leagueMatch = filters.league === 'All' || row[19] === filters.league;
+      const divisionMatch = filters.division === 'All' || row[20] === filters.division;
       const teamMatch = filters.team === 'All' || row[1] === filters.team;
-      const positionMatch = filters.position === 'All' || row[2] === filters.position;
-      const offensiveRoleMatch = filters.offensiveRole === 'All' || row[3] === filters.offensiveRole;
-      const seasonTypeMatch = filters.seasonType === 'All' || row[19] === filters.seasonType; 
+      const positionMatch = filters.position === 'All' || row[3] === filters.position;
+      const offensiveRoleMatch = filters.offensiveRole === 'All' || row[4] === filters.offensiveRole;
+      const seasonTypeMatch = filters.seasonType === 'All' || row[21] === filters.seasonType; 
       const bornMatch = filters.born === 'All' || row[20] === filters.born;
-      const gamesPlayedMatch = !filters.gamesPlayed || parseInt(row[21], 10) >= parseInt(filters.gamesPlayed, 10);
-      const minutesPlayedMatch = !filters.minutesPlayed || parseInt(row[22], 10) >= parseInt(filters.minutesPlayed, 10);
+      const gamesPlayedMatch = !filters.gamesPlayed || parseInt(row[22], 10) >= parseInt(filters.gamesPlayed, 10);
+      const minutesPlayedMatch = !filters.minutesPlayed || parseInt(row[23], 10) >= parseInt(filters.minutesPlayed, 10);
 
       return (
         leagueMatch &&
