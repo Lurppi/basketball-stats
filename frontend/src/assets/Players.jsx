@@ -7,27 +7,27 @@ import './Players.css';
 const columnMappings = {
   Totals: [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'GP', 'MP', 'PT', 'RB', 'AS', 'ST', 'BS', 'TO', 'PF', 'EF', 'DD', 'TD',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
   Averages: [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'MPG', 'PPG', 'RPG', 'APG', 'SPG', 'BPG', 'TOPG', 'PFPG', 'EFPG', 'PER', 'PIE',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
   Shooting: [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', '2PM', '2PA', '2P%', '3PM', '3PA', '3P%', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
   'Advanced 1': [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'FIC', 'FIC_Gm', 'AS_RATIO', 'AS_RATE', 'AS_TO', 'REB%', 'ST%', 'BS%',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
   'Advanced 2': [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'TS%', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE', 'ORTG', 'DRTG', 'NRTG',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
   'Advanced 3': [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'OBPM', 'DBPM', 'BPM', 'VORP', 'OWS', 'DWS', 'WS', 'WS_40',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
 };
 
@@ -149,7 +149,7 @@ const Players = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [headers, setHeaders] = useState([]);
   const [filters, setFilters] = useState({
-    season: '20232024', // Standardmäßige Saison
+    season: '20232024',
     league: 'All', 
     statsType: 'Totals', 
     division: 'All',
@@ -184,60 +184,19 @@ const Players = () => {
         const data = await fetchPlayers({
           season: filters.season !== 'All' ? filters.season : undefined,
         });
-    
-        console.log("Data received from backend:", data);  // Log all received data for inspection
-    
+  
+        console.log('Fetched Data:', data); // Füge dies hinzu, um die Daten zu prüfen
+  
         if (data && data.length > 0) {
           const selectedColumns = columnMappings[filters.statsType];
           setHeaders(selectedColumns);
-    
-          const processedData = data.map((entry) => {
-            // Log to see if SEASON_YEAR exists in the entry
-            console.log("Entry:", entry); // Inspect individual entries
-            
-            // Gracefully handle missing SEASON_YEAR
-            return selectedColumns.map((column) => entry[column] || 'N/A');  
-          });
-    
+  
+          const processedData = data.map((entry) => selectedColumns.map((column) => entry[column] || 'N/A'));
           setAllPlayers(processedData);
           setFilteredData(processedData);
-    
-          const seasonsSet = new Set();
-          const leaguesSet = new Set();
-          const divisionsSet = new Set();
-          const teamsSet = new Set();
-          const positionsSet = new Set();
-          const offensiveRolesSet = new Set();
-          const bornYearsSet = new Set();
-          const seasonTypesSet = new Set();
-    
-          data.forEach(entry => {
-            console.log("Inspecting entry for SEASON_YEAR:", entry);  // Check if SEASON_YEAR is present in all entries
-            if (entry.SEASON_YEAR) {
-              seasonsSet.add(entry.SEASON_YEAR);
-            }
-            leaguesSet.add(entry.LEAGUE);
-            divisionsSet.add(entry.DIV);
-            teamsSet.add(entry.TEAM);
-            positionsSet.add(entry.POS);
-            offensiveRolesSet.add(entry.ROLE);
-            bornYearsSet.add(entry.BORN);
-            seasonTypesSet.add(entry.SEASON_TYPE);
-          });
-    
-          console.log("Seasons Set:", [...seasonsSet]);  // Log to check values in seasonsSet
-          setSeasons([...seasonsSet].sort().map(s => s ? `${s.slice(0, 4)}-${s.slice(4)}` : 'Unknown'));
-          setLeagues([...leaguesSet].filter(l => l).sort());
-          setDivisions([...divisionsSet].filter(d => d).sort());
-          setTeams([...teamsSet].filter(t => t).sort());
-          setPositions([...positionsSet].filter(p => p).sort());
-          setOffensiveRoles([...offensiveRolesSet].filter(o => o).sort());
-          setBornYears([...bornYearsSet].filter(b => b).sort((a, b) => a - b));
-          setSeasonTypes([...seasonTypesSet].filter(s => s).sort());
-        } else {
-          console.warn('No data received or data is empty');
+  
+          // Weitere Verarbeitung...
         }
-    
         setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -256,7 +215,7 @@ const Players = () => {
       const teamMatch = filters.team === 'All' || row[1] === filters.team;
       const positionMatch = filters.position === 'All' || row[3] === filters.position;
       const offensiveRoleMatch = filters.offensiveRole === 'All' || row[4] === filters.offensiveRole;
-      const seasonTypeMatch = filters.seasonType === 'All' || row[21] === filters.seasonType; 
+      const seasonTypeMatch = filters.seasonType === 'All' || row[21] === filters.seasonType;
       const bornMatch = filters.born === 'All' || row[20] === filters.born;
       const gamesPlayedMatch = !filters.gamesPlayed || parseInt(row[22], 10) >= parseInt(filters.gamesPlayed, 10);
       const minutesPlayedMatch = !filters.minutesPlayed || parseInt(row[23], 10) >= parseInt(filters.minutesPlayed, 10);
@@ -289,9 +248,12 @@ const Players = () => {
   const displayedPlayers = useMemo(() => {
     const filtered = applyFilters(filteredData);
     const sorted = sortData(filtered);
+
+     // Debugging für die Daten
+    console.log('Displayed Players:', sorted);  // Füge dies hinzu, um die Daten zu sehen, die in der Tabelle erscheinen sollen
+
     return sorted
       .slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage)
-      .filter(row => row.some(cell => cell !== null && cell !== ''))
       .map((row, index) => [((currentPage - 1) * rowsPerPage) + index + 1, ...row]);
   }, [filteredData, filters, currentPage, rowsPerPage]);
 
@@ -303,206 +265,208 @@ const Players = () => {
       <Header />
       <div className="players-grid-item">
         <div className="players-filter-container">
-          <label>
-            Season:
-            <select
-              name="season"
-              value={filters.season}
-              onChange={e => setFilters({
-                ...filters,
-                season: e.target.value,
-                league: 'All',
-                division: 'All',
-                team: 'All',
-                position: 'All',
-                offensiveRole: 'All',
-                gamesPlayed: '',
-                minutesPlayed: '',
-              })}
-            >
-              <option value="All">All</option>
-              {seasons.map((season, idx) => (
-                <option key={idx} value={season.replace('-', '')}>
-                  {season}
-                </option>
-              ))}
-            </select>
-          </label>
+          <div className="players-filters">
+            <label>
+              Season:
+              <select
+                name="season"
+                value={filters.season}
+                onChange={e => setFilters({
+                  ...filters,
+                  season: e.target.value,
+                  league: 'All',
+                  division: 'All',
+                  team: 'All',
+                  position: 'All',
+                  offensiveRole: 'All',
+                  gamesPlayed: '',
+                  minutesPlayed: '',
+                })}
+              >
+                <option value="All">All</option>
+                {seasons.map((season, idx) => (
+                  <option key={idx} value={season.replace('-', '')}>
+                    {season}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-          <label>
-            League:
-            <select
-              name="league"
-              value={filters.league}
-              onChange={e => setFilters({ ...filters, league: e.target.value })}
-            >
-              <option value="All">All</option>
-              {leagues.map((league, idx) => (
-                <option key={idx} value={league}>
-                  {league}
-                </option>
-              ))}
-            </select>
-          </label>
+            <label>
+              League:
+              <select
+                name="league"
+                value={filters.league}
+                onChange={e => setFilters({ ...filters, league: e.target.value })}
+              >
+                <option value="All">All</option>
+                {leagues.map((league, idx) => (
+                  <option key={idx} value={league}>
+                    {league}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-          <label>
-            Division:
-            <select
-              name="division"
-              value={filters.division}
-              onChange={e => setFilters({ ...filters, division: e.target.value })}
-            >
-              <option value="All">All</option>
-              {divisions.map((division, idx) => (
-                <option key={idx} value={division}>
-                  {division}
-                </option>
-              ))}
-            </select>
-          </label>
+            <label>
+              Division:
+              <select
+                name="division"
+                value={filters.division}
+                onChange={e => setFilters({ ...filters, division: e.target.value })}
+              >
+                <option value="All">All</option>
+                {divisions.map((division, idx) => (
+                  <option key={idx} value={division}>
+                    {division}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-          <label>
-            Season Type:
-            <select
-              name="seasonType"
-              value={filters.seasonType}
-              onChange={e => setFilters({ ...filters, seasonType: e.target.value })}
-            >
-              <option value="All">All</option>
-              {seasonTypes.map((type, idx) => (
-                <option key={idx} value={type}>
-                  {type}
-                </option>
-              ))}
-            </select>
-          </label>
+            <label>
+              Season Type:
+              <select
+                name="seasonType"
+                value={filters.seasonType}
+                onChange={e => setFilters({ ...filters, seasonType: e.target.value })}
+              >
+                <option value="All">All</option>
+                {seasonTypes.map((type, idx) => (
+                  <option key={idx} value={type}>
+                    {type}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-          <label>
-            Stats Type:
-            <select
-              name="statsType"
-              value={filters.statsType}
-              onChange={e => setFilters({ ...filters, statsType: e.target.value })}
-            >
-              {Object.keys(columnMappings).map((type, idx) => (
-                <option key={idx} value={type}>
-                  {type}
-                </option>
-              ))}
-            </select>
-          </label>
+            <label>
+              Stats Type:
+              <select
+                name="statsType"
+                value={filters.statsType}
+                onChange={e => setFilters({ ...filters, statsType: e.target.value })}
+              >
+                {Object.keys(columnMappings).map((type, idx) => (
+                  <option key={idx} value={type}>
+                    {type}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-          <label>
-            Team:
-            <select
-              name="team"
-              value={filters.team}
-              onChange={e => setFilters({ ...filters, team: e.target.value })}
-            >
-              <option value="All">All</option>
-              {teams.map((team, idx) => (
-                <option key={idx} value={team}>
-                  {team}
-                </option>
-              ))}
-            </select>
-          </label>
+            <label>
+              Team:
+              <select
+                name="team"
+                value={filters.team}
+                onChange={e => setFilters({ ...filters, team: e.target.value })}
+              >
+                <option value="All">All</option>
+                {teams.map((team, idx) => (
+                  <option key={idx} value={team}>
+                    {team}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-          <label>
-            Position:
-            <select
-              name="position"
-              value={filters.position}
-              onChange={e => setFilters({ ...filters, position: e.target.value })}
-            >
-              <option value="All">All</option>
-              {positions.map((position, idx) => (
-                <option key={idx} value={position}>
-                  {position}
-                </option>
-              ))}
-            </select>
-          </label>
+            <label>
+              Position:
+              <select
+                name="position"
+                value={filters.position}
+                onChange={e => setFilters({ ...filters, position: e.target.value })}
+              >
+                <option value="All">All</option>
+                {positions.map((position, idx) => (
+                  <option key={idx} value={position}>
+                    {position}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-          <label>
-            Offensive Role:
-            <select
-              name="offensiveRole"
-              value={filters.offensiveRole}
-              onChange={e => setFilters({ ...filters, offensiveRole: e.target.value })}
-            >
-              <option value="All">All</option>
-              {offensiveRoles.map((role, idx) => (
-                <option key={idx} value={role}>
-                  {role}
-                </option>
-              ))}
-            </select>
-          </label>
+            <label>
+              Offensive Role:
+              <select
+                name="offensiveRole"
+                value={filters.offensiveRole}
+                onChange={e => setFilters({ ...filters, offensiveRole: e.target.value })}
+              >
+                <option value="All">All</option>
+                {offensiveRoles.map((role, idx) => (
+                  <option key={idx} value={role}>
+                    {role}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-          <label>
-            Born:
-            <select
-              name="born"
-              value={filters.born}
-              onChange={e => setFilters({ ...filters, born: e.target.value })}
-            >
-              <option value="All">All</option>
-              {bornYears.map((year, idx) => (
-                <option key={idx} value={year}>
-                  {year}
-                </option>
-              ))}
-            </select>
-          </label>
+            <label>
+              Born:
+              <select
+                name="born"
+                value={filters.born}
+                onChange={e => setFilters({ ...filters, born: e.target.value })}
+              >
+                <option value="All">All</option>
+                {bornYears.map((year, idx) => (
+                  <option key={idx} value={year}>
+                    {year}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-          <label>
-            Games Played:
-            <input
-              type="number"
-              name="gamesPlayed"
-              value={filters.gamesPlayed}
-              onChange={e => setFilters({ ...filters, gamesPlayed: e.target.value })}
-            />
-          </label>
+            <label>
+              Games Played:
+              <input
+                type="number"
+                name="gamesPlayed"
+                value={filters.gamesPlayed}
+                onChange={e => setFilters({ ...filters, gamesPlayed: e.target.value })}
+              />
+            </label>
 
-          <label>
-            Minutes Played:
-            <input
-              type="number"
-              name="minutesPlayed"
-              value={filters.minutesPlayed}
-              onChange={e => setFilters({ ...filters, minutesPlayed: e.target.value })}
-            />
-          </label>
+            <label>
+              Minutes Played:
+              <input
+                type="number"
+                name="minutesPlayed"
+                value={filters.minutesPlayed}
+                onChange={e => setFilters({ ...filters, minutesPlayed: e.target.value })}
+              />
+            </label>
 
-          <label>
-            Sort column:
-            <select
-              name="sortStat"
-              value={filters.sortStat}
-              onChange={e => setFilters({ ...filters, sortStat: e.target.value })}
-            >
-              <option value="">Select Stat</option>
-              {headers.map((header, idx) => (
-                <option key={idx} value={header}>
-                  {header}
-                </option>
-              ))}
-            </select>
-          </label>
+            <label>
+              Sort column:
+              <select
+                name="sortStat"
+                value={filters.sortStat}
+                onChange={e => setFilters({ ...filters, sortStat: e.target.value })}
+              >
+                <option value="">Select Stat</option>
+                {headers.map((header, idx) => (
+                  <option key={idx} value={header}>
+                    {header}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-          <label>
-            Sort direction:
-            <select
-              name="sortDirection"
-              value={filters.sortDirection}
-              onChange={e => setFilters({ ...filters, sortDirection: e.target.value })}
-            >
-              <option value="asc">Ascending</option>
-              <option value="desc">Descending</option>
-            </select>
-          </label>
+            <label>
+              Sort direction:
+              <select
+                name="sortDirection"
+                value={filters.sortDirection}
+                onChange={e => setFilters({ ...filters, sortDirection: e.target.value })}
+              >
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+              </select>
+            </label>
+          </div>
         </div>
 
         <div className="players-container">
@@ -516,28 +480,26 @@ const Players = () => {
             </button>
           </div>
 
-          <div className="players-table-wrapper">
+        <div className="players-table-wrapper">
             <table className="players-table-container">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  {headers.map((header, idx) => (
-                    <th key={idx}>
-                      <abbr title={header}>{header}</abbr>
-                    </th>
+            <thead>
+              <tr>
+                {Object.keys(displayedPlayers[0] || {}).map((key, idx) => (
+                  <th key={idx}>{key}</th> // Dies zeigt die Header ohne Mapping an
+                ))}
+              </tr>
+            </thead>
+
+            <tbody>
+              {displayedPlayers.map((row, idx) => (
+                <tr key={idx}>
+                  {Object.values(row).map((cell, cellIdx) => (
+                    <td key={cellIdx}>{cell || 'N/A'}</td> // Daten direkt anzeigen
                   ))}
                 </tr>
-              </thead>
-              <tbody>
-                {displayedPlayers.map((row, idx) => (
-                  <tr key={idx}>
-                    {row.map((cell, cellIdx) => (
-                      <td key={cellIdx}>{cell}</td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+              ))}
+            </tbody>
+            </table>Assigned Headers: (21) ['PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'GP', 'MP', 'PT', 'RB', 'AS', 'ST', 'BS', 'TO', 'PF', 'EF', 'DD', 'TD', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE']
           </div>
         </div>
       </div>

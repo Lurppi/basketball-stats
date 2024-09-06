@@ -14,9 +14,15 @@ const getPlayersData = (req, res) => {
 
     // Read and process the CSV file
     fs.createReadStream(filePath)
-      .pipe(csv({ separator: ';' }))  // Ensure you're using the correct separator
+      .pipe(csv({ separator: ',' }))  // Ändere den Separator auf ','
       .on('data', (row) => {
-        results.push(row);
+        // Bereinige die Schlüssel (Spaltennamen) von unerwünschten Zeichen wie dem Byte-Order-Mark (BOM)
+        const cleanedRow = {};
+        for (let key in row) {
+          const cleanedKey = key.replace(/\uFEFF/g, ''); // Entferne BOM falls vorhanden
+          cleanedRow[cleanedKey] = row[key];
+        }
+        results.push(cleanedRow);
       })
       .on('end', () => {
         res.json(results); // Send the parsed results back to the client
