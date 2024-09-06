@@ -28,14 +28,16 @@ const getPlayersData = (req, res) => {
           formattedData[header] = row[header] ? row[header] : ''; // Use raw data without trimming
         });
 
-        // Log formatted row for debugging
-        if (!formattedData['SEASON_YEAR']) {
-          console.warn("Missing SEASON_YEAR in row:", formattedData);
+        // Ensure SEASON_YEAR is correctly handled
+        if (!formattedData['SEASON_YEAR'] || formattedData['SEASON_YEAR'] === '') {
+          console.warn("SEASON_YEAR missing or empty in row:", formattedData);
+          formattedData['SEASON_YEAR'] = 'Unknown'; // Add fallback value if SEASON_YEAR is missing
         }
 
         results.push(formattedData);
       })
       .on('end', () => {
+        console.log("Results sent to frontend:", results); // Log all results for debugging
         res.json(results); // Send the parsed results back to the client
       })
       .on('error', (err) => {
