@@ -3,7 +3,7 @@ const path = require('path');
 const csv = require('csv-parser');
 
 const getPlayersData = (req, res) => {
-  const filePath = path.join(__dirname, '../data/PLAYERS.csv'); // Ensure correct path to your CSV file
+  const filePath = path.join(__dirname, '../data/PLAYERS.csv');
   const results = [];
 
   fs.access(filePath, fs.constants.F_OK, (err) => {
@@ -12,20 +12,18 @@ const getPlayersData = (req, res) => {
       return res.status(404).send(`File not found: ${filePath}`);
     }
 
-    // Read and process the CSV file
     fs.createReadStream(filePath)
-      .pipe(csv({ separator: ',' }))  // Ändere den Separator auf ','
+      .pipe(csv({ separator: ',' }))
       .on('data', (row) => {
-        // Bereinige die Schlüssel (Spaltennamen) von unerwünschten Zeichen wie dem Byte-Order-Mark (BOM)
         const cleanedRow = {};
         for (let key in row) {
-          const cleanedKey = key.replace(/\uFEFF/g, ''); // Entferne BOM falls vorhanden
+          const cleanedKey = key.replace(/\uFEFF/g, ''); // Entfernt Byte-Order-Mark (BOM) falls vorhanden
           cleanedRow[cleanedKey] = row[key];
         }
         results.push(cleanedRow);
       })
       .on('end', () => {
-        res.json(results); // Send the parsed results back to the client
+        res.json(results); // Daten an den Client senden
       })
       .on('error', (err) => {
         console.error(`Error reading the CSV file: ${err}`);

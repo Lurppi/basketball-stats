@@ -194,8 +194,6 @@ const Players = () => {
           const processedData = data.map((entry) => selectedColumns.map((column) => entry[column] || 'N/A'));
           setAllPlayers(processedData);
           setFilteredData(processedData);
-  
-          // Weitere Verarbeitung...
         }
         setLoading(false);
       } catch (error) {
@@ -210,15 +208,15 @@ const Players = () => {
 
   const applyFilters = (data) => {
     return data.filter(row => {
-      const leagueMatch = filters.league === 'All' || row[19] === filters.league;
-      const divisionMatch = filters.division === 'All' || row[20] === filters.division;
-      const teamMatch = filters.team === 'All' || row[1] === filters.team;
-      const positionMatch = filters.position === 'All' || row[3] === filters.position;
-      const offensiveRoleMatch = filters.offensiveRole === 'All' || row[4] === filters.offensiveRole;
-      const seasonTypeMatch = filters.seasonType === 'All' || row[21] === filters.seasonType;
-      const bornMatch = filters.born === 'All' || row[20] === filters.born;
-      const gamesPlayedMatch = !filters.gamesPlayed || parseInt(row[22], 10) >= parseInt(filters.gamesPlayed, 10);
-      const minutesPlayedMatch = !filters.minutesPlayed || parseInt(row[23], 10) >= parseInt(filters.minutesPlayed, 10);
+      const leagueMatch = filters.league === 'All' || row[headers.indexOf('LEAGUE')] === filters.league;
+      const divisionMatch = filters.division === 'All' || row[headers.indexOf('DIV')] === filters.division;
+      const teamMatch = filters.team === 'All' || row[headers.indexOf('TEAM')] === filters.team;
+      const positionMatch = filters.position === 'All' || row[headers.indexOf('POS')] === filters.position;
+      const offensiveRoleMatch = filters.offensiveRole === 'All' || row[headers.indexOf('ROLE')] === filters.offensiveRole;
+      const seasonTypeMatch = filters.seasonType === 'All' || row[headers.indexOf('SEASON_TYPE')] === filters.seasonType;
+      const bornMatch = filters.born === 'All' || row[headers.indexOf('BORN')] === filters.born;
+      const gamesPlayedMatch = !filters.gamesPlayed || parseInt(row[headers.indexOf('GP')], 10) >= parseInt(filters.gamesPlayed, 10);
+      const minutesPlayedMatch = !filters.minutesPlayed || parseInt(row[headers.indexOf('MP')], 10) >= parseInt(filters.minutesPlayed, 10);
 
       return (
         leagueMatch &&
@@ -249,12 +247,8 @@ const Players = () => {
     const filtered = applyFilters(filteredData);
     const sorted = sortData(filtered);
 
-     // Debugging für die Daten
-    console.log('Displayed Players:', sorted);  // Füge dies hinzu, um die Daten zu sehen, die in der Tabelle erscheinen sollen
-
     return sorted
-      .slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage)
-      .map((row, index) => [((currentPage - 1) * rowsPerPage) + index + 1, ...row]);
+      .slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
   }, [filteredData, filters, currentPage, rowsPerPage]);
 
   const totalRows = useMemo(() => applyFilters(filteredData).length, [filteredData, filters]);
@@ -480,26 +474,25 @@ const Players = () => {
             </button>
           </div>
 
-        <div className="players-table-wrapper">
+          <div className="players-table-wrapper">
             <table className="players-table-container">
-            <thead>
-              <tr>
-                {Object.keys(displayedPlayers[0] || {}).map((key, idx) => (
-                  <th key={idx}>{key}</th> // Dies zeigt die Header ohne Mapping an
-                ))}
-              </tr>
-            </thead>
-
-            <tbody>
-              {displayedPlayers.map((row, idx) => (
-                <tr key={idx}>
-                  {Object.values(row).map((cell, cellIdx) => (
-                    <td key={cellIdx}>{cell || 'N/A'}</td> // Daten direkt anzeigen
+              <thead>
+                <tr>
+                  {headers.map((header, idx) => (
+                    <th key={idx}>{header}</th> // Verwende explizit die Header
                   ))}
                 </tr>
-              ))}
-            </tbody>
-            </table>Assigned Headers: (21) ['PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'GP', 'MP', 'PT', 'RB', 'AS', 'ST', 'BS', 'TO', 'PF', 'EF', 'DD', 'TD', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE']
+              </thead>
+              <tbody>
+                {displayedPlayers.map((row, idx) => (
+                  <tr key={idx}>
+                    {row.map((cell, cellIdx) => (
+                      <td key={cellIdx}>{cell || 'N/A'}</td> // Daten direkt anzeigen
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
