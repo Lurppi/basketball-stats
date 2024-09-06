@@ -11,23 +11,23 @@ const columnMappings = {
   ],
   Averages: [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'MPG', 'PPG', 'RPG', 'APG', 'SPG', 'BPG', 'TOPG', 'PFPG', 'EFPG', 'PER', 'PIE',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP'
   ],
   Shooting: [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', '2PM', '2PA', '2P%', '3PM', '3PA', '3P%', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP'
   ],
   'Advanced 1': [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'FIC', 'FIC_Gm', 'AS_RATIO', 'AS_RATE', 'AS_TO', 'REB%', 'ST%', 'BS%',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP'
   ],
   'Advanced 2': [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'TS%', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE', 'ORTG', 'DRTG', 'NRTG',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP'
   ],
   'Advanced 3': [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'BORN', 'USAGE', 'PER', 'PIE', 'OBPM', 'DBPM', 'BPM', 'VORP', 'OWS', 'DWS', 'WS', 'WS_40',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'GP', 'MP'
   ],
 };
 
@@ -185,28 +185,53 @@ const Players = () => {
           season: filters.season !== 'All' ? filters.season : undefined,
         });
   
-        console.log("Daten vom Backend:", data); // Debugging
+        console.log("Data received from backend:", data);  // Log the data to inspect
   
         if (data && data.length > 0) {
           const selectedColumns = columnMappings[filters.statsType];  
-          console.log("Selected Columns: ", selectedColumns);  // Debugging
-          console.log("First Entry in Data: ", data[0]);  // Debugging
-          
           setHeaders(selectedColumns);  
-  
+          
           const processedData = data.map((entry) => {
             return selectedColumns.map((column) => entry[column] || '');  
           });
   
-          console.log("Processed Data: ", processedData);  // Debugging
-  
           setAllPlayers(processedData);
           setFilteredData(processedData);
+  
+          const seasonsSet = new Set();
+          const leaguesSet = new Set();
+          const divisionsSet = new Set();
+          const teamsSet = new Set();
+          const positionsSet = new Set();
+          const offensiveRolesSet = new Set();
+          const bornYearsSet = new Set();
+          const seasonTypesSet = new Set();
+  
+          data.forEach(entry => {
+            console.log("Entry from backend:", entry);  // Check if SEASON_YEAR exists here
+            seasonsSet.add(entry.SEASON_YEAR);  // Ensure SEASON_YEAR is present
+            leaguesSet.add(entry.LEAGUE);
+            divisionsSet.add(entry.DIV);
+            teamsSet.add(entry.TEAM);
+            positionsSet.add(entry.POS);
+            offensiveRolesSet.add(entry.ROLE);
+            bornYearsSet.add(entry.BORN);
+            seasonTypesSet.add(entry.SEASON_TYPE);
+          });
+  
+          setSeasons([...seasonsSet].sort().map(s => `${s.slice(0, 4)}-${s.slice(4)}`));  
+          setLeagues([...leaguesSet].filter(l => l).sort());  
+          setDivisions([...divisionsSet].filter(d => d).sort());
+          setTeams([...teamsSet].filter(t => t).sort());
+          setPositions([...positionsSet].filter(p => p).sort());
+          setOffensiveRoles([...offensiveRolesSet].filter(o => o).sort());
+          setBornYears([...bornYearsSet].filter(b => b).sort((a, b) => a - b));
+          setSeasonTypes([...seasonTypesSet].filter(s => s).sort());
         }
   
         setLoading(false);
       } catch (error) {
-        console.error('Fehler beim Laden der Daten:', error);
+        console.error('Error fetching data:', error);
         setError(error);
         setLoading(false);
       }
