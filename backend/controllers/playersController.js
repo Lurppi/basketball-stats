@@ -2,19 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const csv = require('csv-parser');
 
-// Helper function to extract season year from ID
-const extractSeasonYearFromID = (id) => {
-  if (!id || typeof id !== 'string') return 'Unknown';
-  const parts = id.split('_'); // Split the ID string by underscores
-  return parts.length > 0 ? parts[0] : 'Unknown'; // Return the first part of the ID as the season year
-};
-
 const getPlayersData = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv'); // Ensure correct path to your CSV file
   const results = [];
-  let headers = [];
 
-  // Check if the file exists
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       console.error(`File not found: ${filePath}`);
@@ -24,27 +15,10 @@ const getPlayersData = (req, res) => {
     // Read and process the CSV file
     fs.createReadStream(filePath)
       .pipe(csv({ separator: ';' }))  // Ensure you're using the correct separator
-      .on('headers', (csvHeaders) => {
-        headers = csvHeaders.map(header => header.trim()); // Trim and store headers as is
-        console.log("Headers from CSV:", headers); // Log the headers for debugging
-      })
       .on('data', (row) => {
-        const formattedData = {};
-
-        headers.forEach((header) => {
-          formattedData[header] = row[header] ? row[header] : ''; // Use raw data without trimming
-        });
-
-        // Ensure SEASON_YEAR is correctly handled
-        if (!formattedData['SEASON_YEAR'] || formattedData['SEASON_YEAR'] === '') {
-          console.warn("SEASON_YEAR missing or empty in row:", formattedData);
-          formattedData['SEASON_YEAR'] = extractSeasonYearFromID(formattedData['ID']); // Fallback to extracting from ID
-        }
-
-        results.push(formattedData);
+        results.push(row);
       })
       .on('end', () => {
-        console.log("Results sent to frontend:", results); // Log all results for debugging
         res.json(results); // Send the parsed results back to the client
       })
       .on('error', (err) => {

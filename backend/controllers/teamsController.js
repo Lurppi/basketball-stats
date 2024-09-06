@@ -3,41 +3,23 @@ const path = require('path');
 const csv = require('csv-parser');
 
 const getTeamsData = (req, res) => {
-  const filePath = path.join(__dirname, '../data/TEAMS.csv'); // Fester Dateipfad
+  const filePath = path.join(__dirname, '../data/TEAMS.csv'); // Ensure correct path to your CSV file
   const results = [];
-  let headers = [];
 
-  // Überprüfen, ob die Datei existiert
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       console.error(`File not found: ${filePath}`);
       return res.status(404).send(`File not found: ${filePath}`);
     }
 
-    // CSV-Datei einlesen und verarbeiten
+    // Read and process the CSV file
     fs.createReadStream(filePath)
-      .pipe(csv({ separator: ';' }))  // Verwende das ';' als Trennzeichen
-      .on('headers', (csvHeaders) => {
-        // Aufsplitten des ersten Headers, falls er zusammenhängend ist
-        if (csvHeaders.length === 1 && csvHeaders[0].includes(';')) {
-          headers = csvHeaders[0].split(';').map(header => header.trim());  // Spalte und trimme Leerzeichen
-        } else {
-          headers = csvHeaders.map(header => header.trim());  // Normaler Fall
-        }
-      })
+      .pipe(csv({ separator: ';' }))  // Ensure you're using the correct separator
       .on('data', (row) => {
-        const formattedData = {};
-
-        // Erstelle das Key-Value-Objekt basierend auf den Headern
-        headers.forEach((header) => {
-          formattedData[header] = row[header] ? row[header].trim() : '';  // Entferne Leerzeichen und überprüfe auf undefined
-        });
-
-        results.push(formattedData);
+        results.push(row);
       })
       .on('end', () => {
-        // Sende die Ergebnisse im JSON-Format an das Frontend
-        res.json(results);
+        res.json(results); // Send the parsed results back to the client
       })
       .on('error', (err) => {
         console.error(`Error reading the CSV file: ${err}`);
