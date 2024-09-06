@@ -13,7 +13,7 @@ const getPlayersData = (req, res) => {
     }
 
     fs.createReadStream(filePath)
-      .pipe(csv({ separator: ',' }))
+      .pipe(csv({ separator: ';' }))
       .on('data', (row) => {
         const cleanedRow = {};
         for (let key in row) {
