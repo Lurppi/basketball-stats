@@ -3,29 +3,31 @@ const path = require('path');
 const csv = require('csv-parser');
 
 const getTeamsData = (req, res) => {
-  const filePath = path.join(__dirname, '../data/TEAMS.csv'); // Ensure correct path to your CSV file
+  const filePath = path.join(__dirname, '../data/TEAMS.csv');
   const results = [];
 
+  // Überprüfen, ob die Datei existiert
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       console.error(`File not found: ${filePath}`);
       return res.status(404).send(`File not found: ${filePath}`);
     }
 
-    // Read and process the CSV file with the correct separator
+    // Lesen der CSV-Datei
     fs.createReadStream(filePath)
-      .pipe(csv({ separator: ';' }))  // Verwende hier den korrekten Separator
+      .pipe(csv({ separator: ';' }))  // Verwenden des richtigen Separators
       .on('data', (row) => {
-        // Bereinige die Schlüssel (Spaltennamen) von unerwünschten Zeichen wie dem Byte-Order-Mark (BOM)
         const cleanedRow = {};
         for (let key in row) {
-          const cleanedKey = key.replace(/\uFEFF/g, ''); // Entferne BOM falls vorhanden
-          cleanedRow[cleanedKey] = row[key];
+          // Entfernt BOM und unerwünschte Zeichen sowohl aus dem Schlüssel als auch dem Wert
+          const cleanedKey = key.replace(/\uFEFF/g, '').trim();
+          cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
         }
-        results.push(cleanedRow);
+        results.push(cleanedRow);  // Fügen die bereinigten Daten zur Ergebnisliste hinzu
       })
       .on('end', () => {
-        res.json(results); // Daten an den Client senden
+        // Sendet die bereinigten Daten zurück an den Client
+        res.json(results);
       })
       .on('error', (err) => {
         console.error(`Error reading the CSV file: ${err}`);

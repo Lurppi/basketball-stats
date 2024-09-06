@@ -2,13 +2,10 @@ const express = require('express');
 const router = express.Router();
 const playersController = require('../controllers/playersController');
 
-// Route zur Abfrage von Spieldaten
-router.get('/', async (req, res, next) => {
-  try {
-    await playersController.getPlayersData(req, res);
-  } catch (error) {
-    next(error); // Weiterleitung an die globale Fehlerbehandlung
-  }
+// Route zur Abfrage von Spieler-Daten
+router.get('/', (req, res, next) => {
+  playersController.getPlayersData(req, res)
+    .catch((error) => next(error)); // Fehler an globale Fehlerbehandlung weiterleiten
 });
 
 module.exports = router;

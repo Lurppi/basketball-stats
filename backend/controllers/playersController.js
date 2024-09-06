@@ -4,32 +4,35 @@ const csv = require('csv-parser');
 
 const getPlayersData = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv');
-  console.log('CSV File Path:', filePath); // Prüfe den Dateipfad
+  const results = [];  // Variable für Ergebnisse
 
+  // Überprüfen, ob die Datei existiert
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       console.error(`File not found: ${filePath}`);
       return res.status(404).send(`File not found: ${filePath}`);
     }
 
+    // Lesen der CSV-Datei
     fs.createReadStream(filePath)
-    .pipe(csv({ separator: ';' }))
-    .on('data', (row) => {
-      console.log('SEASON_YEAR:', row['SEASON_YEAR']); // Prüfe die Spalte SEASON_YEAR in jedem Datensatz
-      const cleanedRow = {};
-      for (let key in row) {
-        const cleanedKey = key.replace(/\uFEFF/g, ''); // Entfernt BOM aus dem Schlüssel
-        cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, ''); // Entfernt BOM aus dem Wert
-      }
-      results.push(cleanedRow);
-    })
-    .on('end', () => {
-      res.json(results); // Daten an den Client senden
-    })
-    .on('error', (err) => {
-      console.error(`Error reading the CSV file: ${err}`);
-      res.status(500).send('Error reading the CSV file');
-    });
+      .pipe(csv({ separator: ';' }))  // Verwenden des richtigen Separators
+      .on('data', (row) => {
+        const cleanedRow = {};
+        for (let key in row) {
+          // Entfernt BOM und unerwünschte Zeichen sowohl aus dem Schlüssel als auch dem Wert
+          const cleanedKey = key.replace(/\uFEFF/g, '').trim();
+          cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
+        }
+        results.push(cleanedRow);  // Fügen die bereinigten Daten zur Ergebnisliste hinzu
+      })
+      .on('end', () => {
+        // Sendet die bereinigten Daten zurück an den Client
+        res.json(results);
+      })
+      .on('error', (err) => {
+        console.error(`Error reading the CSV file: ${err}`);
+        res.status(500).send('Error reading the CSV file');
+      });
   });
 };
 
