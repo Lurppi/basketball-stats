@@ -25,7 +25,6 @@ const importCSV = (filePath) => {
 
 // Alle CSV-Dateien importieren
 const files = [
-  // Teams Regular Season
   { path: path.join(__dirname, 'data', 'TRS_Totals.csv'), name: 'teams_regular_totals' },
   { path: path.join(__dirname, 'data', 'TRS_Averages.csv'), name: 'teams_regular_averages' },
   { path: path.join(__dirname, 'data', 'TRS_Shooting.csv'), name: 'teams_regular_shooting' },
@@ -41,9 +40,9 @@ const files = [
   { path: path.join(__dirname, 'data', 'TPO_Opponent.csv'), name: 'teams_playoffs_advanced2' },
   { path: path.join(__dirname, 'data', 'TPO_FourFactors.csv'), name: 'teams_playoffs_four_factors' },
 
-  // New Files
-  { path: path.join(__dirname, 'data', 'PLAYERS.csv'), name: 'players' }, // New PLAYERS.csv file
-  { path: path.join(__dirname, 'data', 'TEAMS.csv'), name: 'teams' }     // New TEAMS.csv file
+  // Dynamische Datei-Auswahl möglich
+  { path: path.join(__dirname, 'data', 'PLAYERS.csv'), name: 'players' }, 
+  { path: path.join(__dirname, 'data', 'TEAMS.csv'), name: 'teams' }
 ];
 
 // Importiere alle CSV-Dateien

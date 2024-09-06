@@ -15,9 +15,9 @@ const corsOptions = {
     'https://frontend-iota-seven-93.vercel.app',
     'https://frontend-lurppis-projects.vercel.app'
   ],
-  optionsSuccessStatus: 200, // Für legacy browser support
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Erlaubte Methoden
-  allowedHeaders: 'Content-Type, Authorization', // Erlaubte Header
+  optionsSuccessStatus: 200,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Content-Type, Authorization',
 };
 
 // Middleware

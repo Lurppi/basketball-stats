@@ -3,7 +3,12 @@ const path = require('path');
 const csv = require('csv-parser');
 
 const getTeamsData = (req, res) => {
-  const filePath = path.join(__dirname, '../data/TEAMS.csv');
+  const fileName = req.query.file; // Erwartet 'file' als Query-Parameter
+  if (!fileName) {
+    return res.status(400).send('No file specified');
+  }
+
+  const filePath = path.join(__dirname, `../data/${fileName}.csv`);
   const results = [];
 
   // Überprüfen, ob die Datei existiert
@@ -13,21 +18,19 @@ const getTeamsData = (req, res) => {
       return res.status(404).send(`File not found: ${filePath}`);
     }
 
-    // Lesen der CSV-Datei
+    // CSV-Datei auslesen
     fs.createReadStream(filePath)
       .pipe(csv({ separator: ';' }))  // Verwenden des richtigen Separators
       .on('data', (row) => {
         const cleanedRow = {};
         for (let key in row) {
-          // Entfernt BOM und unerwünschte Zeichen sowohl aus dem Schlüssel als auch dem Wert
           const cleanedKey = key.replace(/\uFEFF/g, '').trim();
           cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
         }
-        results.push(cleanedRow);  // Fügen die bereinigten Daten zur Ergebnisliste hinzu
+        results.push(cleanedRow);  // Bereinigte Daten sammeln
       })
       .on('end', () => {
-        // Sendet die bereinigten Daten zurück an den Client
-        res.json(results);
+        res.json(results);  // Bereitstellen der Daten, nachdem das Lesen abgeschlossen ist
       })
       .on('error', (err) => {
         console.error(`Error reading the CSV file: ${err}`);
