@@ -68,27 +68,21 @@ const Players = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const seasonFile = filters.season !== 'All' ? filters.season : 'PLAYERS'; // Setze den Dateinamen dynamisch
-        const data = await fetchPlayers(seasonFile); // Verwende den dynamischen Dateinamen
-  
-        console.log('API response:', data); // Ausgabe zur Überprüfung der API-Antwort
-  
+        // Verwende 'PLAYERS' als Dateinamen, wenn die Saison "All" ist
+        const seasonFile = filters.season !== 'All' ? 'PLAYERS' : 'PLAYERS';
+        const data = await fetchPlayers(seasonFile);
+    
         if (data && data.length > 0) {
-          // Extrahiere alle einzigartigen Season-Werte für das Dropdown-Menü
           const uniqueSeasons = [...new Set(data.map(item => item.SEASON_YEAR))];
           setSeasons(uniqueSeasons);
-  
-          // Spalten basierend auf der aktuellen statsType-Auswahl (Totals, Averages, etc.)
+    
           const selectedColumns = columnMappings[filters.statsType];
           setHeaders(selectedColumns);
-  
-          // Verarbeite die Daten für die Tabelle
+    
           const processedData = data.map((entry) =>
             selectedColumns.map((column) => entry[column] || '')
           );
-  
-          console.log('Processed Data:', processedData); // Verarbeite Daten und prüfe SEASON_YEAR
-  
+    
           setAllPlayers(processedData);
           setFilteredData(processedData);
         }
