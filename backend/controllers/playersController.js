@@ -13,23 +13,23 @@ const getPlayersData = (req, res) => {
     }
 
     fs.createReadStream(filePath)
-      .pipe(csv({ separator: ';' }))
-      .on('data', (row) => {
-        console.log('SEASON_YEAR:', row['SEASON_YEAR']); // Prüfe die SEASON_YEAR-Spalte
-        const cleanedRow = {};
-        for (let key in row) {
-          const cleanedKey = key.replace(/\uFEFF/g, ''); // Entfernt Byte-Order-Mark (BOM), falls vorhanden
-          cleanedRow[cleanedKey] = row[key];
-        }
-        results.push(cleanedRow);
-      })
-      .on('end', () => {
-        res.json(results); // Daten an den Client senden
-      })
-      .on('error', (err) => {
-        console.error(`Error reading the CSV file: ${err}`);
-        res.status(500).send('Error reading the CSV file');
-      });
+    .pipe(csv({ separator: ';' }))
+    .on('data', (row) => {
+      console.log('SEASON_YEAR:', row['SEASON_YEAR']); // Prüfe die Spalte SEASON_YEAR in jedem Datensatz
+      const cleanedRow = {};
+      for (let key in row) {
+        const cleanedKey = key.replace(/\uFEFF/g, ''); // Entfernt BOM aus dem Schlüssel
+        cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, ''); // Entfernt BOM aus dem Wert
+      }
+      results.push(cleanedRow);
+    })
+    .on('end', () => {
+      res.json(results); // Daten an den Client senden
+    })
+    .on('error', (err) => {
+      console.error(`Error reading the CSV file: ${err}`);
+      res.status(500).send('Error reading the CSV file');
+    });
   });
 };
 
