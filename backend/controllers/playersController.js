@@ -2,6 +2,13 @@ const fs = require('fs');
 const path = require('path');
 const csv = require('csv-parser');
 
+// Helper function to extract season year from ID
+const extractSeasonYearFromID = (id) => {
+  if (!id || typeof id !== 'string') return 'Unknown';
+  const parts = id.split('_'); // Split the ID string by underscores
+  return parts.length > 0 ? parts[0] : 'Unknown'; // Return the first part of the ID as the season year
+};
+
 const getPlayersData = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv'); // Ensure correct path to your CSV file
   const results = [];
@@ -31,7 +38,7 @@ const getPlayersData = (req, res) => {
         // Ensure SEASON_YEAR is correctly handled
         if (!formattedData['SEASON_YEAR'] || formattedData['SEASON_YEAR'] === '') {
           console.warn("SEASON_YEAR missing or empty in row:", formattedData);
-          formattedData['SEASON_YEAR'] = extractSeasonYearFromID(formattedData['ID']); // Fallback to ID
+          formattedData['SEASON_YEAR'] = extractSeasonYearFromID(formattedData['ID']); // Fallback to extracting from ID
         }
 
         results.push(formattedData);
@@ -45,13 +52,6 @@ const getPlayersData = (req, res) => {
         res.status(500).send('Error reading the CSV file');
       });
   });
-};
-
-// Helper function to extract season year from ID
-const extractSeasonYearFromID = (id) => {
-  if (!id || typeof id !== 'string') return 'Unknown';
-  const parts = id.split('_');
-  return parts.length > 0 ? parts[0] : 'Unknown';
 };
 
 module.exports = {
