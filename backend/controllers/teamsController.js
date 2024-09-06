@@ -19,23 +19,30 @@ const getTeamsData = (req, res) => {
     }
 
     // CSV-Datei auslesen
-    fs.createReadStream(filePath)
-      .pipe(csv({ separator: ';' }))  // Verwenden des richtigen Separators
-      .on('data', (row) => {
-        const cleanedRow = {};
-        for (let key in row) {
-          const cleanedKey = key.replace(/\uFEFF/g, '').trim();
-          cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
-        }
-        results.push(cleanedRow);  // Bereinigte Daten sammeln
-      })
-      .on('end', () => {
+    const stream = fs.createReadStream(filePath)
+      .pipe(csv({ separator: ';' }));  // Verwenden des richtigen Separators
+
+    stream.on('data', (row) => {
+      const cleanedRow = {};
+      for (let key in row) {
+        const cleanedKey = key.replace(/\uFEFF/g, '').trim();
+        cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
+      }
+      results.push(cleanedRow);  // Bereinigte Daten sammeln
+    });
+
+    stream.on('end', () => {
+      if (!res.headersSent) {
         res.json(results);  // Bereitstellen der Daten, nachdem das Lesen abgeschlossen ist
-      })
-      .on('error', (err) => {
-        console.error(`Error reading the CSV file: ${err}`);
+      }
+    });
+
+    stream.on('error', (err) => {
+      console.error(`Error reading the CSV file: ${err}`);
+      if (!res.headersSent) {
         res.status(500).send('Error reading the CSV file');
-      });
+      }
+    });
   });
 };
 
