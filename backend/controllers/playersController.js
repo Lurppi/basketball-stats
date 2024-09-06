@@ -31,7 +31,7 @@ const getPlayersData = (req, res) => {
         // Ensure SEASON_YEAR is correctly handled
         if (!formattedData['SEASON_YEAR'] || formattedData['SEASON_YEAR'] === '') {
           console.warn("SEASON_YEAR missing or empty in row:", formattedData);
-          formattedData['SEASON_YEAR'] = 'Unknown'; // Add fallback value if SEASON_YEAR is missing
+          formattedData['SEASON_YEAR'] = extractSeasonYearFromID(formattedData['ID']); // Fallback to ID
         }
 
         results.push(formattedData);
@@ -45,6 +45,13 @@ const getPlayersData = (req, res) => {
         res.status(500).send('Error reading the CSV file');
       });
   });
+};
+
+// Helper function to extract season year from ID
+const extractSeasonYearFromID = (id) => {
+  if (!id || typeof id !== 'string') return 'Unknown';
+  const parts = id.split('_');
+  return parts.length > 0 ? parts[0] : 'Unknown';
 };
 
 module.exports = {
