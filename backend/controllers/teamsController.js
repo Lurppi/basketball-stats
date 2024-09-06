@@ -12,9 +12,9 @@ const getTeamsData = (req, res) => {
       return res.status(404).send(`File not found: ${filePath}`);
     }
 
-    // Read and process the CSV file
+    // Read and process the CSV file with the correct separator
     fs.createReadStream(filePath)
-      .pipe(csv({ separator: ',' }))  // Ändere den Separator auf ','
+      .pipe(csv({ separator: ';' }))  // Verwende hier den korrekten Separator
       .on('data', (row) => {
         // Bereinige die Schlüssel (Spaltennamen) von unerwünschten Zeichen wie dem Byte-Order-Mark (BOM)
         const cleanedRow = {};
@@ -25,7 +25,7 @@ const getTeamsData = (req, res) => {
         results.push(cleanedRow);
       })
       .on('end', () => {
-        res.json(results); // Send the parsed results back to the client
+        res.json(results); // Daten an den Client senden
       })
       .on('error', (err) => {
         console.error(`Error reading the CSV file: ${err}`);
