@@ -4,7 +4,7 @@ const csv = require('csv-parser');
 
 const getPlayersData = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv');
-  const results = [];
+  console.log('CSV File Path:', filePath); // Prüfe den Dateipfad
 
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
@@ -15,9 +15,10 @@ const getPlayersData = (req, res) => {
     fs.createReadStream(filePath)
       .pipe(csv({ separator: ';' }))
       .on('data', (row) => {
+        console.log('SEASON_YEAR:', row['SEASON_YEAR']); // Prüfe die SEASON_YEAR-Spalte
         const cleanedRow = {};
         for (let key in row) {
-          const cleanedKey = key.replace(/\uFEFF/g, ''); // Entfernt Byte-Order-Mark (BOM) falls vorhanden
+          const cleanedKey = key.replace(/\uFEFF/g, ''); // Entfernt Byte-Order-Mark (BOM), falls vorhanden
           cleanedRow[cleanedKey] = row[key];
         }
         results.push(cleanedRow);

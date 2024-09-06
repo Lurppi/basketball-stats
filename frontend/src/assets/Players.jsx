@@ -31,125 +31,12 @@ const columnMappings = {
   ],
 };
 
-const teamNameMapping = {
-  "Alba Berlin": "Berlin",
-  "ART Giants Düsseldorf": "Düsseldorf",
-  "Bamberg freakcity academy": "Bamberg",
-  "Basketball Löwen Erfurt": "Erfurt",
-  "Baskets Juniors Oldenburg": "Oldenburg",
-  "Baskets Paderborn": "Paderborn",
-  "Bayer Giants Leverkusen": "Leverkusen",
-  "BBA Giants Kornwestheim": "Kornwestheim",
-  "BBA Hagen": "BBA Hagen",
-  "Berlin Braves Baskets": "Braves Berlin",
-  "Dresden Titans": "Dresden",
-  "Eintracht Frankfurt": "Frankfurt",
-  "Eisbären Bremerhaven": "Bremerhaven",
-  "FC Bayern München": "Bayern München",
-  "HAKRO Merlins Crailsheim": "Crailsheim",
-  "Hamburg Towers": "Hamburg",
-  "KICKZ IBAM": "IBAM",
-  "Medipolis SC Jena": "Jena",
-  "Metropol Baskets Ruhr": "Ruhrgebiet",
-  "Niners Chemnitz Academy": "Chemnitz",
-  "Orange Academy": "Orange",
-  "Phoenix Hagen": "Phoenix Hagen",
-  "Porsche BBA Ludwigsburg": "Ludwigsburg",
-  "ratiopharm Ulm": "Ulm",
-  "RheinStars Köln": "Köln",
-  "Rostock Seawolves": "Rostock",
-  "ROTH Energie BBA GIESSEN 46ers": "Gießen",
-  "Sartorius Juniors": "Göttingen",
-  "SG Junior Löwen Braunschweig": "Braunschweig",
-  "Team Bonn/Rhöndorf": "Bonn-Rhöndorf",
-  "Team Südhessen": "Südhessen",
-  "Team Urspring": "Urspring",
-  "TG Hanau": "Hanau",
-  "Tornados Franken": "Nürnberg",
-  "TS Jahn München": "Jahn München",
-  "UBC Münster": "Münster",
-  "USC Heidelberg": "Heidelberg",
-  "VfL Kirchheim Knights": "Kirchheim",
-  "Würzburg Baskets Akademie": "Würzburg",
-  "Young Rasta Dragons": "Rasta Vechta"
-};
-
-const glossary = {
-  "DIV": "Division",
-  "POS": "Position",
-  "﻿PLAYER": "Player",
-  "TEAM": "Team",
-  "BORN": "Year of Birth",
-  "GP": "Games Played",
-  "MP": "Minutes Played",
-  "PT": "Points",
-  "RB": "Rebounds",
-  "OR": "Offensive Rebounds",
-  "DR": "Defensive Rebounds",
-  "AS": "Assists",
-  "ST": "Steals",
-  "BS": "Blocked Shots",
-  "TO": "Turnovers",
-  "PF": "Personal Fouls",
-  "EF": "Efficiency",
-  "EF/Gm": "Efficiency per Game",
-  "DD": "Double Double",
-  "TD": "Triple Double",
-  "2PM": "2-Pointer Made",
-  "2PA": "2-Point Attempts",
-  "2P%": "2-Point Percentage",
-  "3PM": "3-Pointer Made",
-  "3PA": "3-Point Attempts",
-  "3P%": "3-Point Percentage",
-  "FGM": "Field Goals Made",
-  "FGA": "Field Goal Attempts",
-  "FG%": "Field Goal Percentage",
-  "FTM": "Free Throws Made",
-  "FTA": "Free Throw Attempts",
-  "FT%": "Free Throw Percentage",
-  "ORTG": "Offensive Rating",
-  "DRTG": "Defensive Rating",
-  "NRTG": "Net Rating",
-  "OBPM": "Offensive Boxscore Plus/Minus",
-  "DBPM": "Defensive Boxscore Plus/Minus",
-  "BPM": "Boxscore Plus/Minus",
-  "VORP": "Value over Replacement Player",
-  "OWS": "Offensive Win Shares",
-  "DWS": "Defensive Win Shares",
-  "WS": "Win Shares",
-  "WS/40": "Win Shares per 40 Minutes",
-  "PER": "Player Efficiency Rating",
-  "FIC": "Floor Impact Counter",
-  "FIC/Gm": "Floor Impact Counter per Game",
-  "PIE": "Player Impact Estimate",
-  "AS RATIO": "Assist Ratio (Assists per 100 Possessions)",
-  "AS RATE": "Assist Rate (High Value = High Passing Tendency)",
-  "AS/TO": "Assist to Turnover Ratio",
-  "REB%": "Rebound Percentage",
-  "ST%": "Steal Percentage",
-  "BS%": "Block Percentage",
-  "USAGE": "Usage Rate",
-  "TS%": "True Shooting Percentage",
-  "EFG%": "Effective Field Goal Percentage",
-  "TOV%": "Turnover Percentage",
-  "ORB%": "Offensive Rebound Percentage",
-  "FT-RATE": "Free Throw Rate",
-  "OPP EFG%": "Opponent Effective Field Goal Percentage",
-  "OPP TOV%": "Opponent Turnover Percentage",
-  "OPP ORB%": "Opponent Offensive Rebound Percentage",
-  "OPP FT-RATE": "Opponent Free Throw Rate",
-  "PPP": "Points per Possession",
-  "ROLE": "Offensive Role",
-  "WINS": "Game Wins",
-  "PACE": "Team Pace (Possessions per Game)",
-};
-
 const Players = () => {
   const [allPlayers, setAllPlayers] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [headers, setHeaders] = useState([]);
   const [filters, setFilters] = useState({
-    season: '20232024',
+    season: 'All',
     league: 'All', 
     statsType: 'Totals', 
     division: 'All',
@@ -185,13 +72,18 @@ const Players = () => {
           season: filters.season !== 'All' ? filters.season : undefined,
         });
   
-        console.log('Fetched Data:', data); // Füge dies hinzu, um die Daten zu prüfen
+        console.log('API response:', data); // Ausgabe zur Überprüfung der API-Antwort
   
         if (data && data.length > 0) {
           const selectedColumns = columnMappings[filters.statsType];
           setHeaders(selectedColumns);
   
-          const processedData = data.map((entry) => selectedColumns.map((column) => entry[column] || 'N/A'));
+          const processedData = data.map((entry) =>
+            selectedColumns.map((column) => entry[column] || '')
+          );
+  
+          console.log('Processed Data:', processedData); // Verarbeite Daten und prüfe SEASON_YEAR
+  
           setAllPlayers(processedData);
           setFilteredData(processedData);
         }
@@ -205,6 +97,7 @@ const Players = () => {
   
     fetchData();
   }, [filters.season, filters.statsType]);
+  
 
   const applyFilters = (data) => {
     return data.filter(row => {
@@ -217,7 +110,7 @@ const Players = () => {
       const bornMatch = filters.born === 'All' || row[headers.indexOf('BORN')] === filters.born;
       const gamesPlayedMatch = !filters.gamesPlayed || parseInt(row[headers.indexOf('GP')], 10) >= parseInt(filters.gamesPlayed, 10);
       const minutesPlayedMatch = !filters.minutesPlayed || parseInt(row[headers.indexOf('MP')], 10) >= parseInt(filters.minutesPlayed, 10);
-
+  
       return (
         leagueMatch &&
         divisionMatch &&
@@ -231,14 +124,14 @@ const Players = () => {
       );
     });
   };
-
+  
   const sortData = (data) => {
     if (!filters.sortStat) return data;
-
+  
     return data.sort((a, b) => {
       const statA = a[headers.indexOf(filters.sortStat)];
       const statB = b[headers.indexOf(filters.sortStat)];
-
+  
       return filters.sortDirection === 'asc' ? (statA > statB ? 1 : -1) : statA < statB ? 1 : -1;
     });
   };
@@ -479,7 +372,7 @@ const Players = () => {
               <thead>
                 <tr>
                   {headers.map((header, idx) => (
-                    <th key={idx}>{header}</th> // Verwende explizit die Header
+                    <th key={idx}>{header}</th> 
                   ))}
                 </tr>
               </thead>
@@ -487,7 +380,7 @@ const Players = () => {
                 {displayedPlayers.map((row, idx) => (
                   <tr key={idx}>
                     {row.map((cell, cellIdx) => (
-                      <td key={cellIdx}>{cell || 'N/A'}</td> // Daten direkt anzeigen
+                      <td key={cellIdx}>{cell || ''}</td>
                     ))}
                   </tr>
                 ))}
