@@ -68,16 +68,21 @@ const Players = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetchPlayers({
-          season: filters.season !== 'All' ? filters.season : undefined,
-        });
+        const seasonFile = filters.season !== 'All' ? filters.season : 'PLAYERS'; // Setze den Dateinamen dynamisch
+        const data = await fetchPlayers(seasonFile); // Verwende den dynamischen Dateinamen
   
         console.log('API response:', data); // Ausgabe zur Überprüfung der API-Antwort
   
         if (data && data.length > 0) {
+          // Extrahiere alle einzigartigen Season-Werte für das Dropdown-Menü
+          const uniqueSeasons = [...new Set(data.map(item => item.SEASON_YEAR))];
+          setSeasons(uniqueSeasons);
+  
+          // Spalten basierend auf der aktuellen statsType-Auswahl (Totals, Averages, etc.)
           const selectedColumns = columnMappings[filters.statsType];
           setHeaders(selectedColumns);
   
+          // Verarbeite die Daten für die Tabelle
           const processedData = data.map((entry) =>
             selectedColumns.map((column) => entry[column] || '')
           );
@@ -96,11 +101,11 @@ const Players = () => {
     };
   
     fetchData();
-  }, [filters.season, filters.statsType]);
+  }, [filters.statsType, filters.season]);
   
-
   const applyFilters = (data) => {
     return data.filter(row => {
+      const seasonMatch = filters.season === 'All' || row[headers.indexOf('SEASON_YEAR')] === filters.season;
       const leagueMatch = filters.league === 'All' || row[headers.indexOf('LEAGUE')] === filters.league;
       const divisionMatch = filters.division === 'All' || row[headers.indexOf('DIV')] === filters.division;
       const teamMatch = filters.team === 'All' || row[headers.indexOf('TEAM')] === filters.team;
@@ -112,6 +117,7 @@ const Players = () => {
       const minutesPlayedMatch = !filters.minutesPlayed || parseInt(row[headers.indexOf('MP')], 10) >= parseInt(filters.minutesPlayed, 10);
   
       return (
+        seasonMatch &&
         leagueMatch &&
         divisionMatch &&
         teamMatch &&
@@ -132,16 +138,15 @@ const Players = () => {
       const statA = a[headers.indexOf(filters.sortStat)];
       const statB = b[headers.indexOf(filters.sortStat)];
   
-      return filters.sortDirection === 'asc' ? (statA > statB ? 1 : -1) : statA < statB ? 1 : -1;
+      return filters.sortDirection === 'asc' ? (statA > statB ? 1 : -1) : (statA < statB ? 1 : -1);
     });
   };
 
   const displayedPlayers = useMemo(() => {
     const filtered = applyFilters(filteredData);
     const sorted = sortData(filtered);
-
-    return sorted
-      .slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
+  
+    return sorted.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
   }, [filteredData, filters, currentPage, rowsPerPage]);
 
   const totalRows = useMemo(() => applyFilters(filteredData).length, [filteredData, filters]);
