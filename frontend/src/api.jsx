@@ -31,10 +31,11 @@ const fetchWithHeaders = async (url, options = {}) => {
   return handleFetchResponse(response);
 };
 
-export const fetchPlayers = async (file, authToken) => {
-  return fetchWithHeaders(`${BASE_URL}/players?file=${file}`, { authToken });
+// Hole immer nur PLAYERS.csv
+export const fetchPlayers = async (authToken) => {
+  return fetchWithHeaders(`${BASE_URL}/players?file=PLAYERS`, { authToken });
 };
 
-export const fetchTeams = async (file, authToken) => {
-  return fetchWithHeaders(`${BASE_URL}/teams?file=${file}`, { authToken });
+export const fetchTeams = async (authToken) => {
+  return fetchWithHeaders(`${BASE_URL}/teams?file=TEAMS`, { authToken });
 };

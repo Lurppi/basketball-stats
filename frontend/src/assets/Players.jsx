@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { fetchPlayers } from '../api';
+import { fetchPlayers } from '../api'; // Angepasst für Stats Type
 import Header from './Header';
 import Footer from './Footer';
 import './Players.css';
@@ -65,12 +65,11 @@ const Players = () => {
   const rowsPerPage = 20;
   const [currentPage, setCurrentPage] = useState(1);
 
+  // 1. Verwende useEffect, um Daten basierend auf dem Stats Type zu laden
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Verwende 'PLAYERS' als Dateinamen, wenn die Saison "All" ist
-        const seasonFile = filters.season !== 'All' ? 'PLAYERS' : 'PLAYERS';
-        const data = await fetchPlayers(seasonFile);
+        const data = await fetchPlayers(filters.statsType); // Hole nur die Spalten, die für den Stats Type relevant sind
     
         if (data && data.length > 0) {
           const uniqueSeasons = [...new Set(data.map(item => item.SEASON_YEAR))];
@@ -95,8 +94,9 @@ const Players = () => {
     };
   
     fetchData();
-  }, [filters.statsType, filters.season]);
+  }, [filters.statsType]); // API-Anfrage wird bei Änderung des Stats Type ausgelöst
   
+  // 2. Filtere die Daten im Frontend (Zeilen)
   const applyFilters = (data) => {
     return data.filter(row => {
       const seasonMatch = filters.season === 'All' || row[headers.indexOf('SEASON_YEAR')] === filters.season;
@@ -125,6 +125,7 @@ const Players = () => {
     });
   };
   
+  // 3. Sortiere die Daten, wenn ein Sortierkriterium ausgewählt ist
   const sortData = (data) => {
     if (!filters.sortStat) return data;
   
