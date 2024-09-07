@@ -229,11 +229,21 @@ const Players = () => {
 
   useEffect(() => {
     const handleFilterError = () => {
-      const filtered = applyFilters(allPlayers);
+      // Erstelle eine Version der Filter ohne die Eingabefelder (z.B. Games Played und Minutes Played)
+      const filtersWithoutInputFields = {
+        season: filters.season,
+        league: filters.league,
+        division: filters.division,
+        seasonType: filters.seasonType,
+        statsType: filters.statsType,
+        team: filters.team,
+      };
 
-      // Prüfen, ob die gefilterten Daten leer sind
-      if (filtered.length === 0) {
-        // Finde heraus, welcher Filter das Problem verursacht hat
+      // Filter nur mit Dropdown-Werten anwenden, um zu sehen, ob sie schon zu leeren Daten führen
+      const filteredWithoutInputs = applyFiltersWithCustomFilters(allPlayers, filtersWithoutInputFields);
+
+      // Wenn diese Filter schon leere Daten liefern, dann ist es ein Fehlerfilter
+      if (filteredWithoutInputs.length === 0) {
         if (filters.seasonType !== 'All') {
           setFilters(prevFilters => ({
             ...prevFilters,
@@ -250,13 +260,30 @@ const Players = () => {
             division: 'All',  // Setze nur "Division" zurück
           }));
         }
-        // Sobald der Fehlerfilter auf "All" zurückgesetzt wurde, wird applyFilters erneut aufgerufen
       }
     };
 
     handleFilterError();
   }, [filters, allPlayers]);
 
+  // Hilfsfunktion zum Anwenden der Filter ohne Eingabefelder
+  const applyFiltersWithCustomFilters = (data, customFilters) => {
+    return data.filter(row => {
+      const seasonMatch = customFilters.season === 'All' || row[headers.indexOf('SEASON_YEAR')] === customFilters.season;
+      const leagueMatch = customFilters.league === 'All' || row[headers.indexOf('LEAGUE')] === customFilters.league;
+      const divisionMatch = customFilters.division === 'All' || row[headers.indexOf('DIV')] === customFilters.division;
+      const seasonTypeMatch = customFilters.seasonType === 'All' || row[headers.indexOf('SEASON_TYPE')] === customFilters.seasonType;
+      const teamMatch = customFilters.team === 'All' || row[headers.indexOf('TEAM')] === customFilters.team;
+
+      return (
+        seasonMatch &&
+        leagueMatch &&
+        divisionMatch &&
+        seasonTypeMatch &&
+        teamMatch
+      );
+    });
+  };
   
   const sortData = (data) => {
     if (!filters.sortStat) return data;
