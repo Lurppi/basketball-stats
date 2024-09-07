@@ -36,6 +36,7 @@ const Teams = () => {
     statsType: 'Totals',
     division: 'All',
     seasonType: 'All',
+    team: 'All',
     sortStat: '',
     sortDirection: 'desc',
   });
@@ -44,6 +45,7 @@ const Teams = () => {
   const [leagues, setLeagues] = useState([]);
   const [divisions, setDivisions] = useState([]);
   const [seasonTypes, setSeasonTypes] = useState([]);
+  const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -86,12 +88,14 @@ const Teams = () => {
       const leagueMatch = filters.league === 'All' || row[headers.indexOf('LEAGUE')] === filters.league;
       const divisionMatch = filters.division === 'All' || row[headers.indexOf('DIV')] === filters.division;
       const seasonTypeMatch = filters.seasonType === 'All' || row[headers.indexOf('SEASON_TYPE')] === filters.seasonType;
+      const teamMatch = filters.team === 'All' || row[headers.indexOf('TEAM')] === filters.team; // Team-Filter anwenden
 
       return (
         seasonMatch &&
         leagueMatch &&
         divisionMatch &&
-        seasonTypeMatch
+        seasonTypeMatch &&
+        teamMatch // Den Team-Match in den Filterprozess einbeziehen
       );
     });
   };
@@ -130,6 +134,18 @@ const Teams = () => {
           .map(team => team[headers.indexOf('SEASON_TYPE')])
       )];
       setSeasonTypes(uniqueSeasonTypes);
+
+      // Neue Logik für den Team-Filter:
+      const uniqueTeams = [...new Set(
+        allTeams
+          .filter(team =>
+            (filters.season === 'All' || team[headers.indexOf('SEASON_YEAR')] === filters.season) &&
+            (filters.league === 'All' || team[headers.indexOf('LEAGUE')] === filters.league) &&
+            (filters.division === 'All' || team[headers.indexOf('DIV')] === filters.division)
+          )
+          .map(team => team[headers.indexOf('TEAM')])
+      )];
+      setTeams(uniqueTeams); // Team-Dropdown aktualisieren
     };
 
     updateDropdownValues();
@@ -265,6 +281,20 @@ const Teams = () => {
                   <option key={idx} value={type}>
                     {type}
                   </option>
+                ))}
+              </select>
+            </label>
+
+            <label>
+              Team:
+              <select
+                name="team"
+                value={filters.team}
+                onChange={e => setFilters({ ...filters, team: e.target.value })}
+              >
+                <option value="All">All</option>
+                {teams.map((team, idx) => (
+                  <option key={idx} value={team}>{team}</option>
                 ))}
               </select>
             </label>
