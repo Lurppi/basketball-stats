@@ -7,13 +7,22 @@ import { columnHeaderMapping, ToolheadersMapping } from './MappingList.jsx';
 
 const columnMappings = {
   Totals: [
-    'TEAM', 'LEAGUE', 'DIV', 'SEASON_YEAR', 'SEASON_TYPE', 'WINS', 'PACE', 'ORTG', 'DRTG', 'NRTG'
+    'TEAM_ID', 'GP', 'WINS', 'PACE', 'MP', 'PT', 'DR', 'OR', 'RB', 'AS', 'ST', 'BS', 'TO', 'PF', 'EF', 'PIE', 'TEAM'
   ],
   Averages: [
-    'TEAM', 'LEAGUE', 'DIV', 'SEASON_YEAR', 'SEASON_TYPE', 'PPG', 'RPG', 'APG', 'SPG', 'BPG', 'TOPG'
+    'TEAM_ID', 'GP', 'WINS', 'PACE', 'MPG', 'PPG', 'DRPG', 'ORPG', 'RPG', 'APG', 'SPG', 'BPG', 'TOPG', 'PFPG', 'EFPG', 'PER', 'TEAM'
   ],
+
+  Shooting: [
+    'TEAM_ID', 'GP', 'WINS', '2PM', '2PA', '2P%', '3PM', '3PA', '3P%', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'TS%', 'TEAM'
+  ],
+
+  Opponent: [
+    'TEAM_ID', 'GP', 'WINS', 'PACE', 'OPP_PPG', 'OPP_RPG', 'ORPG', 'RBPG', 'OPP_APG', 'OPP_SPG', 'OPP_BPG', 'OPP_2P%', 'OPP_3P%', 'OPP_FG%', 'OPP_FT%', 'TEAM'
+  ],
+
   Advanced: [
-    'TEAM', 'LEAGUE', 'DIV', 'SEASON_YEAR', 'SEASON_TYPE', 'TS%', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE'
+    'TEAM_ID', 'GP', 'WINS', 'PACE', 'ORTG', 'DRTG', 'NRTG', 'PPP', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE', 'OPP_EFG%', 'OPP_TOV%', 'OPP_ORB%', 'OPP_FT_RATE', 'TEAM'
   ],
 };
 

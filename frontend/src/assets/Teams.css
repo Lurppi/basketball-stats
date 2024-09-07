@@ -161,13 +161,6 @@
   /* Damit die erste Spalte der Kopfzeile über der fixierten Kopfzeile bleibt */
 }
 
-/* Fixiert die erste Spalte */
-.teams-table-container th:nth-of-type(3),
-.teams-table-container td:nth-of-type(3) {
-  text-align: left;
-  width: 220px;
-}
-
 .teams-footer {
   position: fixed;
   bottom: 0;
