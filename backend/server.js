@@ -17,13 +17,15 @@ const corsOptions = {
   ],
   optionsSuccessStatus: 200,
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  allowedHeaders: ['Content-Type'], // Keine zwingende Notwendigkeit für Authorization
   credentials: true,
+  preflightContinue: false,
 };
 
 // Middleware
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions)); // Handling von OPTIONS-Anfragen
+
 app.use(express.json());
 
 // Routes
