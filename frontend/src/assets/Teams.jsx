@@ -271,6 +271,20 @@ const Teams = () => {
             </label>
 
             <label>
+              Team:
+              <select
+                name="team"
+                value={filters.team}
+                onChange={e => setFilters({ ...filters, team: e.target.value })}
+              >
+                <option value="All">All</option>
+                {teams.map((team, idx) => (
+                  <option key={idx} value={team}>{team}</option>
+                ))}
+              </select>
+            </label>
+
+            <label>
               Stats Type:
               <select
                 name="statsType"
@@ -281,20 +295,6 @@ const Teams = () => {
                   <option key={idx} value={type}>
                     {type}
                   </option>
-                ))}
-              </select>
-            </label>
-
-            <label>
-              Team:
-              <select
-                name="team"
-                value={filters.team}
-                onChange={e => setFilters({ ...filters, team: e.target.value })}
-              >
-                <option value="All">All</option>
-                {teams.map((team, idx) => (
-                  <option key={idx} value={team}>{team}</option>
                 ))}
               </select>
             </label>
