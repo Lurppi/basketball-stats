@@ -7,27 +7,27 @@ import './Players.css';
 const columnMappings = {
   Totals: [
     'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'GP', 'MP', 'PT', 'RB', 'AS', 'ST', 'BS', 'TO', 'PF', 'EF', 'DD', 'TD',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'PER', 'PIE'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'PER', 'PIE', 'TEAM'
   ],
   Averages: [
     'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'GP', 'MPG', 'PPG', 'RPG', 'APG', 'SPG', 'BPG', 'TOPG', 'PFPG', 'EFPG', 'PER', 'PIE',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'FIC', 'MP'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'FIC', 'MP', 'TEAM'
   ],
   Shooting: [
     'PLAYER', 'TEAM_ID', 'POS', 'ROLE', '2PM', '2PA', '2P%', '3PM', '3PA', '3P%', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP', 'TEAM'
   ],
   'Advanced 1': [
     'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'USAGE', 'PER', 'EFPG', 'FIC', 'FIC_Gm', 'PIE', 'AS_RATIO', 'AS_RATE', 'AS_TO', 'REB%', 'ST%', 'BS%',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP', 'TEAM'
   ],
   'Advanced 2': [
     'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'USAGE', 'PER', 'PIE', 'EFPG', 'TS%', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE', 'ORTG', 'DRTG', 'NRTG',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP', 'TEAM'
   ],
   'Advanced 3': [
     'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'USAGE', 'PER', 'PIE', 'EFPG', 'OBPM', 'DBPM', 'BPM', 'VORP', 'OWS', 'DWS', 'WS', 'WS_40',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP', 'TEAM'
   ],
 };
 
