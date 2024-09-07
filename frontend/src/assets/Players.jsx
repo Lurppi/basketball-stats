@@ -257,23 +257,25 @@ const Players = () => {
   }, [filters, allPlayers]);
 
   
-  // 3. Sortiere die Daten, wenn ein Sortierkriterium ausgewählt ist
   const sortData = (data) => {
     if (!filters.sortStat) return data;
-  
+
     return data.sort((a, b) => {
       const statA = a[headers.indexOf(filters.sortStat)];
       const statB = b[headers.indexOf(filters.sortStat)];
-  
-      // Überprüfe, ob der Wert eine Zahl ist und konvertiere den String in eine Zahl
-      const isNumeric = !isNaN(statA) && !isNaN(statB);
-      const numA = isNumeric ? parseFloat(statA) : statA;
-      const numB = isNumeric ? parseFloat(statB) : statB;
-  
+
+      // Überprüfe, ob der Wert existiert und ist numerisch
+      const isNumericA = statA && !isNaN(statA);
+      const isNumericB = statB && !isNaN(statB);
+      const valueA = isNumericA ? parseFloat(statA) : statA;
+      const valueB = isNumericB ? parseFloat(statB) : statB;
+
       // Sortiere numerisch oder lexikografisch je nach Datentyp
-      return filters.sortDirection === 'asc'
-        ? (numA > numB ? 1 : -1)
-        : (numA < numB ? 1 : -1);
+      if (filters.sortDirection === 'asc') {
+        return valueA > valueB ? 1 : valueA < valueB ? -1 : 0;
+      } else {
+        return valueA < valueB ? 1 : valueA > valueB ? -1 : 0;
+      }
     });
   };
 
@@ -452,7 +454,7 @@ const Players = () => {
                 }}
               >
                 <option value="">Select Stat</option>
-                {headers.map((header, idx) => (
+                {headers.slice(0, 16).map((header, idx) => (
                   <option key={idx} value={header}>{header}</option>
                 ))}
               </select>
