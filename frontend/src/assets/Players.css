@@ -41,8 +41,15 @@
   padding: 6px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 10.5px;
-  width: 100%;
+  min-width: 150px;
+}
+
+.players-filters select {
+  font-size: 10.5px
+}
+
+.players-filters input {
+  font-size: 11px
 }
 
 .players-container {
@@ -135,7 +142,7 @@
   position: sticky;
   left: 0;
   text-align: left;
-  width: 170px;
+  width: 220px;
   background: rgba(255, 255, 255, 0.9); /* Hintergrund, um den Text lesbar zu halten */
   z-index: 1; /* Damit die erste Spalte über den restlichen Zellen bleibt */
 }
@@ -148,7 +155,7 @@
 .players-table-container th:nth-of-type(3),
 .players-table-container td:nth-of-type(3) {
   text-align: left;
-  width: 120px;
+  width: 220px;
 }
 
 .players-footer {
@@ -194,11 +201,16 @@ header {
   .players-filters label {
     flex-basis: 85%;
   }
+
+  .players-filters select {
+    width: 100%;
+    /* Vollbreite für mobile Geräte */
+  }
 }
 
 @media (max-width: 450px) {
   .players-filters label {
-    flex-basis: 100%;
+    flex-basis: 100%;    
   }
 }
 

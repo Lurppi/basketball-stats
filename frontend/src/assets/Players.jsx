@@ -3,6 +3,7 @@ import { fetchPlayers } from '../api'; // Angepasst für Stats Type
 import Header from './Header';
 import Footer from './Footer';
 import './Players.css';
+import { columnHeaderMapping, ToolheadersMapping } from './MappingList.jsx';
 
 const columnMappings = {
   Totals: [
@@ -18,16 +19,16 @@ const columnMappings = {
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP', 'TEAM'
   ],
   'Advanced 1': [
-    'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'USAGE', 'PER', 'EFPG', 'FIC', 'FIC_Gm', 'PIE', 'AS_RATIO', 'AS_RATE', 'AS_TO', 'REB%', 'ST%', 'BS%',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP', 'TEAM'
+    'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'FIC', 'FIC_Gm', 'PIE', 'AS_RATIO', 'AS_RATE', 'AS_TO', 'REB%', 'ST%', 'BS%',
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM'
   ],
   'Advanced 2': [
-    'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'USAGE', 'PER', 'PIE', 'EFPG', 'TS%', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE', 'ORTG', 'DRTG', 'NRTG',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP', 'TEAM'
+    'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'PER', 'TS%', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE', 'ORTG', 'DRTG', 'NRTG',
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM'
   ],
   'Advanced 3': [
-    'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'USAGE', 'PER', 'PIE', 'EFPG', 'OBPM', 'DBPM', 'BPM', 'VORP', 'OWS', 'DWS', 'WS', 'WS_40',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP', 'TEAM'
+    'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'PER', 'OBPM', 'DBPM', 'BPM', 'VORP', 'OWS', 'DWS', 'WS', 'WS_40',
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'MP', 'PIE', 'TEAM'
   ],
 };
 
@@ -489,7 +490,11 @@ const Players = () => {
             <table className="players-table-container">
               <thead>
                 <tr>
-                  <th>#</th>{headers.map((header, idx) => <th key={idx}>{header}</th>)}
+                  <th>#</th>
+                  {headers.map((header, idx) => (
+                    <th key={idx} title={ToolheadersMapping[header] || header}>
+                      {columnHeaderMapping[header] || header}</th>
+                  ))}
                 </tr>
               </thead>
               <tbody>
