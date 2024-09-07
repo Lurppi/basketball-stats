@@ -90,8 +90,8 @@ html, body {
 
 .carousel .list .item .author {
   font-weight: bold;
-  font-size: 30px;
-  letter-spacing: 10px;
+  font-size: 100px;
+  letter-spacing: 0px;
 }
 
 .carousel .list .item .title,
@@ -115,14 +115,30 @@ html, body {
 
 .carousel .list .item .buttons button {
   border: none;
-  background-color: solid;
-  background-color: #eee;
-  border: 1px solid #fff;
-  color: #000000;
-  letter-spacing: 3px;
-  font-family: Poppins;
-  font-weight: 500;
-}
+    background-color: #ffffff;
+    /* Weißer Hintergrund für die Buttons */
+    border: 1px solid #fff;
+    color: #000000;
+    /* Schwarzer Text */
+    letter-spacing: 3px;
+    font-family: Poppins;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    /* Glow-Effekt */
+  }
+
+    /* Glow-Effekt und dunklerer Hover */
+    .carousel .list .item .buttons button:hover {
+      background-color: #000000;
+      /* Dunkler Hintergrund bei Hover */
+      color: #ffffff;
+      /* Weißer Text bei Hover */
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+      /* Stärkerer Glow-Effekt */
+    }
 
 .carousel .list .item .buttons button:nth-child(2) {
   background-color: transparent;
