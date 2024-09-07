@@ -17,9 +17,8 @@ const corsOptions = {
   ],
   optionsSuccessStatus: 200,
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-  allowedHeaders: ['Content-Type'], // Keine zwingende Notwendigkeit für Authorization
+  allowedHeaders: ['Content-Type', 'Authorization'],  // Hier Authorization hinzufügen
   credentials: true,
-  preflightContinue: false,
 };
 
 // Middleware
