@@ -80,6 +80,8 @@ const Glossary = () => {
             <tr><td>OPP FT-RATE</td><td>Opponent Free Throw Rate</td></tr>
             <tr><td>PPP</td><td>Points per Possession</td></tr>
             <tr><td>PACE</td><td>Team Pace (Possessions per Game)</td></tr>
+            <tr><td>DRPG</td><td>Defensive Rebounds per Game</td></tr>
+            <tr><td>ORPG</td><td>Offensive Rebounds per Game</td></tr>
           </tbody>
         </table>
       </main>

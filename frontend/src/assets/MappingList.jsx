@@ -90,7 +90,9 @@ export const columnHeaderMapping = {
   "OPP_EFG%": "OPP_EFG%",
   "OPP_TOV%": "OPP_TOV%",
   "OPP_ORB%": "OPP_ORB%",
-  "OPP_FT_RATE": "OPP_FT_RATE"
+  "OPP_FT_RATE": "OPP_FT_RATE",
+  "ORPG": "OR",
+  "DRPG": "DR",
 };
 
 export const ToolheadersMapping = {
@@ -186,6 +188,8 @@ export const ToolheadersMapping = {
   "OPP_TOV%": "Opponent Turnover Percentage",
   "OPP_ORB%": "Opponent Offensive Rebound Percentage",
   "OPP_FT_RATE": "Opponent Free Throw Rate",
+  "ORPG": "Offensive Rebounds per Game",
+  "DRPG": "Defensive Rebounds per Game",
 };
 
 

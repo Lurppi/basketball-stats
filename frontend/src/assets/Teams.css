@@ -42,7 +42,8 @@
   padding: 6px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  min-width: 150px;
+  max-width: 200px;
+  width: 80%;
 }
 
 .teams-filters select {
@@ -215,4 +216,18 @@ header {
   .teams-filters label {
     flex-basis: 100%;
   }
+}
+
+/* Spalten 18 bis 22 ausblenden */
+.teams-table-container th:nth-of-type(18),
+.teams-table-container td:nth-of-type(18),
+.teams-table-container th:nth-of-type(19),
+.teams-table-container td:nth-of-type(19),
+.teams-table-container th:nth-of-type(20),
+.teams-table-container td:nth-of-type(20),
+.teams-table-container th:nth-of-type(21),
+.teams-table-container td:nth-of-type(21),
+.teams-table-container th:nth-of-type(22),
+.teams-table-container td:nth-of-type(22) {
+  display: none !important;
 }
