@@ -18,7 +18,7 @@ const columnMappings = {
   ],
 
   Opponent: [
-    'TEAM_ID', 'GP', 'WINS', 'PACE', 'DRTG', 'OPP_PPG', 'OPP_RPG', 'ORPG', 'OPP_RBPG', 'OPP_APG', 'OPP_SPG', 'OPP_BPG', 'OPP_2P%', 'OPP_3P%', 'OPP_FG%', 'OPP_FT%', 'TEAM', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
+    'TEAM_ID', 'GP', 'WINS', 'PACE', 'DRTG', 'OPP_PPG', 'OPP_DRPG', 'OPP_ORPG', 'OPP_RPG', 'OPP_APG', 'OPP_SPG', 'OPP_BPG', 'OPP_2P%', 'OPP_3P%', 'OPP_FG%', 'OPP_FT%', 'TEAM', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
 
   Advanced: [
