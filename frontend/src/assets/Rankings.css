@@ -1,0 +1,177 @@
+/* General Styles */
+.rankings-grid-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  height: 100vh;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.rankings-filter-container {
+  width: 800px;
+  margin: 0 auto;
+  /* Zentriert den Container */
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 150px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.rankings-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+}
+
+.rankings-filters label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  flex-grow: 1;
+  font-size: 0.7em;
+}
+
+.rankings-filters select,
+.rankings-filters input {
+  display: flex;
+  margin-top: 5px;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  max-width: 200px;
+  width: 80%;
+}
+
+.rankings-filters select {
+  font-size: 10.5px;
+}
+
+.rankings-filters input {
+  font-size: 11px;
+}
+
+.rankings-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.rankings-table-wrapper {
+  width: 100%;
+}
+
+.rankings-table-container {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.rankings-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rankings-table-container th,
+.rankings-table-container td {
+  padding: 5px 8px;
+  text-align: center;
+  white-space: nowrap;
+  border-bottom: 1px solid #ddd;
+  font-size: 11px;
+  /* Standardgröße für die Schrift */
+  position: relative;
+  /* Notwendig für die Fixierung */
+}
+
+/* Fixiere die Kopfzeile */
+.rankings-table-container th {
+  position: sticky;
+  top: 0;
+  /* Fixiere die Kopfzeile am oberen Rand */
+  background: rgba(255, 255, 255, 0.918);
+  /* Hintergrundfarbe für bessere Lesbarkeit */
+  z-index: 2;
+  /* Stellt sicher, dass die Kopfzeile über den anderen Inhalten liegt */
+  border-bottom: 2px solid #ddd;
+  /* Optional: untere Grenze für bessere Sichtbarkeit */
+}
+
+.rankings-table-container th:nth-of-type(1),
+.rankings-table-container td:nth-of-type(1) {
+  width: 20px;
+  text-align: center;
+}
+
+.rankings-table-container th:nth-of-type(2),
+.rankings-table-container td:nth-of-type(2) {
+  width: 250px;
+  text-align: left;
+}
+
+.rankings-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-align: center;
+  padding: 60px 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Header Style */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  padding: 8px 15px;
+}
+
+/* Responsive Filter Layout */
+@media (max-width: 1120px) {
+  .rankings-filters label {
+    flex-basis: 20%;
+  }
+}
+
+@media (max-width: 975px) {
+  .rankings-filters label {
+    flex-basis: 48%;
+  }
+}
+
+@media (max-width: 768px) {
+  .rankings-filters label {
+    flex-basis: 85%;
+  }
+
+  .rankings-filters select {
+    width: 100%;
+    /* Vollbreite für mobile Geräte */
+  }
+}
+
+@media (max-width: 450px) {
+  .rankings-filters label {
+    flex-basis: 100%;
+  }
+}

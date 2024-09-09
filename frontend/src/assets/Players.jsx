@@ -37,18 +37,18 @@ const Players = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [headers, setHeaders] = useState([]);
   const [filters, setFilters] = useState({
-    season: 'All',
-    league: 'All', 
-    statsType: 'Totals', 
-    division: 'All',
+    season: '20232024',
+    league: '', 
+    statsType: 'Averages', 
+    division: '',
     team: 'All',
     position: 'All',
     offensiveRole: 'All',
-    seasonType: 'All', 
+    seasonType: '', 
     born: 'All',
     gamesPlayed: '',
     minutesPlayed: '',
-    sortStat: '',
+    sortStat: 'PPG',
     sortDirection: 'desc',
   });
 
@@ -96,7 +96,7 @@ const Players = () => {
   
     fetchData();
   }, [filters.statsType]); // API-Anfrage wird bei Änderung des Stats Type ausgelöst
-  
+
   // 2. Filtere die Daten im Frontend (Zeilen)
   const applyFilters = (data) => {
     return data.filter(row => {
@@ -328,7 +328,15 @@ const Players = () => {
               <select
                 name="season"
                 value={filters.season}
-                onChange={e => setFilters({ ...filters, season: e.target.value })}
+                onChange={e =>
+                  setFilters({
+                    ...filters,
+                    season: e.target.value,
+                    league: 'All', // Setze League zurück, wenn Season gewechselt wird
+                    division: 'All', // Setze Division zurück, wenn Season gewechselt wird
+                    seasonType: 'All', // Setze Season Type zurück, wenn Season gewechselt wird
+                  })
+                }
               >
                 <option value="All">All</option>
                 {seasons.map((season, idx) => (
@@ -342,7 +350,14 @@ const Players = () => {
               <select
                 name="league"
                 value={filters.league}
-                onChange={e => setFilters({ ...filters, league: e.target.value })}
+                onChange={e =>
+                  setFilters({
+                    ...filters,
+                    league: e.target.value,
+                    division: 'All', // Setze Division zurück, wenn League gewechselt wird
+                    seasonType: 'All', // Setze Season Type zurück, wenn League gewechselt wird
+                  })
+                }
               >
                 <option value="All">All</option>
                 {leagues.map((league, idx) => (
@@ -356,7 +371,13 @@ const Players = () => {
               <select
                 name="division"
                 value={filters.division}
-                onChange={e => setFilters({ ...filters, division: e.target.value })}
+                onChange={e => {
+                  setFilters({
+                    ...filters,
+                    division: e.target.value,
+                    seasonType: 'All', // Setze Season Type zurück, wenn Division gewechselt wird
+                  });
+                }}
               >
                 <option value="All">All</option>
                 {divisions.map((division, idx) => (

@@ -93,6 +93,8 @@ export const columnHeaderMapping = {
   "OPP_FT_RATE": "OPP FTR",
   "ORPG": "OR",
   "DRPG": "DR",
+  "Team": "TEAM",
+  "Win%": "WIN%",
   };
 
 export const ToolheadersMapping = {
@@ -190,6 +192,53 @@ export const ToolheadersMapping = {
   "OPP_FT_RATE": "Opponent Free Throw Rate",
   "ORPG": "Offensive Rebounds per Game",
   "DRPG": "Defensive Rebounds per Game",
+  "Win%": "Win Percentage",
 };
 
+export const teamImageMappings = {
+  'Alba Berlin': '/src/images/NBBL1.jpg',
+  'ART Giants Düsseldorf': '/src/images/NBBL2.jpg',
+  'Bamberg freakcity academy': '/src/images/img41.jpg',
+  'Baskets Juniors Oldenburg': '/src/images/img15.jpg',
+  'Baskets Paderborn': '/src/images/img4.jpg',
+  'Bayer Giants Leverkusen': '/src/images/img7.jpg',
+  'Berlin Braves Baskets': '/src/images/img5.jpg',
+  'Basketball Löwen Erfurt': '/src/images/img41.jpg',
+  'BBA Giants Kornwestheim': '/src/images/img41.jpg',
+  'BBA Hagen': '/src/images/img41.jpg',
+  'Dresden Titans': '/src/images/img41.jpg',
+  'Eintracht Frankfurt': '/src/images/img3.jpg',
+  'Eisbären Bremerhaven': '/src/images/img41.jpg',
+  'FC Bayern München': '/src/images/img14.jpg',
+  'Hamburg Towers': '/src/images/img41.jpg',
+  'HAKRO Merlins Crailsheim': '/src/images/img41.jpg',
+  'KICKZ IBAM': '/src/images/img12.jpg',
+  'Medipolis SC Jena': '/src/images/img16.jpg',
+  'Metropol Baskets Ruhr': '/src/images/img41.jpg',
+  'Mitteldeutsche Basketball Academy': '/src/images/img41.jpg',
+  'Niners Chemnitz Academy': '/src/images/img8.jpg',
+  'Orange Academy': '/src/images/img41.jpg',
+  'Phoenix Hagen': '/src/images/img41.jpg',
+  'Porsche BBA Ludwigsburg': '/src/images/img9.jpg',
+  'ROTH Energie BBA Giessen 46ers': '/src/images/img41.jpg',
+  'ratiopharm Ulm': '/src/images/img41.jpg',
+  'RheinStars Köln': '/src/images/img41.jpg',
+  'Rostock Seawolves': '/src/images/img41.jpg',
+  'Sartorius Juniors': '/src/images/img1.jpg',
+  'SG Junior Löwen Braunschweig': '/src/images/img41.jpg',
+  'Team Bonn/Rhöndorf': '/src/images/img41.jpg',
+  'Team Südhessen': '/src/images/img41.jpg',
+  'Team Urspring': '/src/images/img10.jpg',
+  'TG Hanau': '/src/images/img41.jpg',
+  'Tornados Franken': '/src/images/img13.jpg',
+  'TS Jahn München': '/src/images/img41.jpg',
+  'UBC Münster': '/src/images/img2.jpg',
+  'USC Heidelberg': '/src/images/img41.jpg',
+  'VfL Kirchheim Knights': '/src/images/img41.jpg',
+  'Würzburg Baskets Akademie': '/src/images/img41.jpg',
+  'Young Gladiators Trier': '/src/images/img41.jpg',
+  'Young Rasta Dragons': '/src/images/img11.jpg',
+};
+
+export default teamImageMappings;
 

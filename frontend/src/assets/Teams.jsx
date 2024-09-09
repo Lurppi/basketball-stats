@@ -31,13 +31,13 @@ const Teams = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [headers, setHeaders] = useState([]);
   const [filters, setFilters] = useState({
-    season: 'All',
-    league: 'All',
-    statsType: 'Totals',
-    division: 'All',
-    seasonType: 'All',
+    season: '20232024',
+    league: '',
+    statsType: 'Averages',
+    division: '',
+    seasonType: '',
     team: 'All',
-    sortStat: '',
+    sortStat: 'WINS',
     sortDirection: 'desc',
   });
 
@@ -81,7 +81,7 @@ const Teams = () => {
 
     fetchData();
   }, [filters.statsType]);
-
+  
   const applyFilters = (data) => {
     return data.filter(row => {
       const seasonMatch = filters.season === 'All' || row[headers.indexOf('SEASON_YEAR')] === filters.season;
@@ -223,7 +223,7 @@ const Teams = () => {
               >
                 <option value="All">All</option>
                 {seasons.map((season, idx) => (
-                  <option key={idx} value={season}>{season}</option>
+                  <option key={idx} value={season}>{season}</option> // Hier wird bereits die formatierte Season angezeigt
                 ))}
               </select>
             </label>
