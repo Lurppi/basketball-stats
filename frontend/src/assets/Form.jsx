@@ -120,7 +120,12 @@ const Form = () => {
           (game) => game.Team === team && game.Date === date
         );
         if (gameOnDate) {
-          const win = gameOnDate.PTS > gameOnDate.OPP_PTS;
+          // Umwandeln der PTS und OPP_PTS in Zahlen, falls sie Strings sind
+          const teamPoints = parseInt(gameOnDate.PTS, 10);
+          const opponentPoints = parseInt(gameOnDate.OPP_PTS, 10);
+
+          // Sicherstellen, dass beide Werte als Zahlen verarbeitet werden
+          const win = teamPoints > opponentPoints;
           cumulativeWins += win ? 1 : 0;
         }
         return cumulativeWins;
