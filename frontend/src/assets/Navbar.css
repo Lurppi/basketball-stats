@@ -2,15 +2,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: transparent; /* Unsichtbarer Hintergrund */
+  background: transparent;
   padding: 10px;
   width: 100%;
   box-sizing: border-box;
 }
 
-.navbar a {
-  color: #000000; /* Weiße Schrift */
-  background-color: #ffffff; /* Schwarzer Hintergrund */
+.navbar a,
+.dropbtn {
+  color: #000000;
+  background-color: #ffffff;
   padding: 8px 20px;
   text-decoration: none;
   font-size: 12px;
@@ -18,13 +19,49 @@
   font-weight: 600;
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
   border-radius: 4px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtile Schatten für Buttons */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  /* Schatten hinzugefügt */
+  cursor: pointer;
 }
 
-.navbar a:hover {
-  background-color: #000; /* Schwarzer Hintergrund bleibt */
-  color: #fff; /* Weiße Schrift bleibt */
-  box-shadow: 0 4px 30px rgba(14, 13, 13, 0.87); /* Helles Leuchten bei Hover */
+.navbar a:hover,
+.dropbtn:hover {
+  background-color: #000;
+  color: #fff;
+  box-shadow: 0 4px 30px rgba(14, 13, 13, 0.87);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.dropdown-content a {
+  color: #000;
+  background-color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 12px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: #000;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 @media (max-width: 768px) {
@@ -33,10 +70,15 @@
     align-items: center;
   }
 
-  .navbar a {
+  .navbar a,
+  .dropbtn {
     padding: 8px 15px;
     width: 100%;
     text-align: center;
     box-sizing: border-box;
+  }
+
+  .dropdown-content {
+    position: relative;
   }
 }

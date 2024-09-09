@@ -1,14 +1,13 @@
-// App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './assets/Home';
 import Players from './assets/Players';
 import Teams from './assets/Teams';
+import Form from './assets/Form';  // Import der neuen Form-Komponente
 import Impressum from './assets/Impressum';
 import Glossary from './assets/Glossary';
 import Policy from './assets/Policy';
-import Rankings from './assets/Rankings';
-import Form from './assets/Form'; // Importiere Form
+import Rankings from './assets/Rankings'; // Rankings-Komponente importieren
 import Header from './assets/Header';
 import './assets/Header.css';
 
