@@ -4,6 +4,7 @@ const app = express();
 const playersRoutes = require('./routes/players');
 const teamsRoutes = require('./routes/teams');
 const homeRoutes = require('./routes/home');
+const formRoutes = require('./routes/form'); // Neue Form-Route hinzufügen
 
 // CORS configuration
 const corsOptions = {
@@ -17,20 +18,20 @@ const corsOptions = {
   ],
   optionsSuccessStatus: 200,
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],  // Hier Authorization hinzufügen
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 };
 
 // Middleware
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // Handling von OPTIONS-Anfragen
-
+app.options('*', cors(corsOptions));
 app.use(express.json());
 
 // Routes
 app.use('/api/players', playersRoutes);
 app.use('/api/teams', teamsRoutes);
 app.use('/api/home', homeRoutes);
+app.use('/api/form', formRoutes); // Neue Form-Route einbinden
 
 // Default route for root path
 app.get('/', (req, res) => {

@@ -39,3 +39,8 @@ export const fetchPlayers = async (authToken) => {
 export const fetchTeams = async (authToken) => {
   return fetchWithHeaders(`${BASE_URL}/teams?file=TEAMS`, { authToken });
 };
+
+// api.js
+export const fetchForm = async (authToken) => {
+  return fetchWithHeaders(`${BASE_URL}/form`, { authToken });
+};
