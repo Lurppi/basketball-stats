@@ -57,7 +57,7 @@ const Form = () => {
           setSeasons([...new Set(data.map((item) => item.Season))]);
           setLeagues([...new Set(data.map((item) => item.League))]);
           setDivisions([...new Set(data.map((item) => item.Division))]);
-          setSeasonTypes([...new Set(data.map((item) => item['Season Type']))]);
+          setSeasonTypes([...new Set(data.map((item) => item['Season_Type']))]);
           setTeams([...new Set(data.map((item) => item.Team))]);
 
           setFilteredData(data);
@@ -78,7 +78,7 @@ const Form = () => {
       const seasonMatch = filters.season === 'All' || game.Season === filters.season;
       const leagueMatch = filters.league === 'All' || game.League === filters.league;
       const divisionMatch = filters.division === 'All' || game.Division === filters.division;
-      const seasonTypeMatch = filters.seasonType === 'All' || game['Season Type'] === filters.seasonType;
+      const seasonTypeMatch = filters.seasonType === 'All' || game['Season_Type'] === filters.seasonType;
       const teamMatch = filters.team === 'All' || game.Team === filters.team;
 
       return seasonMatch && leagueMatch && divisionMatch && seasonTypeMatch && teamMatch;
@@ -95,7 +95,7 @@ const Form = () => {
       const uniqueDivisions = [...new Set(filtered.map((game) => game.Division))];
       setDivisions(uniqueDivisions);
 
-      const uniqueSeasonTypes = [...new Set(filtered.map((game) => game['Season Type']))];
+      const uniqueSeasonTypes = [...new Set(filtered.map((game) => game['Season_Type']))];
       setSeasonTypes(uniqueSeasonTypes);
 
       const uniqueTeams = [...new Set(filtered.map((game) => game.Team))];
