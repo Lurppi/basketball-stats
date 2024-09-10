@@ -9,12 +9,15 @@
 }
 
 .players-filter-container {
-  width: 1200px;
-  margin: 0 auto; /* Zentriert den Container */
+  width: 100%;
+  /* Setze auf 100% für volle Breite */
+  max-width: 1200px;
+  margin: 0 auto;
+  /* Zentriert den Container */
   background: rgba(255, 255, 255, 0.5);
   border-radius: 16px;
   padding: 20px;
-  margin-top: 150px;
+  margin-top: 120px;
   margin-bottom: 20px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
@@ -43,14 +46,14 @@
   border: 1px solid #ccc;
   min-width: 160px;
   max-width: 240px;
-  }
+}
 
 .players-filters select {
-  font-size: 10.5px
+  font-size: 10.5px;
 }
 
 .players-filters input {
-  font-size: 11px
+  font-size: 11px;
 }
 
 .players-container {
@@ -108,7 +111,7 @@
 }
 
 .players-table-container table {
-  width: 100%; 
+  width: 100%;
   border-collapse: collapse;
 }
 
@@ -118,23 +121,29 @@
   text-align: center;
   white-space: nowrap;
   border-bottom: 1px solid #ddd;
-  font-size: 11px; /* Standardgröße für die Schrift */
-  position: relative; /* Notwendig für die Fixierung */
+  font-size: 11px;
+  /* Standardgröße für die Schrift */
+  position: relative;
+  /* Notwendig für die Fixierung */
 }
 
 /* Fixiere die Kopfzeile */
 .players-table-container th {
   position: sticky;
-  top: 0; /* Fixiere die Kopfzeile am oberen Rand */
-  background: rgba(255, 255, 255, 0.918); /* Hintergrundfarbe für bessere Lesbarkeit */
-  z-index: 2; /* Stellt sicher, dass die Kopfzeile über den anderen Inhalten liegt */
-  border-bottom: 2px solid #ddd; /* Optional: untere Grenze für bessere Sichtbarkeit */
+  top: 0;
+  /* Fixiere die Kopfzeile am oberen Rand */
+  background: rgba(255, 255, 255, 0.918);
+  /* Hintergrundfarbe für bessere Lesbarkeit */
+  z-index: 2;
+  /* Stellt sicher, dass die Kopfzeile über den anderen Inhalten liegt */
+  border-bottom: 2px solid #ddd;
+  /* Optional: untere Grenze für bessere Sichtbarkeit */
 }
 
 .players-table-container th:nth-of-type(1),
 .players-table-container td:nth-of-type(1) {
- width: 20px;
- text-align: right;
+  width: 20px;
+  text-align: right;
 }
 
 /* Fixiert die erste Spalte */
@@ -144,12 +153,15 @@
   left: 0;
   text-align: left;
   width: 220px;
-  background: rgba(255, 255, 255, 0.9); /* Hintergrund, um den Text lesbar zu halten */
-  z-index: 1; /* Damit die erste Spalte über den restlichen Zellen bleibt */
+  background: rgba(255, 255, 255, 0.9);
+  /* Hintergrund, um den Text lesbar zu halten */
+  z-index: 1;
+  /* Damit die erste Spalte über den restlichen Zellen bleibt */
 }
 
 .players-table-container th:nth-of-type(2) {
-  z-index: 3; /* Damit die erste Spalte der Kopfzeile über der fixierten Kopfzeile bleibt */
+  z-index: 3;
+  /* Damit die erste Spalte der Kopfzeile über der fixierten Kopfzeile bleibt */
 }
 
 /* Fixiert die erste Spalte */
@@ -200,18 +212,42 @@ header {
 
 @media (max-width: 768px) {
   .players-filters label {
-    flex-basis: 85%;
+    flex-basis: 48%;
   }
 
-  .players-filters select {
+  .players-filters select,
+  .players-filters input {
     width: 100%;
-    /* Vollbreite für mobile Geräte */
+  }
+
+  .players-grid-container {
+    margin-top: 120px;
+  }
+
+  /* Geringerer Abstand zwischen den Filterreihen */
+  .players-filter-container {
+    margin-bottom: 10px;
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   .players-filters label {
-    flex-basis: 100%;    
+    flex-basis: 100%;
+    margin-bottom: 5px;
+  }
+
+  .players-filters select,
+  .players-filters input {
+    padding: 5px;
+    font-size: 10.5px;
+    /* Kleinere Schriftgröße für mobile Geräte */
+    width: 100%;
+    /* Reduzierte Breite für kleine Bildschirme */
+  }
+
+  .players-filter-container {
+    padding: 10px;
+    margin-bottom: 5px;
   }
 }
 

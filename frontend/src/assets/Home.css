@@ -56,7 +56,7 @@ html, body {
 /* Slider Styling */
 .carousel {
   height: 100vh;
-  margin-top: -50px;
+  margin-top: 50px;
   width: 100vw;
   overflow: hidden;
   position: relative;

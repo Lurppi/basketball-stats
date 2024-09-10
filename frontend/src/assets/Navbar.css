@@ -10,8 +10,8 @@
 
 .navbar a,
 .dropbtn {
-  color: #000000;
-  background-color: #ffffff;
+  color: #000;
+  background-color: #fff;
   padding: 8px 20px;
   text-decoration: none;
   font-size: 12px;
@@ -22,7 +22,9 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   margin: 5px;
-  /* Spacing between buttons */
+  display: block;
+  width: 100%;
+  /* Buttons füllen die gesamte Breite aus */
 }
 
 .navbar a:hover,
@@ -32,18 +34,23 @@
   box-shadow: 0 4px 30px rgba(14, 13, 13, 0.87);
 }
 
+/* Dropdown Styles */
 .dropdown {
   position: relative;
   display: inline-block;
+  width: 100%;
+  /* Dropdown füllt die gesamte Breite */
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #ffffff;
+  background-color: #fff;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 4px;
+  width: 100%;
+  /* Dropdown-Bereich passt sich an die volle Breite an */
 }
 
 .dropdown-content a {
@@ -65,6 +72,7 @@
   display: block;
 }
 
+/* Responsive Styles */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -74,13 +82,32 @@
   .navbar a,
   .dropbtn {
     padding: 8px 15px;
-    width: auto;
-    /* Verhindert, dass die Links die volle Breite einnehmen */
+    width: 100%;
+    /* Ensures full-width buttons on small screens */
     text-align: center;
     box-sizing: border-box;
   }
 
   .dropdown-content {
     position: relative;
+    width: 100%;
+    /* Full-width dropdown on mobile */
+    box-shadow: none;
+    /* Remove the shadow for better mobile UI */
+  }
+}
+
+@media (max-width: 450px) {
+
+  .navbar a,
+  .dropbtn {
+    padding: 8px 12px;
+    font-size: 11px;
+    /* Slightly smaller font size on very small screens */
+  }
+
+  .dropdown-content a {
+    padding: 8px 12px;
+    font-size: 11px;
   }
 }

@@ -140,15 +140,13 @@ const Form = () => {
       )];
       setTeams(uniqueTeams);
 
-      // Hier filtern wir alle Teams, die nach der aktuellen Kaskadenlogik übrig bleiben, mit Ausnahme des Teams, das in "Team" ausgewählt wurde.
       const availableTeamsForTeam2 = uniqueTeams.filter(team => team !== filters.team);
-      // Jetzt kannst du "availableTeamsForTeam2" für das Dropdown von "Team 2" verwenden
-      setTeamsForTeam2(availableTeamsForTeam2);  // Setze den State für Team 2
+      setTeamsForTeam2(availableTeamsForTeam2);
       setFilteredData(filtered);
     };
 
     updateDropdownValues();
-  }, [filters, formData]);
+  }, [filters, formData, team2]);  // Den `team2`-Abhängigkeit hinzufügen
 
   // Team 2-Filter Sichtbarkeit steuern
   useEffect(() => {
@@ -173,16 +171,55 @@ const Form = () => {
     }
   };
 
+  useEffect(() => {
+    const handleFilterError = () => {
+      const filtered = applyFilters(formData);
+
+      if (filtered.length === 0) {
+        if (filters.seasonType !== 'All') {
+          setFilters(prevFilters => ({
+            ...prevFilters,
+            seasonType: 'All',
+          }));
+        } else if (filters.league !== 'All') {
+          setFilters(prevFilters => ({
+            ...prevFilters,
+            league: 'All',
+          }));
+        } else if (filters.division !== 'All') {
+          setFilters(prevFilters => ({
+            ...prevFilters,
+            division: 'All',
+          }));
+        }
+      }
+    };
+
+    handleFilterError();
+  }, [filters, formData]);
+
+  useEffect(() => {
+    const handleTeam2Selection = () => {
+      const filtered = applyFilters(formData);
+
+      if (filtered.length === 0 && team2 !== 'All') {
+        setTeam2('All');
+      }
+    };
+
+    handleTeam2Selection();
+  }, [team2, filteredData]); const dates = [...new Set(filteredData.map((game) => game.Date))]
+    .sort((a, b) => new Date(a) - new Date(b));
+
   const chartData = useMemo(() => {
-    // Wähle beide Teams aus, wenn vorhanden
     const selectedTeams = filters.team === 'All' ? [...new Set(formData.map((game) => game.Team))] : [filters.team];
 
-    // Füge Team 2 hinzu, wenn es ausgewählt ist
     if (team2 !== 'All') {
       selectedTeams.push(team2);
     }
 
-    const dates = [...new Set(filteredData.map((game) => game.Date))].sort();
+    const dates = [...new Set(filteredData.map((game) => game.Date))]
+      .sort((a, b) => new Date(a) - new Date(b));
 
     const datasets = selectedTeams.map((team) => {
       let cumulativeWins = 0;
