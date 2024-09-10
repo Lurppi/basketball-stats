@@ -7,6 +7,7 @@
     left: 0;
     z-index: 1000; /* Hält den Header oben, auch wenn andere Elemente darüber sind */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Leichter Schatten für Tiefe */
+    margin-bottom: 20px;
   }
   
   header {
@@ -21,5 +22,6 @@
     backdrop-filter: blur(10px); /* Optional: Unschärfe-Effekt für Text und andere Elemente */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     padding: 8px 15px; /* Höhe des Headers verringern */
+    margin-bottom: 20px;
   }
   
