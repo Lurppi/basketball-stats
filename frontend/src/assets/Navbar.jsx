@@ -6,8 +6,8 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to="/">HOME</Link>
-      <Link to="/players">PLAYERS</Link>
-
+      <Link to="/standings">STANDINGS</Link>
+      
       {/* Dropdown for Teams */}
       <div className="dropdown">
         <button className="dropbtn">TEAMS</button>
@@ -16,8 +16,7 @@ const Navbar = () => {
           <Link to="/teams/form">FORM</Link>
         </div>
       </div>
-
-      <Link to="/standings">STANDINGS</Link>
+          <Link to="/players">PLAYERS</Link>
     </nav>
   );
 };

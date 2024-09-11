@@ -176,27 +176,43 @@ const Form = () => {
       const filtered = applyFilters(formData);
 
       if (filtered.length === 0) {
+        let updatedFilters = { ...filters };
+        let hasChanged = false;
+
+        // Überprüfung und Zurücksetzen von seasonType, league und division
         if (filters.seasonType !== 'All') {
-          setFilters(prevFilters => ({
-            ...prevFilters,
-            seasonType: 'All',
-          }));
+          updatedFilters.seasonType = 'All';
+          hasChanged = true;
         } else if (filters.league !== 'All') {
-          setFilters(prevFilters => ({
-            ...prevFilters,
-            league: 'All',
-          }));
+          updatedFilters.league = 'All';
+          hasChanged = true;
         } else if (filters.division !== 'All') {
-          setFilters(prevFilters => ({
-            ...prevFilters,
-            division: 'All',
-          }));
+          updatedFilters.division = 'All';
+          hasChanged = true;
+        }
+
+        // Überprüfen und Zurücksetzen von team
+        if (filters.team !== 'All') {
+          updatedFilters.team = 'All';
+          hasChanged = true;
+        }
+
+        // Überprüfen und Zurücksetzen von team2
+        if (team2 !== 'All') {
+          setTeam2('All');
+          hasChanged = true;
+        }
+
+        // Setze die Filter nur zurück, wenn sich etwas geändert hat
+        if (hasChanged) {
+          console.log("Updating filters with:", updatedFilters); // Debugging-Ausgabe
+          setFilters(updatedFilters); // Filters wird hier korrekt gesetzt
         }
       }
     };
 
     handleFilterError();
-  }, [filters, formData]);
+  }, [filters, formData, team2]); // Alle relevanten Abhängigkeiten, einschließlich team2
 
   useEffect(() => {
     const handleTeam2Selection = () => {
@@ -399,7 +415,7 @@ const Form = () => {
                 value={team2}
                 onChange={(e) => setTeam2(e.target.value)}
               >
-                <option value="All">All</option>
+                <option value="All">Select Team</option>
                 {teams
                   .filter((team) => team !== filters.team) // Schließe das in "Team" ausgewählte Team aus
                   .map((team, idx) => (
