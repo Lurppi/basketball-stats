@@ -1,13 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 const csv = require('csv-parser');
+const csvWriter = require('csv-writer').createObjectCsvWriter;
 
 // Helper-Funktion zum Importieren von CSV-Daten
 const importCSV = (filePath) => {
   return new Promise((resolve, reject) => {
     const results = [];
     fs.createReadStream(filePath)
-      .pipe(csv({ separator: ';' })) // Passe den Separator an, falls nötig
+      .pipe(csv({ separator: ';' }))
       .on('data', (data) => results.push(data))
       .on('end', () => {
         if (results.length === 0) {
@@ -23,33 +24,65 @@ const importCSV = (filePath) => {
   });
 };
 
-// Alle CSV-Dateien importieren
-const files = [
-  { path: path.join(__dirname, 'data', 'TRS_Totals.csv'), name: 'teams_regular_totals' },
-  { path: path.join(__dirname, 'data', 'TRS_Averages.csv'), name: 'teams_regular_averages' },
-  { path: path.join(__dirname, 'data', 'TRS_Shooting.csv'), name: 'teams_regular_shooting' },
-  { path: path.join(__dirname, 'data', 'TRS_Advanced.csv'), name: 'teams_regular_advanced1' },
-  { path: path.join(__dirname, 'data', 'TRS_Opponent.csv'), name: 'teams_regular_advanced2' },
-  { path: path.join(__dirname, 'data', 'TRS_FourFactors.csv'), name: 'teams_regular_four_factors' },
+// Hilfsfunktion zur Erstellung einer eindeutigen Player-ID
+const generatePlayerID = (name, birthdate) => {
+  return `${name.replace(/\s+/g, '').toLowerCase()}_${birthdate.replace(/\s+/g, '')}`;
+};
 
-  // Teams Playoffs
-  { path: path.join(__dirname, 'data', 'TPO_Totals.csv'), name: 'teams_playoffs_totals' },
-  { path: path.join(__dirname, 'data', 'TPO_Averages.csv'), name: 'teams_playoffs_averages' },
-  { path: path.join(__dirname, 'data', 'TPO_Shooting.csv'), name: 'teams_playoffs_shooting' },
-  { path: path.join(__dirname, 'data', 'TPO_Advanced.csv'), name: 'teams_playoffs_advanced1' },
-  { path: path.join(__dirname, 'data', 'TPO_Opponent.csv'), name: 'teams_playoffs_advanced2' },
-  { path: path.join(__dirname, 'data', 'TPO_FourFactors.csv'), name: 'teams_playoffs_four_factors' },
+// Dateien für den Import
+const files = {
+  players: path.join(__dirname, 'data', 'PLAYERS.csv'),
+  playerDetails: path.join(__dirname, 'data', 'PlayerDetails.csv')
+};
 
-  // Dynamische Datei-Auswahl möglich
-  { path: path.join(__dirname, 'data', 'PLAYERS.csv'), name: 'players' }, 
-  { path: path.join(__dirname, 'data', 'TEAMS.csv'), name: 'teams' }
-];
+// Funktion, um die Player-ID hinzuzufügen und beide Dateien zu aktualisieren
+const processPlayerData = async () => {
+  try {
+    const playersData = await importCSV(files.players);
+    const playerDetailsData = await importCSV(files.playerDetails);
 
-// Importiere alle CSV-Dateien
-files.forEach(file => {
-  importCSV(file.path)
-    .then((data) => {
-      console.log(`Data from ${file.name}:`, data); // Zeige die Daten an oder arbeite damit weiter
-    })
-    .catch(err => console.error(`Failed to import ${file.path}:`, err));
-});
+    // Erstellen eines Mappings { PlayerID: { Player, Birthdate } }
+    const playerIDMap = {};
+
+    // PlayerDetails.csv durchlaufen und Player-ID zuweisen
+    playerDetailsData.forEach((player) => {
+      const playerID = generatePlayerID(player.Player, player.Birthdate);
+      player.PlayerID = playerID; // Füge die Player-ID hinzu
+
+      // Mapping hinzufügen
+      if (!playerIDMap[playerID]) {
+        playerIDMap[playerID] = {
+          Player: player.Player,
+          Birthdate: player.Birthdate
+        };
+      }
+    });
+
+    // PLAYERS.csv durchlaufen und Player-ID zuweisen
+    playersData.forEach((player) => {
+      const playerID = generatePlayerID(player.PLAYER, player.BIRTHDATE);
+      player.PlayerID = playerID; // Füge die Player-ID hinzu
+    });
+
+    // Aktualisierte Daten in die CSV-Dateien zurückschreiben
+    await writeCSV(files.playerDetails, playerDetailsData, Object.keys(playerDetailsData[0]));
+    await writeCSV(files.players, playersData, Object.keys(playersData[0]));
+
+    console.log('Player-IDs erfolgreich hinzugefügt und Dateien aktualisiert.');
+  } catch (error) {
+    console.error('Fehler beim Verarbeiten der Daten:', error);
+  }
+};
+
+// Funktion zum Schreiben in CSV-Dateien
+const writeCSV = (filePath, data, headers) => {
+  const writer = csvWriter({
+    path: filePath,
+    header: headers.map((header) => ({ id: header, title: header })),
+    fieldDelimiter: ';'
+  });
+  return writer.writeRecords(data);
+};
+
+// Startet den Prozess
+processPlayerData();
