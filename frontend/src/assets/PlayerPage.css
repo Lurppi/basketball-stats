@@ -1,0 +1,101 @@
+/* Gesamt-Grid-Container */
+.playerpage-grid-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Content-Bereich, zentriert und mit Padding */
+.playerpage-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Spieler-Profil-Header */
+.playerpage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #900;
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+}
+
+/* Info über den Spieler */
+.playerpage-info h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.playerpage-info p {
+  margin: 5px 0;
+  font-size: 1.2em;
+}
+
+/* Stats-Überblick im Header */
+.playerpage-stats-overview {
+  display: flex;
+  gap: 20px;
+}
+
+.playerpage-stats-overview div {
+  text-align: center;
+}
+
+.playerpage-stats-overview h4 {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.playerpage-stats-overview p {
+  margin: 5px 0;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+/* Letzte Spiele */
+.playerpage-last-games {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.playerpage-last-games h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.playerpage-last-games table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.playerpage-last-games th,
+.playerpage-last-games td {
+  padding: 10px;
+  text-align: center;
+}
+
+.playerpage-last-games th {
+  background-color: #ddd;
+  font-size: 1.1em;
+}
+
+.playerpage-last-games tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.playerpage-last-games td {
+  font-size: 1em;
+}

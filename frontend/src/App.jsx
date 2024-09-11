@@ -9,6 +9,7 @@ import Glossary from './assets/Glossary';
 import Policy from './assets/Policy';
 import Rankings from './assets/Rankings'; // Rankings-Komponente importieren
 import Header from './assets/Header';
+import PlayerPage from './assets/PlayerPage'; // Importiere PlayerPage
 import './assets/Header.css';
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
         <Route path="/impressum" element={<Impressum />} />
         <Route path="/glossary" element={<Glossary />} />
         <Route path="/privacy-policy" element={<Policy />} />
+
+        {/* Neue Route für dynamische Spielerprofile */}
+        <Route path="/player/:id" element={<PlayerPage />} />
       </Routes>
     </Router>
   );
