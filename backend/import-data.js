@@ -3,6 +3,9 @@ const path = require('path');
 const csv = require('csv-parser');
 const csvWriter = require('csv-writer').createObjectCsvWriter;
 
+// Initialer Startwert für die Player-ID
+let nextPlayerID = 10000; // Beginne bei 10000
+
 // Helper-Funktion zum Importieren von CSV-Daten
 const importCSV = (filePath) => {
   return new Promise((resolve, reject) => {
@@ -24,9 +27,9 @@ const importCSV = (filePath) => {
   });
 };
 
-// Hilfsfunktion zur Erstellung einer eindeutigen Player-ID
-const generatePlayerID = (name, birthdate) => {
-  return `${name.replace(/\s+/g, '').toLowerCase()}_${birthdate.replace(/\s+/g, '')}`;
+// Hilfsfunktion zur Erstellung einer eindeutigen Player-ID (Zahlenbasiert)
+const generatePlayerID = () => {
+  return nextPlayerID++; // Verwende den Zähler und erhöhe ihn
 };
 
 // Dateien für den Import
@@ -46,22 +49,28 @@ const processPlayerData = async () => {
 
     // PlayerDetails.csv durchlaufen und Player-ID zuweisen
     playerDetailsData.forEach((player) => {
-      const playerID = generatePlayerID(player.Player, player.Birthdate);
-      player.PlayerID = playerID; // Füge die Player-ID hinzu
+      const nameBirthKey = `${player.Player}_${player.Birthdate}`;
 
-      // Mapping hinzufügen
-      if (!playerIDMap[playerID]) {
-        playerIDMap[playerID] = {
-          Player: player.Player,
-          Birthdate: player.Birthdate
-        };
+      if (!playerIDMap[nameBirthKey]) {
+        const playerID = generatePlayerID(); // Neue ID generieren
+        player.PlayerID = playerID;
+        playerIDMap[nameBirthKey] = playerID; // Mapping hinzufügen
+      } else {
+        player.PlayerID = playerIDMap[nameBirthKey]; // Vorhandene ID zuweisen
       }
     });
 
     // PLAYERS.csv durchlaufen und Player-ID zuweisen
     playersData.forEach((player) => {
-      const playerID = generatePlayerID(player.PLAYER, player.BIRTHDATE);
-      player.PlayerID = playerID; // Füge die Player-ID hinzu
+      const nameBirthKey = `${player.PLAYER}_${player.BIRTHDATE}`;
+
+      if (playerIDMap[nameBirthKey]) {
+        player.PlayerID = playerIDMap[nameBirthKey]; // Mapping verwenden
+      } else {
+        const playerID = generatePlayerID(); // Neue ID, falls nicht in playerIDMap
+        player.PlayerID = playerID;
+        playerIDMap[nameBirthKey] = playerID; // Mapping hinzufügen
+      }
     });
 
     // Aktualisierte Daten in die CSV-Dateien zurückschreiben
