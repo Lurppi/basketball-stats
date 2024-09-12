@@ -21,10 +21,17 @@ const getPlayerDetailsData = (req, res) => {
         const cleanedKey = key.replace(/\uFEFF/g, '').trim();
         cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
       }
-      results.push(cleanedRow);
+
+      // Prüfen, ob alle Felder ausgefüllt sind (leere Zeilen ignorieren)
+      if (Object.values(cleanedRow).every(val => val !== '')) {
+        results.push(cleanedRow);
+      }
     });
 
     stream.on('end', () => {
+      // Nach Datum sortieren, falls gewünscht (aufsteigend)
+      results.sort((a, b) => new Date(a.Date) - new Date(b.Date));
+
       if (!res.headersSent) {
         res.json(results);
       }
