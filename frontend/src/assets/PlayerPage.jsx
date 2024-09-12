@@ -8,37 +8,39 @@ const PlayerPage = () => {
   const { id } = useParams(); // Player ID from URL
   const [playerData, setPlayerData] = useState(null);
   const [lastGames, setLastGames] = useState([]);
+  const [seasonStats, setSeasonStats] = useState(null); // State für Season Stats
   const [activeTab, setActiveTab] = useState('profile'); // For Profile and Stats Tabs
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   // Function to calculate age
   const calculateAge = (birthDate) => {
-    const birth = new Date(birthDate);
+    // Das Format TT.MM.YYYY in ein JavaScript-Date-Objekt konvertieren
+    const [day, month, year] = birthDate.split('.'); // Datum splitten
+    const birth = new Date(`${year}-${month}-${day}`); // Neues Datum im Format YYYY-MM-DD
+
     const today = new Date();
+
     let age = today.getFullYear() - birth.getFullYear();
     const monthDiff = today.getMonth() - birth.getMonth();
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
-      age--;
+    const dayDiff = today.getDate() - birth.getDate();
+
+    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+      age--;  // Wenn der Geburtstag in diesem Jahr noch nicht war, Alter um 1 reduzieren
     }
+
     return age;
   };
 
   useEffect(() => {
     const fetchPlayerData = async () => {
       try {
-        // Fetch player data
-        const playerResponse = await fetch(`https://backend-sandy-rho.vercel.app/api/players?file=PLAYERS`);
-        const playerData = await playerResponse.json();
+        // Fetch Season Stats from new route
+        const seasonStatsResponse = await fetch(`https://backend-sandy-rho.vercel.app/api/players/stats/${id}`);
+        const seasonStatsData = await seasonStatsResponse.json();
 
-        // Find player by PlayerID
-        const player = playerData.find((p) => p.PlayerID === id); // Correct use of PlayerID
-        if (!player) {
-          throw new Error('Player not found');
-        }
-
-        setPlayerData(player);
-        console.log('Player data:', player);
+        setSeasonStats(seasonStatsData);
+        console.log('Season stats data:', seasonStatsData);
 
         // Fetch last 10 games (use new route)
         const gamesResponse = await fetch(`https://backend-sandy-rho.vercel.app/api/playerdetails/last10games/${id}`);
@@ -69,28 +71,28 @@ const PlayerPage = () => {
     <div className="playerpage-grid-container">
       <Header />
 
-      {playerData && (
+      {seasonStats && (
         <div className="playerpage-fixed-container">
           <div className="playerpage-profile-modern">
-            <h1 className="player-name">{playerData.PLAYER}</h1>
+            <h1 className="player-name">{seasonStats.PLAYER}</h1>
             <div className="team-position">
               <div>
-                <p className="team-name">{playerData.TEAM}</p>
-                <p className="position">{playerData.POS}</p>
+                <p className="team-name">{seasonStats.TEAM}</p>
+                <p className="position">{seasonStats.POS}</p>
               </div>
             </div>
             <div className="player-info-modern">
               <div className="info-item">
                 <h4>Offensive Role</h4>
-                <p>{playerData.ROLE}</p>
+                <p>{seasonStats.ROLE}</p>
               </div>
               <div className="info-item">
                 <h4>Born</h4>
-                <p>{playerData.BIRTHDATE}</p>
+                <p>{seasonStats.BIRTHDATE}</p>
               </div>
               <div className="info-item">
                 <h4>Age</h4>
-                <p>{calculateAge(playerData.BIRTHDATE)} years</p>
+                <p>{calculateAge(seasonStats.BIRTHDATE)} years</p>
               </div>
             </div>
           </div>
@@ -98,23 +100,23 @@ const PlayerPage = () => {
           {/* Stat Circles */}
           <div className="player-stats-circle-container">
             <div className="player-stats-circle">
-              <h4>{playerData.PPG}</h4>
+              <h4>{seasonStats.PPG}</h4>
               <p>PTS</p>
             </div>
             <div className="player-stats-circle">
-              <h4>{playerData.RPG}</h4>
+              <h4>{seasonStats.RPG}</h4>
               <p>REB</p>
             </div>
             <div className="player-stats-circle">
-              <h4>{playerData.APG}</h4>
+              <h4>{seasonStats.APG}</h4>
               <p>AST</p>
             </div>
             <div className="player-stats-circle">
-              <h4>{playerData.PER}</h4>
+              <h4>{seasonStats.PER}</h4>
               <p>PER</p>
             </div>
             <div className="player-stats-circle">
-              <h4>{playerData.PIE}</h4>
+              <h4>{seasonStats.PIE}</h4>
               <p>PIE</p>
             </div>
           </div>
@@ -190,44 +192,6 @@ const PlayerPage = () => {
                     <td>{game.PTMARGIN}</td>
                   </tr>
                 ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      )}
-
-      {/* Stats Tab (empty for now) */}
-      {activeTab === 'stats' && (
-        <div className="playerpage-stats">
-          <h2>Stats (Traditional and Advanced)</h2>
-          <div className="player-stats-tables">
-            <table>
-              <thead>
-                <tr>
-                  <th>Category</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Traditional Stats</td>
-                  <td>Data to be filled</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <table>
-              <thead>
-                <tr>
-                  <th>Category</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Advanced Stats</td>
-                  <td>Data to be filled</td>
-                </tr>
               </tbody>
             </table>
           </div>
