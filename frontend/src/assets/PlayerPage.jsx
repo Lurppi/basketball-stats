@@ -8,21 +8,24 @@ const PlayerPage = () => {
   const { id } = useParams(); // ID aus URL (wird PLAYER_ID sein)
   const [playerData, setPlayerData] = useState(null);
   const [lastGames, setLastGames] = useState([]);
+  const [activeTab, setActiveTab] = useState('profile'); // Steuert den aktiven Tab (Profil/Stats)
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchPlayerData = async () => {
       try {
-        const response = await fetch(`https://backend-sandy-rho.vercel.app/api/playerdetails`);
+        // API-Aufruf für Player Details
+        const response = await fetch(`http://localhost:5000/api/playerdetails`);
         const data = await response.json();
-        const player = data.find((p) => p.PLAYER_ID === id); // Spieler mit passender PLAYER_ID suchen
+        const player = data.find((p) => p.PlayerID === id);
         setPlayerData(player);
 
-        const responseLastGames = await fetch('https://backend-sandy-rho.vercel.app/api/form?file=matchdata');
+        // API-Aufruf für die letzten 10 Spiele des Spielers
+        const responseLastGames = await fetch(`http://localhost:5000/api/form?file=PlayerDetails`);
         const gamesData = await responseLastGames.json();
-        const games = gamesData.filter((game) => game.PLAYER_ID === id);
-        setLastGames(games);
+        const games = gamesData.filter((game) => game.PlayerID === id);
+        setLastGames(games.slice(0, 10));
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -33,6 +36,17 @@ const PlayerPage = () => {
     fetchPlayerData();
   }, [id]);
 
+  const calculateAge = (birthDate) => {
+    const birth = new Date(birthDate);
+    const today = new Date();
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+      age--;
+    }
+    return age;
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading data: {error.message}</p>;
 
@@ -42,12 +56,127 @@ const PlayerPage = () => {
       {playerData && (
         <div className="playerpage-profile">
           <h1>{playerData.PLAYER}</h1>
-          <p>Born: {playerData.BIRTH_DATE}</p>
-          <p>Position: {playerData.POSITION}</p>
-          <p>Team: {playerData.TEAM}</p>
-          {/* ...and other player info */}
+          <div className="player-info">
+            <p>Team: {playerData.TEAM}</p>
+            <p>Position: {playerData.POS}</p>
+            <p>Offensive Role: {playerData.ROLE}</p>
+            <p>Born: {playerData.BIRTHDATE}</p>
+            <p>Age: {calculateAge(playerData.BIRTHDATE)} years</p>
+          </div>
+          <div className="player-stats">
+            <div>
+              <h4>PPG</h4>
+              <p>{playerData.PPG}</p>
+            </div>
+            <div>
+              <h4>RPG</h4>
+              <p>{playerData.RPG}</p>
+            </div>
+            <div>
+              <h4>APG</h4>
+              <p>{playerData.APG}</p>
+            </div>
+            <div>
+              <h4>PER</h4>
+              <p>{playerData.PER}</p>
+            </div>
+            <div>
+              <h4>PIE</h4>
+              <p>{playerData.PIE}</p>
+            </div>
+          </div>
         </div>
       )}
+
+      {/* Tabs für Profil und Stats */}
+      <div className="playerpage-tabs">
+        <button
+          className={activeTab === 'profile' ? 'active' : ''}
+          onClick={() => setActiveTab('profile')}
+        >
+          Profile
+        </button>
+        <button
+          className={activeTab === 'stats' ? 'active' : ''}
+          onClick={() => setActiveTab('stats')}
+        >
+          Stats
+        </button>
+      </div>
+
+      {/* Profil Bereich - Last 10 Games */}
+      {activeTab === 'profile' && (
+        <div className="playerpage-lastgames">
+          <h2>Last 10 Games</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Matchup</th>
+                <th>W/L</th>
+                <th>MIN</th>
+                <th>PTS</th>
+                <th>FGM</th>
+                <th>FGA</th>
+                <th>FG%</th>
+                <th>3PM</th>
+                <th>3PA</th>
+                <th>3P%</th>
+                <th>FTM</th>
+                <th>FTA</th>
+                <th>FT%</th>
+                <th>OREB</th>
+                <th>DREB</th>
+                <th>REB</th>
+                <th>AST</th>
+                <th>STL</th>
+                <th>BLK</th>
+                <th>TOV</th>
+                <th>PF</th>
+                <th>+/-</th>
+              </tr>
+            </thead>
+            <tbody>
+              {lastGames.map((game, index) => (
+                <tr key={index}>
+                  <td>{game.Date}</td>
+                  <td>{`${game.Team} ${game.Location === '1' ? 'vs' : '@'} ${game.Opponent}`}</td>
+                  <td>{game.WIN === '1' ? 'W' : 'L'}</td>
+                  <td>{game.MP}</td>
+                  <td>{game.PTS}</td>
+                  <td>{game.FGM}</td>
+                  <td>{game.FGA}</td>
+                  <td>{game['FG%']}</td>
+                  <td>{game['3PM']}</td>
+                  <td>{game['3PA']}</td>
+                  <td>{game['3P%']}</td>
+                  <td>{game['FTM']}</td>
+                  <td>{game['FTA']}</td>
+                  <td>{game['FT%']}</td>
+                  <td>{game.OR}</td>
+                  <td>{game.DR}</td>
+                  <td>{game.RB}</td>
+                  <td>{game.AS}</td>
+                  <td>{game.ST}</td>
+                  <td>{game.BS}</td>
+                  <td>{game.TO}</td>
+                  <td>{game.PF}</td>
+                  <td>{game.PTMARGIN}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {/* Stats Bereich */}
+      {activeTab === 'stats' && (
+        <div className="playerpage-stats">
+          <h2>Stats</h2>
+          {/* Hier fügen wir später die Statistiken des Spielers hinzu */}
+        </div>
+      )}
+
       <Footer />
     </div>
   );

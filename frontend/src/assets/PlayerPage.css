@@ -1,101 +1,156 @@
-/* Gesamt-Grid-Container */
+/* Gesamtcontainer für die Seite */
 .playerpage-grid-container {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  height: 100vh;
+  grid-template-columns: 1fr;
   width: 100%;
-  overflow-x: hidden;
-}
-
-/* Content-Bereich, zentriert und mit Padding */
-.playerpage-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  max-width: 1200px;
   margin: 0 auto;
+  overflow-x: hidden;
+  padding-top: 50px;
 }
 
-/* Spieler-Profil-Header */
-.playerpage-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  background-color: #900;
-  padding: 20px;
-  border-radius: 12px;
+/* Profilübersicht im oberen Bereich */
+.playerpage-profile {
+  background-color: #003366;
+  /* Dunkleres Blau */
   color: white;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  grid-gap: 20px;
 }
 
-/* Info über den Spieler */
-.playerpage-info h1 {
+.playerpage-profile h1 {
+  grid-column: 2 / span 1;
   font-size: 2.5em;
-  margin: 0;
+  text-align: center;
 }
 
-.playerpage-info p {
+.playerpage-profile .player-info {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: left;
+  color: #f0f0f0;
+}
+
+.playerpage-profile .player-info p {
   margin: 5px 0;
+}
+
+.playerpage-profile .player-stats {
+  display: flex;
+  justify-content: space-evenly;
   font-size: 1.2em;
 }
 
-/* Stats-Überblick im Header */
-.playerpage-stats-overview {
-  display: flex;
-  gap: 20px;
-}
-
-.playerpage-stats-overview div {
+.playerpage-profile .player-stats div {
   text-align: center;
 }
 
-.playerpage-stats-overview h4 {
-  margin: 0;
-  font-size: 1.1em;
-}
-
-.playerpage-stats-overview p {
-  margin: 5px 0;
-  font-size: 1.4em;
+.playerpage-profile .player-stats h4 {
+  margin-bottom: 5px;
+  color: white;
   font-weight: bold;
 }
 
-/* Letzte Spiele */
-.playerpage-last-games {
-  margin-top: 30px;
+.playerpage-profile .player-stats p {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+/* Menü für die Tabs (Profil, Stats) */
+.playerpage-tabs {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.playerpage-tabs button {
+  background-color: #00509e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.playerpage-tabs button:hover {
+  background-color: #004080;
+}
+
+.playerpage-tabs button.active {
+  background-color: #ffcc00;
+  color: #003366;
+  font-weight: bold;
+}
+
+/* Tabelle für die letzten 10 Spiele */
+.playerpage-lastgames {
   width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-.playerpage-last-games h2 {
-  font-size: 1.8em;
-  margin-bottom: 15px;
-}
-
-.playerpage-last-games table {
+.playerpage-lastgames table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
 }
 
-.playerpage-last-games th,
-.playerpage-last-games td {
+.playerpage-lastgames th,
+.playerpage-lastgames td {
   padding: 10px;
+  border: 1px solid #ddd;
   text-align: center;
+  font-size: 1.0em;
 }
 
-.playerpage-last-games th {
-  background-color: #ddd;
-  font-size: 1.1em;
+.playerpage-lastgames th {
+  background-color: #00509e;
+  color: white;
 }
 
-.playerpage-last-games tr:nth-child(even) {
+.playerpage-lastgames td {
+  background-color: #fff;
+  color: #333;
+}
+
+.playerpage-lastgames tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-.playerpage-last-games td {
-  font-size: 1em;
+/* Responsive Anpassung */
+@media (max-width: 768px) {
+  .playerpage-profile {
+    grid-template-columns: 1fr;
+  }
+
+  .playerpage-stats {
+    flex-direction: column;
+  }
+
+  .playerpage-tabs {
+    flex-direction: column;
+  }
+
+  .playerpage-tabs button {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .playerpage-lastgames table {
+    font-size: 0.9em;
+  }
 }
