@@ -4,7 +4,7 @@ const csv = require('csv-parser');
 
 // Bestehende Funktion: Die letzten 10 Spiele eines Spielers
 const getLast10Games = (req, res) => {
-  const filePath = path.join(__dirname, '../data/PlayerDetails.csv');
+  const filePath = path.join(__dirname, '../data/PlayerDetails.csv'); // Hier nutzen wir weiterhin PlayerDetails.csv
   const { playerID } = req.params;
 
   if (!playerID) {
@@ -53,7 +53,7 @@ const getLast10Games = (req, res) => {
 
 // Neue Funktion: Stats der letzten Saison eines Spielers basierend auf SEASON_YEAR, LEAGUE und GP
 const getPlayerSeasonStats = (req, res) => {
-  const filePath = path.join(__dirname, '../data/PlayerDetails.csv');
+  const filePath = path.join(__dirname, '../data/PLAYERS.csv'); // Wir greifen jetzt auf die PLAYERS.csv zu
   const { playerID } = req.params;
 
   if (!playerID) {

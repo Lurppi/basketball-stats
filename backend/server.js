@@ -5,7 +5,7 @@ const playersRoutes = require('./routes/players');
 const teamsRoutes = require('./routes/teams');
 const homeRoutes = require('./routes/home');
 const formRoutes = require('./routes/form');
-const playerDetailsRoutes = require('./routes/playerDetails'); // Neue PlayerDetails-Route hinzufügen
+const playerDetailsRoutes = require('./routes/playerDetails'); // PlayerDetails-Route
 
 // CORS configuration
 const corsOptions = {
@@ -29,11 +29,11 @@ app.options('*', cors(corsOptions));
 app.use(express.json());
 
 // Routes
-app.use('/api/players', playersRoutes);
-app.use('/api/teams', teamsRoutes);
-app.use('/api/home', homeRoutes);
-app.use('/api/form', formRoutes);
-app.use('/api/playerdetails', playerDetailsRoutes); // Neue PlayerDetails-Route einbinden
+app.use('/api/players', playersRoutes); // Players Route
+app.use('/api/teams', teamsRoutes); // Teams Route
+app.use('/api/home', homeRoutes); // Home Route
+app.use('/api/form', formRoutes); // Form Route
+app.use('/api/playerdetails', playerDetailsRoutes); // PlayerDetails-Route
 
 // Default route for root path
 app.get('/', (req, res) => {
