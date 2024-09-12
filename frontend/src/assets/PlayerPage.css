@@ -7,93 +7,186 @@
   margin: 0 auto;
   overflow-x: hidden;
   padding-top: 50px;
+  overflow-x: auto;
 }
 
-/* Profilübersicht im oberen Bereich */
-.playerpage-profile {
-  background-color: #003366;
-  /* Dunkleres Blau */
-  color: white;
+/* Neuer Container für den oberen fixen Bereich */
+.playerpage-fixed-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+/* Profilübersicht im modernen Stil */
+.playerpage-profile-modern {
+  background-color: white;
+  color: #333;
   padding: 20px;
   width: 100%;
-  max-width: 1200px;
-  margin: 20px auto;
+  margin: 50px auto;
   border-radius: 10px;
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  align-items: center;
-  grid-gap: 20px;
-}
-
-.playerpage-profile h1 {
-  grid-column: 2 / span 1;
-  font-size: 2.5em;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
-}
-
-.playerpage-profile .player-info {
-  font-size: 1.2em;
-  font-weight: bold;
-  text-align: left;
-  color: #f0f0f0;
-}
-
-.playerpage-profile .player-info p {
-  margin: 5px 0;
-}
-
-.playerpage-profile .player-stats {
   display: flex;
-  justify-content: space-evenly;
-  font-size: 1.2em;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Fix für mobile: Höhe und Überlauf */
+  height: auto;
+  overflow: visible;
 }
 
-.playerpage-profile .player-stats div {
+/* Spielername und Teaminfos zentriert */
+.player-name-container {
   text-align: center;
 }
 
-.playerpage-profile .player-stats h4 {
+.player-name {
+  font-size: 40px;
+  font-weight: bold;
   margin-bottom: 5px;
-  color: white;
+}
+
+.team-position {
+  font-size: 20px;
+  color: #444343;
+}
+
+.team-logo {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  width: 60px;
+  height: 60px;
+}
+
+.position {
+  font-size: 24px;
+  color: #131212;
   font-weight: bold;
 }
 
-.playerpage-profile .player-stats p {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #ffcc00;
+/* Spielerinfos zentrieren */
+.player-info-modern {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
 }
 
-/* Menü für die Tabs (Profil, Stats) */
-.playerpage-tabs {
+.player-info-modern .info-item {
+  width: 30%;
+  text-align: center;
+}
+
+.player-info-modern h4 {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #888;
+}
+
+.player-info-modern p {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Stats-Kreise */
+.player-stats-circle-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 5px;
+  gap: 20px;
 }
 
-.playerpage-tabs button {
-  background-color: #00509e;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1.2em;
+.player-stats-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(135deg, #7b2cbf, #ffcc00);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  animation: rotateGlow 1s ease-in-out;
+}
+
+.player-stats-circle h4 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #000;
+}
+
+.player-stats-circle p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #7b2cbf;
+}
+
+/* Animation for glowing and spinning */
+@keyframes rotateGlow {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 0 0 0px rgba(255, 204, 0, 0);
+  }
+
+  50% {
+    transform: rotate(180deg);
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
+  }
+
+  100% {
+    transform: rotate(360deg);
+    box-shadow: 0 0 0px rgba(255, 204, 0, 0);
+  }
+}
+
+/* Breadcrumb-Navigation - sticky unterhalb des fixen Bereichs */
+.breadcrumb-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  border-bottom: 2px solid #7b2cbf;
+}
+
+.breadcrumb {
   margin: 0 10px;
+  font-size: 1.1em;
+  color: #7b2cbf;
   cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  text-decoration: none;
+  padding: 5px 20px;
+  border-bottom: 2px solid transparent;
+  font-weight: 500;
 }
 
-.playerpage-tabs button:hover {
-  background-color: #004080;
-}
-
-.playerpage-tabs button.active {
-  background-color: #ffcc00;
-  color: #003366;
+.breadcrumb.active {
   font-weight: bold;
+  color: #7b2cbf;
+  border-bottom: 2px solid #7b2cbf;
 }
 
-/* Tabelle für die letzten 10 Spiele */
+.breadcrumb:hover {
+  color: #333;
+  border-bottom: 2px solid #7b2cbf;
+}
+
+/* Last 10 Games Tabelle */
 .playerpage-lastgames {
   width: 100%;
   max-width: 1200px;
@@ -104,53 +197,105 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-.playerpage-lastgames table {
+.playerpage-table-wrapper {
   width: 100%;
+}
+
+.playerpage-table-container {
+  width: 100%;
+  margin: 0 auto;
   border-collapse: collapse;
 }
 
-.playerpage-lastgames th,
-.playerpage-lastgames td {
+.playerpage-table-container th,
+.playerpage-table-container td {
   padding: 10px;
-  border: 1px solid #ddd;
   text-align: center;
-  font-size: 1.0em;
+  white-space: nowrap;
+  border-bottom: 1px solid #ddd;
 }
 
-.playerpage-lastgames th {
-  background-color: #00509e;
+.playerpage-table-container th {
+  background-color: #020202d2;
   color: white;
+  font-size: 10px;
 }
 
-.playerpage-lastgames td {
-  background-color: #fff;
-  color: #333;
+.playerpage-table-container td {
+  font-size: 11px;
 }
 
-.playerpage-lastgames tr:nth-child(even) {
+.playerpage-table-container tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
 /* Responsive Anpassung */
 @media (max-width: 768px) {
-  .playerpage-profile {
-    grid-template-columns: 1fr;
+  .playerpage-profile-modern {
+    padding: 20px;
+    margin: 200px auto;
+    /* Angepasst für mobile Ansicht */
+    height: auto;
+    /* Sicherstellen, dass der Container in mobiler Ansicht sichtbar bleibt */
   }
 
-  .playerpage-stats {
+  .player-name {
+    font-size: 2em;
+  }
+
+  .player-info-modern {
     flex-direction: column;
+    text-align: center;
   }
 
-  .playerpage-tabs {
-    flex-direction: column;
-  }
-
-  .playerpage-tabs button {
-    margin-bottom: 10px;
+  .player-info-modern .info-item {
     width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
   }
 
-  .playerpage-lastgames table {
-    font-size: 0.9em;
+  .player-stats-circle-container {
+    flex-direction: column;
+    align-items: center;
   }
+}
+
+.breadcrumb-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  border-bottom: 2px solid #7a2cbf00;
+}
+
+/* Style für die kleineren Buttons im Breadcrumb */
+.breadcrumb-menu button {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.863);
+  border: none;
+  padding: 8px 16px;
+  /* Padding etwas verringert */
+  font-size: 0.9em;
+  /* Schriftgröße verkleinert */
+  margin: 0 8px;
+  /* Weniger Abstand zwischen den Buttons */
+  cursor: pointer;
+  border-radius: 4px;
+  /* Leichte Rundung der Ecken */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.breadcrumb-menu button:hover {
+  background-color: rgba(0, 0, 0, 0.836);
+  color: white;
+}
+
+.breadcrumb-menu button.breadcrumb-active {
+  background-color: rgba(0, 0, 0, 0.842);
+  color: white;
 }

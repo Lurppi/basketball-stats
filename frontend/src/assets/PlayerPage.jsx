@@ -5,14 +5,14 @@ import Footer from './Footer';
 import './PlayerPage.css';
 
 const PlayerPage = () => {
-  const { id } = useParams(); // Player ID aus der URL
+  const { id } = useParams(); // Player ID from URL
   const [playerData, setPlayerData] = useState(null);
   const [lastGames, setLastGames] = useState([]);
-  const [activeTab, setActiveTab] = useState('profile'); // Für Profil und Stats Tabs
+  const [activeTab, setActiveTab] = useState('profile'); // For Profile and Stats Tabs
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Funktion zum Berechnen des Alters
+  // Function to calculate age
   const calculateAge = (birthDate) => {
     const birth = new Date(birthDate);
     const today = new Date();
@@ -27,12 +27,12 @@ const PlayerPage = () => {
   useEffect(() => {
     const fetchPlayerData = async () => {
       try {
-        // Abrufen der Spielerinformationen
+        // Fetch player data
         const playerResponse = await fetch(`https://backend-sandy-rho.vercel.app/api/players?file=PLAYERS`);
         const playerData = await playerResponse.json();
 
-        // Spieler anhand der PlayerID finden
-        const player = playerData.find((p) => p.PlayerID === id); // Die PlayerID wird jetzt korrekt verwendet
+        // Find player by PlayerID
+        const player = playerData.find((p) => p.PlayerID === id); // Correct use of PlayerID
         if (!player) {
           throw new Error('Player not found');
         }
@@ -40,16 +40,16 @@ const PlayerPage = () => {
         setPlayerData(player);
         console.log('Player data:', player);
 
-        // Abrufen der letzten 10 Spiele
-        const gamesResponse = await fetch(`https://backend-sandy-rho.vercel.app/api/playerdetails`);
-        const gamesData = await gamesResponse.json();
-        const games = gamesData.filter((game) => game.PlayerID === id); // Finde Spiele für den Spieler anhand der PlayerID
+        // Fetch last 10 games (use new route)
+        const gamesResponse = await fetch(`https://backend-sandy-rho.vercel.app/api/playerdetails/last10games/${id}`);
+        const games = await gamesResponse.json();
+
         if (games.length === 0) {
           throw new Error('No games found for player');
         }
 
-        setLastGames(games.slice(0, 10)); // Die letzten 10 Spiele
-        console.log('Last 10 games:', games.slice(0, 10));
+        setLastGames(games); // Use games directly
+        console.log('Last 10 games:', games);
 
         setLoading(false);
       } catch (err) {
@@ -70,122 +70,133 @@ const PlayerPage = () => {
       <Header />
 
       {playerData && (
-        <div className="playerpage-profile">
-          <h1>{playerData.PLAYER}</h1>
-          <div className="player-info">
-            <p>Team: {playerData.TEAM}</p>
-            <p>Position: {playerData.POS}</p>
-            <p>Offensive Role: {playerData.ROLE}</p>
-            <p>Born: {playerData.BIRTHDATE}</p>
-            <p>Age: {calculateAge(playerData.BIRTHDATE)} years</p>
+        <div className="playerpage-fixed-container">
+          <div className="playerpage-profile-modern">
+            <h1 className="player-name">{playerData.PLAYER}</h1>
+            <div className="team-position">
+              <div>
+                <p className="team-name">{playerData.TEAM}</p>
+                <p className="position">{playerData.POS}</p>
+              </div>
+            </div>
+            <div className="player-info-modern">
+              <div className="info-item">
+                <h4>Offensive Role</h4>
+                <p>{playerData.ROLE}</p>
+              </div>
+              <div className="info-item">
+                <h4>Born</h4>
+                <p>{playerData.BIRTHDATE}</p>
+              </div>
+              <div className="info-item">
+                <h4>Age</h4>
+                <p>{calculateAge(playerData.BIRTHDATE)} years</p>
+              </div>
+            </div>
           </div>
-          <div className="player-stats">
-            <div>
-              <h4>PPG</h4>
-              <p>{playerData.PPG}</p>
+
+          {/* Stat Circles */}
+          <div className="player-stats-circle-container">
+            <div className="player-stats-circle">
+              <h4>{playerData.PPG}</h4>
+              <p>PTS</p>
             </div>
-            <div>
-              <h4>RPG</h4>
-              <p>{playerData.RPG}</p>
+            <div className="player-stats-circle">
+              <h4>{playerData.RPG}</h4>
+              <p>REB</p>
             </div>
-            <div>
-              <h4>APG</h4>
-              <p>{playerData.APG}</p>
+            <div className="player-stats-circle">
+              <h4>{playerData.APG}</h4>
+              <p>AST</p>
             </div>
-            <div>
-              <h4>PER</h4>
-              <p>{playerData.PER}</p>
+            <div className="player-stats-circle">
+              <h4>{playerData.PER}</h4>
+              <p>PER</p>
             </div>
-            <div>
-              <h4>PIE</h4>
-              <p>{playerData.PIE}</p>
+            <div className="player-stats-circle">
+              <h4>{playerData.PIE}</h4>
+              <p>PIE</p>
             </div>
           </div>
         </div>
       )}
 
-      {/* Tabs für Profil und Stats */}
-      <div className="playerpage-tabs">
-        <button
-          className={activeTab === 'profile' ? 'active' : ''}
-          onClick={() => setActiveTab('profile')}
-        >
-          Profile
-        </button>
-        <button
-          className={activeTab === 'stats' ? 'active' : ''}
-          onClick={() => setActiveTab('stats')}
-        >
-          Stats
-        </button>
+      {/* Breadcrumb navigation */}
+      <div className="breadcrumb-container">
+        <div className="breadcrumb-menu">
+          <button className={activeTab === 'profile' ? 'breadcrumb-active' : ''} onClick={() => setActiveTab('profile')}>Profile</button>
+          <button className={activeTab === 'stats' ? 'breadcrumb-active' : ''} onClick={() => setActiveTab('stats')}>Stats</button>
+        </div>
       </div>
 
-      {/* Profil - Last 10 Games */}
+      {/* Last 10 Games Table */}
       {activeTab === 'profile' && (
         <div className="playerpage-lastgames">
           <h2>Last 10 Games</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Matchup</th>
-                <th>W/L</th>
-                <th>MIN</th>
-                <th>PTS</th>
-                <th>FGM</th>
-                <th>FGA</th>
-                <th>FG%</th>
-                <th>3PM</th>
-                <th>3PA</th>
-                <th>3P%</th>
-                <th>FTM</th>
-                <th>FTA</th>
-                <th>FT%</th>
-                <th>OREB</th>
-                <th>DREB</th>
-                <th>REB</th>
-                <th>AST</th>
-                <th>STL</th>
-                <th>BLK</th>
-                <th>TOV</th>
-                <th>PF</th>
-                <th>+/-</th>
-              </tr>
-            </thead>
-            <tbody>
-              {lastGames.map((game, index) => (
-                <tr key={index}>
-                  <td>{game.Date}</td>
-                  <td>{`${game.Team} ${game.Location === '1' ? 'vs' : '@'} ${game.Opponent}`}</td>
-                  <td>{game.WIN === '1' ? 'W' : 'L'}</td>
-                  <td>{game.MP}</td>
-                  <td>{game.PTS}</td>
-                  <td>{game.FGM}</td>
-                  <td>{game.FGA}</td>
-                  <td>{game['FG%']}</td>
-                  <td>{game['3PM']}</td>
-                  <td>{game['3PA']}</td>
-                  <td>{game['3P%']}</td>
-                  <td>{game['FTM']}</td>
-                  <td>{game['FTA']}</td>
-                  <td>{game['FT%']}</td>
-                  <td>{game.OR}</td>
-                  <td>{game.DR}</td>
-                  <td>{game.RB}</td>
-                  <td>{game.AS}</td>
-                  <td>{game.ST}</td>
-                  <td>{game.BS}</td>
-                  <td>{game.TO}</td>
-                  <td>{game.PF}</td>
-                  <td>{game.PTMARGIN}</td>
+          <div className="playerpage-table-wrapper">
+            <table className="playerpage-table-container">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Matchup</th>
+                  <th>W/L</th>
+                  <th>MIN</th>
+                  <th>PTS</th>
+                  <th>FGM</th>
+                  <th>FGA</th>
+                  <th>FG%</th>
+                  <th>3PM</th>
+                  <th>3PA</th>
+                  <th>3P%</th>
+                  <th>FTM</th>
+                  <th>FTA</th>
+                  <th>FT%</th>
+                  <th>OREB</th>
+                  <th>DREB</th>
+                  <th>REB</th>
+                  <th>AST</th>
+                  <th>STL</th>
+                  <th>BLK</th>
+                  <th>TOV</th>
+                  <th>PF</th>
+                  <th>+/-</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {lastGames.map((game, index) => (
+                  <tr key={index}>
+                    <td>{game.Date}</td>
+                    <td>{`${game.Team} ${game.Location === '1' ? 'vs' : '@'} ${game.Opponent}`}</td>
+                    <td>{game.WIN === '1' ? 'W' : 'L'}</td>
+                    <td>{game.MP}</td>
+                    <td>{game.PTS}</td>
+                    <td>{game.FGM}</td>
+                    <td>{game.FGA}</td>
+                    <td>{game['FG%']}</td>
+                    <td>{game['3PM']}</td>
+                    <td>{game['3PA']}</td>
+                    <td>{game['3P%']}</td>
+                    <td>{game['FTM']}</td>
+                    <td>{game['FTA']}</td>
+                    <td>{game['FT%']}</td>
+                    <td>{game.OR}</td>
+                    <td>{game.DR}</td>
+                    <td>{game.RB}</td>
+                    <td>{game.AS}</td>
+                    <td>{game.ST}</td>
+                    <td>{game.BS}</td>
+                    <td>{game.TO}</td>
+                    <td>{game.PF}</td>
+                    <td>{game.PTMARGIN}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 
-      {/* Stats Tab (leere Tabellen, die später gefüllt werden) */}
+      {/* Stats Tab (empty for now) */}
       {activeTab === 'stats' && (
         <div className="playerpage-stats">
           <h2>Stats (Traditional and Advanced)</h2>

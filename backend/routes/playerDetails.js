@@ -7,4 +7,9 @@ router.get('/last10games/:playerID', (req, res) => {
   playerDetailsController.getLast10Games(req, res);
 });
 
+// Neue Route für die 5 Stats der letzten Saison
+router.get('/stats/:playerID', (req, res) => {
+  playerDetailsController.getLastSeasonStats(req, res);
+});
+
 module.exports = router;
