@@ -5,37 +5,14 @@ import Footer from './Footer';
 import './PlayerPage.css';
 
 const PlayerPage = () => {
-  const { id } = useParams(); // ID aus URL (wird PLAYER_ID sein)
+  const { id } = useParams(); // Player ID aus der URL
   const [playerData, setPlayerData] = useState(null);
   const [lastGames, setLastGames] = useState([]);
-  const [activeTab, setActiveTab] = useState('profile'); // Steuert den aktiven Tab (Profil/Stats)
+  const [activeTab, setActiveTab] = useState('profile'); // Für Profil und Stats Tabs
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchPlayerData = async () => {
-      try {
-        // API-Aufruf für Player Details
-        const response = await fetch(`http://localhost:5000/api/playerdetails`);
-        const data = await response.json();
-        const player = data.find((p) => p.PlayerID === id);
-        setPlayerData(player);
-
-        // API-Aufruf für die letzten 10 Spiele des Spielers
-        const responseLastGames = await fetch(`http://localhost:5000/api/form?file=PlayerDetails`);
-        const gamesData = await responseLastGames.json();
-        const games = gamesData.filter((game) => game.PlayerID === id);
-        setLastGames(games.slice(0, 10));
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
-      }
-    };
-
-    fetchPlayerData();
-  }, [id]);
-
+  // Funktion zum Berechnen des Alters
   const calculateAge = (birthDate) => {
     const birth = new Date(birthDate);
     const today = new Date();
@@ -47,12 +24,53 @@ const PlayerPage = () => {
     return age;
   };
 
+  useEffect(() => {
+    const fetchPlayerData = async () => {
+      try {
+        // Abrufen der Spielerinformationen
+        const playerResponse = await fetch(`https://backend-sandy-rho.vercel.app/api/players?file=PLAYERS`);
+        const playerData = await playerResponse.json();
+
+        // Anstatt PLAYER_ID, jetzt sicherstellen, dass die ID in einem Player-Objekt übereinstimmt
+        const player = playerData.find((p) => p.ID === id); // Spieler mit passender ID finden (Änderung hier)
+
+        if (!player) {
+          throw new Error('Player not found');
+        }
+
+        setPlayerData(player);
+        console.log('Player data:', player);
+
+        // Abrufen der letzten 10 Spiele
+        const gamesResponse = await fetch(`https://backend-sandy-rho.vercel.app/api/playerdetails`);
+        const gamesData = await gamesResponse.json();
+        const games = gamesData.filter((game) => game.PlayerID === id); // Finde Spiele für den Spieler
+
+        if (games.length === 0) {
+          throw new Error('No games found for player');
+        }
+
+        setLastGames(games.slice(0, 10)); // Die letzten 10 Spiele
+        console.log('Last 10 games:', games.slice(0, 10));
+
+        setLoading(false);
+      } catch (err) {
+        console.error('Error fetching data:', err);
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchPlayerData();
+  }, [id]);
+
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error loading data: {error.message}</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div className="playerpage-grid-container">
       <Header />
+
       {playerData && (
         <div className="playerpage-profile">
           <h1>{playerData.PLAYER}</h1>
@@ -104,7 +122,7 @@ const PlayerPage = () => {
         </button>
       </div>
 
-      {/* Profil Bereich - Last 10 Games */}
+      {/* Profil - Last 10 Games */}
       {activeTab === 'profile' && (
         <div className="playerpage-lastgames">
           <h2>Last 10 Games</h2>
@@ -169,11 +187,41 @@ const PlayerPage = () => {
         </div>
       )}
 
-      {/* Stats Bereich */}
+      {/* Stats Tab (leere Tabellen, die später gefüllt werden) */}
       {activeTab === 'stats' && (
         <div className="playerpage-stats">
-          <h2>Stats</h2>
-          {/* Hier fügen wir später die Statistiken des Spielers hinzu */}
+          <h2>Stats (Traditional and Advanced)</h2>
+          <div className="player-stats-tables">
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Traditional Stats</td>
+                  <td>Data to be filled</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Advanced Stats</td>
+                  <td>Data to be filled</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 
