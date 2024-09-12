@@ -72,14 +72,13 @@ const getPlayerSeasonStats = (req, res) => {
   });
 };
 
-// Neue Funktion zum Abrufen der Stats eines Spielers basierend auf PlayerID und Season Type
+// Neue Funktion zum Abrufen der Stats eines Spielers basierend auf PlayerID
 const getPlayerStatsBySeasonType = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv'); // Wir greifen auf die PLAYERS.csv zu
   const { playerID } = req.params;
-  const { seasonType } = req.query; // Der Season Type wird als Query-Parameter übergeben
 
-  if (!playerID || !seasonType) {
-    return res.status(400).send('PlayerID and Season Type are required');
+  if (!playerID) {
+    return res.status(400).send('PlayerID is required');
   }
 
   const results = [];
@@ -99,15 +98,15 @@ const getPlayerStatsBySeasonType = (req, res) => {
         cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
       }
 
-      // Filter nach PlayerID und Season Type
-      if (cleanedRow.PlayerID === playerID && cleanedRow.SEASON_TYPE.trim().toUpperCase() === seasonType.toUpperCase()) {
+      // Suche nur nach PlayerID, keine Filterung nach SEASON_TYPE
+      if (cleanedRow.PlayerID === playerID) {
         results.push(cleanedRow);
       }
     });
 
     stream.on('end', () => {
       if (results.length === 0) {
-        console.log(`No stats found for player ${playerID} with season type ${seasonType}`);
+        console.log(`No stats found for player ${playerID}`);
         return res.status(404).send('No stats found');
       }
 
