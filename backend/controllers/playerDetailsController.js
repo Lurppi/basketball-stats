@@ -77,7 +77,8 @@ const getPlayerSeasonStats = (req, res) => {
         cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
       }
 
-      if (cleanedRow.PlayerID === playerID && cleanedRow.SEASON_TYPE === 'SEASON') {
+      // Sicherstellen, dass SEASON_TYPE und PlayerID korrekt sind
+      if (cleanedRow.PlayerID === playerID && cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON') {
         results.push(cleanedRow);
       }
     });
@@ -87,8 +88,8 @@ const getPlayerSeasonStats = (req, res) => {
         return res.status(404).send('No season stats found');
       }
 
-      // Sortieren nach SEASON_YEAR
-      results.sort((a, b) => parseInt(b.SEASON_YEAR) - parseInt(a.SEASON_YEAR));
+      // Sortieren nach SEASON_YEAR als String
+      results.sort((a, b) => b.SEASON_YEAR.localeCompare(a.SEASON_YEAR));
 
       // Filtern für JBBL und NBBL, um die Saison mit den meisten GP zu finden
       const latestSeason = results[0].SEASON_YEAR; // Neueste Saison
@@ -97,12 +98,12 @@ const getPlayerSeasonStats = (req, res) => {
       let selectedSeasonData = null;
 
       // Prüfen ob Spieler sowohl in JBBL als auch in NBBL gespielt hat
-      const jbblData = filteredResults.find(row => row.LEAGUE === 'JBBL');
-      const nbblData = filteredResults.find(row => row.LEAGUE === 'NBBL');
+      const jbblData = filteredResults.find(row => row.LEAGUE.trim().toUpperCase() === 'JBBL');
+      const nbblData = filteredResults.find(row => row.LEAGUE.trim().toUpperCase() === 'NBBL');
 
       if (jbblData && nbblData) {
         // Wenn in beiden Ligen gespielt, wähle den Datensatz mit den meisten GP
-        selectedSeasonData = jbblData.GP > nbblData.GP ? jbblData : nbblData;
+        selectedSeasonData = parseInt(jbblData.GP) > parseInt(nbblData.GP) ? jbblData : nbblData;
       } else {
         // Ansonsten nimm die verfügbare Daten
         selectedSeasonData = jbblData || nbblData || filteredResults[0];
