@@ -12,4 +12,9 @@ router.get('/stats/:playerID', (req, res) => {
   playersController.getPlayerSeasonStats(req, res);
 });
 
+// Neue Route für die Stats eines Spielers basierend auf PlayerID und Season Type
+router.get('/stats/:playerID/season', (req, res) => {
+  playersController.getPlayerStatsBySeasonType(req, res);
+});
+
 module.exports = router;

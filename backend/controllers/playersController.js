@@ -40,22 +40,11 @@ const getPlayerSeasonStats = (req, res) => {
         return res.status(404).send('No season stats found');
       }
 
-      // Log results before sorting
-      console.log(`Raw season results for player ${playerID}:`, results);
-
       // Sortieren nach SEASON_YEAR als String
       results.sort((a, b) => b.SEASON_YEAR.localeCompare(a.SEASON_YEAR));
 
-      // Log after sorting
-      console.log(`Sorted season results for player ${playerID}:`, results);
-
-      // Filtern für JBBL und NBBL, um die Saison mit den meisten GP zu finden
-      const latestSeason = results[0].SEASON_YEAR; // Neueste Saison
-      console.log(`Latest season year for player ${playerID}: ${latestSeason}`);
-
+      const latestSeason = results[0].SEASON_YEAR;
       const filteredResults = results.filter(row => row.SEASON_YEAR === latestSeason);
-
-      console.log(`Filtered results for latest season ${latestSeason} for player ${playerID}:`, filteredResults);
 
       let selectedSeasonData = null;
 
@@ -63,21 +52,72 @@ const getPlayerSeasonStats = (req, res) => {
       const jbblData = filteredResults.find(row => row.LEAGUE.trim().toUpperCase() === 'JBBL');
       const nbblData = filteredResults.find(row => row.LEAGUE.trim().toUpperCase() === 'NBBL');
 
-      console.log(`JBBL Data for player ${playerID}:`, jbblData);
-      console.log(`NBBL Data for player ${playerID}:`, nbblData);
-
       if (jbblData && nbblData) {
-        // Wenn in beiden Ligen gespielt, wähle den Datensatz mit den meisten GP
         selectedSeasonData = parseInt(jbblData.GP) > parseInt(nbblData.GP) ? jbblData : nbblData;
       } else {
-        // Ansonsten nimm die verfügbaren Daten
         selectedSeasonData = jbblData || nbblData || filteredResults[0];
       }
 
-      console.log(`Selected season data for player ${playerID}:`, selectedSeasonData);
-
       if (!res.headersSent) {
         res.json(selectedSeasonData);
+      }
+    });
+
+    stream.on('error', (err) => {
+      console.error(`Error reading the CSV file: ${err}`);
+      if (!res.headersSent) {
+        res.status(500).send('Error reading the CSV file');
+      }
+    });
+  });
+};
+
+// Neue Funktion zum Abrufen der Stats eines Spielers basierend auf PlayerID und Season Type
+const getPlayerStatsBySeasonType = (req, res) => {
+  const filePath = path.join(__dirname, '../data/PLAYERS.csv'); // Wir greifen auf die PLAYERS.csv zu
+  const { playerID } = req.params;
+  const { seasonType } = req.query; // Der Season Type wird als Query-Parameter übergeben
+
+  if (!playerID || !seasonType) {
+    return res.status(400).send('PlayerID and Season Type are required');
+  }
+
+  const results = [];
+
+  fs.access(filePath, fs.constants.F_OK, (err) => {
+    if (err) {
+      console.error(`File not found: ${filePath}`);
+      return res.status(404).send(`File not found: ${filePath}`);
+    }
+
+    const stream = fs.createReadStream(filePath).pipe(csv({ separator: ';' }));
+
+    stream.on('data', (row) => {
+      const cleanedRow = {};
+      for (let key in row) {
+        const cleanedKey = key.replace(/\uFEFF/g, '').trim();
+        cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
+      }
+
+      // Filter nach PlayerID und Season Type
+      if (cleanedRow.PlayerID === playerID && cleanedRow.SEASON_TYPE.trim().toUpperCase() === seasonType.toUpperCase()) {
+        results.push(cleanedRow);
+      }
+    });
+
+    stream.on('end', () => {
+      if (results.length === 0) {
+        console.log(`No stats found for player ${playerID} with season type ${seasonType}`);
+        return res.status(404).send('No stats found');
+      }
+
+      // Sortieren nach SEASON_YEAR (neuste Saison zuerst)
+      results.sort((a, b) => b.SEASON_YEAR.localeCompare(a.SEASON_YEAR));
+
+      console.log(`Filtered stats for player ${playerID}:`, results);
+
+      if (!res.headersSent) {
+        res.json(results); // Rückgabe aller gefilterten Datensätze
       }
     });
 
@@ -135,4 +175,5 @@ const getPlayersData = (req, res) => {
 module.exports = {
   getPlayersData,
   getPlayerSeasonStats,
+  getPlayerStatsBySeasonType, // Neue Funktion exportieren
 };

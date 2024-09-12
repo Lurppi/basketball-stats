@@ -8,16 +8,13 @@ const PlayerPage = () => {
   const { id } = useParams(); // Player ID from URL
   const [playerData, setPlayerData] = useState(null);
   const [lastGames, setLastGames] = useState([]);
-  const [seasonTypes, setSeasonTypes] = useState([]); // Store available season types
   const [activeTab, setActiveTab] = useState('profile'); // For Profile and Stats Tabs
-  const [seasonType, setSeasonType] = useState(''); // Selected season type
-  const [statsType, setStatsType] = useState('Totals'); // Selected stats type
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   // Function to calculate age
   const calculateAge = (birthDate) => {
-    const birth = new Date(birthDate.split('.').reverse().join('-')); // Adjust for DD.MM.YYYY format
+    const birth = new Date(birthDate.split('.').reverse().join('-')); // Format TT.MM.YYYY in YYYY-MM-DD konvertieren
     const today = new Date();
     let age = today.getFullYear() - birth.getFullYear();
     const monthDiff = today.getMonth() - birth.getMonth();
@@ -34,18 +31,19 @@ const PlayerPage = () => {
         const playerResponse = await fetch(`https://backend-sandy-rho.vercel.app/api/players/stats/${id}`);
         const playerData = await playerResponse.json();
 
-        if (!playerData) {
-          throw new Error('Player not found');
+        // Check if playerData is an object and not an array
+        if (!playerData || typeof playerData !== 'object') {
+          throw new Error('Player data not found or invalid format');
         }
 
-        setPlayerData(playerData); // playerData ist nun ein Objekt
+        setPlayerData(playerData); // Object expected
         console.log('Player data:', playerData);
 
         // Fetch last 10 games (use new route)
         const gamesResponse = await fetch(`https://backend-sandy-rho.vercel.app/api/playerdetails/last10games/${id}`);
         const games = await gamesResponse.json();
 
-        if (!games.length) {
+        if (!games || games.length === 0) {
           throw new Error('No games found for player');
         }
 
@@ -63,16 +61,83 @@ const PlayerPage = () => {
     fetchPlayerData();
   }, [id]);
 
-  const handleSeasonTypeChange = (e) => {
-    setSeasonType(e.target.value);
-  };
-
-  const handleStatsTypeChange = (e) => {
-    setStatsType(e.target.value);
-  };
-
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
+
+  // Dynamische Darstellung für die Statistiken im "Stats"-Reiter
+  const renderStatsTable = () => {
+    if (!playerData) {
+      return <p>No stats available</p>;
+    }
+
+    return (
+      <table className="playerpage-table-container">
+        <thead>
+          <tr>
+            <th>By Year</th>
+            <th>League</th>
+            <th>Team</th>
+            <th>GP</th>
+            <th>MIN</th>
+            <th>PTS</th>
+            <th>FGM</th>
+            <th>FGA</th>
+            <th>FG%</th>
+            <th>3PM</th>
+            <th>3PA</th>
+            <th>3P%</th>
+            <th>FTM</th>
+            <th>FTA</th>
+            <th>FT%</th>
+            <th>OREB</th>
+            <th>DREB</th>
+            <th>REB</th>
+            <th>AST</th>
+            <th>TOV</th>
+            <th>STL</th>
+            <th>BLK</th>
+            <th>PF</th>
+            <th>EF</th>
+            <th>DD2</th>
+            <th>TD3</th>
+            <th>FIC</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* Render stat rows */}
+          <tr>
+            <td>{playerData.SEASON_YEAR}</td>
+            <td>{playerData.LEAGUE}</td>
+            <td>{playerData.TEAM}</td>
+            <td>{playerData.GP}</td>
+            <td>{playerData.MP}</td>
+            <td>{playerData.PTS}</td>
+            <td>{playerData.FGM}</td>
+            <td>{playerData.FGA}</td>
+            <td>{(playerData['FG%'] * 100).toFixed(1)}</td>
+            <td>{playerData['3PM']}</td>
+            <td>{playerData['3PA']}</td>
+            <td>{(playerData['3P%'] * 100).toFixed(1)}</td>
+            <td>{playerData['FTM']}</td>
+            <td>{playerData['FTA']}</td>
+            <td>{(playerData['FT%'] * 100).toFixed(1)}</td>
+            <td>{playerData.OR}</td>
+            <td>{playerData.DR}</td>
+            <td>{playerData.RB}</td>
+            <td>{playerData.AS}</td>
+            <td>{playerData.TO}</td>
+            <td>{playerData.ST}</td>
+            <td>{playerData.BS}</td>
+            <td>{playerData.PF}</td>
+            <td>{playerData.FP}</td>
+            <td>{playerData.DD}</td>
+            <td>{playerData.TD}</td>
+            <td>{playerData.FIC}</td>
+          </tr>
+        </tbody>
+      </table>
+    );
+  };
 
   return (
     <div className="playerpage-grid-container">
@@ -84,7 +149,7 @@ const PlayerPage = () => {
             <h1 className="player-name">{playerData.PLAYER}</h1>
             <div className="team-position">
               <div>
-                <p className="team-name">{playerData.TEAM}</p>
+                <p className="team-name">{playerData.TEAM_long}</p>
                 <p className="position">{playerData.POS}</p>
               </div>
             </div>
@@ -138,27 +203,7 @@ const PlayerPage = () => {
         </div>
       </div>
 
-      {/* Filter area for season type and stats type */}
-      {activeTab === 'stats' && (
-        <div className="filter-container">
-          <label>Season Type:</label>
-          <select value={seasonType} onChange={handleSeasonTypeChange}>
-            {seasonTypes.map((type) => (
-              <option key={type} value={type}>
-                {type}
-              </option>
-            ))}
-          </select>
-
-          <label>Stats Type:</label>
-          <select value={statsType} onChange={handleStatsTypeChange}>
-            <option value="Totals">Totals</option>
-            <option value="Averages">Averages</option>
-          </select>
-        </div>
-      )}
-
-      {/* Display the player's last 10 games */}
+      {/* Conditional Rendering based on Active Tab */}
       {activeTab === 'profile' && (
         <div className="playerpage-lastgames">
           <h2>Last 10 Games</h2>
@@ -201,13 +246,13 @@ const PlayerPage = () => {
                     <td>{game.PTS}</td>
                     <td>{game.FGM}</td>
                     <td>{game.FGA}</td>
-                    <td>{game['FG%']}</td>
+                    <td>{(game['FG%'] * 100).toFixed(1)}</td>
                     <td>{game['3PM']}</td>
                     <td>{game['3PA']}</td>
-                    <td>{game['3P%']}</td>
+                    <td>{(game['3P%'] * 100).toFixed(1)}</td>
                     <td>{game['FTM']}</td>
                     <td>{game['FTA']}</td>
-                    <td>{game['FT%']}</td>
+                    <td>{(game['FT%'] * 100).toFixed(1)}</td>
                     <td>{game.OR}</td>
                     <td>{game.DR}</td>
                     <td>{game.RB}</td>
@@ -225,212 +270,11 @@ const PlayerPage = () => {
         </div>
       )}
 
-      {/* Stats Tab (Traditional and Advanced) */}
       {activeTab === 'stats' && (
         <div className="playerpage-stats">
           <h2>Stats (Traditional and Advanced)</h2>
-
-          {/* Traditional Splits Table */}
           <div className="player-stats-tables">
-            <h3>Traditional Splits</h3>
-            {statsType === 'Totals' ? (
-              <table>
-                <thead>
-                  <tr>
-                    <th>By Year</th>
-                    <th>League</th>
-                    <th>Team</th>
-                    <th>GP</th>
-                    <th>MIN</th>
-                    <th>PTS</th>
-                    <th>FGM</th>
-                    <th>FGA</th>
-                    <th>FG%</th>
-                    <th>3PM</th>
-                    <th>3PA</th>
-                    <th>3P%</th>
-                    <th>FTM</th>
-                    <th>FTA</th>
-                    <th>FT%</th>
-                    <th>OREB</th>
-                    <th>DREB</th>
-                    <th>REB</th>
-                    <th>AST</th>
-                    <th>TOV</th>
-                    <th>STL</th>
-                    <th>BLK</th>
-                    <th>PF</th>
-                    <th>EF</th>
-                    <th>DD2</th>
-                    <th>TD3</th>
-                    <th>FIC</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {playerData
-                    .filter((season) => season.SEASON_TYPE === seasonType)
-                    .map((season) => (
-                      <tr key={season.SEASON_YEAR}>
-                        <td>{`${season.SEASON_YEAR.slice(0, 4)}-${season.SEASON_YEAR.slice(4)}`}</td>
-                        <td>{season.LEAGUE}</td>
-                        <td>{season.TEAM}</td>
-                        <td>{season.GP}</td>
-                        <td>{season.MP}</td>
-                        <td>{season.PTS}</td>
-                        <td>{season.FGM}</td>
-                        <td>{season.FGA}</td>
-                        <td>{season['FG%']}</td>
-                        <td>{season['3PM']}</td>
-                        <td>{season['3PA']}</td>
-                        <td>{season['3P%']}</td>
-                        <td>{season.FTM}</td>
-                        <td>{season.FTA}</td>
-                        <td>{season['FT%']}</td>
-                        <td>{season.OR}</td>
-                        <td>{season.DR}</td>
-                        <td>{season.RB}</td>
-                        <td>{season.AS}</td>
-                        <td>{season.TO}</td>
-                        <td>{season.ST}</td>
-                        <td>{season.BS}</td>
-                        <td>{season.PF}</td>
-                        <td>{season.FP}</td>
-                        <td>{season.DD}</td>
-                        <td>{season.TD}</td>
-                        <td>{season.FIC}</td>
-                      </tr>
-                    ))}
-                </tbody>
-              </table>
-            ) : (
-              <table>
-                <thead>
-                  <tr>
-                    <th>By Year</th>
-                    <th>League</th>
-                    <th>Team</th>
-                    <th>GP</th>
-                    <th>MIN</th>
-                    <th>PTS</th>
-                    <th>FGM</th>
-                    <th>FGA</th>
-                    <th>FG%</th>
-                    <th>3PM</th>
-                    <th>3PA</th>
-                    <th>3P%</th>
-                    <th>FTM</th>
-                    <th>FTA</th>
-                    <th>FT%</th>
-                    <th>OREB</th>
-                    <th>DREB</th>
-                    <th>REB</th>
-                    <th>AST</th>
-                    <th>TOV</th>
-                    <th>STL</th>
-                    <th>BLK</th>
-                    <th>PF</th>
-                    <th>EF</th>
-                    <th>DD2</th>
-                    <th>TD3</th>
-                    <th>FIC</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {playerData
-                    .filter((season) => season.SEASON_TYPE === seasonType)
-                    .map((season) => (
-                      <tr key={season.SEASON_YEAR}>
-                        <td>{`${season.SEASON_YEAR.slice(0, 4)}-${season.SEASON_YEAR.slice(4)}`}</td>
-                        <td>{season.LEAGUE}</td>
-                        <td>{season.TEAM}</td>
-                        <td>{season.GP}</td>
-                        <td>{season.MPG}</td>
-                        <td>{season.PPG}</td>
-                        <td>{season.FGMPG}</td>
-                        <td>{season.FGAPG}</td>
-                        <td>{season['FG%']}</td>
-                        <td>{season['3PMPG']}</td>
-                        <td>{season['3PAPG']}</td>
-                        <td>{season['3P%']}</td>
-                        <td>{season['FTMPG']}</td>
-                        <td>{season['FTAPG']}</td>
-                        <td>{season['FT%']}</td>
-                        <td>{season.ORPG}</td>
-                        <td>{season.DRPG}</td>
-                        <td>{season.RPG}</td>
-                        <td>{season.APG}</td>
-                        <td>{season.TOPG}</td>
-                        <td>{season.SPG}</td>
-                        <td>{season.BPG}</td>
-                        <td>{season.PFPG}</td>
-                        <td>{season.FPPG}</td>
-                        <td>{season.DD}</td>
-                        <td>{season.TD}</td>
-                        <td>{season.FIC}</td>
-                      </tr>
-                    ))}
-                </tbody>
-              </table>
-            )}
-          </div>
-
-          {/* Advanced Splits Table */}
-          <div className="player-stats-tables">
-            <h3>Advanced Splits</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>By Year</th>
-                  <th>League</th>
-                  <th>Team</th>
-                  <th>GP</th>
-                  <th>MIN</th>
-                  <th>OffRtg</th>
-                  <th>DefRtg</th>
-                  <th>NetRtg</th>
-                  <th>AST%</th>
-                  <th>AST/TO</th>
-                  <th>AST Ratio</th>
-                  <th>OREB%</th>
-                  <th>DREB%</th>
-                  <th>REB%</th>
-                  <th>TOV%</th>
-                  <th>EFG%</th>
-                  <th>TS%</th>
-                  <th>USG%</th>
-                  <th>PER</th>
-                  <th>PIE</th>
-                </tr>
-              </thead>
-              <tbody>
-                {playerData
-                  .filter((season) => season.SEASON_TYPE === seasonType)
-                  .map((season) => (
-                    <tr key={season.SEASON_YEAR}>
-                      <td>{`${season.SEASON_YEAR.slice(0, 4)}-${season.SEASON_YEAR.slice(4)}`}</td>
-                      <td>{season.LEAGUE}</td>
-                      <td>{season.TEAM}</td>
-                      <td>{season.GP}</td>
-                      <td>{season.MPG}</td>
-                      <td>{season.ORTG_ADJ}</td>
-                      <td>{season.DRTG_ADJ}</td>
-                      <td>{season.NRTG_ADJ}</td>
-                      <td>{season.AS_RATE}</td>
-                      <td>{season.AS_TO}</td>
-                      <td>{season.AS_RATIO}</td>
-                      <td>{season['ORB%']}</td>
-                      <td>{season['DRB%']}</td>
-                      <td>{season['REB%']}</td>
-                      <td>{season.TOV_RATE}</td>
-                      <td>{season.EFG_RATE}</td>
-                      <td>{season.TS_RATE}</td>
-                      <td>{season.USAGE}</td>
-                      <td>{season.PER}</td>
-                      <td>{season.PIE}</td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
+            {renderStatsTable()}
           </div>
         </div>
       )}
