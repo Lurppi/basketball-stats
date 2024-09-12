@@ -1,10 +1,11 @@
-// backend/controllers/playerDetailsController.js
-const fs = require('fs');
-const path = require('path');
-const csv = require('csv-parser');
-
-const getPlayerDetailsData = (req, res) => {
+const getLast10Games = (req, res) => {
   const filePath = path.join(__dirname, '../data/PlayerDetails.csv');
+  const { playerID } = req.params; // PlayerID aus den Request-Parametern
+
+  if (!playerID) {
+    return res.status(400).send('PlayerID is required');
+  }
+
   const results = [];
 
   fs.access(filePath, fs.constants.F_OK, (err) => {
@@ -22,18 +23,18 @@ const getPlayerDetailsData = (req, res) => {
         cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
       }
 
-      // Prüfen, ob alle Felder ausgefüllt sind (leere Zeilen ignorieren)
-      if (Object.values(cleanedRow).every(val => val !== '')) {
-        results.push(cleanedRow);
+      if (cleanedRow.PlayerID === playerID) {
+        results.push(cleanedRow); // Spiele des bestimmten Spielers sammeln
       }
     });
 
     stream.on('end', () => {
-      // Nach Datum sortieren, falls gewünscht (aufsteigend)
-      results.sort((a, b) => new Date(a.Date) - new Date(b.Date));
+      // Nach Datum sortieren und nur die letzten 10 Spiele zurückgeben
+      results.sort((a, b) => new Date(b.Date) - new Date(a.Date)); // Absteigend nach Datum
+      const last10Games = results.slice(0, 10); // Nur die letzten 10 Spiele
 
       if (!res.headersSent) {
-        res.json(results);
+        res.json(last10Games);
       }
     });
 
@@ -47,5 +48,5 @@ const getPlayerDetailsData = (req, res) => {
 };
 
 module.exports = {
-  getPlayerDetailsData,
+  getLast10Games, // Diese Funktion exportieren
 };
