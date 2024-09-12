@@ -6,17 +6,23 @@ const csvWriter = require('csv-writer').createObjectCsvWriter;
 // Initialer Startwert für die Player-ID
 let nextPlayerID = 10000; // Beginne bei 10000
 
-// Helper-Funktion zum Importieren von CSV-Daten
+// Helper-Funktion zum Importieren von CSV-Daten und Filterung leerer oder unvollständiger Zeilen
 const importCSV = (filePath) => {
   return new Promise((resolve, reject) => {
     const results = [];
     fs.createReadStream(filePath)
       .pipe(csv({ separator: ';' }))
-      .on('data', (data) => results.push(data))
+      .on('data', (data) => {
+        // Filtere ungültige oder unvollständige Zeilen heraus
+        const hasValidData = Object.values(data).some(value => value.trim() !== '');
+        if (hasValidData) {
+          results.push(data); // Nur Zeilen mit Daten hinzufügen
+        }
+      })
       .on('end', () => {
         if (results.length === 0) {
-          console.error(`No data found in ${filePath}`);
-          return reject(new Error(`No data found in ${filePath}`));
+          console.error(`No valid data found in ${filePath}`);
+          return reject(new Error(`No valid data found in ${filePath}`));
         }
         resolve(results);
       })
@@ -35,14 +41,21 @@ const generatePlayerID = () => {
 // Dateien für den Import
 const files = {
   players: path.join(__dirname, 'data', 'PLAYERS.csv'),
-  playerDetails: path.join(__dirname, 'data', 'PlayerDetails.csv')
+  playerDetails: path.join(__dirname, 'data', 'PlayerDetails.csv'),
+  matchdata: path.join(__dirname, 'data', 'matchdata.csv') // Falls diese Datei existiert
+};
+
+// Funktion zum Sortieren von Daten nach Datum
+const sortByDate = (data, dateField) => {
+  return data.sort((a, b) => new Date(b[dateField]) - new Date(a[dateField]));
 };
 
 // Funktion, um die Player-ID hinzuzufügen und beide Dateien zu aktualisieren
 const processPlayerData = async () => {
   try {
     const playersData = await importCSV(files.players);
-    const playerDetailsData = await importCSV(files.playerDetails);
+    let playerDetailsData = await importCSV(files.playerDetails);
+    let matchdata = await importCSV(files.matchdata); // Importiere die matchdata.csv falls sie existiert
 
     // Erstellen eines Mappings { PlayerID: { Player, Birthdate } }
     const playerIDMap = {};
@@ -60,6 +73,9 @@ const processPlayerData = async () => {
       }
     });
 
+    // PlayerDetails.csv nach Datum sortieren (z.B. nach 'Date'-Spalte)
+    playerDetailsData = sortByDate(playerDetailsData, 'Date');
+
     // PLAYERS.csv durchlaufen und Player-ID zuweisen
     playersData.forEach((player) => {
       const nameBirthKey = `${player.PLAYER}_${player.BIRTHDATE}`;
@@ -73,9 +89,13 @@ const processPlayerData = async () => {
       }
     });
 
+    // matchdata.csv nach Datum sortieren (z.B. nach 'Date'-Spalte)
+    matchdata = sortByDate(matchdata, 'Date');
+
     // Aktualisierte Daten in die CSV-Dateien zurückschreiben
     await writeCSV(files.playerDetails, playerDetailsData, Object.keys(playerDetailsData[0]));
     await writeCSV(files.players, playersData, Object.keys(playersData[0]));
+    await writeCSV(files.matchdata, matchdata, Object.keys(matchdata[0])); // Schreibe sortierte matchdata zurück
 
     console.log('Player-IDs erfolgreich hinzugefügt und Dateien aktualisiert.');
   } catch (error) {
