@@ -1,6 +1,10 @@
-const getLastSeasonStats = (req, res) => {
+const fs = require('fs');
+const path = require('path');
+const csv = require('csv-parser');
+
+const getLast10Games = (req, res) => {
   const filePath = path.join(__dirname, '../data/PlayerDetails.csv');
-  const { playerID } = req.params;
+  const { playerID } = req.params; // PlayerID aus den Request-Parametern
 
   if (!playerID) {
     return res.status(400).send('PlayerID is required');
@@ -23,46 +27,18 @@ const getLastSeasonStats = (req, res) => {
         cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
       }
 
-      // Filter nach PlayerID und SEASON_TYPE = 'SEASON'
-      if (cleanedRow.PlayerID === playerID && cleanedRow.SEASON_TYPE === 'SEASON') {
-        results.push(cleanedRow); // Sammle alle SEASON-Einträge des Spielers
+      if (cleanedRow.PlayerID === playerID) {
+        results.push(cleanedRow); // Spiele des bestimmten Spielers sammeln
       }
     });
 
     stream.on('end', () => {
-      if (results.length === 0) {
-        return res.status(404).send('No season stats found');
-      }
+      // Nach Datum sortieren und nur die letzten 10 Spiele zurückgeben
+      results.sort((a, b) => new Date(b.Date) - new Date(a.Date)); // Absteigend nach Datum
+      const last10Games = results.slice(0, 10); // Nur die letzten 10 Spiele
 
-      // Sortiere nach SEASON_YEAR (neueste zuerst, z.B. 20232024 > 20222023)
-      results.sort((a, b) => parseInt(b.SEASON_YEAR, 10) - parseInt(a.SEASON_YEAR, 10));
-
-      // Nehmen wir das Jahr der neuesten Saison (aus den gefilterten Daten)
-      const latestSeasonYear = results[0].SEASON_YEAR;
-
-      // Filtere nach der neuesten Saison
-      const latestSeasonEntries = results.filter(entry => entry.SEASON_YEAR === latestSeasonYear);
-
-      // Falls der Spieler in JBBL und NBBL gespielt hat, vergleiche GP
-      const jbblEntry = latestSeasonEntries.find(entry => entry.LEAGUE === 'JBBL');
-      const nbblEntry = latestSeasonEntries.find(entry => entry.LEAGUE === 'NBBL');
-
-      let bestEntry = null;
-
-      if (jbblEntry && nbblEntry) {
-        // Wähle den Eintrag mit den meisten GP (gespielte Spiele)
-        bestEntry = jbblEntry.GP > nbblEntry.GP ? jbblEntry : nbblEntry;
-      } else if (jbblEntry) {
-        bestEntry = jbblEntry;
-      } else if (nbblEntry) {
-        bestEntry = nbblEntry;
-      } else {
-        bestEntry = latestSeasonEntries[0]; // Falls nur ein Eintrag vorhanden ist, nimm den ersten
-      }
-
-      // Rückgabe des ausgewählten Datensatzes
       if (!res.headersSent) {
-        res.json(bestEntry);
+        res.json(last10Games);
       }
     });
 
@@ -77,5 +53,4 @@ const getLastSeasonStats = (req, res) => {
 
 module.exports = {
   getLast10Games,
-  getLastSeasonStats, // Export der neuen Methode
 };
