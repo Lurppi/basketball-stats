@@ -31,9 +31,8 @@ const PlayerPage = () => {
         const playerResponse = await fetch(`https://backend-sandy-rho.vercel.app/api/players?file=PLAYERS`);
         const playerData = await playerResponse.json();
 
-        // Anstatt PLAYER_ID, jetzt sicherstellen, dass die ID in einem Player-Objekt übereinstimmt
-        const player = playerData.find((p) => p.ID === id); // Spieler mit passender ID finden (Änderung hier)
-
+        // Spieler anhand der PlayerID finden
+        const player = playerData.find((p) => p.PlayerID === id); // Die PlayerID wird jetzt korrekt verwendet
         if (!player) {
           throw new Error('Player not found');
         }
@@ -44,8 +43,7 @@ const PlayerPage = () => {
         // Abrufen der letzten 10 Spiele
         const gamesResponse = await fetch(`https://backend-sandy-rho.vercel.app/api/playerdetails`);
         const gamesData = await gamesResponse.json();
-        const games = gamesData.filter((game) => game.PlayerID === id); // Finde Spiele für den Spieler
-
+        const games = gamesData.filter((game) => game.PlayerID === id); // Finde Spiele für den Spieler anhand der PlayerID
         if (games.length === 0) {
           throw new Error('No games found for player');
         }
