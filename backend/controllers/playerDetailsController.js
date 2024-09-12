@@ -34,7 +34,15 @@ const getLast10Games = (req, res) => {
     });
 
     stream.on('end', () => {
-      results.sort((a, b) => new Date(b.Date) - new Date(a.Date));
+      // Sicherstellen, dass das Datum im richtigen Format ist (TT.MM.YYYY)
+      results.forEach((game) => {
+        const [day, month, year] = game.Date.split('.');
+        game.DateObject = new Date(`${year}-${month}-${day}`);
+      });
+
+      // Nach dem Datumsobjekt sortieren
+      results.sort((a, b) => new Date(b.DateObject) - new Date(a.DateObject));
+
       const last10Games = results.slice(0, 10); // Nur die letzten 10 Spiele
 
       if (!res.headersSent) {
