@@ -1,3 +1,7 @@
+const fs = require('fs');
+const path = require('path');
+const csv = require('csv-parser');
+
 const getLast10Games = (req, res) => {
   const filePath = path.join(__dirname, '../data/PlayerDetails.csv');
   const { playerID } = req.params; // PlayerID aus den Request-Parametern
@@ -48,5 +52,5 @@ const getLast10Games = (req, res) => {
 };
 
 module.exports = {
-  getLast10Games, // Diese Funktion exportieren
+  getLast10Games,
 };
