@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchPlayers } from '../api'; // Angepasst für Stats Type
 import Header from './Header';
 import Footer from './Footer';
@@ -8,27 +9,27 @@ import { columnHeaderMapping, ToolheadersMapping } from './MappingList.jsx';
 const columnMappings = {
   Totals: [
     'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'GP', 'MP', 'PT', 'RB', 'AS', 'ST', 'BS', 'TO', 'PF', 'EF', 'DD', 'TD',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'PER', 'PIE', 'TEAM'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'PER', 'PIE', 'TEAM', 'PlayerID'
   ],
   Averages: [
     'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'GP', 'MPG', 'PPG', 'RPG', 'APG', 'SPG', 'BPG', 'TOPG', 'PFPG', 'EFPG', 'PER', 'PIE',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'FIC', 'MP', 'TEAM'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'FIC', 'MP', 'TEAM', 'PlayerID'
   ],
   Shooting: [
     'PLAYER', 'TEAM_ID', 'POS', 'ROLE', '2PM', '2PA', '2P%', '3PM', '3PA', '3P%', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP', 'TEAM'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP', 'TEAM', 'PlayerID'
   ],
   'Advanced 1': [
     'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'FIC', 'FIC_Gm', 'PIE', 'AS_RATIO', 'AS_RATE', 'AS_TO', 'REB%', 'ST%', 'BS%',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM', 'PlayerID'
   ],
   'Advanced 2': [
     'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'PER', 'PIE', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE', 'ORTG', 'DRTG', 'NRTG',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM', 'PlayerID'
   ],
   'Advanced 3': [
     'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'PER', 'OBPM', 'DBPM', 'BPM', 'VORP', 'OWS', 'DWS', 'WS', 'WS_40',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'MP', 'PIE', 'TEAM'
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'MP', 'PIE', 'TEAM', 'PlayerID'
   ],
 };
 
@@ -549,7 +550,18 @@ const Players = () => {
                 {displayedPlayers.map((row, idx) => (
                   <tr key={idx}>
                     <td>{(currentPage - 1) * rowsPerPage + idx + 1}</td>
-                    {row.map((cell, cellIdx) => <td key={cellIdx}>{cell || ''}</td>)}
+                    {row.map((cell, cellIdx) => {
+                      // Nehmen wir an, der Spielername ist die erste Spalte, und PlayerID ist verfügbar
+                      if (headers[cellIdx] === 'PLAYER') {
+                        const playerID = row[headers.indexOf('PlayerID')]; // Setze sicher, dass du die richtige Spalte für PlayerID verwendest
+                        return (
+                          <td key={cellIdx}>
+                            <Link to={`/player/${playerID}`}>{cell}</Link> {/* Spielername wird klickbar */}
+                          </td>
+                        );
+                      }
+                      return <td key={cellIdx}>{cell || ''}</td>;
+                    })}
                   </tr>
                 ))}
               </tbody>

@@ -160,7 +160,7 @@
   top: 0;
   z-index: 10;
   width: 100%;
-  border-bottom: 2px solid #7b2cbf;
+  border-bottom: 2px solid #7a2cbf00;
 }
 
 .breadcrumb {
@@ -211,7 +211,7 @@
 }
 
 .playerpage-table-container td {
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .playerpage-table-container tr:nth-child(even) {
@@ -339,7 +339,7 @@
   }
   
   .playerpage-filters select {
-    font-size: 10.5px;
+    font-size: 11px;
   }
   
   .playerpage-filters input {

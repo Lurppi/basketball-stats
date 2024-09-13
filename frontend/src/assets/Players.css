@@ -251,7 +251,7 @@ header {
   }
 }
 
-/* Spalten 18 bis 25 ausblenden, inklusive Zeilennummerierung */
+/* Spalten 18 bis 26 ausblenden */
 .players-table-container th:nth-of-type(18),
 .players-table-container td:nth-of-type(18),
 .players-table-container th:nth-of-type(19),
@@ -267,6 +267,8 @@ header {
 .players-table-container th:nth-of-type(24),
 .players-table-container td:nth-of-type(24),
 .players-table-container th:nth-of-type(25),
-.players-table-container td:nth-of-type(25) {
+.players-table-container td:nth-of-type(25),
+.players-table-container th:nth-of-type(26),
+.players-table-container td:nth-of-type(26) {
   display: none !important;
 }
