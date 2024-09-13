@@ -432,8 +432,8 @@ const PlayerPage = () => {
 
               <label>Stats Type:</label>
               <select value={statsType} onChange={handleStatsTypeChange}>
-                <option value="Totals">Totals</option>
-                <option value="Averages">Averages</option>
+                <option value="Totals">TOTALS</option>
+                <option value="Averages">AVERAGES</option>
               </select>
             </div>
           </div>
