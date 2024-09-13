@@ -408,7 +408,7 @@ const PlayerPage = () => {
       {/* Conditional Rendering based on Active Tab */}
       {activeTab === 'profile' && (
         <div className="playerpage-lastgames-container">
-          <h2>Last 10 Games</h2>
+          <h2>LAST 10 GAMES</h2>
           <div className="playerpage-table-wrapper">
             {renderLastGamesTable()}
           </div>
