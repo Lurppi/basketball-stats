@@ -136,8 +136,8 @@ const PlayerPage = () => {
             <th>Date</th>
             <th>Matchup</th>
             <th>W/L</th>
-            <th>MIN</th>
-            <th>PTS</th>
+            <th>MP</th>
+            <th>PT</th>
             <th>FGM</th>
             <th>FGA</th>
             <th>FG%</th>
@@ -147,15 +147,15 @@ const PlayerPage = () => {
             <th>FTM</th>
             <th>FTA</th>
             <th>FT%</th>
-            <th>OREB</th>
-            <th>DREB</th>
-            <th>REB</th>
-            <th>AST</th>
-            <th>STL</th>
-            <th>BLK</th>
-            <th>TOV</th>
+            <th>OR</th>
+            <th>DR</th>
+            <th>RB</th>
+            <th>AS</th>
+            <th>ST</th>
+            <th>BS</th>
+            <th>TO</th>
             <th>PF</th>
-            <th>+/-</th>
+            <th>BPM</th>
           </tr>
         </thead>
         <tbody>
