@@ -395,17 +395,3 @@
   width: 50px;
   /* Hier kannst du die Breite anpassen */
 }
-
-.playerpage-table-container th:nth-of-type(2),
-/* Zweite Spalte */
-.playerpage-table-container td:nth-of-type(2) {
-  width: 50px;
-  /* Hier kannst du die Breite anpassen */
-}
-
-.playerpage-table-container th:nth-of-type(3),
-/* Dritte Spalte */
-.playerpage-table-container td:nth-of-type(3) {
-  width: 120px;
-  /* Hier kannst du die Breite anpassen */
-}
