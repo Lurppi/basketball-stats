@@ -36,7 +36,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* Fix für mobile: Höhe und Überlauf */
   height: auto;
   overflow: visible;
 }
@@ -186,25 +185,15 @@
   border-bottom: 2px solid #7b2cbf;
 }
 
-/* Last 10 Games Tabelle */
-.playerpage-lastgames {
-  width: 100%;
-  max-width: 1200px;
-  margin: 20px auto;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 20px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
-
-.playerpage-table-wrapper {
-  width: 100%;
-}
-
 .playerpage-table-container {
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .playerpage-table-container th,
@@ -222,11 +211,15 @@
 }
 
 .playerpage-table-container td {
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .playerpage-table-container tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+.playerpage-table-container tr:hover {
+  background-color: #e0e0e0;
 }
 
 /* Responsive Anpassung */
@@ -234,9 +227,7 @@
   .playerpage-profile-modern {
     padding: 20px;
     margin: 200px auto;
-    /* Angepasst für mobile Ansicht */
     height: auto;
-    /* Sicherstellen, dass der Container in mobiler Ansicht sichtbar bleibt */
   }
 
   .player-name {
@@ -260,33 +251,16 @@
   }
 }
 
-.breadcrumb-container {
-  display: flex;
-  justify-content: center;
-  padding: 10px 0;
-  background-color: #f5f5f5;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  width: 100%;
-  border-bottom: 2px solid #7a2cbf00;
-}
-
 /* Style für die kleineren Buttons im Breadcrumb */
 .breadcrumb-menu button {
   background-color: white;
   color: rgba(0, 0, 0, 0.863);
   border: none;
   padding: 8px 16px;
-  /* Padding etwas verringert */
   font-size: 0.9em;
-  /* Schriftgröße verkleinert */
   margin: 0 8px;
-  /* Weniger Abstand zwischen den Buttons */
   cursor: pointer;
   border-radius: 4px;
-  /* Leichte Rundung der Ecken */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -298,4 +272,118 @@
 .breadcrumb-menu button.breadcrumb-active {
   background-color: rgba(0, 0, 0, 0.842);
   color: white;
+}
+
+/* Gesamtcontainer für den Reiter "Stats" */
+.playerpage-stats {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Anpassung für die Tabellen im Reiter "Stats" */
+.player-stats-tables {
+  display: flex;
+  flex-direction: column;
+ }
+  
+ .player-stats-tables h2 {
+   margin-top: 40px;
+ }
+  /* Größerer Abstand unterhalb der Filter */
+  .playerpage-filter-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+.playerpage-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  /* Abstand zwischen den Filterelementen */
+  align-items: center;
+  justify-content: flex-start;
+  /* Stelle sicher, dass die Dropdown-Menüs und ihre Bezeichnungen linksbündig sind */
+}
+
+.playerpage-filters label {
+  display: flex;
+  flex-direction: row;
+  /* Horizontal anordnen */
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 10px;
+  font-size: 11px;
+  /* Abstand zwischen Label und Dropdown-Menü */
+}  
+  .playerpage-filters select,
+  .playerpage-filters input {
+    display: flex;
+    margin-top: 5px;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    max-width: 100%;
+    min-width: 160px;
+  }
+  
+  .playerpage-filters select {
+    font-size: 10.5px;
+  }
+  
+  .playerpage-filters input {
+    font-size: 10.5px;
+  }
+  
+   /* Responsive Anpassung für Filter-Container */
+  @media (max-width: 768px) {
+    .playerpage-filter-container {
+      padding: 15px;
+    }
+  
+    .playerpage-filters {
+      flex-direction: column;
+      align-items: flex-start;
+      /* Sicherstellen, dass Filter auch auf kleineren Bildschirmen linksbündig bleiben */
+    }
+  }
+
+/* Container für die Überschrift und Tabelle */
+.playerpage-lastgames-container {
+  margin: 20px auto;
+  max-width: 1200px;
+  /* Maximale Breite für den Container */
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /* Schatteneffekt */
+}
+
+/* Stil für die Überschrift */
+.playerpage-lastgames-container h2 {
+  text-align: left;
+  /* Überschrift linksbündig ausrichten */
+  margin-bottom: 20px;
+  /* Abstand zwischen Überschrift und Tabelle */
+  font-size: 1.5rem;
+  /* Größere Schriftart */
+  font-weight: bold;
+}
+
+/* Tabelle bleibt wie bisher */
+.playerpage-table-wrapper {
+  overflow-x: auto;
+  /* Sicherstellen, dass die Tabelle scrollbar bleibt, falls nötig */
 }
