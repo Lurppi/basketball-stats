@@ -338,10 +338,10 @@ const PlayerPage = () => {
       {playerProfile && (
         <div className="playerpage-fixed-container">
           <div className="playerpage-profile-modern">
-            <h1 className="player-name">{playerProfile.PLAYER}</h1>
+            <h1 className="player-name">{playerProfile.TEAM_long}</h1>
             <div className="team-position">
               <div>
-                <p className="team-name">{playerProfile.TEAM_long}</p>
+                <p className="team-name">{playerProfile.PLAYER}</p>
                 <p className="position">{playerProfile.POS}</p>
               </div>
             </div>
