@@ -1,83 +1,45 @@
 .header {
   width: 100%;
   background-color: #fff;
-  /* Weißer Balken */
-  padding: 10px 0;
-  /* Vertikale Polsterung */
+  padding: 1px 0;
+  /* Reduziere das vertikale Padding */
   position: fixed;
-  /* Fixiert den Header am oberen Rand */
   top: 0;
   left: 0;
   z-index: 1000;
-  /* Hält den Header oben, auch wenn andere Elemente darüber sind */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  /* Leichter Schatten für Tiefe */
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  /* Reduziere den unteren Rand, um die Fläche zu verkleinern */
 }
 
 header {
-  width: 100%;
-  text-align: center;
-  z-index: 1000;
-  background-size: cover;
-  /* Deckt den gesamten Header ab */
-  background-position: center;
-  /* Zentriert das Hintergrundbild */
-  backdrop-filter: blur(10px);
-  /* Optional: Unschärfe-Effekt für Text und andere Elemente */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  /* Sanfter Schatten */
-  padding: 8px 15px;
-  /* Höhe des Headers anpassen */
-  position: fixed;
-  /* Fest positioniert */
-  top: 0;
-  left: 0;
+  padding: 1px 10px;
+  /* Reduziere die Höhe des Headers */
   background-color: rgba(255, 255, 255, 0.95);
-  /* Leicht transparent */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 15px;
-  box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-  .navbar-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 0;
-    /* Mehr vertikaler Platz bei kleinen Bildschirmen */
-  }
-}
-
-/* Responsive Styles für Header */
 @media (max-width: 768px) {
   .header {
-    padding: 15px 0;
-    /* Mehr Platz für Touch-Geräte */
+    padding: 10px 0;
+    /* Passe ggf. die Padding-Werte für kleinere Bildschirme an */
   }
 
   header {
-    padding: 10px;
+    padding: 5px 10px;
   }
 }
 
 @media (max-width: 450px) {
   .header {
-    padding: 10px 0;
+    padding: 8px 0;
+    /* Weitere Anpassungen für sehr kleine Geräte */
   }
 
   header {
-    padding: 8px;
+    padding: 5px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    /* Etwas stärkerer Schatten für kleinere Geräte */
   }
 }
