@@ -1,20 +1,17 @@
 .header {
   width: 100%;
   background-color: #fff;
-  padding: 1px 0;
-  /* Reduziere das vertikale Padding */
+  padding: 5px 0; /* Reduziere das vertikale Padding */
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px;
-  /* Reduziere den unteren Rand, um die Fläche zu verkleinern */
+  margin-bottom: 10px; /* Reduziere den unteren Rand, um die Fläche zu verkleinern */
 }
 
 header {
-  padding: 1px 10px;
-  /* Reduziere die Höhe des Headers */
+  padding: 5px 10px; /* Reduziere die Höhe des Headers */
   background-color: rgba(255, 255, 255, 0.95);
   display: flex;
   justify-content: center;
@@ -23,8 +20,7 @@ header {
 
 @media (max-width: 768px) {
   .header {
-    padding: 10px 0;
-    /* Passe ggf. die Padding-Werte für kleinere Bildschirme an */
+    padding: 10px 0; /* Passe ggf. die Padding-Werte für kleinere Bildschirme an */
   }
 
   header {
@@ -34,8 +30,7 @@ header {
 
 @media (max-width: 450px) {
   .header {
-    padding: 8px 0;
-    /* Weitere Anpassungen für sehr kleine Geräte */
+    padding: 8px 0; /* Weitere Anpassungen für sehr kleine Geräte */
   }
 
   header {
