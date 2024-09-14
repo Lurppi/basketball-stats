@@ -130,19 +130,6 @@
   /* Notwendig für die Fixierung */
 }
 
-/* Fixiere die Kopfzeile */
-.teams-table-container th {
-  position: sticky;
-  top: 0;
-  /* Fixiere die Kopfzeile am oberen Rand */
-  background: rgba(255, 255, 255, 0.918);
-  /* Hintergrundfarbe für bessere Lesbarkeit */
-  z-index: 2;
-  /* Stellt sicher, dass die Kopfzeile über den anderen Inhalten liegt */
-  border-bottom: 2px solid #ddd;
-  /* Optional: untere Grenze für bessere Sichtbarkeit */
-}
-
 .teams-table-container th:nth-of-type(1),
 .teams-table-container td:nth-of-type(1) {
   width: 20px;
