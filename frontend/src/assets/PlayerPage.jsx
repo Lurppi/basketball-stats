@@ -19,6 +19,11 @@ const PlayerPage = () => {
 
   // Function to calculate age
   const calculateAge = (birthDate) => {
+    // Überprüfen, ob birthDate existiert und ein gültiger String ist, und ob es nicht das Standard-Datum "00.01.1900" ist
+    if (!birthDate || typeof birthDate !== 'string' || birthDate === '00.01.1900') {
+      return 'Unknown'; // Fallback, wenn kein Geburtsdatum vorhanden ist oder es das Standarddatum ist
+    }
+
     const birth = new Date(birthDate.split('.').reverse().join('-')); // Format TT.MM.YYYY in YYYY-MM-DD konvertieren
     const today = new Date();
     let age = today.getFullYear() - birth.getFullYear();
