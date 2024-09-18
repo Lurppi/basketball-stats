@@ -79,34 +79,45 @@ const getPlayerSeasonStats = (req, res) => {
 const assignBadges = (seasonData) => {
   let badges = [];
 
+  // Funktion zum Protokollieren der vergebenen Badges in der Konsole
+  const logBadge = (badgeName) => {
+    console.log(`Player: ${seasonData.PLAYER}, PlayerID: ${seasonData.PlayerID}, Badge: ${badgeName}, Season: ${seasonData.SEASON_YEAR}`);
+  };
+
   // Sharpshooter Badge
   if (parseFloat(seasonData['3P%']) > 35 && parseFloat(seasonData['3PAPG']) >= 4 && parseFloat(seasonData['3PA']) >= 20) {
     badges.push("Sharpshooter");
+    logBadge("Sharpshooter");
   }
 
   // Volume Scorer Badge
   if (parseFloat(seasonData['PPG']) >= 20 && parseFloat(seasonData['FGAPG']) >= 12) {
     badges.push("Volume Scorer");
+    logBadge("Volume Scorer");
   }
 
   // Inside Scorer Badge
   if (parseFloat(seasonData['2P%']) > 55 && parseFloat(seasonData['2PAPG']) >= 6 && parseFloat(seasonData['2PA']) >= 20) {
     badges.push("Inside Scorer");
+    logBadge("Inside Scorer");
   }
 
   // Free Throw Ace Badge
   if (parseFloat(seasonData['FT%']) > 80 && parseFloat(seasonData['FTA']) >= 20) {
     badges.push("Free Throw Ace");
+    logBadge("Free Throw Ace");
   }
 
   // Lockdown Defender Badge
   if (parseFloat(seasonData['SPG']) >= 1.5 && parseFloat(seasonData['ST%']) >= 3.0 && parseFloat(seasonData['STOPS_Gm']) >= 6 && parseFloat(seasonData['DRTG_ADJ']) < 85) {
     badges.push("Lockdown Defender");
+    logBadge("Lockdown Defender");
   }
 
   // Rim Protector Badge
   if (parseFloat(seasonData['BPG']) >= 2 && parseFloat(seasonData['BS%']) >= 2.0 && parseFloat(seasonData['DRTG_ADJ']) < 95) {
     badges.push("Rim Protector");
+    logBadge("Rim Protector");
   }
 
   // Rebounder Badge
