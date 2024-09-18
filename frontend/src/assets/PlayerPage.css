@@ -398,9 +398,31 @@
   /* Hier kannst du die Breite anpassen */
 }
 
+.player-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.player-badges ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.player-badges li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  /* Adjust width according to your badge size */
+}
+
 .player-badges img {
-  width: 50px;
-  /* oder jede andere gewünschte Größe */
-  height: 50px;
-  margin-right: 10px;
+  width: 80px;
+  /* Adjust image size */
+  height: auto;
 }
