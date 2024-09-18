@@ -3,6 +3,36 @@ import { useParams } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import './PlayerPage.css';
+import Badge1 from '../images/Badge1.jpg';
+import Badge2 from '../images/Badge2.jpg';
+import Badge3 from '../images/Badge3.jpg';
+import Badge4 from '../images/Badge4.jpg';
+import Badge5 from '../images/Badge5.jpg';
+import Badge6 from '../images/Badge6.jpg';
+import Badge7 from '../images/Badge7.jpg';
+import Badge8 from '../images/Badge8.jpg';
+import Badge9 from '../images/Badge9.jpg';
+import Badge10 from '../images/Badge10.jpg';
+import Badge11 from '../images/Badge11.jpg';
+import Badge12 from '../images/Badge12.jpg';
+import Badge13 from '../images/Badge13.jpg';
+
+// Badge-Zuordnung:
+const badgeImages = {
+  Sharpshooter: Badge1,
+  'Volume Scorer': Badge2,
+  'Inside Scorer': Badge3,
+  'Free Throw Ace': Badge4,
+  'Lockdown Defender': Badge5,
+  'Rim Protector': Badge6,
+  Rebounder: Badge7,
+  Playmaker: Badge8,
+  'Floor General': Badge9,
+  'Two-Way Player': Badge10,
+  'Efficient Shooter': Badge11,
+  'High Impact Player': Badge12,
+  'Sixth Man': Badge13,
+};
 
 const PlayerPage = () => {
   const { id } = useParams(); // Player ID from URL
@@ -58,23 +88,6 @@ const PlayerPage = () => {
 
     fetchPlayerProfile();
   }, [id]);
-
-  // Dynamische Badge-Bilder-Zuordnung
-  const badgeImages = {
-    Sharpshooter: 'Badge1.jpg',
-    'Volume Scorer': 'Badge2.jpg',
-    'Inside Scorer': 'Badge3.jpg',
-    'Free Throw Ace': 'Badge4.jpg',
-    'Lockdown Defender': 'Badge5.jpg',
-    'Rim Protector': 'Badge6.jpg',
-    Rebounder: 'Badge7.jpg',
-    Playmaker: 'Badge8.jpg',
-    'Floor General': 'Badge9.jpg',
-    'Two-Way Player': 'Badge10.jpg',
-    'Efficient Shooter': 'Badge11.jpg',
-    'High Impact Player': 'Badge12.jpg',
-    'Sixth Man': 'Badge13.jpg',
-  };
 
   // Fetch player stats data when component mounts
   useEffect(() => {
@@ -391,7 +404,7 @@ const PlayerPage = () => {
                 <ul>
                   {playerProfile.badges.map((badge, index) => (
                     <li key={index}>
-                      <img src={require(`../images/${badgeImages[badge]}`)} alt={badge} />
+                      <img src={badgeImages[badge]} alt={badge} />
                       <span>{badge}</span>
                     </li>
                   ))}

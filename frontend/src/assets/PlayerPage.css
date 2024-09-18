@@ -397,3 +397,10 @@
   width: 50px;
   /* Hier kannst du die Breite anpassen */
 }
+
+.player-badges img {
+  width: 50px;
+  /* oder jede andere gewünschte Größe */
+  height: 50px;
+  margin-right: 10px;
+}
