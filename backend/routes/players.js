@@ -12,12 +12,19 @@ router.get('/stats/:playerID', (req, res) => {
   playersController.getPlayerSeasonStats(req, res);
 });
 
-// Neue Route für die Stats eines Spielers basierend auf PlayerID und Season Type
+// Route für die Stats eines Spielers basierend auf PlayerID und Season Type
 router.get('/stats/:playerID/season', (req, res) => {
   playersController.getPlayerStatsBySeasonType(req, res);
 });
 
-// Neue Route für den Abruf der validierten Saison-Statistiken
-router.get('/stats/:playerID/valid', playersController.getValidPlayerStats);
+// Route für den Abruf der validierten Saison-Statistiken
+router.get('/stats/:playerID/valid', (req, res) => {
+  playersController.getValidPlayerStats(req, res);
+});
+
+// Neue Route zur Generierung der Sitemap
+router.get('/generate-sitemap', (req, res) => {
+  playersController.generateSitemap(req, res);
+});
 
 module.exports = router;
