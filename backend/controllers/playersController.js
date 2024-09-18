@@ -126,7 +126,7 @@ const assignBadges = (seasonData) => {
   }
 
   // Playmaker Badge
-  if (parseFloat(seasonData['AS_TO']) > 2.0 && parseFloat(seasonData['AS_RATE']) >= 25 && parseFloat(seasonData['AS_RATIO']) >= 8.0) {
+  if (parseFloat(seasonData['AS_TO']) > 1.5 && parseFloat(seasonData['AS_RATE']) >= 20 && parseFloat(seasonData['AS_RATIO']) >= 7.0) {
     badges.push("Playmaker");
   }
 
@@ -136,7 +136,7 @@ const assignBadges = (seasonData) => {
   }
 
   // Two-Way Player Badge
-  if (parseFloat(seasonData['ORTG_ADJ']) > 110 && parseFloat(seasonData['DRTG_ADJ']) < 90 && parseFloat(seasonData['NRTG_ADJ']) > 0) {
+  if (parseFloat(seasonData['ORTG_ADJ']) > 110 && parseFloat(seasonData['DRTG_ADJ']) < 85 && parseFloat(seasonData['NRTG_ADJ']) > 0) {
     badges.push("Two-Way Player");
   }
 
@@ -146,7 +146,7 @@ const assignBadges = (seasonData) => {
   }
 
   // High Impact Player Badge
-  if (parseFloat(seasonData['PER']) > 30 && parseFloat(seasonData['WS_40']) > 0.25 && parseFloat(seasonData['PIE']) > 10.0) {
+  if (parseFloat(seasonData['PER']) > 30 && parseFloat(seasonData['WS_40']) > 0.20 && parseFloat(seasonData['PIE']) > 10.0) {
     badges.push("High Impact Player");
   }
 
