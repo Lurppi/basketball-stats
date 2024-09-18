@@ -115,7 +115,7 @@ const assignBadges = (seasonData) => {
   }
 
   // Rim Protector Badge
-  if (parseFloat(seasonData['BPG']) >= 2 && parseFloat(seasonData['BS%']) >= 2.0 && parseFloat(seasonData['DRTG_ADJ']) < 95) {
+  if (parseFloat(seasonData['BPG']) >= 1.5 && parseFloat(seasonData['BS%']) >= 3.5 && parseFloat(seasonData['DRTG_ADJ']) < 95) {
     badges.push("Rim Protector");
     logBadge("Rim Protector");
   }
