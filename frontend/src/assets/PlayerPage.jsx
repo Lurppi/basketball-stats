@@ -25,7 +25,7 @@ const badgeImages = {
   'Free Throw Ace': Badge4,
   'Lockdown Defender': Badge5,
   'Rim Protector': Badge6,
-  Rebounder: Badge7,
+  'Rebounding Machine': Badge7,
   Playmaker: Badge8,
   'Floor General': Badge9,
   'Two-Way Player': Badge10,
