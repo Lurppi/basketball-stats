@@ -121,7 +121,7 @@ const assignBadges = (seasonData) => {
   }
 
   // Rebounder Badge
-  if (parseFloat(seasonData['RPG']) >= 8 && parseFloat(seasonData['ORB%']) >= 8 && parseFloat(seasonData['DRB%']) >= 18 && parseFloat(seasonData['REB%']) >= 15) {
+  if (parseFloat(seasonData['ORB%']) >= 10.0 && parseFloat(seasonData['DRB%']) >= 15.0 && parseFloat(seasonData['REB%']) >= 12.5) {
     badges.push("Rebounding Machine");
   }
 
