@@ -354,10 +354,74 @@ const getPlayersData = (req, res) => {
   });
 };
 
+// Funktion zur Generierung der Sitemap
+const generateSitemap = (req, res) => {
+  const filePath = path.join(__dirname, '../data/PLAYERS.csv');
+  const baseUrl = 'https://www.nbbl-stats.de/player/';
+
+  // Array, um Player-IDs zu speichern
+  let playerIDs = [];
+
+  // CSV-Datei öffnen und Player-IDs sammeln
+  fs.createReadStream(filePath)
+    .pipe(csv({ separator: ';' }))
+    .on('data', (row) => {
+      const playerID = row.PlayerID;
+      if (playerID) {
+        playerIDs.push(playerID);
+      }
+    })
+    .on('end', () => {
+      // Statische Sitemap-URLs
+      let staticUrls = `
+        <url>
+          <loc>https://www.nbbl-stats.de/</loc>
+          <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+          <changefreq>daily</changefreq>
+          <priority>0.50</priority>
+        </url>
+        <url>
+          <loc>https://www.nbbl-stats.de/players</loc>
+          <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>1.00</priority>
+        </url>
+        <!-- Füge hier weitere statische URLs hinzu -->
+      `;
+
+      // Dynamische Player-URLs generieren
+      const dynamicUrls = playerIDs.map(id => `
+        <url>
+          <loc>${baseUrl}${id}</loc>
+          <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+          <priority>0.80</priority>
+        </url>`).join('');
+
+      // Kombinierte Sitemap
+      const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>\n
+        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n
+        ${staticUrls}\n
+        ${dynamicUrls}\n
+        </urlset>`;
+
+      // Sitemap in eine Datei schreiben
+      const sitemapPath = path.join(__dirname, '../public/sitemap.xml');
+      fs.writeFile(sitemapPath, sitemapContent, (err) => {
+        if (err) {
+          console.error('Error writing sitemap file:', err);
+          return res.status(500).send('Error generating sitemap');
+        }
+        console.log('Sitemap successfully generated');
+        res.status(200).send('Sitemap successfully generated');
+      });
+    });
+};
+
 module.exports = {
   getPlayersData,
   getPlayerSeasonStats,
   getValidPlayerStats,
-  getPlayerStatsBySeasonType
+  getPlayerStatsBySeasonType,
+  generateSitemap
 };
 
