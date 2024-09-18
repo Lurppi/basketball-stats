@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.nbbl-stats.de/</loc>
+    <lastmod>2024-09-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- Players Page -->
+  <url>
+    <loc>https://www.nbbl-stats.de/players</loc>
+    <lastmod>2024-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Teams Page -->
+  <url>
+    <loc>https://www.nbbl-stats.de/teams</loc>
+    <lastmod>2024-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Teams Form Page -->
+  <url>
+    <loc>https://www.nbbl-stats.de/teams/form</loc>
+    <lastmod>2024-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+
+  <!-- Standings Page -->
+  <url>
+    <loc>https://www.nbbl-stats.de/standings</loc>
+    <lastmod>2024-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Impressum Page -->
+  <url>
+    <loc>https://www.nbbl-stats.de/impressum</loc>
+    <lastmod>2024-09-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
+  </url>
+
+  <!-- Glossary Page -->
+  <url>
+    <loc>https://www.nbbl-stats.de/glossary</loc>
+    <lastmod>2024-09-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
+  </url>
+
+  <!-- Privacy Policy Page -->
+  <url>
+    <loc>https://www.nbbl-stats.de/privacy-policy</loc>
+    <lastmod>2024-09-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
+  </url>
+
+</urlset>
