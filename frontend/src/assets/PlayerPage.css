@@ -405,24 +405,32 @@
 }
 
 .player-badges ul {
-  list-style: none;
-  padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  justify-content: center;
+  /* Zentriert die Badges */
+  gap: 20px;
+  /* Abstand zwischen den Badges */
+  padding: 0;
+  list-style: none;
 }
 
 .player-badges li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 80px;
-  /* Adjust width according to your badge size */
+  text-align: center;
 }
 
 .player-badges img {
   width: 80px;
-  /* Adjust image size */
+  /* Größe der Badge-Bilder anpassen */
   height: auto;
+  margin-bottom: 10px;
+  /* Abstand zwischen Bild und Text */
+}
+
+.player-badges span {
+  font-size: 14px;
+  /* Textgröße für die Badge-Namen */
+  font-weight: bold;
 }
