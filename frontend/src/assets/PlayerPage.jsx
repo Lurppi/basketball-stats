@@ -64,11 +64,12 @@ const PlayerPage = () => {
     return age;
   };
 
-  // API-Aufruf für Spielerprofil und 5 Stats
+  // API-Aufruf für Spielerprofil und validierte Statistiken
   useEffect(() => {
     const fetchPlayerProfile = async () => {
       try {
-        const response = await fetch(`https://backend-sandy-rho.vercel.app/api/players/stats/${id}`);
+        // Verwende die neue Route /stats/:playerID/valid
+        const response = await fetch(`https://backend-sandy-rho.vercel.app/api/players/stats/${id}/valid`);
         const profileData = await response.json();
 
         if (!profileData || typeof profileData !== 'object') {
