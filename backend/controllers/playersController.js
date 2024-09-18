@@ -122,7 +122,7 @@ const assignBadges = (seasonData) => {
 
   // Rebounder Badge
   if (parseFloat(seasonData['RPG']) >= 8 && parseFloat(seasonData['ORB%']) >= 8 && parseFloat(seasonData['DRB%']) >= 18 && parseFloat(seasonData['REB%']) >= 15) {
-    badges.push("Rebounder");
+    badges.push("Rebounding Machine");
   }
 
   // Playmaker Badge

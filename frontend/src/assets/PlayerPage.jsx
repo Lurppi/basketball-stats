@@ -400,7 +400,6 @@ const PlayerPage = () => {
             {/* Badge-Anzeige */}
             {playerProfile.badges && playerProfile.badges.length > 0 && (
               <div className="player-badges">
-                <h4>Badges</h4>
                 <ul>
                   {playerProfile.badges.map((badge, index) => (
                     <li key={index}>
