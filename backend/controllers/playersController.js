@@ -126,12 +126,12 @@ const assignBadges = (seasonData) => {
   }
 
   // Playmaker Badge
-  if (parseFloat(seasonData['AS_TO']) > 1.5 && parseFloat(seasonData['AS_RATE']) >= 20 && parseFloat(seasonData['AS_RATIO']) >= 7.0) {
+  if (parseFloat(seasonData['AS_TO']) > 1.2 && parseFloat(seasonData['AS_RATE']) >= 20 && parseFloat(seasonData['AS_RATIO']) >= 7.0) {
     badges.push("Playmaker");
   }
 
   // Floor General Badge
-  if (parseFloat(seasonData['AS_TO']) > 3.0 && parseFloat(seasonData['AS_RATE']) >= 25 && parseFloat(seasonData['AS_RATIO']) >= 10.0) {
+  if (parseFloat(seasonData['AS_TO']) > 2.5 && parseFloat(seasonData['AS_RATE']) >= 25 && parseFloat(seasonData['AS_RATIO']) >= 10.0) {
     badges.push("Floor General");
   }
 
