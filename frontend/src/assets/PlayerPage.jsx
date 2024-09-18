@@ -379,10 +379,14 @@ const PlayerPage = () => {
             <div className="team-position">
               <div>
                 <p className="team-name">{playerProfile.seasonStats.PLAYER}</p>
-                <p className="position">{playerProfile.seasonStats.POS}</p>
               </div>
             </div>
-            <div className="player-info-modern">
+            {/* Flexbox für die Spielerinformationen */}
+            <div className="player-info-row">
+              <div className="info-item">
+                <h4>Position</h4>
+                <p>{playerProfile.seasonStats.POS}</p>
+              </div>
               <div className="info-item">
                 <h4>Offensive Role</h4>
                 <p>{playerProfile.seasonStats.ROLE}</p>

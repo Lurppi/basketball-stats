@@ -435,3 +435,33 @@
   /* Textgröße für die Badge-Namen */
   font-weight: bold;
 }
+
+/* Spielerinfos in einer Zeile anordnen */
+.player-info-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  gap: 30px;
+  /* Weniger Abstand zwischen den einzelnen Informationen */
+}
+
+.player-info-row .info-item {
+  text-align: center;
+  width: auto;
+}
+
+.player-info-row h4 {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #888;
+}
+
+.player-info-row p {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
