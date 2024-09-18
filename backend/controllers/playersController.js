@@ -166,7 +166,6 @@ const assignBadges = (seasonData) => {
   return badges;
 };
 
-// Neue Funktion: Suche nach dem besten Saison-Datensatz mit mindestens 50 Minuten gespielt
 const getValidPlayerStats = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv');
   const { playerID } = req.params;
@@ -180,9 +179,7 @@ const getValidPlayerStats = (req, res) => {
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       console.error(`File not found: ${filePath}`);
-      if (!res.headersSent) {
-        return res.status(404).send(`File not found: ${filePath}`);
-      }
+      return res.status(404).json({ message: `File not found: ${filePath}`, badges: [] });
     }
 
     const stream = fs.createReadStream(filePath).pipe(csv({ separator: ';' }));
@@ -202,18 +199,14 @@ const getValidPlayerStats = (req, res) => {
     stream.on('end', () => {
       if (results.length === 0) {
         console.log(`No season stats found for player ${playerID}`);
-        if (!res.headersSent) {
-          return res.status(404).send('No season stats found');
-        }
+        return res.status(200).json({ message: 'No valid season stats found (MP < 50)', badges: [] });
       }
 
       // Filtere nach mindestens 50 Minuten gespielten Minuten
       const validResults = results.filter(row => parseFloat(row.MP) >= 50);
 
       if (validResults.length === 0) {
-        if (!res.headersSent) {
-          return res.status(404).send('No valid season stats found (MP < 50)');
-        }
+        return res.status(200).json({ message: 'No valid season stats found (MP < 50)', badges: [] });
       }
 
       // Wenn mehrere Datensätze in einer Saison existieren, wähle den mit den meisten Minuten
@@ -236,19 +229,15 @@ const getValidPlayerStats = (req, res) => {
       // Vergib die Badges für diesen Datensatz
       const badges = assignBadges(bestSeasonData);
 
-      if (!res.headersSent) {
-        res.json({
-          seasonStats: bestSeasonData,
-          badges: badges
-        });
-      }
+      res.json({
+        seasonStats: bestSeasonData,
+        badges: badges
+      });
     });
 
     stream.on('error', (err) => {
       console.error(`Error reading the CSV file: ${err}`);
-      if (!res.headersSent) {
-        res.status(500).send('Error reading the CSV file');
-      }
+      res.status(500).send('Error reading the CSV file');
     });
   });
 };
