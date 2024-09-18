@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   playersController.getPlayersData(req, res);
 });
 
-// Neue Route für die Stats der letzten Saison eines Spielers
+// Route für die Stats der letzten Saison eines Spielers
 router.get('/stats/:playerID', (req, res) => {
   playersController.getPlayerSeasonStats(req, res);
 });
@@ -16,5 +16,8 @@ router.get('/stats/:playerID', (req, res) => {
 router.get('/stats/:playerID/season', (req, res) => {
   playersController.getPlayerStatsBySeasonType(req, res);
 });
+
+// Neue Route für den Abruf der validierten Saison-Statistiken
+router.get('/stats/:playerID/valid', playersController.getValidPlayerStats);
 
 module.exports = router;
