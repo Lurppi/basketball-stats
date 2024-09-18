@@ -16,7 +16,9 @@ const getPlayerSeasonStats = (req, res) => {
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       console.error(`File not found: ${filePath}`);
-      return res.status(404).send(`File not found: ${filePath}`);
+      if (!res.headersSent) {
+        return res.status(404).send(`File not found: ${filePath}`);
+      }
     }
 
     const stream = fs.createReadStream(filePath).pipe(csv({ separator: ';' }));
@@ -37,7 +39,9 @@ const getPlayerSeasonStats = (req, res) => {
     stream.on('end', () => {
       if (results.length === 0) {
         console.log(`No season stats found for player ${playerID}`);
-        return res.status(404).send('No season stats found');
+        if (!res.headersSent) {
+          return res.status(404).send('No season stats found');
+        }
       }
 
       // Sortieren nach SEASON_YEAR als String
@@ -62,15 +66,19 @@ const getPlayerSeasonStats = (req, res) => {
       const badges = assignBadges(selectedSeasonData);
 
       // Füge die Badges zu den Rückgabedaten hinzu
-      res.json({
-        seasonStats: selectedSeasonData,
-        badges: badges
-      });
+      if (!res.headersSent) {
+        res.json({
+          seasonStats: selectedSeasonData,
+          badges: badges
+        });
+      }
     });
 
     stream.on('error', (err) => {
       console.error(`Error reading the CSV file: ${err}`);
-      res.status(500).send('Error reading the CSV file');
+      if (!res.headersSent) {
+        res.status(500).send('Error reading the CSV file');
+      }
     });
   });
 };
@@ -120,7 +128,7 @@ const assignBadges = (seasonData) => {
     logBadge("Rim Protector");
   }
 
-  // Rebounder Badge
+  // Rebounding Machine Badge
   if (parseFloat(seasonData['ORB%']) >= 10.0 && parseFloat(seasonData['DRB%']) >= 15.0 && parseFloat(seasonData['REB%']) >= 12.5) {
     badges.push("Rebounding Machine");
   }
@@ -172,7 +180,9 @@ const getValidPlayerStats = (req, res) => {
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       console.error(`File not found: ${filePath}`);
-      return res.status(404).send(`File not found: ${filePath}`);
+      if (!res.headersSent) {
+        return res.status(404).send(`File not found: ${filePath}`);
+      }
     }
 
     const stream = fs.createReadStream(filePath).pipe(csv({ separator: ';' }));
@@ -192,14 +202,18 @@ const getValidPlayerStats = (req, res) => {
     stream.on('end', () => {
       if (results.length === 0) {
         console.log(`No season stats found for player ${playerID}`);
-        return res.status(404).send('No season stats found');
+        if (!res.headersSent) {
+          return res.status(404).send('No season stats found');
+        }
       }
 
       // Filtere nach mindestens 50 Minuten gespielten Minuten
       const validResults = results.filter(row => parseFloat(row.MP) >= 50);
 
       if (validResults.length === 0) {
-        return res.status(404).send('No valid season stats found (MP < 50)');
+        if (!res.headersSent) {
+          return res.status(404).send('No valid season stats found (MP < 50)');
+        }
       }
 
       // Wenn mehrere Datensätze in einer Saison existieren, wähle den mit den meisten Minuten
@@ -222,21 +236,21 @@ const getValidPlayerStats = (req, res) => {
       // Vergib die Badges für diesen Datensatz
       const badges = assignBadges(bestSeasonData);
 
-      res.json({
-        seasonStats: bestSeasonData,
-        badges: badges
-      });
+      if (!res.headersSent) {
+        res.json({
+          seasonStats: bestSeasonData,
+          badges: badges
+        });
+      }
     });
 
     stream.on('error', (err) => {
       console.error(`Error reading the CSV file: ${err}`);
-      res.status(500).send('Error reading the CSV file');
+      if (!res.headersSent) {
+        res.status(500).send('Error reading the CSV file');
+      }
     });
   });
-};
-
-module.exports = {
-  getValidPlayerStats,
 };
 
 // Neue Funktion zum Abrufen der Stats eines Spielers basierend auf PlayerID
@@ -253,7 +267,9 @@ const getPlayerStatsBySeasonType = (req, res) => {
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       console.error(`File not found: ${filePath}`);
-      return res.status(404).send(`File not found: ${filePath}`);
+      if (!res.headersSent) {
+        return res.status(404).send(`File not found: ${filePath}`);
+      }
     }
 
     const stream = fs.createReadStream(filePath).pipe(csv({ separator: ';' }));
@@ -273,17 +289,23 @@ const getPlayerStatsBySeasonType = (req, res) => {
     stream.on('end', () => {
       if (results.length === 0) {
         console.log(`No stats found for player ${playerID}`);
-        return res.status(404).send('No stats found');
+        if (!res.headersSent) {
+          return res.status(404).send('No stats found');
+        }
       }
 
       results.sort((a, b) => b.SEASON_YEAR.localeCompare(a.SEASON_YEAR));
 
-      res.json(results); // Rückgabe aller gefilterten Datensätze
+      if (!res.headersSent) {
+        res.json(results); // Rückgabe aller gefilterten Datensätze
+      }
     });
 
     stream.on('error', (err) => {
       console.error(`Error reading the CSV file: ${err}`);
-      res.status(500).send('Error reading the CSV file');
+      if (!res.headersSent) {
+        res.status(500).send('Error reading the CSV file');
+      }
     });
   });
 };
@@ -301,7 +323,9 @@ const getPlayersData = (req, res) => {
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       console.error(`File not found: ${filePath}`);
-      return res.status(404).send(`File not found: ${filePath}`);
+      if (!res.headersSent) {
+        return res.status(404).send(`File not found: ${filePath}`);
+      }
     }
 
     const stream = fs.createReadStream(filePath).pipe(csv({ separator: ';' }));
@@ -316,12 +340,16 @@ const getPlayersData = (req, res) => {
     });
 
     stream.on('end', () => {
-      res.json(results);
+      if (!res.headersSent) {
+        res.json(results);
+      }
     });
 
     stream.on('error', (err) => {
       console.error(`Error reading the CSV file: ${err}`);
-      res.status(500).send('Error reading the CSV file');
+      if (!res.headersSent) {
+        res.status(500).send('Error reading the CSV file');
+      }
     });
   });
 };
@@ -329,5 +357,7 @@ const getPlayersData = (req, res) => {
 module.exports = {
   getPlayersData,
   getPlayerSeasonStats,
-  getPlayerStatsBySeasonType, // Neue Funktion exportieren
+  getValidPlayerStats,
+  getPlayerStatsBySeasonType
 };
+
