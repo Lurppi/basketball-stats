@@ -5,7 +5,7 @@
     <loc>https://www.nbbl-stats.de/</loc>
     <lastmod>2024-09-17</lastmod>
     <changefreq>daily</changefreq>
-    <priority>1.00</priority>
+    <priority>0.80</priority>
   </url>
 
   <!-- Players Page -->
@@ -13,7 +13,7 @@
     <loc>https://www.nbbl-stats.de/players</loc>
     <lastmod>2024-09-17</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
 
   <!-- Teams Page -->
@@ -21,15 +21,15 @@
     <loc>https://www.nbbl-stats.de/teams</loc>
     <lastmod>2024-09-17</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
 
   <!-- Teams Form Page -->
   <url>
     <loc>https://www.nbbl-stats.de/teams/form</loc>
     <lastmod>2024-09-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
+    <changefreq>weekly</changefreq>
+    <priority>1.00</priority>
   </url>
 
   <!-- Standings Page -->
@@ -37,7 +37,7 @@
     <loc>https://www.nbbl-stats.de/standings</loc>
     <lastmod>2024-09-17</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.70</priority>
+    <priority>1.00</priority>
   </url>
 
   <!-- Impressum Page -->
