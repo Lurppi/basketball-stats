@@ -45,6 +45,8 @@ const PlayerPage = () => {
           throw new Error('Player profile not found or invalid format');
         }
 
+        console.log(profileData);
+
         setPlayerProfile(profileData); // Spielerprofil speichern
         setLoading(false);
       } catch (err) {
@@ -56,6 +58,23 @@ const PlayerPage = () => {
 
     fetchPlayerProfile();
   }, [id]);
+
+  // Dynamische Badge-Bilder-Zuordnung
+  const badgeImages = {
+    Sharpshooter: 'Badge1.jpg',
+    'Volume Scorer': 'Badge2.jpg',
+    'Inside Scorer': 'Badge3.jpg',
+    'Free Throw Ace': 'Badge4.jpg',
+    'Lockdown Defender': 'Badge5.jpg',
+    'Rim Protector': 'Badge6.jpg',
+    Rebounder: 'Badge7.jpg',
+    Playmaker: 'Badge8.jpg',
+    'Floor General': 'Badge9.jpg',
+    'Two-Way Player': 'Badge10.jpg',
+    'Efficient Shooter': 'Badge11.jpg',
+    'High Impact Player': 'Badge12.jpg',
+    'Sixth Man': 'Badge13.jpg',
+  };
 
   // Fetch player stats data when component mounts
   useEffect(() => {
@@ -340,52 +359,67 @@ const PlayerPage = () => {
     <div className="playerpage-grid-container">
       <Header />
 
-      {playerProfile && (
+      {playerProfile && playerProfile.seasonStats && (
         <div className="playerpage-fixed-container">
           <div className="playerpage-profile-modern">
-            <h1 className="player-name">{playerProfile.TEAM_long}</h1>
+            <h1 className="player-name">{playerProfile.seasonStats.TEAM_long}</h1>
             <div className="team-position">
               <div>
-                <p className="team-name">{playerProfile.PLAYER}</p>
-                <p className="position">{playerProfile.POS}</p>
+                <p className="team-name">{playerProfile.seasonStats.PLAYER}</p>
+                <p className="position">{playerProfile.seasonStats.POS}</p>
               </div>
             </div>
             <div className="player-info-modern">
               <div className="info-item">
                 <h4>Offensive Role</h4>
-                <p>{playerProfile.ROLE}</p>
+                <p>{playerProfile.seasonStats.ROLE}</p>
               </div>
               <div className="info-item">
                 <h4>Born</h4>
-                <p>{playerProfile.BIRTHDATE}</p>
+                <p>{playerProfile.seasonStats.BIRTHDATE}</p>
               </div>
               <div className="info-item">
                 <h4>Age</h4>
-                <p>{calculateAge(playerProfile.BIRTHDATE)} years</p>
+                <p>{calculateAge(playerProfile.seasonStats.BIRTHDATE)} years</p>
               </div>
             </div>
+
+            {/* Badge-Anzeige */}
+            {playerProfile.badges && playerProfile.badges.length > 0 && (
+              <div className="player-badges">
+                <h4>Badges</h4>
+                <ul>
+                  {playerProfile.badges.map((badge, index) => (
+                    <li key={index}>
+                      <img src={require(`../images/${badgeImages[badge]}`)} alt={badge} />
+                      <span>{badge}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
 
           {/* Stat Circles */}
           <div className="player-stats-circle-container">
             <div className="player-stats-circle">
-              <h4>{playerProfile.PPG}</h4>
+              <h4>{playerProfile.seasonStats.PPG}</h4>
               <p>PTS</p>
             </div>
             <div className="player-stats-circle">
-              <h4>{playerProfile.RPG}</h4>
+              <h4>{playerProfile.seasonStats.RPG}</h4>
               <p>REB</p>
             </div>
             <div className="player-stats-circle">
-              <h4>{playerProfile.APG}</h4>
+              <h4>{playerProfile.seasonStats.APG}</h4>
               <p>AST</p>
             </div>
             <div className="player-stats-circle">
-              <h4>{playerProfile.PER}</h4>
+              <h4>{playerProfile.seasonStats.PER}</h4>
               <p>PER</p>
             </div>
             <div className="player-stats-circle">
-              <h4>{playerProfile.PIE}</h4>
+              <h4>{playerProfile.seasonStats.PIE}</h4>
               <p>PIE</p>
             </div>
           </div>
