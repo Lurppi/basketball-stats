@@ -4,7 +4,7 @@ const csv = require('csv-parser');
 
 // Funktion für die Stats der letzten Saison eines Spielers basierend auf SEASON_YEAR, LEAGUE und GP
 const getPlayerSeasonStats = (req, res) => {
-  const filePath = path.join(__dirname, '../data/PLAYERS.csv'); // Wir greifen auf die PLAYERS.csv zu
+  const filePath = path.join(__dirname, '../data/PLAYERS.csv');
   const { playerID } = req.params;
 
   if (!playerID) {
@@ -58,23 +58,98 @@ const getPlayerSeasonStats = (req, res) => {
         selectedSeasonData = jbblData || nbblData || filteredResults[0];
       }
 
-      if (!res.headersSent) {
-        res.json(selectedSeasonData);
-      }
+      // Vergib die Badges basierend auf den Statistiken der letzten Saison
+      const badges = assignBadges(selectedSeasonData);
+
+      // Füge die Badges zu den Rückgabedaten hinzu
+      res.json({
+        seasonStats: selectedSeasonData,
+        badges: badges
+      });
     });
 
     stream.on('error', (err) => {
       console.error(`Error reading the CSV file: ${err}`);
-      if (!res.headersSent) {
-        res.status(500).send('Error reading the CSV file');
-      }
+      res.status(500).send('Error reading the CSV file');
     });
   });
 };
 
+// Funktion zur Vergabe der Badges basierend auf den definierten Kriterien
+const assignBadges = (seasonData) => {
+  let badges = [];
+
+  // Sharpshooter Badge
+  if (parseFloat(seasonData['3P%']) > 35 && parseFloat(seasonData['3PAPG']) >= 4 && parseFloat(seasonData['3PA']) >= 20) {
+    badges.push("Sharpshooter");
+  }
+
+  // Volume Scorer Badge
+  if (parseFloat(seasonData['PPG']) >= 20 && parseFloat(seasonData['FGAPG']) >= 12) {
+    badges.push("Volume Scorer");
+  }
+
+  // Inside Scorer Badge
+  if (parseFloat(seasonData['2P%']) > 55 && parseFloat(seasonData['2PAPG']) >= 6 && parseFloat(seasonData['2PA']) >= 20) {
+    badges.push("Inside Scorer");
+  }
+
+  // Free Throw Ace Badge
+  if (parseFloat(seasonData['FT%']) > 80 && parseFloat(seasonData['FTA']) >= 20) {
+    badges.push("Free Throw Ace");
+  }
+
+  // Lockdown Defender Badge
+  if (parseFloat(seasonData['SPG']) >= 1.5 && parseFloat(seasonData['ST%']) >= 3.0 && parseFloat(seasonData['STOPS_Gm']) >= 6 && parseFloat(seasonData['DRTG_ADJ']) < 85) {
+    badges.push("Lockdown Defender");
+  }
+
+  // Rim Protector Badge
+  if (parseFloat(seasonData['BPG']) >= 2 && parseFloat(seasonData['BS%']) >= 2.0 && parseFloat(seasonData['DRTG_ADJ']) < 95) {
+    badges.push("Rim Protector");
+  }
+
+  // Rebounder Badge
+  if (parseFloat(seasonData['RPG']) >= 8 && parseFloat(seasonData['ORB%']) >= 8 && parseFloat(seasonData['DRB%']) >= 18 && parseFloat(seasonData['REB%']) >= 15) {
+    badges.push("Rebounder");
+  }
+
+  // Playmaker Badge
+  if (parseFloat(seasonData['AS_TO']) > 2.0 && parseFloat(seasonData['AS_RATE']) >= 25 && parseFloat(seasonData['AS_RATIO']) >= 8.0) {
+    badges.push("Playmaker");
+  }
+
+  // Floor General Badge
+  if (parseFloat(seasonData['AS_TO']) > 3.0 && parseFloat(seasonData['AS_RATE']) >= 25 && parseFloat(seasonData['AS_RATIO']) >= 10.0) {
+    badges.push("Floor General");
+  }
+
+  // Two-Way Player Badge
+  if (parseFloat(seasonData['ORTG_ADJ']) > 110 && parseFloat(seasonData['DRTG_ADJ']) < 90 && parseFloat(seasonData['NRTG_ADJ']) > 0) {
+    badges.push("Two-Way Player");
+  }
+
+  // Efficient Shooter Badge
+  if (parseFloat(seasonData['EFG%']) > 55 && parseFloat(seasonData['TS%']) > 60 && parseFloat(seasonData['FGA']) >= 20 && parseFloat(seasonData['3PA']) >= 10 && parseFloat(seasonData['FGAPG']) >= 4) {
+    badges.push("Efficient Shooter");
+  }
+
+  // High Impact Player Badge
+  if (parseFloat(seasonData['PER']) > 30 && parseFloat(seasonData['WS_40']) > 0.25 && parseFloat(seasonData['PIE']) > 10.0) {
+    badges.push("High Impact Player");
+  }
+
+  // Sixth Man Badge
+  if (parseFloat(seasonData['MPG']) < 20 && parseFloat(seasonData['PPG']) >= 8.5 && parseFloat(seasonData['APG']) >= 2 && parseFloat(seasonData['RPG']) >= 3) {
+    badges.push("Sixth Man");
+  }
+
+  return badges;
+};
+
 // Neue Funktion zum Abrufen der Stats eines Spielers basierend auf PlayerID
 const getPlayerStatsBySeasonType = (req, res) => {
-  const filePath = path.join(__dirname, '../data/PLAYERS.csv'); // Wir greifen auf die PLAYERS.csv zu
+  const filePath = path.join(__dirname, '../data/PLAYERS.csv');
   const { playerID } = req.params;
 
   if (!playerID) {
@@ -98,7 +173,6 @@ const getPlayerStatsBySeasonType = (req, res) => {
         cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
       }
 
-      // Suche nur nach PlayerID, keine Filterung nach SEASON_TYPE
       if (cleanedRow.PlayerID === playerID) {
         results.push(cleanedRow);
       }
@@ -110,21 +184,14 @@ const getPlayerStatsBySeasonType = (req, res) => {
         return res.status(404).send('No stats found');
       }
 
-      // Sortieren nach SEASON_YEAR (neuste Saison zuerst)
       results.sort((a, b) => b.SEASON_YEAR.localeCompare(a.SEASON_YEAR));
 
-      console.log(`Filtered stats for player ${playerID}:`, results);
-
-      if (!res.headersSent) {
-        res.json(results); // Rückgabe aller gefilterten Datensätze
-      }
+      res.json(results); // Rückgabe aller gefilterten Datensätze
     });
 
     stream.on('error', (err) => {
       console.error(`Error reading the CSV file: ${err}`);
-      if (!res.headersSent) {
-        res.status(500).send('Error reading the CSV file');
-      }
+      res.status(500).send('Error reading the CSV file');
     });
   });
 };
@@ -157,16 +224,12 @@ const getPlayersData = (req, res) => {
     });
 
     stream.on('end', () => {
-      if (!res.headersSent) {
-        res.json(results);
-      }
+      res.json(results);
     });
 
     stream.on('error', (err) => {
       console.error(`Error reading the CSV file: ${err}`);
-      if (!res.headersSent) {
-        res.status(500).send('Error reading the CSV file');
-      }
+      res.status(500).send('Error reading the CSV file');
     });
   });
 };
