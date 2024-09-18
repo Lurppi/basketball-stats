@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path'); // Neu hinzugefügt für Dateipfade
 const app = express();
 const playersRoutes = require('./routes/players');
 const teamsRoutes = require('./routes/teams');
@@ -27,6 +28,9 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 app.use(express.json());
+
+// Statisches Verzeichnis für den 'public'-Ordner (Neu hinzugefügt)
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use('/api/players', playersRoutes); // Players Route
