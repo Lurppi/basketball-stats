@@ -36,25 +36,24 @@ const badgeImages = {
 
 const PlayerPage = () => {
   const { id } = useParams(); // Player ID from URL
-  const [playerProfile, setPlayerProfile] = useState(null); // Für Spielerprofil
-  const [playerData, setPlayerData] = useState([]); // Für die Saisonstatistiken
+  const [playerStats, setPlayerStats] = useState([]); // Für die Spielerstatistiken
+  const [badges, setBadges] = useState([]); // Für die Badges
   const [lastGames, setLastGames] = useState([]); // Last 10 games data
   const [activeTab, setActiveTab] = useState('profile'); // For Profile and Stats Tabs
   const [seasonTypes, setSeasonTypes] = useState([]); // List of available Season Types
   const [seasonType, setSeasonType] = useState(''); // Default Season Type
   const [statsType, setStatsType] = useState('Totals'); // Default Stats Type
   const [filteredStats, setFilteredStats] = useState([]); // Filtered data based on selected Season Type
-  const [loading, setLoading] = useState(true);
+  const [loadingProfile, setLoadingProfile] = useState(true); // Ladezustand für Profil
+  const [loadingBadges, setLoadingBadges] = useState(true); // Ladezustand für Badges
   const [error, setError] = useState(null);
 
-  // Function to calculate age
+  // Funktion, um das Alter zu berechnen
   const calculateAge = (birthDate) => {
-    // Überprüfen, ob birthDate existiert und ein gültiger String ist, und ob es nicht das Standard-Datum "00.01.1900" ist
     if (!birthDate || typeof birthDate !== 'string' || birthDate === '00.01.1900') {
-      return 'Unknown'; // Fallback, wenn kein Geburtsdatum vorhanden ist oder es das Standarddatum ist
+      return 'Unknown';
     }
-
-    const birth = new Date(birthDate.split('.').reverse().join('-')); // Format TT.MM.YYYY in YYYY-MM-DD konvertieren
+    const birth = new Date(birthDate.split('.').reverse().join('-'));
     const today = new Date();
     let age = today.getFullYear() - birth.getFullYear();
     const monthDiff = today.getMonth() - birth.getMonth();
@@ -64,69 +63,79 @@ const PlayerPage = () => {
     return age;
   };
 
-  useEffect(() => {
-    const fetchPlayerProfile = async () => {
-      try {
-        // Verwende die neue Route /stats/:playerID/valid
-        const response = await fetch(`https://backend-sandy-rho.vercel.app/api/players/stats/${id}/valid`);
-        const profileData = await response.json();
-
-        if (!profileData || typeof profileData !== 'object') {
-          // Hier keinen Fehler werfen, wenn keine Badges gefunden werden
-          setPlayerProfile({
-            ...profileData,
-            badges: [], // Wenn keine Badges gefunden werden, leeres Array setzen
-          });
-          return;
-        }
-
-        // Spielerprofil und Badges setzen
-        setPlayerProfile(profileData);
-        setLoading(false);
-      } catch (err) {
-        console.error('Error fetching player profile:', err);
-        setError(err.message);
-        setLoading(false);
-      }
-    };
-
-    fetchPlayerProfile();
-  }, [id]);
-
-  // Fetch player stats data when component mounts
+  // Fetch player stats data (Stats)
   useEffect(() => {
     const fetchPlayerStats = async () => {
       try {
-        const statsResponse = await fetch(`https://backend-sandy-rho.vercel.app/api/players/stats/${id}/season`);
-        const statsData = await statsResponse.json();
+        const response = await fetch(`https://backend-sandy-rho.vercel.app/api/players/stats/${id}/season`);
+        const statsData = await response.json();
 
         if (!statsData || !Array.isArray(statsData)) {
           throw new Error('Player stats not found or invalid format');
         }
 
-        setPlayerData(statsData); // Saisonstatistiken setzen
+        setPlayerStats(statsData); // Speichern der Spielerstatistiken
 
-        // Extract unique season types and sort them in reverse alphabetical order (z-a)
+        // Extrahiere eindeutige Season Types und sortiere sie rückwärts (z-a)
         const uniqueSeasonTypes = [...new Set(statsData.map((stat) => stat.SEASON_TYPE))].sort().reverse();
         setSeasonTypes(uniqueSeasonTypes);
 
-        // Set the default season type to the first one in the sorted list
+        // Standard-Season-Type setzen
         if (uniqueSeasonTypes.length > 0) {
           setSeasonType(uniqueSeasonTypes[0]);
-          // Automatically filter stats based on the default season type
           setFilteredStats(statsData.filter((stat) => stat.SEASON_TYPE === uniqueSeasonTypes[0]));
         }
-
-        setLoading(false);
       } catch (err) {
         console.error('Error fetching player stats:', err);
         setError(err.message);
-        setLoading(false);
+      } finally {
+        setLoadingProfile(false); // Ladezustand für Profil beenden
       }
     };
 
     fetchPlayerStats();
   }, [id]);
+
+  // Fetch player badges data (separate von Player-Stats)
+  useEffect(() => {
+    const fetchPlayerBadges = async () => {
+      try {
+        const response = await fetch(`https://backend-sandy-rho.vercel.app/api/players/stats/${id}/valid`);
+        if (response.status === 404) {
+          setBadges([]); // Keine Badges vorhanden
+          return;
+        }
+        const badgesData = await response.json();
+        setBadges(badgesData.badges || []); // Nur die Badges speichern
+      } catch (err) {
+        console.error('Error fetching player badges:', err);
+        setBadges([]); // Fallback auf leeres Array, wenn ein Fehler auftritt
+      } finally {
+        setLoadingBadges(false); // Ladezustand für Badges beenden
+      }
+    };
+
+    fetchPlayerBadges();
+  }, [id]);
+
+  // Rendering badge list
+  const renderBadges = () => {
+    if (loadingBadges) return <p>Loading badges...</p>;
+    if (badges.length === 0) return <p>No badges available for this player.</p>;
+
+    return (
+      <div className="player-badges">
+        <ul>
+          {badges.map((badge, index) => (
+            <li key={index}>
+              <img src={badgeImages[badge]} alt={badge} />
+              <span>{badge}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
 
   // Fetch last 10 games
   useEffect(() => {
@@ -154,8 +163,8 @@ const PlayerPage = () => {
     const selectedSeasonType = event.target.value;
     setSeasonType(selectedSeasonType);
 
-    if (playerData) {
-      const filtered = playerData.filter((stat) => stat.SEASON_TYPE === selectedSeasonType);
+    if (playerStats) {
+      const filtered = playerStats.filter((stat) => stat.SEASON_TYPE === selectedSeasonType);
       setFilteredStats(filtered);
     }
   };
@@ -165,7 +174,7 @@ const PlayerPage = () => {
     setStatsType(event.target.value);
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loadingProfile) return <p>Loading player profile...</p>; // Ladezustand für Profil
   if (error) return <p>Error: {error}</p>;
 
   // Rendering last 10 games
@@ -248,27 +257,27 @@ const PlayerPage = () => {
             <th>LEAGUE</th>
             <th>TEAM</th>
             <th>GP</th>
-            <th>{isTotals ? 'MP' : 'MP'}</th>
-            <th>{isTotals ? 'PT' : 'PT'}</th>
-            <th>{isTotals ? 'FGM' : 'FGM'}</th>
-            <th>{isTotals ? 'FGA' : 'FGA'}</th>
+            <th>{isTotals ? 'MP' : 'MPG'}</th>
+            <th>{isTotals ? 'PT' : 'PPG'}</th>
+            <th>{isTotals ? 'FGM' : 'FGMPG'}</th>
+            <th>{isTotals ? 'FGA' : 'FGAPG'}</th>
             <th>FG%</th>
-            <th>{isTotals ? '3PM' : '3PM'}</th>
-            <th>{isTotals ? '3PA' : '3PA'}</th>
+            <th>{isTotals ? '3PM' : '3PMPG'}</th>
+            <th>{isTotals ? '3PA' : '3PAPG'}</th>
             <th>3P%</th>
-            <th>{isTotals ? 'FTM' : 'FTM'}</th>
-            <th>{isTotals ? 'FTA' : 'FTA'}</th>
+            <th>{isTotals ? 'FTM' : 'FTMPG'}</th>
+            <th>{isTotals ? 'FTA' : 'FTAPG'}</th>
             <th>FT%</th>
-            <th>{isTotals ? 'OR' : 'OR'}</th>
-            <th>{isTotals ? 'DR' : 'DR'}</th>
-            <th>{isTotals ? 'RB' : 'RB'}</th>
-            <th>{isTotals ? 'AS' : 'AS'}</th>
-            <th>{isTotals ? 'TO' : 'TO'}</th>
-            <th>{isTotals ? 'ST' : 'ST'}</th>
-            <th>{isTotals ? 'BS' : 'BS'}</th>
-            <th>{isTotals ? 'PF' : 'PF'}</th>
-            <th>{isTotals ? 'EF' : 'EF'}</th>
-            <th>{isTotals ? 'FIC' : 'FIC'}</th>
+            <th>{isTotals ? 'OR' : 'ORPG'}</th>
+            <th>{isTotals ? 'DR' : 'DRPG'}</th>
+            <th>{isTotals ? 'RB' : 'RPG'}</th>
+            <th>{isTotals ? 'AS' : 'APG'}</th>
+            <th>{isTotals ? 'TO' : 'TOPG'}</th>
+            <th>{isTotals ? 'ST' : 'SPG'}</th>
+            <th>{isTotals ? 'BS' : 'BPG'}</th>
+            <th>{isTotals ? 'PF' : 'PFPG'}</th>
+            <th>{isTotals ? 'EF' : 'EFPG'}</th>
+            <th>{isTotals ? 'FIC' : 'FICG'}</th>
             <th>DD</th>
             <th>TD</th>
           </tr>
@@ -376,86 +385,84 @@ const PlayerPage = () => {
     <div className="playerpage-grid-container">
       <Header />
 
-      {playerProfile && playerProfile.seasonStats && (
+      {/* Spielerprofil und Informationen */}
+      {loadingProfile ? (
+        <p>Loading player profile...</p>
+      ) : playerStats.length > 0 ? (
         <div className="playerpage-fixed-container">
           <div className="playerpage-profile-modern">
-            <h1 className="player-name">{playerProfile.seasonStats.TEAM_long}</h1>
+            <h1 className="player-name">{playerStats[0].TEAM_long || 'Unknown Team'}</h1>
             <div className="team-position">
               <div>
-                <p className="team-name">{playerProfile.seasonStats.PLAYER}</p>
+                <p className="team-name">{playerStats[0].PLAYER || 'Unknown Player'}</p>
               </div>
             </div>
+
             {/* Flexbox für die Spielerinformationen */}
             <div className="player-info-row">
               <div className="info-item">
                 <h4>Position</h4>
-                <p>{playerProfile.seasonStats.POS}</p>
+                <p>{playerStats[0].POS || 'Unknown'}</p>
               </div>
               <div className="info-item">
                 <h4>Offensive Role</h4>
-                <p>{playerProfile.seasonStats.ROLE}</p>
+                <p>{playerStats[0].ROLE || 'Unknown'}</p>
               </div>
               <div className="info-item">
                 <h4>Born</h4>
-                <p>{playerProfile.seasonStats.BIRTHDATE}</p>
+                <p>{playerStats[0].BIRTHDATE || 'Unknown'}</p>
               </div>
               <div className="info-item">
                 <h4>Age</h4>
-                <p>{calculateAge(playerProfile.seasonStats.BIRTHDATE)} years</p>
+                <p>{calculateAge(playerStats[0].BIRTHDATE)} years</p>
               </div>
             </div>
 
-            {/* Badge-Anzeige */}
-            {playerProfile.badges && playerProfile.badges.length > 0 && (
-              <div className="player-badges">
-                <ul>
-                  {playerProfile.badges.map((badge, index) => (
-                    <li key={index}>
-                      <img src={badgeImages[badge]} alt={badge} />
-                      <span>{badge}</span>
-                    </li>
-                  ))}
-                </ul>
+            {/* Statistische Kreise */}
+            <div className="player-stats-circle-container">
+              <div className="player-stats-circle">
+                <h4>{playerStats[0].PPG || 'N/A'}</h4>
+                <p>PTS</p>
               </div>
-            )}
+              <div className="player-stats-circle">
+                <h4>{playerStats[0].RPG || 'N/A'}</h4>
+                <p>REB</p>
+              </div>
+              <div className="player-stats-circle">
+                <h4>{playerStats[0].APG || 'N/A'}</h4>
+                <p>AST</p>
+              </div>
+              <div className="player-stats-circle">
+                <h4>{playerStats[0].PER || 'N/A'}</h4>
+                <p>PER</p>
+              </div>
+              <div className="player-stats-circle">
+                <h4>{playerStats[0].PIE || 'N/A'}</h4>
+                <p>PIE</p>
+              </div>
+            </div>
           </div>
 
-          {/* Stat Circles */}
-          <div className="player-stats-circle-container">
-            <div className="player-stats-circle">
-              <h4>{playerProfile.seasonStats.PPG}</h4>
-              <p>PTS</p>
-            </div>
-            <div className="player-stats-circle">
-              <h4>{playerProfile.seasonStats.RPG}</h4>
-              <p>REB</p>
-            </div>
-            <div className="player-stats-circle">
-              <h4>{playerProfile.seasonStats.APG}</h4>
-              <p>AST</p>
-            </div>
-            <div className="player-stats-circle">
-              <h4>{playerProfile.seasonStats.PER}</h4>
-              <p>PER</p>
-            </div>
-            <div className="player-stats-circle">
-              <h4>{playerProfile.seasonStats.PIE}</h4>
-              <p>PIE</p>
-            </div>
-          </div>
+          {/* Badge-Bereich anzeigen */}
+          {renderBadges()}
+
         </div>
+      ) : (
+        <p>Player profile is loading or unavailable</p> // Fallback, wenn kein Spielerprofil vorhanden
       )}
 
       {/* Breadcrumb navigation */}
       <div className="breadcrumb-container">
         <div className="breadcrumb-menu">
           <button
+            id="profile-button"
             className={activeTab === 'profile' ? 'breadcrumb-active' : ''}
             onClick={() => setActiveTab('profile')}
           >
             Profile
           </button>
           <button
+            id="stats-button"
             className={activeTab === 'stats' ? 'breadcrumb-active' : ''}
             onClick={() => setActiveTab('stats')}
           >
@@ -476,12 +483,15 @@ const PlayerPage = () => {
 
       {activeTab === 'stats' && (
         <div className="playerpage-stats">
-          
           {/* Filter Dropdowns */}
           <div className="playerpage-filter-container">
             <div className="playerpage-filters">
-              <label>Season Type:</label>
-              <select value={seasonType} onChange={handleSeasonTypeChange}>
+              <label htmlFor="seasonType">Season Type:</label>
+              <select
+                id="seasonType"
+                value={seasonType}
+                onChange={handleSeasonTypeChange}
+              >
                 {seasonTypes.map((type) => (
                   <option key={type} value={type}>
                     {type}
@@ -489,8 +499,12 @@ const PlayerPage = () => {
                 ))}
               </select>
 
-              <label>Stats Type:</label>
-              <select value={statsType} onChange={handleStatsTypeChange}>
+              <label htmlFor="statsType">Stats Type:</label>
+              <select
+                id="statsType"
+                value={statsType}
+                onChange={handleStatsTypeChange}
+              >
                 <option value="Totals">TOTALS</option>
                 <option value="Averages">AVERAGES</option>
               </select>
@@ -515,4 +529,5 @@ const PlayerPage = () => {
 };
 
 export default PlayerPage;
-  
+
+

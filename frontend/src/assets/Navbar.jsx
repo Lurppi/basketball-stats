@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useId } from 'react'; // useId importieren
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const uniqueId = useId(); // Eindeutige ID generieren
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -12,9 +13,10 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="container nav-container">
+        {/* Verwende die dynamische ID hier */}
         <input
           type="checkbox"
-          id="menu-toggle"
+          id={`menu-toggle-${uniqueId}`} // Dynamisch generierte eindeutige ID
           className="checkbox"
           checked={isOpen}
           onChange={handleToggle}
@@ -26,7 +28,8 @@ const Navbar = () => {
         </div>
 
         <div className="logo">
-         </div>
+          {/* Hier könnte das Logo hinzugefügt werden */}
+        </div>
 
         <div className={`menu-items ${isOpen ? 'open' : ''}`}>
           <Link to="/">HOME</Link>
