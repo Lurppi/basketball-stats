@@ -71,20 +71,18 @@ const PlayerPage = () => {
         // Verwende die neue Route /stats/:playerID/valid
         const response = await fetch(`https://backend-sandy-rho.vercel.app/api/players/stats/${id}/valid`);
 
-        // Überprüfe den Status der Antwort
-        if (response.status === 404) {
-          setPlayerProfile(null);  // Setze das Profil auf null, wenn keine Daten gefunden wurden
-        } else {
+        // Überprüfe, ob die Antwort OK ist
+        if (response.ok) {
           const profileData = await response.json();
 
-          if (!profileData || typeof profileData !== 'object') {
-            throw new Error('Player profile not found or invalid format');
-          }
-
-          console.log(profileData);
-
-          // Spielerprofil speichern
+          // Setze das Profil, selbst wenn keine Badges vorhanden sind
           setPlayerProfile(profileData);
+        } else {
+          // Wenn keine validen Statistiken gefunden werden, setze ein Profil ohne Badges
+          setPlayerProfile({
+            seasonStats: {},  // Stelle sicher, dass saisonale Statistiken immer verfügbar sind
+            badges: []        // Leere Badges, wenn keine Badges vorhanden sind
+          });
         }
 
         setLoading(false);
@@ -381,37 +379,44 @@ const PlayerPage = () => {
     <div className="playerpage-grid-container">
       <Header />
 
-      {/* Check if playerProfile is loaded */}
-      {!loading && playerProfile !== null ? (
+      {playerProfile && playerProfile.seasonStats && (
         <div className="playerpage-fixed-container">
           <div className="playerpage-profile-modern">
-            <h1 className="player-name">{playerProfile.seasonStats.TEAM_long}</h1>
+            <h1 className="player-name">
+              {playerProfile.seasonStats.TEAM_long ? playerProfile.seasonStats.TEAM_long : 'Team Unknown'}
+            </h1>
             <div className="team-position">
               <div>
-                <p className="team-name">{playerProfile.seasonStats.PLAYER}</p>
+                <p className="team-name">
+                  {playerProfile.seasonStats.PLAYER ? playerProfile.seasonStats.PLAYER : 'Player Name'}
+                </p>
               </div>
             </div>
             <div className="player-info-row">
               <div className="info-item">
                 <h4>Position</h4>
-                <p>{playerProfile.seasonStats.POS}</p>
+                <p>{playerProfile.seasonStats.POS ? playerProfile.seasonStats.POS : 'Unknown'}</p>
               </div>
               <div className="info-item">
                 <h4>Offensive Role</h4>
-                <p>{playerProfile.seasonStats.ROLE}</p>
+                <p>{playerProfile.seasonStats.ROLE ? playerProfile.seasonStats.ROLE : 'Unknown'}</p>
               </div>
               <div className="info-item">
                 <h4>Born</h4>
-                <p>{playerProfile.seasonStats.BIRTHDATE}</p>
+                <p>{playerProfile.seasonStats.BIRTHDATE ? playerProfile.seasonStats.BIRTHDATE : 'Unknown'}</p>
               </div>
               <div className="info-item">
                 <h4>Age</h4>
-                <p>{calculateAge(playerProfile.seasonStats.BIRTHDATE)} years</p>
+                <p>
+                  {playerProfile.seasonStats.BIRTHDATE
+                    ? `${calculateAge(playerProfile.seasonStats.BIRTHDATE)} years`
+                    : 'Unknown'}
+                </p>
               </div>
             </div>
 
-            {/* Badge-Anzeige */}
-            {playerProfile.badges && playerProfile.badges.length > 0 ? (
+            {/* Badge-Anzeige, nur anzeigen wenn vorhanden */}
+            {playerProfile.badges && playerProfile.badges.length > 0 && (
               <div className="player-badges">
                 <ul>
                   {playerProfile.badges.map((badge, index) => (
@@ -422,40 +427,32 @@ const PlayerPage = () => {
                   ))}
                 </ul>
               </div>
-            ) : (
-              <p>No badges earned.</p>
             )}
           </div>
 
-          {/* Stats section */}
+          {/* Stat Circles */}
           <div className="player-stats-circle-container">
             <div className="player-stats-circle">
-              <h4>{playerProfile.seasonStats.PPG}</h4>
+              <h4>{playerProfile.seasonStats.PPG ? playerProfile.seasonStats.PPG : 'N/A'}</h4>
               <p>PTS</p>
             </div>
             <div className="player-stats-circle">
-              <h4>{playerProfile.seasonStats.RPG}</h4>
+              <h4>{playerProfile.seasonStats.RPG ? playerProfile.seasonStats.RPG : 'N/A'}</h4>
               <p>REB</p>
             </div>
             <div className="player-stats-circle">
-              <h4>{playerProfile.seasonStats.APG}</h4>
+              <h4>{playerProfile.seasonStats.APG ? playerProfile.seasonStats.APG : 'N/A'}</h4>
               <p>AST</p>
             </div>
             <div className="player-stats-circle">
-              <h4>{playerProfile.seasonStats.PER}</h4>
+              <h4>{playerProfile.seasonStats.PER ? playerProfile.seasonStats.PER : 'N/A'}</h4>
               <p>PER</p>
             </div>
             <div className="player-stats-circle">
-              <h4>{playerProfile.seasonStats.PIE}</h4>
+              <h4>{playerProfile.seasonStats.PIE ? playerProfile.seasonStats.PIE : 'N/A'}</h4>
               <p>PIE</p>
             </div>
           </div>
-        </div>
-      ) : (
-        // Falls kein Spielerprofil vorhanden ist oder nicht gefunden wurde
-        <div>
-          <h1>No player data available</h1>
-          <p>Sorry, no valid data was found for this player.</p>
         </div>
       )}
 
