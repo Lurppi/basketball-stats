@@ -7,6 +7,7 @@ const teamsRoutes = require('./routes/teams');
 const homeRoutes = require('./routes/home');
 const formRoutes = require('./routes/form');
 const playerDetailsRoutes = require('./routes/playerDetails'); // PlayerDetails-Route
+const sitemapRoutes = require('./routes/sitemap');
 
 // CORS configuration
 const corsOptions = {
