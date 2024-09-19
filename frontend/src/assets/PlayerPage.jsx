@@ -78,7 +78,8 @@ const PlayerPage = () => {
 
         console.log(profileData);
 
-        setPlayerProfile(profileData); // Spielerprofil speichern
+        // Spielerprofil speichern
+        setPlayerProfile(profileData);
         setLoading(false);
       } catch (err) {
         console.error('Error fetching player profile:', err);
@@ -373,7 +374,8 @@ const PlayerPage = () => {
     <div className="playerpage-grid-container">
       <Header />
 
-      {playerProfile && playerProfile.seasonStats && (
+      {/* Check if playerProfile and seasonStats are available */}
+      {playerProfile && playerProfile.seasonStats ? (
         <div className="playerpage-fixed-container">
           <div className="playerpage-profile-modern">
             <h1 className="player-name">{playerProfile.seasonStats.TEAM_long}</h1>
@@ -382,7 +384,7 @@ const PlayerPage = () => {
                 <p className="team-name">{playerProfile.seasonStats.PLAYER}</p>
               </div>
             </div>
-            {/* Flexbox für die Spielerinformationen */}
+            {/* Flexbox for player information */}
             <div className="player-info-row">
               <div className="info-item">
                 <h4>Position</h4>
@@ -402,8 +404,8 @@ const PlayerPage = () => {
               </div>
             </div>
 
-            {/* Badge-Anzeige */}
-            {playerProfile.badges && playerProfile.badges.length > 0 && (
+            {/* Render Badges only if they exist */}
+            {playerProfile.badges && playerProfile.badges.length > 0 ? (
               <div className="player-badges">
                 <ul>
                   {playerProfile.badges.map((badge, index) => (
@@ -414,10 +416,12 @@ const PlayerPage = () => {
                   ))}
                 </ul>
               </div>
+            ) : (
+              <p>No badges earned.</p> // Message if no badges are present
             )}
           </div>
 
-          {/* Stat Circles */}
+          {/* Additional stats section */}
           <div className="player-stats-circle-container">
             <div className="player-stats-circle">
               <h4>{playerProfile.seasonStats.PPG}</h4>
@@ -441,6 +445,8 @@ const PlayerPage = () => {
             </div>
           </div>
         </div>
+      ) : (
+        <p>No valid stats available for this player.</p> // Message when no seasonStats exist
       )}
 
       {/* Breadcrumb navigation */}

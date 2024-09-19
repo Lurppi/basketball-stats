@@ -166,6 +166,7 @@ const assignBadges = (seasonData) => {
   return badges;
 };
 
+// Neue Funktion: Suche nach dem besten Saison-Datensatz mit mindestens 50 Minuten gespielt
 const getValidPlayerStats = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv');
   const { playerID } = req.params;
@@ -179,7 +180,9 @@ const getValidPlayerStats = (req, res) => {
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       console.error(`File not found: ${filePath}`);
-      return res.status(404).json({ message: `File not found: ${filePath}`, badges: [] });
+      if (!res.headersSent) {
+        return res.status(404).send(`File not found: ${filePath}`);
+      }
     }
 
     const stream = fs.createReadStream(filePath).pipe(csv({ separator: ';' }));
@@ -199,14 +202,20 @@ const getValidPlayerStats = (req, res) => {
     stream.on('end', () => {
       if (results.length === 0) {
         console.log(`No season stats found for player ${playerID}`);
-        return res.status(200).json({ message: 'No valid season stats found (MP < 50)', badges: [] });
+        return res.json({
+          seasonStats: null,
+          badges: [] // Leeres Badge-Array, wenn kein gültiger Datensatz gefunden wurde
+        });
       }
 
       // Filtere nach mindestens 50 Minuten gespielten Minuten
       const validResults = results.filter(row => parseFloat(row.MP) >= 50);
 
       if (validResults.length === 0) {
-        return res.status(200).json({ message: 'No valid season stats found (MP < 50)', badges: [] });
+        return res.json({
+          seasonStats: null,
+          badges: [] // Leeres Badge-Array, wenn keine gültigen Datensätze vorhanden
+        });
       }
 
       // Wenn mehrere Datensätze in einer Saison existieren, wähle den mit den meisten Minuten
@@ -237,7 +246,9 @@ const getValidPlayerStats = (req, res) => {
 
     stream.on('error', (err) => {
       console.error(`Error reading the CSV file: ${err}`);
-      res.status(500).send('Error reading the CSV file');
+      if (!res.headersSent) {
+        res.status(500).send('Error reading the CSV file');
+      }
     });
   });
 };
