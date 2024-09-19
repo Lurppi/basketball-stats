@@ -405,13 +405,17 @@ const generateSitemap = (req, res) => {
         ${dynamicUrls}\n
         </urlset>`;
 
-      // XML-Antwort senden
-      res.setHeader('Content-Type', 'application/xml');
-      res.status(200).send(sitemapContent);
+      // XML-Antwort senden, wenn noch keine Header gesendet wurden
+      if (!res.headersSent) {
+        res.setHeader('Content-Type', 'application/xml');
+        res.status(200).send(sitemapContent);
+      }
     })
     .on('error', (err) => {
       console.error('Error generating sitemap:', err);
-      res.status(500).send('Error generating sitemap');
+      if (!res.headersSent) {
+        res.status(500).send('Error generating sitemap');
+      }
     });
 };
 
