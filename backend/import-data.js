@@ -112,9 +112,10 @@ const processBadges = async () => {
       const badges = assignBadges(bestSeasonData);
 
       // Aktualisiere die Badges im Datensatz
-      bestSeasonData.Badges = badges.join(',');
-
-      updatedPlayersData.push(bestSeasonData);
+      playerSeasons.forEach((seasonData) => {
+        seasonData.Badges = badges.join(',');
+        updatedPlayersData.push(seasonData);
+      });
     });
 
     // Schreibe die aktualisierten Daten in die CSV-Datei zurück
