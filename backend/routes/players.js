@@ -22,4 +22,9 @@ router.get('/stats/:playerID/valid', (req, res) => {
   playersController.getValidPlayerStats(req, res);
 });
 
+// Route für Spieler mit Badges
+router.get('/players-with-badges', (req, res) => {
+  playersController.getPlayersWithBadges(req, res);
+});
+
 module.exports = router;
