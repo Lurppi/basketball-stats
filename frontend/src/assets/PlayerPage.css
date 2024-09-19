@@ -288,16 +288,16 @@
 }
 
 /* Anpassung für die Tabellen im Reiter "Stats" */
-.player-stats-tables {
+.playerpage-stats {
   display: flex;
   flex-direction: column;
  }
   
- .player-stats-tables h2 {
+ .playerpage-stats h2 {
    margin-top: 40px;
  }
   /* Größerer Abstand unterhalb der Filter */
-  .playerpage-filter-container {
+  .playerpage-stats {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -384,18 +384,10 @@
   font-weight: bold;
 }
 
-/* Tabelle bleibt wie bisher */
-.playerpage-table-wrapper {
-  overflow-x: auto;
-  /* Sicherstellen, dass die Tabelle scrollbar bleibt, falls nötig */
-}
-
 /* Breiten für die "Totals" und "Averages" Tabellen */
 .playerpage-table-container th:nth-of-type(1),
-/* Erste Spalte */
 .playerpage-table-container td:nth-of-type(1) {
   width: 50px;
-  /* Hier kannst du die Breite anpassen */
 }
 
 .player-badges {

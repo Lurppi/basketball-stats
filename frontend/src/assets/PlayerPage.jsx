@@ -241,7 +241,6 @@ const PlayerPage = () => {
     );
   };
 
-  // Dynamische Darstellung für die Statistiken im "Stats"-Reiter
   const renderStatsTable = () => {
     if (!filteredStats || filteredStats.length === 0) {
       return <p>No stats available</p>;
@@ -250,34 +249,34 @@ const PlayerPage = () => {
     const isTotals = statsType === 'Totals';
 
     return (
-      <table className="playerpage-table-container">
+      <table className="playerpage-table-container"> {/* Stelle sicher, dass diese Klasse verwendet wird */}
         <thead>
           <tr>
             <th>BY YEAR</th>
             <th>LEAGUE</th>
             <th>TEAM</th>
             <th>GP</th>
-            <th>{isTotals ? 'MP' : 'MPG'}</th>
-            <th>{isTotals ? 'PT' : 'PPG'}</th>
-            <th>{isTotals ? 'FGM' : 'FGMPG'}</th>
-            <th>{isTotals ? 'FGA' : 'FGAPG'}</th>
+            <th>{isTotals ? 'MP' : 'MP'}</th>
+            <th>{isTotals ? 'PT' : 'PT'}</th>
+            <th>{isTotals ? 'FGM' : 'FGM'}</th>
+            <th>{isTotals ? 'FGA' : 'FGA'}</th>
             <th>FG%</th>
-            <th>{isTotals ? '3PM' : '3PMPG'}</th>
-            <th>{isTotals ? '3PA' : '3PAPG'}</th>
+            <th>{isTotals ? '3PM' : '3PM'}</th>
+            <th>{isTotals ? '3PA' : '3PA'}</th>
             <th>3P%</th>
-            <th>{isTotals ? 'FTM' : 'FTMPG'}</th>
-            <th>{isTotals ? 'FTA' : 'FTAPG'}</th>
+            <th>{isTotals ? 'FTM' : 'FTM'}</th>
+            <th>{isTotals ? 'FTA' : 'FTA'}</th>
             <th>FT%</th>
-            <th>{isTotals ? 'OR' : 'ORPG'}</th>
-            <th>{isTotals ? 'DR' : 'DRPG'}</th>
-            <th>{isTotals ? 'RB' : 'RPG'}</th>
-            <th>{isTotals ? 'AS' : 'APG'}</th>
-            <th>{isTotals ? 'TO' : 'TOPG'}</th>
-            <th>{isTotals ? 'ST' : 'SPG'}</th>
-            <th>{isTotals ? 'BS' : 'BPG'}</th>
-            <th>{isTotals ? 'PF' : 'PFPG'}</th>
-            <th>{isTotals ? 'EF' : 'EFPG'}</th>
-            <th>{isTotals ? 'FIC' : 'FICG'}</th>
+            <th>{isTotals ? 'OR' : 'OR'}</th>
+            <th>{isTotals ? 'DR' : 'DR'}</th>
+            <th>{isTotals ? 'RB' : 'RB'}</th>
+            <th>{isTotals ? 'AS' : 'AS'}</th>
+            <th>{isTotals ? 'TO' : 'TO'}</th>
+            <th>{isTotals ? 'ST' : 'ST'}</th>
+            <th>{isTotals ? 'BS' : 'BS'}</th>
+            <th>{isTotals ? 'PF' : 'PF'}</th>
+            <th>{isTotals ? 'EF' : 'EF'}</th>
+            <th>{isTotals ? 'FIC' : 'FIC'}</th>
             <th>DD</th>
             <th>TD</th>
           </tr>
