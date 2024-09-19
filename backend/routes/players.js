@@ -22,9 +22,4 @@ router.get('/stats/:playerID/valid', (req, res) => {
   playersController.getValidPlayerStats(req, res);
 });
 
-// Neue Route zur Generierung der Sitemap
-router.get('/generate-sitemap', (req, res) => {
-  playersController.generateSitemap(req, res);
-});
-
 module.exports = router;
