@@ -70,16 +70,23 @@ const PlayerPage = () => {
       try {
         // Verwende die neue Route /stats/:playerID/valid
         const response = await fetch(`https://backend-sandy-rho.vercel.app/api/players/stats/${id}/valid`);
-        const profileData = await response.json();
 
-        if (!profileData || typeof profileData !== 'object') {
-          throw new Error('Player profile not found or invalid format');
+        // Überprüfe den Status der Antwort
+        if (response.status === 404) {
+          setPlayerProfile(null);  // Setze das Profil auf null, wenn keine Daten gefunden wurden
+        } else {
+          const profileData = await response.json();
+
+          if (!profileData || typeof profileData !== 'object') {
+            throw new Error('Player profile not found or invalid format');
+          }
+
+          console.log(profileData);
+
+          // Spielerprofil speichern
+          setPlayerProfile(profileData);
         }
 
-        console.log(profileData);
-
-        // Spielerprofil speichern
-        setPlayerProfile(profileData);
         setLoading(false);
       } catch (err) {
         console.error('Error fetching player profile:', err);
