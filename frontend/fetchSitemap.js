@@ -1,6 +1,6 @@
-const fetch = require('node-fetch');
-const fs = require('fs');
-const path = require('path');
+import fetch from 'node-fetch';
+import fs from 'fs';
+import path from 'path';
 
 const sitemapUrl = 'https://backend-sandy-rho.vercel.app/api/sitemap/sitemap.xml';
 
@@ -13,7 +13,7 @@ const fetchSitemap = async () => {
 
     const sitemapData = await response.text();
 
-    const filePath = path.join(__dirname, 'public', 'sitemap.xml');
+    const filePath = path.join(process.cwd(), 'public', 'sitemap.xml');
     fs.writeFileSync(filePath, sitemapData);
     console.log('Sitemap successfully saved to public/sitemap.xml');
   } catch (error) {
