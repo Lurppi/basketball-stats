@@ -359,7 +359,6 @@ const generateSitemap = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv');
   const baseUrl = 'https://www.nbbl-stats.de/player/';
 
-  // Array, um Player-IDs zu speichern
   let playerIDs = [];
 
   // CSV-Datei öffnen und Player-IDs sammeln
@@ -372,7 +371,6 @@ const generateSitemap = (req, res) => {
       }
     })
     .on('end', () => {
-      // Statische Sitemap-URLs
       let staticUrls = `
         <url>
           <loc>https://www.nbbl-stats.de/</loc>
@@ -386,34 +384,34 @@ const generateSitemap = (req, res) => {
           <changefreq>weekly</changefreq>
           <priority>1.00</priority>
         </url>
-        <!-- Füge hier weitere statische URLs hinzu -->
       `;
 
       // Dynamische Player-URLs generieren
-      const dynamicUrls = playerIDs.map(id => `
+      const dynamicUrls = playerIDs
+        .map(
+          (id) => `
         <url>
           <loc>${baseUrl}${id}</loc>
           <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
           <priority>0.80</priority>
-        </url>`).join('');
+        </url>`
+        )
+        .join('');
 
-      // Kombinierte Sitemap
+      // Sitemap-Inhalt kombinieren
       const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>\n
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n
         ${staticUrls}\n
         ${dynamicUrls}\n
         </urlset>`;
 
-      // Sitemap in eine Datei schreiben
-      const sitemapPath = path.join(__dirname, '../public/sitemap.xml');
-      fs.writeFile(sitemapPath, sitemapContent, (err) => {
-        if (err) {
-          console.error('Error writing sitemap file:', err);
-          return res.status(500).send('Error generating sitemap');
-        }
-        console.log('Sitemap successfully generated');
-        res.status(200).send('Sitemap successfully generated');
-      });
+      // XML-Antwort senden
+      res.setHeader('Content-Type', 'application/xml');
+      res.status(200).send(sitemapContent);
+    })
+    .on('error', (err) => {
+      console.error('Error generating sitemap:', err);
+      res.status(500).send('Error generating sitemap');
     });
 };
 
