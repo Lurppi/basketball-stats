@@ -381,8 +381,8 @@ const PlayerPage = () => {
     <div className="playerpage-grid-container">
       <Header />
 
-      {/* Check if playerProfile and seasonStats are available */}
-      {playerProfile && playerProfile.seasonStats ? (
+      {/* Check if playerProfile is loaded */}
+      {!loading && playerProfile !== null ? (
         <div className="playerpage-fixed-container">
           <div className="playerpage-profile-modern">
             <h1 className="player-name">{playerProfile.seasonStats.TEAM_long}</h1>
@@ -391,7 +391,6 @@ const PlayerPage = () => {
                 <p className="team-name">{playerProfile.seasonStats.PLAYER}</p>
               </div>
             </div>
-            {/* Flexbox for player information */}
             <div className="player-info-row">
               <div className="info-item">
                 <h4>Position</h4>
@@ -411,7 +410,7 @@ const PlayerPage = () => {
               </div>
             </div>
 
-            {/* Render Badges only if they exist */}
+            {/* Badge-Anzeige */}
             {playerProfile.badges && playerProfile.badges.length > 0 ? (
               <div className="player-badges">
                 <ul>
@@ -424,11 +423,11 @@ const PlayerPage = () => {
                 </ul>
               </div>
             ) : (
-              <p>No badges earned.</p> // Message if no badges are present
+              <p>No badges earned.</p>
             )}
           </div>
 
-          {/* Additional stats section */}
+          {/* Stats section */}
           <div className="player-stats-circle-container">
             <div className="player-stats-circle">
               <h4>{playerProfile.seasonStats.PPG}</h4>
@@ -453,7 +452,11 @@ const PlayerPage = () => {
           </div>
         </div>
       ) : (
-        <p>No valid stats available for this player.</p> // Message when no seasonStats exist
+        // Falls kein Spielerprofil vorhanden ist oder nicht gefunden wurde
+        <div>
+          <h1>No player data available</h1>
+          <p>Sorry, no valid data was found for this player.</p>
+        </div>
       )}
 
       {/* Breadcrumb navigation */}
