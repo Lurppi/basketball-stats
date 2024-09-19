@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run fetch-sitemap && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "fetch-sitemap": "node fetchSitemap.js"
   },
   "dependencies": {
     "chart.js": "^4.4.4",
@@ -20,7 +21,8 @@
     "react-router-dom": "^6.26.1",
     "react-slick": "^0.30.2",
     "sass": "^1.77.8",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "axios": "^1.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
