@@ -372,7 +372,7 @@ const generateSitemap = (req, res) => {
     })
     .on('end', () => {
       let staticUrls = `
-        <url>
+              <url>
           <loc>https://www.nbbl-stats.de/</loc>
           <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
           <changefreq>daily</changefreq>
@@ -383,6 +383,42 @@ const generateSitemap = (req, res) => {
           <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
           <changefreq>weekly</changefreq>
           <priority>1.00</priority>
+        </url>
+        <url>
+          <loc>https://www.nbbl-stats.de/teams</loc>
+          <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>1.00</priority>
+        </url>
+        <url>
+          <loc>https://www.nbbl-stats.de/teams/form</loc>
+          <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>1.00</priority>
+        </url>
+        <url>
+          <loc>https://www.nbbl-stats.de/standings</loc>
+          <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.80</priority>
+        </url>
+        <url>
+          <loc>https://www.nbbl-stats.de/impressum</loc>
+          <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+          <changefreq>yearly</changefreq>
+          <priority>0.50</priority>
+        </url>
+        <url>
+          <loc>https://www.nbbl-stats.de/glossary</loc>
+          <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+          <changefreq>yearly</changefreq>
+          <priority>0.50</priority>
+        </url>
+        <url>
+          <loc>https://www.nbbl-stats.de/privacy-policy</loc>
+          <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+          <changefreq>yearly</changefreq>
+          <priority>0.50</priority>
         </url>
       `;
 
