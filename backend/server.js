@@ -38,6 +38,7 @@ app.use('/api/teams', teamsRoutes); // Teams Route
 app.use('/api/home', homeRoutes); // Home Route
 app.use('/api/form', formRoutes); // Form Route
 app.use('/api/playerdetails', playerDetailsRoutes); // PlayerDetails-Route
+app.use('/api/sitemap', sitemapRoutes); 
 
 // Default route for root path
 app.get('/', (req, res) => {
