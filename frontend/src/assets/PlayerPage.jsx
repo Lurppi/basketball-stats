@@ -100,7 +100,7 @@ const PlayerPage = () => {
   useEffect(() => {
     const fetchPlayerBadges = async () => {
       try {
-        const response = await fetch(`https://backend-sandy-rho.vercel.app/api/players/stats/${id}/valid`);
+        const response = await fetch(`https://backend-sandy-rho.vercel.app/api/players/stats/${id}`);
         if (response.status === 404) {
           setBadges([]); // Keine Badges vorhanden
           return;
