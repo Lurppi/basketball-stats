@@ -12,9 +12,8 @@ const importCSV = (filePath) => {
     fs.createReadStream(filePath)
       .pipe(csv({ separator: ';' }))
       .on('data', (data) => {
-        // Nur vollständige Datenzeilen pushen
         if (Object.values(data).every((val) => val.trim() !== '')) {
-          results.push(data);
+          results.push(data); // Nur vollständige Zeilen pushen
         }
       })
       .on('end', () => {
@@ -31,45 +30,46 @@ const importCSV = (filePath) => {
   });
 };
 
+// Funktion zur Vergabe der Badges basierend auf den definierten Kriterien
+const assignBadges = (seasonData) => {
+  let badges = [];
 
-// Rebounding Machine Badge
-if (parseFloat(seasonData['ORB%']) >= 10.0 && parseFloat(seasonData['DRB%']) >= 15.0 && parseFloat(seasonData['REB%']) >= 12.5) {
-  badges.push("Rebounding Machine");
-}
+  // Playmaker Badge
+  if (parseFloat(seasonData['AS_TO']) > 1.0 && parseFloat(seasonData['AS_RATE']) >= 20 && parseFloat(seasonData['AS_RATIO']) >= 7.0) {
+    badges.push("Playmaker");
+  }
 
-// Playmaker Badge
-if (parseFloat(seasonData['AS_TO']) > 1.0 && parseFloat(seasonData['AS_RATE']) >= 20 && parseFloat(seasonData['AS_RATIO']) >= 7.0) {
-  badges.push("Playmaker");
-}
+  // Floor General Badge
+  if (parseFloat(seasonData['AS_TO']) > 2.0 && parseFloat(seasonData['AS_RATE']) >= 25 && parseFloat(seasonData['AS_RATIO']) >= 10.0) {
+    badges.push("Floor General");
+  }
 
-// Floor General Badge
-if (parseFloat(seasonData['AS_TO']) > 2.0 && parseFloat(seasonData['AS_RATE']) >= 25 && parseFloat(seasonData['AS_RATIO']) >= 10.0) {
-  badges.push("Floor General");
-}
+  // Two-Way Player Badge
+  if (parseFloat(seasonData['ORTG_ADJ']) > 110 && parseFloat(seasonData['DRTG_ADJ']) < 90 && parseFloat(seasonData['NRTG_ADJ']) > 0) {
+    badges.push("Two-Way Player");
+  }
 
-// Two-Way Player Badge
-if (parseFloat(seasonData['ORTG_ADJ']) > 110 && parseFloat(seasonData['DRTG_ADJ']) < 90 && parseFloat(seasonData['NRTG_ADJ']) > 0) {
-  badges.push("Two-Way Player");
-}
+  // Efficient Shooter Badge
+  if (parseFloat(seasonData['EFG%']) > 55 && parseFloat(seasonData['TS%']) > 60 && parseFloat(seasonData['FGA']) >= 20 && parseFloat(seasonData['3PA']) >= 10 && parseFloat(seasonData['3PAPG']) >= 2.0) {
+    badges.push("Efficient Shooter");
+  }
 
-// Efficient Shooter Badge
-if (parseFloat(seasonData['EFG%']) > 55 && parseFloat(seasonData['TS%']) > 60 && parseFloat(seasonData['FGA']) >= 20 && parseFloat(seasonData['3PA']) >= 10 && parseFloat(seasonData['3PAPG']) >= 2.0) {
-  badges.push("Efficient Shooter");
-}
+  // High Impact Player Badge
+  if (parseFloat(seasonData['PER']) > 30 && parseFloat(seasonData['WS_40']) > 0.20 && parseFloat(seasonData['PIE']) > 10.0) {
+    badges.push("High Impact Player");
+  }
 
-// High Impact Player Badge
-if (parseFloat(seasonData['PER']) > 30 && parseFloat(seasonData['WS_40']) > 0.20 && parseFloat(seasonData['PIE']) > 10.0) {
-  badges.push("High Impact Player");
-}
+  // Sixth Man Badge
+  if (parseFloat(seasonData['MPG']) < 20 && parseFloat(seasonData['PPG']) >= 8.5 && parseFloat(seasonData['APG']) >= 2 && parseFloat(seasonData['RPG']) >= 3) {
+    badges.push("Sixth Man");
+  }
 
-// Sixth Man Badge
-if (parseFloat(seasonData['MPG']) < 20 && parseFloat(seasonData['PPG']) >= 8.5 && parseFloat(seasonData['APG']) >= 2 && parseFloat(seasonData['RPG']) >= 3) {
-  badges.push("Sixth Man");
-}
+  return badges;
+};
 
-// Funktion, um den relevanten Datensatz für die Badges auszuwählen (basierend auf Kriterien wie gespielte Minuten)
+// Funktion, um den relevanten Datensatz für die Badges auszuwählen (z. B. basierend auf gespielten Minuten)
 const getValidSeasonData = (playerSeasons) => {
-  const filteredSeasons = playerSeasons.filter(row => parseFloat(row.MP) >= 50); // Filter für Minuten
+  const filteredSeasons = playerSeasons.filter(row => parseFloat(row.MP) >= 50); // Filtere nach Minuten
   if (filteredSeasons.length === 0) return null;
 
   // Wähle den neuesten Datensatz aus den gefilterten Saisondaten
@@ -77,11 +77,11 @@ const getValidSeasonData = (playerSeasons) => {
   return filteredSeasons[0];
 };
 
-// Funktion zur Vergabe der Badges für jeden Spieler
+// Funktion zur Vergabe der Badges für jeden Spieler, ohne die vorhandenen Datensätze zu löschen
 const processBadges = async () => {
   try {
     const playersData = await importCSV(path.join(__dirname, 'data', 'PLAYERS.csv'));
-    const updatedPlayersData = [...playersData]; // Alle Datensätze beibehalten
+    const updatedPlayersData = [...playersData]; // Kopie aller Datensätze
 
     const playersGrouped = playersData.reduce((acc, player) => {
       if (!acc[player.PlayerID]) {
@@ -99,15 +99,15 @@ const processBadges = async () => {
       const validSeasonData = getValidSeasonData(playerSeasons);
 
       if (validSeasonData) {
-        // Vergib Badges für den relevanten Datensatz
+        // Vergib Badges nur für den relevanten Datensatz
         const badges = assignBadges(validSeasonData);
 
-        // Aktualisiere die Badges nur in diesem relevanten Datensatz
+        // Füge die Badges zum richtigen Datensatz hinzu
         validSeasonData.Badges = badges.join(',');
       }
     });
 
-    // Schreibe die aktualisierten Daten in die CSV-Datei zurück (behalte alle Datensätze bei)
+    // Schreibe alle Datensätze wieder in die CSV-Datei zurück
     await writeCSV('data/PLAYERS.csv', updatedPlayersData, Object.keys(updatedPlayersData[0]));
 
     console.log('Badges successfully assigned.');
