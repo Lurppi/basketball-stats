@@ -413,15 +413,15 @@ const getAllValidPlayerStats = (req, res) => {
 
           // Den besten Datensatz aus der letzten Saison finden
           selectedSeasonData.sort((a, b) => b.SEASON_YEAR.localeCompare(a.SEASON_YEAR));
-          const bestSeasonData = selectedSeasonData[0];
+          const bestPlayerSeasonData = selectedSeasonData[0]; // Neuer Name für die Variable
 
           // Vergib die Badges für diesen Datensatz
-          const badges = assignBadges(bestSeasonData);
+          const badges = assignBadges(bestPlayerSeasonData);
 
           // Füge die Daten und Badges zur finalen Liste hinzu
           finalResults.push({
             playerID: playerID,
-            seasonStats: bestSeasonData,
+            seasonStats: bestPlayerSeasonData,
             badges: badges
           });
         }
