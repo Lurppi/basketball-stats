@@ -351,7 +351,7 @@ const getPlayersData = (req, res) => {
 };
 
 // Funktion zur Generierung aller PlayerIDs, die Badge erhalten haben
-  const getAllValidPlayerStats = (req, res) => {
+const getAllValidPlayerStats = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv');
 
   const results = {}; // Speichert alle Daten für jede PlayerID
