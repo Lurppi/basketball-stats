@@ -351,7 +351,7 @@ const getPlayersData = (req, res) => {
 };
 
 // Funktion zur Generierung aller PlayerIDs, die Badge erhalten haben
-const getAllValidPlayerStats = (req, res) => {
+  const getAllValidPlayerStats = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv');
 
   const results = {}; // Speichert alle Daten für jede PlayerID
@@ -362,9 +362,14 @@ const getAllValidPlayerStats = (req, res) => {
       return res.status(404).send(`File not found: ${filePath}`);
     }
 
+    console.log(`Reading file: ${filePath}`);
+
     const stream = fs.createReadStream(filePath).pipe(csv({ separator: ';' }));
 
+    let rowsRead = 0; // Variable, um die Anzahl der gelesenen Zeilen zu verfolgen
+
     stream.on('data', (row) => {
+      rowsRead++;
       const cleanedRow = {};
       for (let key in row) {
         const cleanedKey = key.replace(/\uFEFF/g, '').trim();
@@ -374,6 +379,9 @@ const getAllValidPlayerStats = (req, res) => {
       // Sicherstellen, dass wir nur "SEASON" Daten berücksichtigen und mindestens 50 Minuten gespielt wurden
       if (cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON' && parseFloat(cleanedRow.MP) >= 50) {
         const playerID = cleanedRow.PlayerID;
+
+        // Log valid rows for debugging
+        console.log(`Valid row found for PlayerID: ${playerID} with MP: ${cleanedRow.MP}`);
 
         // Wenn es diesen PlayerID noch nicht in den Ergebnissen gibt, initialisiere ein Array
         if (!results[playerID]) {
@@ -386,6 +394,8 @@ const getAllValidPlayerStats = (req, res) => {
     });
 
     stream.on('end', () => {
+      console.log(`Total rows read: ${rowsRead}`); // Logge die Anzahl der gelesenen Zeilen
+
       const finalResults = [];
 
       // Verarbeite die Ergebnisse für alle Spieler
@@ -411,13 +421,13 @@ const getAllValidPlayerStats = (req, res) => {
           (parseFloat(current.MP) > parseFloat(prev.MP) ? current : prev)
         );
 
-        // Debugging: Überprüfe den besten Datensatz
+        // Log den besten Datensatz
         console.log(`Best record for PlayerID: ${playerID}, Season Year: ${bestPlayerSeasonData.SEASON_YEAR}, MP: ${bestPlayerSeasonData.MP}`);
 
         // Vergib die Badges für diesen besten Datensatz
         const badges = assignBadges(bestPlayerSeasonData);
 
-        // Debugging: Überprüfe die vergebenen Badges
+        // Log die vergebenen Badges
         console.log(`Badges for PlayerID: ${playerID}: ${badges}`);
 
         // Nur Spieler, die Badges erhalten haben, in die finale Liste aufnehmen
@@ -429,6 +439,9 @@ const getAllValidPlayerStats = (req, res) => {
           });
         }
       });
+
+      // Debug die finale Anzahl der Spieler, die Badges erhalten haben
+      console.log(`Total players with badges: ${finalResults.length}`);
 
       // Rückgabe der PlayerIDs mit Badges
       res.json({
