@@ -42,7 +42,7 @@ const PlayerPage = () => {
   const [activeTab, setActiveTab] = useState('profile'); // For Profile and Stats Tabs
   const [seasonTypes, setSeasonTypes] = useState([]); // List of available Season Types
   const [seasonType, setSeasonType] = useState(''); // Default Season Type
-  const [statsType, setStatsType] = useState('Totals'); // Default Stats Type
+  const [statsType, setStatsType] = useState('Averages'); // Default Stats Type
   const [filteredStats, setFilteredStats] = useState([]); // Filtered data based on selected Season Type
   const [loadingProfile, setLoadingProfile] = useState(true); // Ladezustand für Profil
   const [loadingBadges, setLoadingBadges] = useState(true); // Ladezustand für Badges
