@@ -22,4 +22,9 @@ router.get('/stats/:playerID/valid', (req, res) => {
   playersController.getValidPlayerStats(req, res);
 });
 
+// Route für das Abrufen der validierten Statistiken für alle Spieler
+router.get('/stats/all/valid', (req, res) => {
+  playersController.getAllValidPlayerStats(req, res); // Verwende die neue Funktion im Controller
+});
+
 module.exports = router;

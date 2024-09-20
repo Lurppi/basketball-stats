@@ -350,6 +350,98 @@ const getPlayersData = (req, res) => {
   });
 };
 
+// Funktion: Alle PlayerIDs die Badges erhalten haben
+const getAllValidPlayerStats = (req, res) => {
+  const filePath = path.join(__dirname, '../data/PLAYERS.csv');
+
+  const results = {};
+
+  fs.access(filePath, fs.constants.F_OK, (err) => {
+    if (err) {
+      console.error(`File not found: ${filePath}`);
+      if (!res.headersSent) {
+        return res.status(404).send(`File not found: ${filePath}`);
+      }
+    }
+
+    const stream = fs.createReadStream(filePath).pipe(csv({ separator: ';' }));
+
+    stream.on('data', (row) => {
+      const cleanedRow = {};
+      for (let key in row) {
+        const cleanedKey = key.replace(/\uFEFF/g, '').trim();
+        cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
+      }
+
+      // Sicherstellen, dass wir nur SEASON-Daten berücksichtigen
+      if (cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON') {
+        const playerID = cleanedRow.PlayerID;
+
+        // Wenn es diesen PlayerID noch nicht in den Ergebnissen gibt, initialisiere ein Array
+        if (!results[playerID]) {
+          results[playerID] = [];
+        }
+
+        // Füge alle Season-Datensätze für den Spieler hinzu
+        results[playerID].push(cleanedRow);
+      }
+    });
+
+    stream.on('end', () => {
+      const finalResults = [];
+
+      // Verarbeite die Ergebnisse für alle Spieler
+      Object.keys(results).forEach(playerID => {
+        const playerStats = results[playerID];
+
+        // Filtere nach mindestens 50 Minuten gespielten Minuten
+        const validResults = playerStats.filter(row => parseFloat(row.MP) >= 50);
+
+        if (validResults.length > 0) {
+          // Gruppiere nach Saison und finde den Datensatz mit den meisten Minuten pro Saison
+          const groupedBySeason = {};
+          validResults.forEach(row => {
+            if (!groupedBySeason[row.SEASON_YEAR]) {
+              groupedBySeason[row.SEASON_YEAR] = [];
+            }
+            groupedBySeason[row.SEASON_YEAR].push(row);
+          });
+
+          const selectedSeasonData = Object.values(groupedBySeason).map(seasonRows => {
+            return seasonRows.reduce((prev, current) => (parseFloat(current.MP) > parseFloat(prev.MP) ? current : prev));
+          });
+
+          // Den besten Datensatz aus der letzten Saison finden
+          selectedSeasonData.sort((a, b) => b.SEASON_YEAR.localeCompare(a.SEASON_YEAR));
+          const bestSeasonData = selectedSeasonData[0];
+
+          // Vergib die Badges für diesen Datensatz
+          const badges = assignBadges(bestSeasonData);
+
+          // Füge die Daten und Badges zur finalen Liste hinzu
+          finalResults.push({
+            playerID: playerID,
+            seasonStats: bestSeasonData,
+            badges: badges
+          });
+        }
+      });
+
+      res.json({
+        totalPlayersWithBadges: finalResults.length, // Anzahl der Spieler, die Badges erhalten haben
+        players: finalResults // Liste aller Spieler und ihrer Badges
+      });
+    });
+
+    stream.on('error', (err) => {
+      console.error(`Error reading the CSV file: ${err}`);
+      if (!res.headersSent) {
+        res.status(500).send('Error reading the CSV file');
+      }
+    });
+  });
+};
+
 // Funktion zur Generierung der Sitemap
 const generateSitemap = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv');
