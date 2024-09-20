@@ -355,14 +355,18 @@ const getAllValidPlayerStats = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv');
 
   const results = {}; // Speichert alle Daten für jede PlayerID
+  let debugInfo = []; // Für Debugging-Informationen, die zurückgegeben werden sollen
 
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
-      console.error(`File not found: ${filePath}`);
-      return res.status(404).send(`File not found: ${filePath}`);
+      debugInfo.push(`File not found: ${filePath}`);
+      return res.status(404).json({
+        error: `File not found: ${filePath}`,
+        debugInfo: debugInfo
+      });
     }
 
-    console.log(`Reading file: ${filePath}`);
+    debugInfo.push(`Reading file: ${filePath}`);
 
     const stream = fs.createReadStream(filePath).pipe(csv({ separator: ';' }));
 
@@ -381,7 +385,7 @@ const getAllValidPlayerStats = (req, res) => {
         const playerID = cleanedRow.PlayerID;
 
         // Log valid rows for debugging
-        console.log(`Valid row found for PlayerID: ${playerID} with MP: ${cleanedRow.MP}`);
+        debugInfo.push(`Valid row found for PlayerID: ${playerID} with MP: ${cleanedRow.MP}`);
 
         // Wenn es diesen PlayerID noch nicht in den Ergebnissen gibt, initialisiere ein Array
         if (!results[playerID]) {
@@ -394,7 +398,7 @@ const getAllValidPlayerStats = (req, res) => {
     });
 
     stream.on('end', () => {
-      console.log(`Total rows read: ${rowsRead}`); // Logge die Anzahl der gelesenen Zeilen
+      debugInfo.push(`Total rows read: ${rowsRead}`); // Logge die Anzahl der gelesenen Zeilen
 
       const finalResults = [];
 
@@ -422,13 +426,13 @@ const getAllValidPlayerStats = (req, res) => {
         );
 
         // Log den besten Datensatz
-        console.log(`Best record for PlayerID: ${playerID}, Season Year: ${bestPlayerSeasonData.SEASON_YEAR}, MP: ${bestPlayerSeasonData.MP}`);
+        debugInfo.push(`Best record for PlayerID: ${playerID}, Season Year: ${bestPlayerSeasonData.SEASON_YEAR}, MP: ${bestPlayerSeasonData.MP}`);
 
         // Vergib die Badges für diesen besten Datensatz
         const badges = assignBadges(bestPlayerSeasonData);
 
         // Log die vergebenen Badges
-        console.log(`Badges for PlayerID: ${playerID}: ${badges}`);
+        debugInfo.push(`Badges for PlayerID: ${playerID}: ${badges}`);
 
         // Nur Spieler, die Badges erhalten haben, in die finale Liste aufnehmen
         if (badges.length > 0) {
@@ -441,20 +445,22 @@ const getAllValidPlayerStats = (req, res) => {
       });
 
       // Debug die finale Anzahl der Spieler, die Badges erhalten haben
-      console.log(`Total players with badges: ${finalResults.length}`);
+      debugInfo.push(`Total players with badges: ${finalResults.length}`);
 
-      // Rückgabe der PlayerIDs mit Badges
+      // Rückgabe der PlayerIDs mit Badges und Debug-Informationen
       res.json({
         totalPlayersWithBadges: finalResults.length, // Anzahl der Spieler, die Badges erhalten haben
-        players: finalResults // Liste aller Spieler und ihrer Badges
+        players: finalResults, // Liste aller Spieler und ihrer Badges
+        debugInfo: debugInfo // Füge die Debug-Informationen hinzu
       });
     });
 
     stream.on('error', (err) => {
-      console.error(`Error reading the CSV file: ${err}`);
-      if (!res.headersSent) {
-        res.status(500).send('Error reading the CSV file');
-      }
+      debugInfo.push(`Error reading the CSV file: ${err}`);
+      res.status(500).json({
+        error: `Error reading the CSV file`,
+        debugInfo: debugInfo
+      });
     });
   });
 };
