@@ -67,7 +67,7 @@ const PlayerPage = () => {
   useEffect(() => {
     const fetchPlayerStats = async () => {
       try {
-        const response = await fetch(`https://backend-sandy-rho.vercel.app/api/players/stats/${id}/season`);
+        const response = await fetch(`https://backend-sandy-rho.vercel.app/api/players/stats/${id}`);
         const statsData = await response.json();
 
         if (!statsData || !Array.isArray(statsData)) {
