@@ -371,12 +371,9 @@ const getAllValidPlayerStats = (req, res) => {
         cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
       }
 
-      // Sicherstellen, dass wir nur "SEASON" Daten berücksichtigen und mindestens 50 Minuten
+      // Sicherstellen, dass wir nur "SEASON" Daten berücksichtigen und mindestens 50 Minuten gespielt wurden
       if (cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON' && parseFloat(cleanedRow.MP) >= 50) {
         const playerID = cleanedRow.PlayerID;
-
-        // Debugging-Log: Zeige alle gültigen Datensätze für Spieler an
-        console.log(`Valid record found for PlayerID: ${playerID} - MP: ${cleanedRow.MP}`);
 
         // Wenn es diesen PlayerID noch nicht in den Ergebnissen gibt, initialisiere ein Array
         if (!results[playerID]) {
@@ -395,9 +392,6 @@ const getAllValidPlayerStats = (req, res) => {
       Object.keys(results).forEach(playerID => {
         const playerStats = results[playerID];
 
-        // Debugging-Log: Zeige alle Statistiken für jede PlayerID
-        console.log(`Processing PlayerID: ${playerID}, Total Records: ${playerStats.length}`);
-
         // Gruppiere nach "SEASON_YEAR", um die aktuellste Saison zu finden
         const groupedBySeasonYear = {};
         playerStats.forEach(row => {
@@ -408,7 +402,7 @@ const getAllValidPlayerStats = (req, res) => {
           groupedBySeasonYear[seasonYear].push(row);
         });
 
-        // Finde die aktuellste Saison
+        // Finde die aktuellste Saison (höchstes SEASON_YEAR)
         const latestSeasonYear = Object.keys(groupedBySeasonYear).sort((a, b) => b.localeCompare(a))[0];
         const latestSeasonRows = groupedBySeasonYear[latestSeasonYear];
 
@@ -417,13 +411,13 @@ const getAllValidPlayerStats = (req, res) => {
           (parseFloat(current.MP) > parseFloat(prev.MP) ? current : prev)
         );
 
-        // Debugging-Log: Zeige den ausgewählten besten Datensatz für den Spieler
+        // Debugging: Überprüfe den besten Datensatz
         console.log(`Best record for PlayerID: ${playerID}, Season Year: ${bestPlayerSeasonData.SEASON_YEAR}, MP: ${bestPlayerSeasonData.MP}`);
 
         // Vergib die Badges für diesen besten Datensatz
         const badges = assignBadges(bestPlayerSeasonData);
 
-        // Debugging-Log: Zeige, welche Badges vergeben wurden
+        // Debugging: Überprüfe die vergebenen Badges
         console.log(`Badges for PlayerID: ${playerID}: ${badges}`);
 
         // Nur Spieler, die Badges erhalten haben, in die finale Liste aufnehmen
@@ -435,9 +429,6 @@ const getAllValidPlayerStats = (req, res) => {
           });
         }
       });
-
-      // Debugging-Log: Zeige die Anzahl der Spieler, die Badges erhalten haben
-      console.log(`Total players with badges: ${finalResults.length}`);
 
       // Rückgabe der PlayerIDs mit Badges
       res.json({
