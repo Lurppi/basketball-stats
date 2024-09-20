@@ -350,18 +350,15 @@ const getPlayersData = (req, res) => {
   });
 };
 
-// Funktion: Alle PlayerIDs die Badges erhalten haben
 const getAllValidPlayerStats = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv');
 
-  const results = {};
+  const results = {}; // Speichert alle Daten für jede PlayerID
 
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       console.error(`File not found: ${filePath}`);
-      if (!res.headersSent) {
-        return res.status(404).send(`File not found: ${filePath}`);
-      }
+      return res.status(404).send(`File not found: ${filePath}`);
     }
 
     const stream = fs.createReadStream(filePath).pipe(csv({ separator: ';' }));
@@ -373,8 +370,8 @@ const getAllValidPlayerStats = (req, res) => {
         cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
       }
 
-      // Sicherstellen, dass wir nur SEASON-Daten berücksichtigen
-      if (cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON') {
+      // Sicherstellen, dass wir nur "SEASON" Daten berücksichtigen und mindestens 50 Minuten
+      if (cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON' && parseFloat(cleanedRow.MP) >= 50) {
         const playerID = cleanedRow.PlayerID;
 
         // Wenn es diesen PlayerID noch nicht in den Ergebnissen gibt, initialisiere ein Array
@@ -382,7 +379,7 @@ const getAllValidPlayerStats = (req, res) => {
           results[playerID] = [];
         }
 
-        // Füge alle Season-Datensätze für den Spieler hinzu
+        // Füge alle SEASON-Datensätze für den Spieler hinzu
         results[playerID].push(cleanedRow);
       }
     });
@@ -394,31 +391,30 @@ const getAllValidPlayerStats = (req, res) => {
       Object.keys(results).forEach(playerID => {
         const playerStats = results[playerID];
 
-        // Filtere nach mindestens 50 Minuten gespielten Minuten
-        const validResults = playerStats.filter(row => parseFloat(row.MP) >= 50);
+        // Gruppiere nach "SEASON_YEAR", um die aktuellste Saison zu finden
+        const groupedBySeasonYear = {};
+        playerStats.forEach(row => {
+          const seasonYear = row.SEASON_YEAR;
+          if (!groupedBySeasonYear[seasonYear]) {
+            groupedBySeasonYear[seasonYear] = [];
+          }
+          groupedBySeasonYear[seasonYear].push(row);
+        });
 
-        if (validResults.length > 0) {
-          // Gruppiere nach Saison und finde den Datensatz mit den meisten Minuten pro Saison
-          const groupedBySeason = {};
-          validResults.forEach(row => {
-            if (!groupedBySeason[row.SEASON_YEAR]) {
-              groupedBySeason[row.SEASON_YEAR] = [];
-            }
-            groupedBySeason[row.SEASON_YEAR].push(row);
-          });
+        // Finde die aktuellste Saison
+        const latestSeasonYear = Object.keys(groupedBySeasonYear).sort((a, b) => b.localeCompare(a))[0];
+        const latestSeasonRows = groupedBySeasonYear[latestSeasonYear];
 
-          const selectedSeasonData = Object.values(groupedBySeason).map(seasonRows => {
-            return seasonRows.reduce((prev, current) => (parseFloat(current.MP) > parseFloat(prev.MP) ? current : prev));
-          });
+        // Wenn mehrere Datensätze in der aktuellsten Saison vorhanden sind, wähle den mit den meisten gespielten Minuten
+        const bestPlayerSeasonData = latestSeasonRows.reduce((prev, current) =>
+          (parseFloat(current.MP) > parseFloat(prev.MP) ? current : prev)
+        );
 
-          // Den besten Datensatz aus der letzten Saison finden
-          selectedSeasonData.sort((a, b) => b.SEASON_YEAR.localeCompare(a.SEASON_YEAR));
-          const bestPlayerSeasonData = selectedSeasonData[0]; // Neuer Name für die Variable
+        // Vergib die Badges für diesen besten Datensatz
+        const badges = assignBadges(bestPlayerSeasonData);
 
-          // Vergib die Badges für diesen Datensatz
-          const badges = assignBadges(bestPlayerSeasonData);
-
-          // Füge die Daten und Badges zur finalen Liste hinzu
+        // Nur Spieler, die Badges erhalten haben, in die finale Liste aufnehmen
+        if (badges.length > 0) {
           finalResults.push({
             playerID: playerID,
             seasonStats: bestPlayerSeasonData,
@@ -427,6 +423,7 @@ const getAllValidPlayerStats = (req, res) => {
         }
       });
 
+      // Rückgabe der PlayerIDs mit Badges
       res.json({
         totalPlayersWithBadges: finalResults.length, // Anzahl der Spieler, die Badges erhalten haben
         players: finalResults // Liste aller Spieler und ihrer Badges
