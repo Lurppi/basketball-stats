@@ -47,6 +47,31 @@ const PlayerPage = () => {
   const [loadingProfile, setLoadingProfile] = useState(true); // Ladezustand für Profil
   const [loadingBadges, setLoadingBadges] = useState(true); // Ladezustand für Badges
   const [error, setError] = useState(null);
+  const [playerInfo, setPlayerInfo] = useState(null); // Neuer Zustand für PlayerInfo
+  const [loadingPlayerInfo, setLoadingPlayerInfo] = useState(true); // Ladezustand für PlayerInfo
+  const [playerInfoError, setPlayerInfoError] = useState(null); // Fehlerzustand für PlayerInfo
+
+  useEffect(() => {
+    const fetchPlayerInfo = async () => {
+      try {
+        const response = await fetch(`https://backend-sandy-rho.vercel.app/api/players/stats/${id}`);
+        const statsData = await response.json();
+
+        if (!statsData || !statsData.seasonStats) {
+          throw new Error('Player info not found or invalid format');
+        }
+
+        setPlayerInfo(statsData.seasonStats); // Spielerstatistiken speichern
+      } catch (err) {
+        console.error('Error fetching player info:', err);
+        setPlayerInfoError(err.message); // Fehler setzen, falls API-Aufruf fehlschlägt
+      } finally {
+        setLoadingPlayerInfo(false); // Ladezustand beenden
+      }
+    };
+
+    fetchPlayerInfo();
+  }, [id]);
 
   // Funktion, um das Alter zu berechnen
   const calculateAge = (birthDate) => {
@@ -385,15 +410,15 @@ const PlayerPage = () => {
       <Header />
 
       {/* Spielerprofil und Informationen */}
-      {loadingProfile ? (
+      {loadingPlayerInfo ? (
         <p>Loading player profile...</p>
-      ) : playerStats.length > 0 ? (
+      ) : playerInfo ? (
         <div className="playerpage-fixed-container">
           <div className="playerpage-profile-modern">
-            <h1 className="player-name">{playerStats[0].TEAM_long || 'Unknown Team'}</h1>
+            <h1 className="player-name">{playerInfo.TEAM_long || 'Unknown Team'}</h1>
             <div className="team-position">
               <div>
-                <p className="team-name">{playerStats[0].PLAYER || 'Unknown Player'}</p>
+                <p className="team-name">{playerInfo.PLAYER || 'Unknown Player'}</p>
               </div>
             </div>
 
@@ -401,42 +426,42 @@ const PlayerPage = () => {
             <div className="player-info-row">
               <div className="info-item">
                 <h4>Position</h4>
-                <p>{playerStats[0].POS || 'Unknown'}</p>
+                <p>{playerInfo.POS || 'Unknown'}</p>
               </div>
               <div className="info-item">
                 <h4>Offensive Role</h4>
-                <p>{playerStats[0].ROLE || 'Unknown'}</p>
+                <p>{playerInfo.ROLE || 'Unknown'}</p>
               </div>
               <div className="info-item">
                 <h4>Born</h4>
-                <p>{playerStats[0].BIRTHDATE || 'Unknown'}</p>
+                <p>{playerInfo.BIRTHDATE || 'Unknown'}</p>
               </div>
               <div className="info-item">
                 <h4>Age</h4>
-                <p>{calculateAge(playerStats[0].BIRTHDATE)} years</p>
+                <p>{calculateAge(playerInfo.BIRTHDATE)} years</p>
               </div>
             </div>
 
             {/* Statistische Kreise */}
             <div className="player-stats-circle-container">
               <div className="player-stats-circle">
-                <h4>{playerStats[0].PPG || 'N/A'}</h4>
+                <h4>{playerInfo.PPG || 'N/A'}</h4>
                 <p>PTS</p>
               </div>
               <div className="player-stats-circle">
-                <h4>{playerStats[0].RPG || 'N/A'}</h4>
+                <h4>{playerInfo.RPG || 'N/A'}</h4>
                 <p>REB</p>
               </div>
               <div className="player-stats-circle">
-                <h4>{playerStats[0].APG || 'N/A'}</h4>
+                <h4>{playerInfo.APG || 'N/A'}</h4>
                 <p>AST</p>
               </div>
               <div className="player-stats-circle">
-                <h4>{playerStats[0].PER || 'N/A'}</h4>
+                <h4>{playerInfo.PER || 'N/A'}</h4>
                 <p>PER</p>
               </div>
               <div className="player-stats-circle">
-                <h4>{playerStats[0].PIE || 'N/A'}</h4>
+                <h4>{playerInfo.PIE || 'N/A'}</h4>
                 <p>PIE</p>
               </div>
             </div>
