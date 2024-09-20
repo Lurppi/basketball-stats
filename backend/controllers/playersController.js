@@ -62,14 +62,10 @@ const getPlayerSeasonStats = (req, res) => {
         selectedSeasonData = jbblData || nbblData || filteredResults[0];
       }
 
-      // Vergib die Badges basierend auf den Statistiken der letzten Saison
-      const badges = assignBadges(selectedSeasonData);
-
-      // Füge die Badges zu den Rückgabedaten hinzu
+      // Rückgabedaten ohne Badges
       if (!res.headersSent) {
         res.json({
-          seasonStats: selectedSeasonData,
-          badges: badges
+          seasonStats: selectedSeasonData
         });
       }
     });
@@ -455,44 +451,11 @@ const generateSitemap = (req, res) => {
     });
 };
 
-// Funktion, um alle Spieler mit Badges auszugeben
-const getPlayersWithBadges = (req, res) => {
-  const filePath = path.join(__dirname, '../data/PLAYERS.csv');
-
-  let playersWithBadges = [];
-
-  // CSV-Datei öffnen und durch die Spieler iterieren
-  fs.createReadStream(filePath)
-    .pipe(csv({ separator: ';' }))
-    .on('data', (row) => {
-      if (row.Badges && row.Badges.length > 0) {
-        playersWithBadges.push({
-          id: row.PlayerID,
-          name: row.PlayerName,
-          badges: row.Badges.split(',') // Falls mehrere Badges als Komma-getrennte Liste gespeichert sind
-        });
-      }
-    })
-    .on('end', () => {
-      // JSON-Antwort mit Spielern, die Badges haben
-      if (!res.headersSent) {
-        res.json(playersWithBadges);
-      }
-    })
-    .on('error', (err) => {
-      console.error('Error reading file:', err);
-      if (!res.headersSent) {
-        res.status(500).send('Error retrieving players with badges');
-      }
-    });
-};
-
 module.exports = {
   getPlayersData,
   getPlayerSeasonStats,
   getValidPlayerStats,
   getPlayerStatsBySeasonType,
   generateSitemap,
-  getPlayersWithBadges
 };
 
