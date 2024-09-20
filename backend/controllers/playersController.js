@@ -355,7 +355,7 @@ const getAllValidPlayerStats = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv');
 
   const results = {}; // Speichert alle Daten für jede PlayerID
-  let debugInfo = []; // Für Debugging-Informationen, die zurückgegeben werden sollen
+  let debugInfo = []; // Debug-Informationen
 
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
@@ -366,11 +366,10 @@ const getAllValidPlayerStats = (req, res) => {
       });
     }
 
-    debugInfo.push(`Reading file: ${filePath}`);
-
+    // Verwende das richtige Trennzeichen ';' für das Lesen der CSV-Datei
     const stream = fs.createReadStream(filePath).pipe(csv({ separator: ';' }));
 
-    let rowsRead = 0; // Variable, um die Anzahl der gelesenen Zeilen zu verfolgen
+    let rowsRead = 0; // Zähler für gelesene Zeilen
 
     stream.on('data', (row) => {
       rowsRead++;
@@ -380,33 +379,28 @@ const getAllValidPlayerStats = (req, res) => {
         cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
       }
 
-      // Sicherstellen, dass wir nur "SEASON" Daten berücksichtigen und mindestens 50 Minuten gespielt wurden
+      // Filtere nur "SEASON"-Daten und mindestens 50 Minuten Spielzeit
       if (cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON' && parseFloat(cleanedRow.MP) >= 50) {
         const playerID = cleanedRow.PlayerID;
 
-        // Log valid rows for debugging
-        debugInfo.push(`Valid row found for PlayerID: ${playerID} with MP: ${cleanedRow.MP}`);
-
-        // Wenn es diesen PlayerID noch nicht in den Ergebnissen gibt, initialisiere ein Array
+        // Speichere die gültigen Zeilen
         if (!results[playerID]) {
           results[playerID] = [];
         }
-
-        // Füge alle SEASON-Datensätze für den Spieler hinzu
         results[playerID].push(cleanedRow);
       }
     });
 
     stream.on('end', () => {
-      debugInfo.push(`Total rows read: ${rowsRead}`); // Logge die Anzahl der gelesenen Zeilen
+      debugInfo.push(`Total rows read: ${rowsRead}`);
 
       const finalResults = [];
 
-      // Verarbeite die Ergebnisse für alle Spieler
+      // Verarbeite die Ergebnisse für alle PlayerIDs
       Object.keys(results).forEach(playerID => {
         const playerStats = results[playerID];
 
-        // Gruppiere nach "SEASON_YEAR", um die aktuellste Saison zu finden
+        // Gruppiere nach "SEASON_YEAR" und finde die aktuellste Saison
         const groupedBySeasonYear = {};
         playerStats.forEach(row => {
           const seasonYear = row.SEASON_YEAR;
@@ -425,16 +419,10 @@ const getAllValidPlayerStats = (req, res) => {
           (parseFloat(current.MP) > parseFloat(prev.MP) ? current : prev)
         );
 
-        // Log den besten Datensatz
-        debugInfo.push(`Best record for PlayerID: ${playerID}, Season Year: ${bestPlayerSeasonData.SEASON_YEAR}, MP: ${bestPlayerSeasonData.MP}`);
-
-        // Vergib die Badges für diesen besten Datensatz
+        // Vergib die Badges basierend auf dem besten Datensatz
         const badges = assignBadges(bestPlayerSeasonData);
 
-        // Log die vergebenen Badges
-        debugInfo.push(`Badges for PlayerID: ${playerID}: ${badges}`);
-
-        // Nur Spieler, die Badges erhalten haben, in die finale Liste aufnehmen
+        // Füge zur finalen Liste nur Spieler hinzu, die Badges erhalten haben
         if (badges.length > 0) {
           finalResults.push({
             playerID: playerID,
@@ -444,14 +432,13 @@ const getAllValidPlayerStats = (req, res) => {
         }
       });
 
-      // Debug die finale Anzahl der Spieler, die Badges erhalten haben
       debugInfo.push(`Total players with badges: ${finalResults.length}`);
 
       // Rückgabe der PlayerIDs mit Badges und Debug-Informationen
       res.json({
-        totalPlayersWithBadges: finalResults.length, // Anzahl der Spieler, die Badges erhalten haben
-        players: finalResults, // Liste aller Spieler und ihrer Badges
-        debugInfo: debugInfo // Füge die Debug-Informationen hinzu
+        totalPlayersWithBadges: finalResults.length,
+        players: finalResults,
+        debugInfo: debugInfo // Debug-Informationen zur Prüfung
       });
     });
 
