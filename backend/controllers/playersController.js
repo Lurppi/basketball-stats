@@ -89,7 +89,7 @@ const assignBadges = (seasonData) => {
   };
 
   // Sharpshooter Badge
-  if (parseFloat(seasonData['3P%']) > 33.3 && parseFloat(seasonData['3PAPG']) >= 4 && parseFloat(seasonData['3PA']) >= 20) {
+  if (parseFloat(seasonData['3P%']) > 33.0 && parseFloat(seasonData['3PAPG']) >= 4 && parseFloat(seasonData['3PA']) >= 20) {
     badges.push("Sharpshooter");
     logBadge("Sharpshooter");
   }
