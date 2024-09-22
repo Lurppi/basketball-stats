@@ -222,9 +222,14 @@ const Teams = () => {
                 onChange={e => setFilters({ ...filters, season: e.target.value })}
               >
                 <option value="All">All</option>
-                {seasons.map((season, idx) => (
-                  <option key={idx} value={season}>{season}</option> // Hier wird bereits die formatierte Season angezeigt
-                ))}
+                {seasons.map((season, idx) => {
+                  const formattedSeason = `${season.slice(0, 4)}-${season.slice(4)}`;
+                  return (
+                    <option key={idx} value={season}>
+                      {formattedSeason}
+                    </option>
+                  );
+                })}
               </select>
             </label>
 
