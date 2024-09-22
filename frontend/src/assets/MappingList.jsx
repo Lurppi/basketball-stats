@@ -95,6 +95,18 @@ export const columnHeaderMapping = {
   "DRPG": "DR",
   "Team": "TEAM",
   "Win%": "WIN%",
+  'ORTG_ADJ': "ORTG",
+  'DRTG_ADJ': "DRTG",
+  'NRTG_ADJ': "NRTG",
+  'STOPS_Gm': "ST/Gm",
+  '2PMPG': "2PM",
+  '2PAPG': "2PA",
+  '3PMPG': "3PM",
+  '3PAPG': "3PA",
+  'FGMPG': "FGM",
+  'FGAPG': "FGA",
+  'FTMPG': "FTM",
+  'FTAPG': "FTA",
   };
 
 export const ToolheadersMapping = {
@@ -193,6 +205,18 @@ export const ToolheadersMapping = {
   "ORPG": "Offensive Rebounds per Game",
   "DRPG": "Defensive Rebounds per Game",
   "Win%": "Win Percentage",
+  'ORTG_ADJ': "Pace adjusted Offensive Rating",
+  'DRTG_ADJ': "Pace adjusted Defensive Rating",
+  'NRTG_ADJ': "Pace adjusted Net Rating",
+  'STOPS_Gm': "Stops per Game",
+  '2PMPG': "2-Pointer Made",
+  '2PAPG': "2-Point Attempts",
+  '3PMPG': "3-Pointer Made",
+  '3PAPG': "3-Point Attempts",
+  'FGMPG': "Field Goals Made",
+  'FGAPG': "Field Goal Attempts",
+  'FTMPG': "Free Throws Made",
+  'FTAPG': "Free Throw Attempts",
 };
 
 export const teamImageMappings = {

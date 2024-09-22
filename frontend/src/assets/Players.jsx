@@ -19,17 +19,25 @@ const columnMappings = {
     'PLAYER', 'TEAM_ID', 'POS', 'ROLE', '2PM', '2PA', '2P%', '3PM', '3PA', '3P%', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%',
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP', 'TEAM', 'PlayerID'
   ],
+  'Shooting per Game': [
+    'PLAYER', 'TEAM_ID', 'POS', 'ROLE', '2PMPG', '2PAPG', '2P%', '3PMPG', '3PAPG', '3P%', 'FGMPG', 'FGAPG', 'FG%', 'FTMPG', 'FTAPG', 'FT%',
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP', 'TEAM', 'PlayerID'
+  ],
+  Defense: [
+    'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'GP', 'MPG', 'DRTG_ADJ', 'DBPM', 'DWS', 'STOPS', 'STOPS_Gm', 'STOP%', 'DFG%', 'DRB%', 'ST%', 'BS%',
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM', 'PlayerID'
+  ],
   'Advanced 1': [
-    'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'FIC', 'FIC_Gm', 'TS%', 'AS_RATIO', 'AS_RATE', 'AS_TO', 'REB%', 'ST%', 'BS%',
+    'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'ORTG_ADJ', 'DRTG_ADJ', 'NRTG_ADJ', 'PER', 'PIE', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE',
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM', 'PlayerID'
   ],
   'Advanced 2': [
-    'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'PER', 'PIE', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE', 'ORTG', 'DRTG', 'NRTG',
-    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM', 'PlayerID'
-  ],
-  'Advanced 3': [
     'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'PER', 'OBPM', 'DBPM', 'BPM', 'VORP', 'OWS', 'DWS', 'WS', 'WS_40',
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'MP', 'PIE', 'TEAM', 'PlayerID'
+  ],  
+  'Advanced 3': [
+    'PLAYER', 'TEAM_ID', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'FIC', 'FIC_Gm', 'TS%', 'AS_RATIO', 'AS_RATE', 'AS_TO', 'ORB%', 'DRB%', 'REB%',
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM', 'PlayerID'
   ],
 };
 
