@@ -451,11 +451,69 @@ const generateSitemap = (req, res) => {
     });
 };
 
+// Neue Funktion: Filtere Spieler-Daten nach Season Year
+const getPlayersBySeason = (req, res) => {
+  const filePath = path.join(__dirname, '../data/PLAYERS.csv');
+  const { seasonYear } = req.params;
+
+  if (!seasonYear) {
+    return res.status(400).send('Season year is required');
+  }
+
+  const results = [];
+
+  fs.access(filePath, fs.constants.F_OK, (err) => {
+    if (err) {
+      console.error(`File not found: ${filePath}`);
+      if (!res.headersSent) {
+        return res.status(404).send(`File not found: ${filePath}`);
+      }
+    }
+
+    const stream = fs.createReadStream(filePath).pipe(csv({ separator: ';' }));
+
+    stream.on('data', (row) => {
+      const cleanedRow = {};
+      for (let key in row) {
+        const cleanedKey = key.replace(/\uFEFF/g, '').trim();
+        cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
+      }
+
+      // Filtere nur die Zeilen, die zur ausgewählten Saison gehören
+      if (cleanedRow.SEASON_YEAR === seasonYear && cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON') {
+        results.push(cleanedRow);
+      }
+    });
+
+    stream.on('end', () => {
+      if (results.length === 0) {
+        console.log(`No stats found for season ${seasonYear}`);
+        if (!res.headersSent) {
+          return res.status(404).send('No stats found for the selected season');
+        }
+      }
+
+      // Rückgabe der gefilterten Daten zur ausgewählten Saison
+      if (!res.headersSent) {
+        res.json(results);
+      }
+    });
+
+    stream.on('error', (err) => {
+      console.error(`Error reading the CSV file: ${err}`);
+      if (!res.headersSent) {
+        res.status(500).send('Error reading the CSV file');
+      }
+    });
+  });
+};
+
 module.exports = {
   getPlayersData,
   getPlayerSeasonStats,
   getValidPlayerStats,
   getPlayerStatsBySeasonType,
   generateSitemap,
+  getPlayersBySeason,
 };
 

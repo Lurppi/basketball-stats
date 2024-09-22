@@ -22,4 +22,9 @@ router.get('/stats/:playerID/valid', (req, res) => {
   playersController.getValidPlayerStats(req, res);
 });
 
+// Neue Route: Spieler-Daten nach Saison filtern
+router.get('/season/:seasonYear', (req, res) => {
+  playersController.getPlayersBySeason(req, res);
+});
+
 module.exports = router;
