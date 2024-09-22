@@ -168,7 +168,7 @@
 .players-table-container th:nth-of-type(3),
 .players-table-container td:nth-of-type(3) {
   text-align: left;
-  width: 220px;
+  width: 120px;
 }
 
 .players-footer {
