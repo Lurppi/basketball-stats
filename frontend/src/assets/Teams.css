@@ -46,9 +46,8 @@
   padding: 6px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  max-width: 100%;
+  width: 120px;
   /* Maximal auf Bildschirmbreite begrenzen */
-  min-width: 160px;
 }
 
 .teams-filters select {
