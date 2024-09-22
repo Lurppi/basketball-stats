@@ -113,7 +113,7 @@ const assignBadges = (seasonData) => {
   }
 
   // Lockdown Defender Badge
-  if (parseFloat(seasonData['ST%']) >= 3.0 && parseFloat(seasonData['STOP%']) >= 70.0 && parseFloat(seasonData['DFG%']) <= 42.0 && parseFloat(seasonData['DRTG_ADJ']) < 90) {
+  if (parseFloat(seasonData['ST%']) >= 3.0 && parseFloat(seasonData['STOP%']) >= 55.0 && parseFloat(seasonData['DFG%']) <= 42.0 && parseFloat(seasonData['DRTG_ADJ']) < 90) {
     badges.push("Lockdown Defender");
     logBadge("Lockdown Defender");
   }
