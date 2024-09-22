@@ -217,6 +217,9 @@ export const ToolheadersMapping = {
   'FGAPG': "Field Goal Attempts",
   'FTMPG': "Free Throws Made",
   'FTAPG': "Free Throw Attempts",
+  'DFG%': "Defensive Field Goal Percentage",
+  'DRB%': "Defensive Rebound Percentage",
+  'STOP%': "Stop Percentage",
 };
 
 export const teamImageMappings = {
