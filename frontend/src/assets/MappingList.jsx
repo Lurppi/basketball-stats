@@ -87,10 +87,10 @@ export const columnHeaderMapping = {
   WINS: "WINS",
   PACE: "PACE",
   PPP: "PPP",
-  "OPP_EFG%": "OPPEFG%",
-  "OPP_TOV%": "OPPTOV%",
-  "OPP_ORB%": "OPPORB%",
-  "OPP_FT_RATE": "OPPFTR",
+  "OPP_EFG%": "EFG%",
+  "OPP_TOV%": "TOV%",
+  "OPP_ORB%": "ORB%",
+  "OPP_FT_RATE": "FTR",
   "ORPG": "OR",
   "DRPG": "DR",
   "Team": "TEAM",
@@ -107,6 +107,7 @@ export const columnHeaderMapping = {
   'FGAPG': "FGA",
   'FTMPG': "FTM",
   'FTAPG': "FTA",
+  'OPP3PR': "3PR",
 };
 
 export const ToolheadersMapping = {
