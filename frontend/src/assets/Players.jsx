@@ -61,7 +61,7 @@ const Players = () => {
     team: 'All',
     position: 'All',
     offensiveRole: 'All',
-    seasonType: 'REGULAR SEASON', 
+    seasonType: '', 
     born: 'All',
     gamesPlayed: '',
     minutesPlayed: '',
@@ -104,7 +104,7 @@ const Players = () => {
         // Stelle sicher, dass applyFilters auch sofort mit "REGULAR SEASON" greiftconst seasonMatch = filters.season === '20232024' || row[headers.indexOf('SEASON_YEAR')] === filters.season;
         setFilters(prevFilters => ({
           ...prevFilters,
-          seasonType: 'REGULAR SEASON',  // Wenn es der erste Render ist, setze "REGULAR SEASON" explizit
+          seasonType: prevFilters.seasonType || 'REGULAR SEASON',  // Verwende den aktuellen Wert oder setze eine Standardoption, falls noch kein Wert existiert
         }));
 
         setLoading(false);
@@ -276,10 +276,10 @@ const Players = () => {
 
       // Wenn diese Filter schon leere Daten liefern, dann ist es ein Fehlerfilter
       if (filteredWithoutInputs.length === 0) {
-        if (filters.seasonType !== 'REGULAR SEASON') {
+        if (filters.seasonType) {  // Stelle sicher, dass ein Wert für seasonType existiert
           setFilters(prevFilters => ({
             ...prevFilters,
-            seasonType: 'REGULAR SEASON',  // Setze nur den "Season Type" zurück, wenn es keine Daten gibt
+            seasonType: prevFilters.seasonType,  // Behalte den aktuellen Wert von seasonType
           }));
         } else if (filters.league !== 'All') {
           setFilters(prevFilters => ({
