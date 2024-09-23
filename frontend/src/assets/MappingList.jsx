@@ -87,10 +87,10 @@ export const columnHeaderMapping = {
   WINS: "WINS",
   PACE: "PACE",
   PPP: "PPP",
-  "OPP_EFG%": "EFG%",
-  "OPP_TOV%": "TOV%",
-  "OPP_ORB%": "ORB%",
-  "OPP_FT_RATE": "FTR",
+  "OPP_EFG%": "OPPEFG%",
+  "OPP_TOV%": "OPPTOV%",
+  "OPP_ORB%": "OPPORB%",
+  "OPP_FT_RATE": "OPPFTR",
   "ORPG": "OR",
   "DRPG": "DR",
   "Team": "TEAM",
@@ -107,7 +107,7 @@ export const columnHeaderMapping = {
   'FGAPG': "FGA",
   'FTMPG': "FTM",
   'FTAPG': "FTA",
-  };
+};
 
 export const ToolheadersMapping = {
   SEASON_YEAR: "Season",
@@ -220,6 +220,8 @@ export const ToolheadersMapping = {
   'DFG%': "Defensive Field Goal Percentage",
   'DRB%': "Defensive Rebound Percentage",
   'STOP%': "Stop Percentage",
+  'OPP3PR': "Opponent 3-Point Attempt Rate",
+  '3PR': "3-Point Attempt Rate",
 };
 
 export const teamImageMappings = {

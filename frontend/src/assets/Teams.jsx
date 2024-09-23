@@ -24,6 +24,10 @@ const columnMappings = {
   Advanced: [
     'TEAM_ID', 'GP', 'WINS', 'PACE', 'ORTG', 'DRTG', 'NRTG', 'PPP', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE', 'TS%', 'AS_TO', 'PER', 'PIE', 'TEAM', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
+
+  "Four Factors": [
+    'TEAM_ID', 'GP', 'WIN%', 'PACE', 'ORTG', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE', '3PR', 'DRTG', 'OPP_EFG%', 'OPP_TOV%', 'OPP_ORB%', 'OPP_FT_RATE', 'OPP3PR', 'TEAM', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
+  ],
 };
 
 const Teams = () => {
