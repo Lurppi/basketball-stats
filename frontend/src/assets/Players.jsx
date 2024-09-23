@@ -24,7 +24,7 @@ const columnMappings = {
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP', 'TEAM_ID', 'PlayerID'
   ],
   'Shooting Rates': [
-    'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', '2P%', '3P%', 'FG%', 'FT%', 'EFG%', 'TS%', '2PAPG', '3PAPG', 'FGAPG',
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', '2P%', '3P%', 'FG%', 'FT%', 'EFG%', 'TS%', 'PT_TSA', 'PPP', 'ORTG_ADJ',
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM_ID', 'PlayerID'
   ],
   Defense: [
