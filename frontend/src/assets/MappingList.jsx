@@ -223,6 +223,7 @@ export const ToolheadersMapping = {
   'STOP%': "Stop Percentage",
   'OPP3PR': "Opponent 3-Point Attempt Rate",
   '3PR': "3-Point Attempt Rate",
+  'FLOOR%': "Decision Making - (High Value = Good Decision Making)"
 };
 
 export const teamImageMappings = {
