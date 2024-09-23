@@ -113,6 +113,7 @@ export const columnHeaderMapping = {
   HIGHRB: "RB",
   HIGHST: "ST",
   HIGHBS: "BS",
+  Pt_TSA: "PT/TSA",
 };
 
 export const ToolheadersMapping = {
@@ -237,6 +238,7 @@ export const ToolheadersMapping = {
   '20+': "20+ Points Games",
   '30+': "30+ Points Games",
   '40+': "40+ Points Games",
+  Pt_TSA: "Points per True Shooting Attempt",
 };
 
 export const teamImageMappings = {
