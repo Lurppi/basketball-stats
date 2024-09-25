@@ -120,6 +120,9 @@ const Teams = () => {
     const updateDropdownValues = () => {
       const filtered = applyFilters(allTeams);
 
+      // Debugging: Zeige gefilterte Teams nach Division-Änderung
+      console.log("Gefilterte Teams:", filtered);
+
       // Aktualisiere Leagues und prüfe den aktuellen Wert
       const uniqueLeagues = [...new Set(
         allTeams
@@ -158,13 +161,10 @@ const Teams = () => {
           .map(team => team[headers.indexOf('SEASON_TYPE')])
       )];
 
-      // Debug-Log: Prüfe, ob uniqueSeasonTypes korrekt sind
       console.log("uniqueSeasonTypes nach Division-Änderung:", uniqueSeasonTypes);
 
-      // Setze die neuen Season Type-Werte
       setSeasonTypes(uniqueSeasonTypes);
 
-      // Fallback auf den ersten verfügbaren Season Type, wenn der aktuelle nicht gültig ist
       if (!uniqueSeasonTypes.includes(filters.seasonType)) {
         setFilters(prev => ({
           ...prev,
@@ -184,6 +184,8 @@ const Teams = () => {
           .map(team => team[headers.indexOf('TEAM')])
       )].sort();
 
+      console.log("Gefilterte Teams für Dropdown:", uniqueTeams);
+
       if (uniqueTeams.includes('All')) {
         uniqueTeams = ['All', ...uniqueTeams.filter(team => team !== 'All')];
       }
@@ -194,8 +196,16 @@ const Teams = () => {
       }
     };
 
+    // Erweiterte Abhängigkeiten für updates (füge seasonType hinzu)
     updateDropdownValues();
-  }, [filters.season, filters.league, filters.division, filters.team, allTeams, headers]);
+  }, [
+    filters.season,
+    filters.league,
+    filters.division,
+    filters.seasonType,  // Füge dies hinzu
+    allTeams,
+    headers
+  ]);
 
   const sortData = (data) => {
     if (!filters.sortStat) return data;
