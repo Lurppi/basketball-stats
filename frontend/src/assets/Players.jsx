@@ -54,7 +54,7 @@ const Players = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [headers, setHeaders] = useState([]);
   const [filters, setFilters] = useState({
-    season: '20232024',
+    season: '',
     league: '', 
     statsType: 'Advanced 1', 
     division: '',
@@ -99,13 +99,22 @@ const Players = () => {
 
           setAllPlayers(processedData);
           setFilteredData(processedData);
-        }
 
-        // Stelle sicher, dass applyFilters auch sofort mit "REGULAR SEASON" greiftconst seasonMatch = filters.season === '20232024' || row[headers.indexOf('SEASON_YEAR')] === filters.season;
-        setFilters(prevFilters => ({
-          ...prevFilters,
-          seasonType: prevFilters.seasonType || 'REGULAR SEASON',  // Verwende den aktuellen Wert oder setze eine Standardoption, falls noch kein Wert existiert
-        }));
+          // Dynamische Ermittlung der verfügbaren Seasons
+          const availableSeasons = [...new Set(data.map(player => player['SEASON_YEAR']))].sort(); // Sortiere die Seasons
+
+          // Speichere alle verfügbaren Seasons
+          setSeasons(availableSeasons);
+
+          // Setze die neueste Saison als Standard, ohne das Array zu verändern
+          const latestSeason = availableSeasons[availableSeasons.length - 1];
+
+          // Setze die Season, falls noch nicht gesetzt
+          setFilters(prevFilters => ({
+            ...prevFilters,
+            season: prevFilters.season || latestSeason // Setze die neueste verfügbare Saison, falls nicht gesetzt
+          }));
+        }
 
         setLoading(false);
       } catch (error) {
@@ -122,12 +131,12 @@ const Players = () => {
   const applyFilters = (data) => {
     return data.filter(row => {
       const seasonMatch = row[headers.indexOf('SEASON_YEAR')] === filters.season;
-      const leagueMatch = filters.league === 'All' || row[headers.indexOf('LEAGUE')] === filters.league;
-      const divisionMatch = filters.division === 'All' || row[headers.indexOf('DIV')] === filters.division;
+      const leagueMatch = row[headers.indexOf('LEAGUE')] === filters.league;
+      const divisionMatch = row[headers.indexOf('DIV')] === filters.division;
+      const seasonTypeMatch = row[headers.indexOf('SEASON_TYPE')] === filters.seasonType;
       const teamMatch = filters.team === 'All' || row[headers.indexOf('TEAM')] === filters.team;
       const positionMatch = filters.position === 'All' || row[headers.indexOf('POS')] === filters.position;
       const offensiveRoleMatch = filters.offensiveRole === 'All' || row[headers.indexOf('ROLE')] === filters.offensiveRole;
-      const seasonTypeMatch = row[headers.indexOf('SEASON_TYPE')] === filters.seasonType;
       const bornMatch = filters.born === 'All' || row[headers.indexOf('BORN')] === filters.born;
       const gamesPlayedMatch = !filters.gamesPlayed || parseInt(row[headers.indexOf('GP')], 10) >= parseInt(filters.gamesPlayed, 10);
       const minutesPlayedMatch = !filters.minutesPlayed || parseInt(row[headers.indexOf('MP')], 10) >= parseInt(filters.minutesPlayed, 10);
@@ -136,10 +145,10 @@ const Players = () => {
         seasonMatch &&
         leagueMatch &&
         divisionMatch &&
+        seasonTypeMatch &&
         teamMatch &&
         positionMatch &&
         offensiveRoleMatch &&
-        seasonTypeMatch &&
         bornMatch &&
         gamesPlayedMatch &&
         minutesPlayedMatch
@@ -149,173 +158,127 @@ const Players = () => {
 
   useEffect(() => {
     const updateDropdownValues = () => {
-      const filtered = applyFilters(allPlayers); // Verwende gefilterte Daten
+      const filtered = applyFilters(allPlayers);
 
-      // Werte für Season
-      const uniqueSeasons = [...new Set(allPlayers.map(player => player[headers.indexOf('SEASON_YEAR')]))];
-      setSeasons(uniqueSeasons);
-
-      // Werte für League basierend auf der Season
+      // Aktualisiere Leagues und prüfe den aktuellen Wert
       const uniqueLeagues = [...new Set(
         allPlayers
           .filter(player => player[headers.indexOf('SEASON_YEAR')] === filters.season)
           .map(player => player[headers.indexOf('LEAGUE')])
       )];
-      setLeagues(uniqueLeagues);
+      setLeagues(prev => prev.length !== uniqueLeagues.length ? uniqueLeagues : prev);
 
-      // Werte für Division basierend auf League und Season
+      if (!uniqueLeagues.includes(filters.league)) {
+        setFilters(prev => ({ ...prev, league: uniqueLeagues[0] }));
+      }
+
+      // Aktualisiere Divisions und prüfe den aktuellen Wert
       const uniqueDivisions = [...new Set(
         allPlayers
           .filter(player =>
             player[headers.indexOf('SEASON_YEAR')] === filters.season &&
-            (filters.league === 'All' || player[headers.indexOf('LEAGUE')] === filters.league)
+            player[headers.indexOf('LEAGUE')] === filters.league
           )
           .map(player => player[headers.indexOf('DIV')])
       )];
-      setDivisions(uniqueDivisions);
+      setDivisions(prev => prev.length !== uniqueDivisions.length ? uniqueDivisions : prev);
 
-      // Werte für Teams basierend auf Division, League und Season
-      const uniqueTeams = [...new Set(
-        allPlayers
-          .filter(player =>
-            player[headers.indexOf('SEASON_YEAR')] === filters.season &&
-            (filters.league === 'All' || player[headers.indexOf('LEAGUE')] === filters.league) &&
-            (filters.division === 'All' || player[headers.indexOf('DIV')] === filters.division)
-          )
-          .map(player => player[headers.indexOf('TEAM')])
-      )];
-      setTeams(uniqueTeams);
+      if (!uniqueDivisions.includes(filters.division)) {
+        setFilters(prev => ({ ...prev, division: uniqueDivisions[0] }));
+      }
 
-      // Werte für Position basierend auf allen vorherigen Filtern
-      const uniquePositions = [...new Set(
-        allPlayers
-          .filter(player =>
-            player[headers.indexOf('SEASON_YEAR')] === filters.season &&
-            (filters.league === 'All' || player[headers.indexOf('LEAGUE')] === filters.league) &&
-            (filters.division === 'All' || player[headers.indexOf('DIV')] === filters.division) &&
-            (filters.team === 'All' || player[headers.indexOf('TEAM')] === filters.team)
-          )
-          .map(player => player[headers.indexOf('POS')])
-      )];
-      setPositions(uniquePositions);
-
-      // Werte für Offensive Role basierend auf allen vorherigen Filtern
-      const uniqueOffensiveRoles = [...new Set(
-        allPlayers
-          .filter(player =>
-            player[headers.indexOf('SEASON_YEAR')] === filters.season &&
-            (filters.league === 'All' || player[headers.indexOf('LEAGUE')] === filters.league) &&
-            (filters.division === 'All' || player[headers.indexOf('DIV')] === filters.division) &&
-            (filters.team === 'All' || player[headers.indexOf('TEAM')] === filters.team) &&
-            (filters.position === 'All' || player[headers.indexOf('POS')] === filters.position)
-          )
-          .map(player => player[headers.indexOf('ROLE')])
-      )];
-      setOffensiveRoles(uniqueOffensiveRoles);
-
-      // Werte für Born (Geburtsjahr) basierend auf allen vorherigen Filtern
-      const uniqueBornYears = [...new Set(
-        allPlayers
-          .filter(player =>
-            player[headers.indexOf('SEASON_YEAR')] === filters.season &&
-            (filters.league === 'All' || player[headers.indexOf('LEAGUE')] === filters.league) &&
-            (filters.division === 'All' || player[headers.indexOf('DIV')] === filters.division) &&
-            (filters.team === 'All' || player[headers.indexOf('TEAM')] === filters.team) &&
-            (filters.position === 'All' || player[headers.indexOf('POS')] === filters.position) &&
-            (filters.offensiveRole === 'All' || player[headers.indexOf('ROLE')] === filters.offensiveRole)
-          )
-          .map(player => player[headers.indexOf('BORN')])
-      )];
-      setBornYears(uniqueBornYears);
-
-      // Werte für Season Type basierend auf allen vorherigen Filtern
+      // Aktualisiere Season Types und prüfe den aktuellen Wert
       const uniqueSeasonTypes = [...new Set(
         allPlayers
           .filter(player =>
             player[headers.indexOf('SEASON_YEAR')] === filters.season &&
-            (filters.league === 'All' || player[headers.indexOf('LEAGUE')] === filters.league) &&
-            (filters.division === 'All' || player[headers.indexOf('DIV')] === filters.division) &&
-            (filters.team === 'All' || player[headers.indexOf('TEAM')] === filters.team) &&
-            (filters.position === 'All' || player[headers.indexOf('POS')] === filters.position) &&
-            (filters.offensiveRole === 'All' || player[headers.indexOf('ROLE')] === filters.offensiveRole) &&
-            (filters.born === 'All' || player[headers.indexOf('BORN')] === filters.born)
+            player[headers.indexOf('LEAGUE')] === filters.league &&
+            player[headers.indexOf('DIV')] === filters.division
           )
           .map(player => player[headers.indexOf('SEASON_TYPE')])
       )];
 
       setSeasonTypes(uniqueSeasonTypes);
 
-      // Überprüfe, ob der aktuell ausgewählte seasonType in den neuen Optionen enthalten ist
+      // Fallback auf den ersten verfügbaren Season Type, wenn der aktuelle nicht gültig ist
       if (!uniqueSeasonTypes.includes(filters.seasonType)) {
-        // Wenn nicht, setze den seasonType auf die erste verfügbare Option
-        setFilters(prevFilters => ({
-          ...prevFilters,
-          seasonType: uniqueSeasonTypes[0] || '', // Wähle eine gültige Option oder setze einen leeren String
+        setFilters(prev => ({
+          ...prev,
+          seasonType: uniqueSeasonTypes.length > 0 ? uniqueSeasonTypes[0] : ''
         }));
       }
+
+      // Aktualisiere Teams und prüfe den aktuellen Wert
+      const uniqueTeams = ['All', ...new Set(
+        allPlayers
+          .filter(player =>
+            player[headers.indexOf('SEASON_YEAR')] === filters.season &&
+            player[headers.indexOf('LEAGUE')] === filters.league &&
+            player[headers.indexOf('DIV')] === filters.division &&
+            player[headers.indexOf('SEASON_TYPE')] === filters.seasonType
+          )
+          .map(player => player[headers.indexOf('TEAM')])
+      )];
+      setTeams(uniqueTeams);
+
+      if (filters.team !== 'All' && !uniqueTeams.includes(filters.team)) {
+        setFilters(prev => ({ ...prev, team: 'All' }));
+      }
+
+      // Aktualisiere Positions, Offensive Roles und Born
+      const uniquePositions = ['All', ...new Set(
+        allPlayers
+          .filter(player =>
+            player[headers.indexOf('SEASON_YEAR')] === filters.season &&
+            player[headers.indexOf('LEAGUE')] === filters.league &&
+            player[headers.indexOf('DIV')] === filters.division &&
+            player[headers.indexOf('SEASON_TYPE')] === filters.seasonType &&
+            (filters.team === 'All' || player[headers.indexOf('TEAM')] === filters.team)
+          )
+          .map(player => player[headers.indexOf('POS')])
+      )];
+      setPositions(uniquePositions);
+
+      const uniqueOffensiveRoles = ['All', ...new Set(
+        allPlayers
+          .filter(player =>
+            player[headers.indexOf('SEASON_YEAR')] === filters.season &&
+            player[headers.indexOf('LEAGUE')] === filters.league &&
+            player[headers.indexOf('DIV')] === filters.division &&
+            player[headers.indexOf('SEASON_TYPE')] === filters.seasonType &&
+            (filters.team === 'All' || player[headers.indexOf('TEAM')] === filters.team)
+          )
+          .map(player => player[headers.indexOf('ROLE')])
+      )];
+      setOffensiveRoles(uniqueOffensiveRoles);
+
+      const uniqueBornYears = ['All', ...new Set(
+        allPlayers
+          .filter(player =>
+            player[headers.indexOf('SEASON_YEAR')] === filters.season &&
+            player[headers.indexOf('LEAGUE')] === filters.league &&
+            player[headers.indexOf('DIV')] === filters.division &&
+            player[headers.indexOf('SEASON_TYPE')] === filters.seasonType &&
+            (filters.team === 'All' || player[headers.indexOf('TEAM')] === filters.team)
+          )
+          .map(player => player[headers.indexOf('BORN')])
+      )];
+      setBornYears(uniqueBornYears);
     };
 
     updateDropdownValues();
-  }, [filters, allPlayers, headers]);
-
-  useEffect(() => {
-    const handleFilterError = () => {
-      // Erstelle eine Version der Filter ohne die Eingabefelder (z.B. Games Played und Minutes Played)
-      const filtersWithoutInputFields = {
-        season: filters.season,
-        league: filters.league || 'All',  // Optional: Hier Standardwert setzen
-        division: filters.division || 'All', // Optional: Hier Standardwert setzen
-        seasonType: filters.seasonType,
-        statsType: filters.statsType,
-        team: filters.team || 'All', // Optional: Hier Standardwert setzen
-      };
-
-
-      // Filter nur mit Dropdown-Werten anwenden, um zu sehen, ob sie schon zu leeren Daten führen
-      const filteredWithoutInputs = applyFiltersWithCustomFilters(allPlayers, filtersWithoutInputFields);
-
-      // Wenn diese Filter schon leere Daten liefern, dann ist es ein Fehlerfilter
-      if (filteredWithoutInputs.length === 0) {
-        if (filters.seasonType) {  // Stelle sicher, dass ein Wert für seasonType existiert
-          setFilters(prevFilters => ({
-            ...prevFilters,
-            seasonType: prevFilters.seasonType,  // Behalte den aktuellen Wert von seasonType
-          }));
-        } else if (filters.league !== 'All') {
-          setFilters(prevFilters => ({
-            ...prevFilters,
-            league: 'All',  // Setze nur "League" zurück
-          }));
-        } else if (filters.division !== 'All') {
-          setFilters(prevFilters => ({
-            ...prevFilters,
-            division: 'All',  // Setze nur "Division" zurück
-          }));
-        }
-      }
-    };
-
-    handleFilterError();
-  }, [filters, allPlayers]);
-
-  // Hilfsfunktion zum Anwenden der Filter ohne Eingabefelder
-  const applyFiltersWithCustomFilters = (data, customFilters) => {
-    return data.filter(row => {
-      const seasonMatch = customFilters.season === 'All' || row[headers.indexOf('SEASON_YEAR')] === customFilters.season;
-      const leagueMatch = customFilters.league === 'All' || row[headers.indexOf('LEAGUE')] === customFilters.league;
-      const divisionMatch = customFilters.division === 'All' || row[headers.indexOf('DIV')] === customFilters.division;
-      const seasonTypeMatch = customFilters.seasonType === 'REGULAR SEASON' || row[headers.indexOf('SEASON_TYPE')] === customFilters.seasonType;
-      const teamMatch = customFilters.team === 'All' || row[headers.indexOf('TEAM')] === customFilters.team;
-
-      return (
-        seasonMatch &&
-        leagueMatch &&
-        divisionMatch &&
-        seasonTypeMatch &&
-        teamMatch
-      );
-    });
-  };
+  }, [
+    filters.season,
+    filters.league,
+    filters.division,
+    filters.seasonType,
+    filters.team,
+    filters.position,
+    filters.offensiveRole,
+    filters.born,
+    allPlayers,
+    headers,
+  ]);
   
   const sortData = (data) => {
     if (!filters.sortStat) return data;
@@ -340,13 +303,19 @@ const Players = () => {
   };
 
   const displayedPlayers = useMemo(() => {
+    // Nur berechnen, wenn sich die Filter ändern
     const filtered = applyFilters(filteredData);
     const sorted = sortData(filtered);
-  
+
+    // Slice für Paginierung
     return sorted.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
   }, [filteredData, filters, currentPage, rowsPerPage]);
 
-  const totalRows = useMemo(() => applyFilters(filteredData).length, [filteredData, filters]);
+  const totalRows = useMemo(() => {
+    // Stelle sicher, dass applyFilters die aktuellen Filter verwendet
+    return applyFilters(filteredData).length;
+  }, [filteredData, filters]);
+
   const totalPages = Math.ceil(totalRows / rowsPerPage);
 
   return (
@@ -363,10 +332,7 @@ const Players = () => {
                 onChange={e =>
                   setFilters({
                     ...filters,
-                    season: e.target.value,
-                    league: 'All', // Setze League zurück, wenn Season gewechselt wird
-                    division: 'All', // Setze Division zurück, wenn Season gewechselt wird
-                    seasonType: 'REGULAR SEASON', // Setze Season Type zurück, wenn Season gewechselt wird
+                    season: e.target.value
                   })
                 }
               >
@@ -380,22 +346,13 @@ const Players = () => {
                 })}
               </select>
             </label>
-
             <label>
               League:
               <select
                 name="league"
-                value={filters.league}
-                onChange={e =>
-                  setFilters({
-                    ...filters,
-                    league: e.target.value,
-                    division: 'All', // Setze Division zurück, wenn League gewechselt wird
-                    seasonType: 'REGULAR SEASON', // Setze Season Type zurück, wenn League gewechselt wird
-                  })
-                }
+                value={leagues.includes(filters.league) ? filters.league : leagues[0]}  // Fallback auf ersten Wert
+                onChange={e => setFilters({ ...filters, league: e.target.value })}
               >
-                <option value="All">All</option>
                 {leagues.map((league, idx) => (
                   <option key={idx} value={league}>{league}</option>
                 ))}
@@ -406,16 +363,9 @@ const Players = () => {
               Division:
               <select
                 name="division"
-                value={filters.division}
-                onChange={e => {
-                  setFilters({
-                    ...filters,
-                    division: e.target.value,
-                    seasonType: 'REGULAR SEASON', // Setze Season Type zurück, wenn Division gewechselt wird
-                  });
-                }}
+                value={divisions.includes(filters.division) ? filters.division : divisions[0]}  // Fallback auf ersten Wert
+                onChange={e => setFilters({ ...filters, division: e.target.value })}
               >
-                <option value="All">All</option>
                 {divisions.map((division, idx) => (
                   <option key={idx} value={division}>{division}</option>
                 ))}
@@ -426,9 +376,9 @@ const Players = () => {
               Season Type:
               <select
                 name="seasonType"
-                value={filters.seasonType}
+                value={seasonTypes.includes(filters.seasonType) ? filters.seasonType : seasonTypes[0]}  // Fallback auf ersten Wert
                 onChange={e => setFilters({ ...filters, seasonType: e.target.value })}
-              >                
+              >
                 {seasonTypes.map((type, idx) => (
                   <option key={idx} value={type}>{type}</option>
                 ))}
@@ -450,7 +400,6 @@ const Players = () => {
               </select>
             </label>
 
-
             <label>
               Team:
               <select
@@ -458,7 +407,6 @@ const Players = () => {
                 value={filters.team}
                 onChange={e => setFilters({ ...filters, team: e.target.value })}
               >
-                <option value="All">All</option>
                 {teams.map((team, idx) => (
                   <option key={idx} value={team}>{team}</option>
                 ))}
@@ -472,7 +420,6 @@ const Players = () => {
                 value={filters.position}
                 onChange={e => setFilters({ ...filters, position: e.target.value })}
               >
-                <option value="All">All</option>
                 {positions.map((position, idx) => (
                   <option key={idx} value={position}>{position}</option>
                 ))}
@@ -486,7 +433,6 @@ const Players = () => {
                 value={filters.offensiveRole}
                 onChange={e => setFilters({ ...filters, offensiveRole: e.target.value })}
               >
-                <option value="All">All</option>
                 {offensiveRoles.map((role, idx) => (
                   <option key={idx} value={role}>{role}</option>
                 ))}
@@ -500,7 +446,6 @@ const Players = () => {
                 value={filters.born}
                 onChange={e => setFilters({ ...filters, born: e.target.value })}
               >
-                <option value="All">All</option>
                 {bornYears.map((year, idx) => (
                   <option key={idx} value={year}>{year}</option>
                 ))}
