@@ -35,7 +35,7 @@ const Teams = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [headers, setHeaders] = useState([]);
   const [filters, setFilters] = useState({
-    season: '20232024',
+    season: '',
     league: '',
     statsType: 'Averages',
     division: '',
@@ -59,11 +59,23 @@ const Teams = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetchTeams(filters.statsType); // Hole nur die Spalten, die für den Stats Type relevant sind
+        const data = await fetchTeams(filters.statsType); // Hole die Daten basierend auf dem aktuellen statsType
 
         if (data && data.length > 0) {
-          const uniqueSeasons = [...new Set(data.map(item => item.SEASON_YEAR))];
-          setSeasons(uniqueSeasons);
+          // Dynamische Ermittlung der verfügbaren Seasons
+          const availableSeasons = [...new Set(data.map(item => item.SEASON_YEAR))].sort(); // Sortiere die Seasons
+
+          // Speichere alle verfügbaren Seasons
+          setSeasons(availableSeasons);
+
+          // Setze die neueste Saison als Standard, ohne das Array zu verändern
+          const latestSeason = availableSeasons[availableSeasons.length - 1];
+
+          // Setze die Season, falls noch nicht gesetzt
+          setFilters(prevFilters => ({
+            ...prevFilters,
+            season: prevFilters.season || latestSeason // Setze die neueste verfügbare Saison, falls nicht gesetzt
+          }));
 
           const selectedColumns = columnMappings[filters.statsType];
           setHeaders(selectedColumns);
@@ -84,14 +96,14 @@ const Teams = () => {
     };
 
     fetchData();
-  }, [filters.statsType]);
+  }, [filters.statsType, filters.season]);
   
   const applyFilters = (data) => {
     return data.filter(row => {
-      const seasonMatch = filters.season === 'All' || row[headers.indexOf('SEASON_YEAR')] === filters.season;
-      const leagueMatch = filters.league === 'All' || row[headers.indexOf('LEAGUE')] === filters.league;
-      const divisionMatch = filters.division === 'All' || row[headers.indexOf('DIV')] === filters.division;
-      const seasonTypeMatch = filters.seasonType === 'All' || row[headers.indexOf('SEASON_TYPE')] === filters.seasonType;
+      const seasonMatch = row[headers.indexOf('SEASON_YEAR')] === filters.season;
+      const leagueMatch = row[headers.indexOf('LEAGUE')] === filters.league;
+      const divisionMatch = row[headers.indexOf('DIV')] === filters.division;
+      const seasonTypeMatch = row[headers.indexOf('SEASON_TYPE')] === filters.seasonType;
       const teamMatch = filters.team === 'All' || row[headers.indexOf('TEAM')] === filters.team; // Team-Filter anwenden
 
       return (
@@ -108,79 +120,82 @@ const Teams = () => {
     const updateDropdownValues = () => {
       const filtered = applyFilters(allTeams);
 
-      const uniqueSeasons = [...new Set(allTeams.map(team => team[headers.indexOf('SEASON_YEAR')]))];
-      setSeasons(uniqueSeasons);
-
+      // Aktualisiere Leagues und prüfe den aktuellen Wert
       const uniqueLeagues = [...new Set(
         allTeams
-          .filter(team => filters.season === 'All' || team[headers.indexOf('SEASON_YEAR')] === filters.season)
+          .filter(team => team[headers.indexOf('SEASON_YEAR')] === filters.season)
           .map(team => team[headers.indexOf('LEAGUE')])
       )];
       setLeagues(uniqueLeagues);
 
+      if (!uniqueLeagues.includes(filters.league)) {
+        setFilters(prev => ({ ...prev, league: uniqueLeagues[0] }));
+      }
+
+      // Aktualisiere Divisions und prüfe den aktuellen Wert
       const uniqueDivisions = [...new Set(
         allTeams
           .filter(team =>
-            (filters.season === 'All' || team[headers.indexOf('SEASON_YEAR')] === filters.season) &&
-            (filters.league === 'All' || team[headers.indexOf('LEAGUE')] === filters.league)
+            team[headers.indexOf('SEASON_YEAR')] === filters.season &&
+            team[headers.indexOf('LEAGUE')] === filters.league
           )
           .map(team => team[headers.indexOf('DIV')])
       )];
       setDivisions(uniqueDivisions);
 
+      if (!uniqueDivisions.includes(filters.division)) {
+        setFilters(prev => ({ ...prev, division: uniqueDivisions[0] }));
+      }
+
+      // Aktualisiere Season Types und prüfe den aktuellen Wert
       const uniqueSeasonTypes = [...new Set(
         allTeams
           .filter(team =>
-            (filters.season === 'All' || team[headers.indexOf('SEASON_YEAR')] === filters.season) &&
-            (filters.league === 'All' || team[headers.indexOf('LEAGUE')] === filters.league) &&
-            (filters.division === 'All' || team[headers.indexOf('DIV')] === filters.division)
+            team[headers.indexOf('SEASON_YEAR')] === filters.season &&
+            team[headers.indexOf('LEAGUE')] === filters.league &&
+            team[headers.indexOf('DIV')] === filters.division
           )
           .map(team => team[headers.indexOf('SEASON_TYPE')])
       )];
+
+      // Debug-Log: Prüfe, ob uniqueSeasonTypes korrekt sind
+      console.log("uniqueSeasonTypes nach Division-Änderung:", uniqueSeasonTypes);
+
+      // Setze die neuen Season Type-Werte
       setSeasonTypes(uniqueSeasonTypes);
 
-      // Neue Logik für den Team-Filter:
-      const uniqueTeams = [...new Set(
+      // Fallback auf den ersten verfügbaren Season Type, wenn der aktuelle nicht gültig ist
+      if (!uniqueSeasonTypes.includes(filters.seasonType)) {
+        setFilters(prev => ({
+          ...prev,
+          seasonType: uniqueSeasonTypes.length > 0 ? uniqueSeasonTypes[0] : ''
+        }));
+      }
+
+      // Aktualisiere Teams und sortiere alphabetisch, "All" bleibt an erster Stelle
+      let uniqueTeams = ['All', ...new Set(
         allTeams
           .filter(team =>
-            (filters.season === 'All' || team[headers.indexOf('SEASON_YEAR')] === filters.season) &&
-            (filters.league === 'All' || team[headers.indexOf('LEAGUE')] === filters.league) &&
-            (filters.division === 'All' || team[headers.indexOf('DIV')] === filters.division)
+            team[headers.indexOf('SEASON_YEAR')] === filters.season &&
+            team[headers.indexOf('LEAGUE')] === filters.league &&
+            team[headers.indexOf('DIV')] === filters.division &&
+            team[headers.indexOf('SEASON_TYPE')] === filters.seasonType
           )
           .map(team => team[headers.indexOf('TEAM')])
-      )];
-      setTeams(uniqueTeams); // Team-Dropdown aktualisieren
-    };
+      )].sort();
 
-    updateDropdownValues();
-  }, [filters, allTeams, headers]);
+      if (uniqueTeams.includes('All')) {
+        uniqueTeams = ['All', ...uniqueTeams.filter(team => team !== 'All')];
+      }
+      setTeams(uniqueTeams);
 
-  useEffect(() => {
-    const handleFilterError = () => {
-      const filtered = applyFilters(allTeams);
-
-      if (filtered.length === 0) {
-        if (filters.seasonType !== 'All') {
-          setFilters(prevFilters => ({
-            ...prevFilters,
-            seasonType: 'All',
-          }));
-        } else if (filters.league !== 'All') {
-          setFilters(prevFilters => ({
-            ...prevFilters,
-            league: 'All',
-          }));
-        } else if (filters.division !== 'All') {
-          setFilters(prevFilters => ({
-            ...prevFilters,
-            division: 'All',
-          }));
-        }
+      if (filters.team !== 'All' && !uniqueTeams.includes(filters.team)) {
+        setFilters(prev => ({ ...prev, team: 'All' }));
       }
     };
 
-    handleFilterError();
-  }, [filters, allTeams]);
+    updateDropdownValues();
+  }, [filters.season, filters.league, filters.division, filters.team, allTeams, headers]);
 
   const sortData = (data) => {
     if (!filters.sortStat) return data;
@@ -203,96 +218,98 @@ const Teams = () => {
   };
 
   const displayedTeams = useMemo(() => {
+    // Filter und sortiere die Teams, wie es in Players.jsx gemacht wird
     const filtered = applyFilters(filteredData);
     const sorted = sortData(filtered);
 
+    // Slicing für die Paginierung, basierend auf der aktuellen Seite und den Teams pro Seite
     return sorted.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
   }, [filteredData, filters, currentPage, rowsPerPage]);
 
-  const totalRows = useMemo(() => applyFilters(filteredData).length, [filteredData, filters]);
+  // Berechne die Gesamtzahl der gefilterten Teams
+  const totalRows = useMemo(() => {
+    return applyFilters(filteredData).length;
+  }, [filteredData, filters]);
+
+  // Berechne die Gesamtseiten basierend auf der Anzahl der gefilterten Teams
   const totalPages = Math.ceil(totalRows / rowsPerPage);
 
   return (
-    <div className="teams-grid-container">
-      <Header />
-      <div className="teams-grid-item">
-        <div className="teams-filter-container">
-          <div className="teams-filters">
-            <label>
-              Season:
-              <select
-                name="season"
-                value={filters.season}
-                onChange={e => setFilters({ ...filters, season: e.target.value })}
-              >
-                <option value="All">All</option>
-                {seasons.map((season, idx) => {
-                  const formattedSeason = `${season.slice(0, 4)}-${season.slice(4)}`;
-                  return (
-                    <option key={idx} value={season}>
-                      {formattedSeason}
-                    </option>
-                  );
-                })}
-              </select>
-            </label>
+  <div className="teams-grid-container">
+    <Header />
+    <div className="teams-grid-item">
+      <div className="teams-filter-container">
+        <div className="teams-filters">
+          <label>
+            Season:
+            <select
+              name="season"
+              value={filters.season}
+              onChange={e => setFilters({ ...filters, season: e.target.value })}
+            >
+              {seasons.map((season, idx) => {
+                const formattedSeason = `${season.slice(0, 4)}-${season.slice(4)}`;
+                return (
+                  <option key={idx} value={season}>
+                    {formattedSeason}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
 
-            <label>
-              League:
-              <select
-                name="league"
-                value={filters.league}
-                onChange={e => setFilters({ ...filters, league: e.target.value })}
-              >
-                <option value="All">All</option>
-                {leagues.map((league, idx) => (
-                  <option key={idx} value={league}>{league}</option>
-                ))}
-              </select>
-            </label>
+          <label>
+            League:
+            <select
+              name="league"
+              value={leagues.includes(filters.league) ? filters.league : leagues[0]}  // Fallback auf ersten Wert
+              onChange={e => setFilters({ ...filters, league: e.target.value })}
+            >
+              {leagues.map((league, idx) => (
+                <option key={idx} value={league}>{league}</option>
+              ))}
+            </select>
+          </label>
 
-            <label>
-              Division:
-              <select
-                name="division"
-                value={filters.division}
-                onChange={e => setFilters({ ...filters, division: e.target.value })}
-              >
-                <option value="All">All</option>
-                {divisions.map((division, idx) => (
-                  <option key={idx} value={division}>{division}</option>
-                ))}
-              </select>
-            </label>
+          <label>
+            Division:
+            <select
+              name="division"
+              value={divisions.includes(filters.division) ? filters.division : divisions[0]}  // Fallback auf ersten Wert
+              onChange={e => setFilters({ ...filters, division: e.target.value })}
+            >
+              {divisions.map((division, idx) => (
+                <option key={idx} value={division}>{division}</option>
+              ))}
+            </select>
+          </label>
 
-            <label>
-              Season Type:
-              <select
-                name="seasonType"
-                value={filters.seasonType}
-                onChange={e => setFilters({ ...filters, seasonType: e.target.value })}
-              >
-                <option value="All">All</option>
-                {seasonTypes.map((type, idx) => (
-                  <option key={idx} value={type}>{type}</option>
-                ))}
-              </select>
-            </label>
+          <label>
+            Season Type:
+            <select
+              name="seasonType"
+              value={seasonTypes.includes(filters.seasonType) ? filters.seasonType : seasonTypes[0]}  // Fallback auf ersten Wert
+              onChange={e => setFilters({ ...filters, seasonType: e.target.value })}
+            >
+              {seasonTypes.map((type, idx) => (
+                <option key={idx} value={type}>{type}</option>
+              ))}
+            </select>
+          </label>
 
-            <label>
-              Team:
-              <select
-                name="team"
-                value={filters.team}
-                onChange={e => setFilters({ ...filters, team: e.target.value })}
-              >
-                <option value="All">All</option>
-                {teams.map((team, idx) => (
-                  <option key={idx} value={team}>{team}</option>
-                ))}
-              </select>
-            </label>
-
+          <label>
+            Team:
+            <select
+              name="team"
+              value={teams.includes(filters.team) ? filters.team : teams[0]}  // Fallback auf ersten Wert
+              onChange={e => setFilters({ ...filters, team: e.target.value })}
+            >
+              {teams.map((team, idx) => (
+                <option key={idx} value={team}>{team}</option>
+              ))}
+            </select>
+          </label>
+     
             <label>
               Stats Type:
               <select
