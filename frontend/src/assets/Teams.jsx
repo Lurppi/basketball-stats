@@ -7,26 +7,26 @@ import { columnHeaderMapping, ToolheadersMapping } from './MappingList.jsx';
 
 const columnMappings = {
   Totals: [
-    'TEAM_ID', 'GP', 'WINS', 'PACE', 'MP', 'PT', 'DR', 'OR', 'RB', 'AS', 'ST', 'BS', 'TO', 'PF', 'EF', 'PIE', 'TEAM', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
+    'TEAM', 'GP', 'WINS', 'PACE', 'MP', 'PT', 'DR', 'OR', 'RB', 'AS', 'ST', 'BS', 'TO', 'PF', 'EF', 'PIE', 'TEAM_ID', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
   Averages: [
-    'TEAM_ID', 'GP', 'WINS', 'PACE', 'MPG', 'PPG', 'DRPG', 'ORPG', 'RPG', 'APG', 'SPG', 'BPG', 'TOPG', 'PFPG', 'EFPG', 'PER', 'TEAM', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
+    'TEAM', 'GP', 'WINS', 'PACE', 'MPG', 'PPG', 'DRPG', 'ORPG', 'RPG', 'APG', 'SPG', 'BPG', 'TOPG', 'PFPG', 'EFPG', 'PER', 'TEAM_ID', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
 
   Shooting: [
-    'TEAM_ID', 'GP', 'WINS', '2PM', '2PA', '2P%', '3PM', '3PA', '3P%', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'TS%', 'TEAM', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
+    'TEAM', 'GP', 'WINS', '2PM', '2PA', '2P%', '3PM', '3PA', '3P%', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'TS%', 'TEAM_ID', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
 
   Opponent: [
-    'TEAM_ID', 'GP', 'WINS', 'OPP_PPG', 'OPP_RPG', 'OPP_APG', 'OPP_SPG', 'OPP_BPG', 'OPP_2P%', 'OPP_3P%', 'OPP_FG%', 'OPP_FT%', 'OPP_EFG%', 'OPP_TOV%', 'OPP_ORB%', 'OPP_FT_RATE', 'TEAM', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
+    'TEAM', 'GP', 'WINS', 'OPP_PPG', 'OPP_RPG', 'OPP_APG', 'OPP_SPG', 'OPP_BPG', 'OPP_2P%', 'OPP_3P%', 'OPP_FG%', 'OPP_FT%', 'OPP_EFG%', 'OPP_TOV%', 'OPP_ORB%', 'OPP_FT_RATE', 'TEAM', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
 
   Advanced: [
-    'TEAM_ID', 'GP', 'WIN%', 'PACE', 'ORTG', 'DRTG', 'NRTG', 'PPP', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE', 'TS%', 'AS_TO', 'PER', 'PIE', 'TEAM', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
+    'TEAM', 'GP', 'WIN%', 'PACE', 'ORTG', 'DRTG', 'NRTG', 'PPP', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE', 'TS%', 'AS_TO', 'PER', 'PIE', 'TEAM_ID', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
 
   'Four Factors': [
-    'TEAM_ID', 'GP', 'WIN%', 'PACE', 'ORTG', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE', '3PR', 'DRTG', 'OPP_EFG%', 'OPP_TOV%', 'OPP_ORB%', 'OPP_FT_RATE', 'OPP3PR', 'TEAM', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
+    'TEAM', 'GP', 'WIN%', 'PACE', 'ORTG', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE', '3PR', 'DRTG', 'OPP_EFG%', 'OPP_TOV%', 'OPP_ORB%', 'OPP_FT_RATE', 'OPP3PR', 'TEAM_ID', 'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE'
   ],
 };
 
