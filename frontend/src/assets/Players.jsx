@@ -208,8 +208,8 @@ const Players = () => {
         }));
       }
 
-      // Aktualisiere Teams und prüfe den aktuellen Wert
-      const uniqueTeams = ['All', ...new Set(
+      // Aktualisiere Teams und sortiere alphabetisch, "All" bleibt an erster Stelle
+      let uniqueTeams = ['All', ...new Set(
         allPlayers
           .filter(player =>
             player[headers.indexOf('SEASON_YEAR')] === filters.season &&
@@ -218,15 +218,20 @@ const Players = () => {
             player[headers.indexOf('SEASON_TYPE')] === filters.seasonType
           )
           .map(player => player[headers.indexOf('TEAM')])
-      )];
+      )].sort();  // Sortiere alphabetisch
+
+      // Sicherstellen, dass "All" ganz oben bleibt
+      if (uniqueTeams.includes('All')) {
+        uniqueTeams = ['All', ...uniqueTeams.filter(team => team !== 'All')];
+      }
       setTeams(uniqueTeams);
 
       if (filters.team !== 'All' && !uniqueTeams.includes(filters.team)) {
         setFilters(prev => ({ ...prev, team: 'All' }));
       }
 
-      // Aktualisiere Positions, Offensive Roles und Born
-      const uniquePositions = ['All', ...new Set(
+      // Aktualisiere Positions und sortiere alphabetisch, "All" bleibt an erster Stelle
+      let uniquePositions = ['All', ...new Set(
         allPlayers
           .filter(player =>
             player[headers.indexOf('SEASON_YEAR')] === filters.season &&
@@ -236,7 +241,12 @@ const Players = () => {
             (filters.team === 'All' || player[headers.indexOf('TEAM')] === filters.team)
           )
           .map(player => player[headers.indexOf('POS')])
-      )];
+      )].sort();  // Sortiere alphabetisch
+
+      // Sicherstellen, dass "All" ganz oben bleibt
+      if (uniquePositions.includes('All')) {
+        uniquePositions = ['All', ...uniquePositions.filter(pos => pos !== 'All')];
+      }
       setPositions(uniquePositions);
 
       const uniqueOffensiveRoles = ['All', ...new Set(
@@ -262,7 +272,10 @@ const Players = () => {
             (filters.team === 'All' || player[headers.indexOf('TEAM')] === filters.team)
           )
           .map(player => player[headers.indexOf('BORN')])
-      )];
+      )].sort((a, b) => {
+        if (a === 'All') return -1; // 'All' bleibt immer als erster Eintrag
+        return a - b; // Numerische Sortierung der Jahre
+      });
       setBornYears(uniqueBornYears);
     };
 
