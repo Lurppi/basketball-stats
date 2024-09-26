@@ -355,7 +355,7 @@ const generateSitemap = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv');
   const baseUrl = 'https://www.nbbl-stats.de/player/';
 
-  let playerIDs = [];
+  const playerIDs = new Set(); // Set verwenden, um Duplikate zu vermeiden
 
   // CSV-Datei öffnen und Player-IDs sammeln
   fs.createReadStream(filePath)
@@ -363,12 +363,12 @@ const generateSitemap = (req, res) => {
     .on('data', (row) => {
       const playerID = row.PlayerID;
       if (playerID) {
-        playerIDs.push(playerID);
+        playerIDs.add(playerID); // Duplikate werden durch das Set automatisch entfernt
       }
     })
     .on('end', () => {
       let staticUrls = `
-              <url>
+        <url>
           <loc>https://www.nbbl-stats.de/</loc>
           <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
           <changefreq>daily</changefreq>
@@ -419,7 +419,7 @@ const generateSitemap = (req, res) => {
       `;
 
       // Dynamische Player-URLs generieren
-      const dynamicUrls = playerIDs
+      const dynamicUrls = Array.from(playerIDs) // Set in Array umwandeln
         .map(
           (id) => `
         <url>
