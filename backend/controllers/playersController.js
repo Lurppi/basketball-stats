@@ -418,8 +418,9 @@ const generateSitemap = (req, res) => {
         </url>
       `;
 
-      // Dynamische Player-URLs generieren
+      // Dynamische Player-URLs generieren, sortiert nach PlayerID
       const dynamicUrls = Array.from(playerIDs) // Set in Array umwandeln
+        .sort() // IDs sortieren
         .map(
           (id) => `
         <url>
