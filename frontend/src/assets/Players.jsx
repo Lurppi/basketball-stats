@@ -56,7 +56,7 @@ const Players = () => {
   const defaultFilters = {
     season: '20232024',
     league: 'NBBL',
-    statsType: 'Averages',
+    statsType: 'Advanced 1',
     division: 'NBBL A',
     team: 'All',
     position: 'All',
