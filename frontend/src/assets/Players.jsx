@@ -61,7 +61,7 @@ const Players = () => {
     team: 'All',
     position: 'All',
     offensiveRole: 'All',
-    seasonType: '',
+    seasonType: 'PLAYOFFS',
     born: 'All',
     gamesPlayed: '',
     minutesPlayed: '',
