@@ -38,7 +38,7 @@ const columnMappings = {
   'Advanced 2': [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'PER', 'OBPM', 'DBPM', 'BPM', 'VORP', 'OWS', 'DWS', 'WS', 'WS_40',
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'MP', 'PIE', 'TEAM_ID', 'PlayerID'
-  ],  
+  ],
   'Advanced 3': [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'FIC', 'FIC_Gm', 'TS%', 'AS_RATIO', 'AS_RATE', 'AS_TO', 'ORB%', 'DRB%', 'REB%',
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM_ID', 'PlayerID'
@@ -56,12 +56,12 @@ const Players = () => {
   const defaultFilters = {
     season: '20232024',
     league: 'NBBL',
-    statsType: 'Advanced 1',
+    statsType: 'Averages',
     division: 'NBBL A',
     team: 'All',
     position: 'All',
     offensiveRole: 'All',
-    seasonType: 'PLAYOFFS',
+    seasonType: '',
     born: 'All',
     gamesPlayed: '',
     minutesPlayed: '',
@@ -296,7 +296,7 @@ const Players = () => {
       const bornMatch = filters.born === 'All' || row[headers.indexOf('BORN')] === filters.born;
       const gamesPlayedMatch = !filters.gamesPlayed || parseInt(row[headers.indexOf('GP')], 10) >= parseInt(filters.gamesPlayed, 10);
       const minutesPlayedMatch = !filters.minutesPlayed || parseInt(row[headers.indexOf('MP')], 10) >= parseInt(filters.minutesPlayed, 10);
-  
+
       return (
         seasonMatch &&
         leagueMatch &&
@@ -311,7 +311,7 @@ const Players = () => {
       );
     });
   };
- 
+
   const sortData = (data) => {
     if (!filters.sortStat) return data;
 
