@@ -212,7 +212,7 @@ header {
 
 @media (max-width: 768px) {
   .players-filters label {
-    flex-basis: 48%;
+    flex-basis: 50%;
   }
 
   .players-filters select,
@@ -221,7 +221,7 @@ header {
   }
 
   .players-grid-container {
-    margin-top: 120px;
+    margin-top: 10px;
   }
 
   /* Geringerer Abstand zwischen den Filterreihen */
