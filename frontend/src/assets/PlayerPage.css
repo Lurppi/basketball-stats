@@ -221,34 +221,88 @@
   background-color: #e0e0e0;
 }
 
-/* Responsive Anpassung */
+/* Responsive Anpassung für mobile Ansicht */
 @media (max-width: 768px) {
+
+  /* Profilübersicht linksbündig ausrichten */
   .playerpage-profile-modern {
-    padding: 20px;
-    margin: 0 auto;
-    margin-top: 50px;
-    height: auto;
+    margin: 20px;
     width: 100%;
-    display: flex;
+    text-align: left;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 
-  .player-name {
-    font-size: 20px;
-  }
-
-  .player-info-modern {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .player-info-modern .info-item {
+  /* Spielerinformationen und Flexbox auf mobile optimieren */
+  .player-info-row {
+    display: flex;    
+    /* Vertikale Anordnung für mobile Ansicht */
+    align-items: flex-start !important;
+    /* Links ausrichten */
+    justify-content: flex-start !important;
     width: 100%;
-    margin-bottom: 20px;
   }
 
+  .player-info-row .info-item {
+    width: auto !important;
+    /* Volle Breite für mobile Ansicht */
+    text-align: left !important;
+    /* Text linksbündig */
+    margin-bottom: 50px !important;
+    /* Abstand zwischen den Elementen */
+  }
+
+    .player-info-row h4 {
+      margin-bottom: 2px;
+      /* Reduziere den Abstand zwischen Header und Informationen */
+      font-size: 0.9em;
+      /* Optional: Textgröße der Header anpassen */
+      font-weight: bold;
+      color: #888;
+    }
+  
+    .player-info-row p {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      margin-top: 0px;
+      /* Entferne jeglichen Abstand oberhalb der Informationen */
+    }
+
+    /* Badges nach links ausrichten */
+    .player-badges {
+      display: flex;
+      justify-content: flex-start !important;
+      align-items: flex-start !important;
+      gap: 10px;
+      /* Weniger Abstand zwischen den Badges */
+      width: 100%;
+      /* Volle Breite nutzen, um die Badges links zu platzieren */
+    }
+  
+    .player-badges ul {
+      display: flex;
+      justify-content: flex-start !important;
+      gap: 10px;
+    }
+  
+    .player-badges li {
+      text-align: left !important;
+      width: auto !important;
+      margin-bottom: 10px;
+    }
+
+  /* Breadcrumb-Menü linksbündig */
+  .breadcrumb-container {
+    justify-content: flex-start !important;
+  }
+
+  /* Stats-Kreise linksbündig */
   .player-stats-circle-container {
-    flex-direction: column;
     display: flex;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    margin-top: 5px;
   }
 }
 
