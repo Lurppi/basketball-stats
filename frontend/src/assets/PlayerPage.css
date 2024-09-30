@@ -553,11 +553,6 @@
   }
 }
 
- /* Breadcrumb-Menü linksbündig */
- .breadcrumb-container {
-   justify-content: flex-start !important;
-}
-
 /* Stats-Kreise */
  .player-stats-circle-container {
    display: flex;
