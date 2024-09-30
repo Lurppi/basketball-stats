@@ -11,10 +11,26 @@ const columnMappings = {
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MP', 'PT', 'RB', 'AS', 'ST', 'BS', 'TO', 'PF', 'EF', 'DD', 'TD',
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'PER', 'PIE', 'TEAM_ID', 'PlayerID'
   ],
-  Averages: [
+  'Per Game': [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'PPG', 'RPG', 'APG', 'SPG', 'BPG', 'TOPG', 'PFPG', 'EFPG', 'PER', 'PIE',
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'FIC', 'MP', 'TEAM_ID', 'PlayerID'
   ],
+
+  'Per 36 Min': [
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'PT36', 'OR36', 'DR36', 'RB36', 'AS36', 'ST36', 'BS36', 'TO36', 'PF36', 'EF36',
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM_ID', 'PlayerID'
+  ],
+
+  'Per Min': [
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'PTMIN', 'ORMIN', 'DRMIN', 'RBMIN', 'ASMIN', 'STMIN', 'BSMIN', 'TOMIN', 'PFMIN', 'EFMIN',
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM_ID', 'PlayerID'
+  ],
+
+  'Min Per': [
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'PTPER', 'ORPER', 'DRPER', 'RBPER', 'ASPER', 'STPER', 'BSPER', 'TOPER', 'PFPER', 'EFPER',
+    'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM_ID', 'PlayerID'
+  ],
+
   Shooting: [
     'PLAYER', 'TEAM', 'POS', 'ROLE', '2PM', '2PA', '2P%', '3PM', '3PA', '3P%', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%',
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'GP', 'MP', 'TEAM_ID', 'PlayerID'
@@ -43,6 +59,7 @@ const columnMappings = {
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'FIC', 'FIC_Gm', 'TS%', 'AS_RATIO', 'AS_RATE', 'AS_TO', 'ORB%', 'DRB%', 'REB%',
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM_ID', 'PlayerID'
   ],
+
   'Season High': [
     'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'HIGHPT', 'HIGHRB', 'HIGHAS', 'HIGHST', 'HIGHBS', '20+', '30+', '40+', 'DD', 'TD',
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM_ID', 'PlayerID'
