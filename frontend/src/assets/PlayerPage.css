@@ -525,7 +525,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     /* Gleiche Einstellung für das UL */
-    gap: 10px;
+    gap: 20px;
     /* Gleicher Abstand */
   }
 
