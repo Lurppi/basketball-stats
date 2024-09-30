@@ -551,7 +551,11 @@
     height: auto;
     margin-bottom: 10px;
   }
-}
+
+ /* Breadcrumb-Menü linksbündig */
+ .breadcrumb-container {
+   justify-content: flex-start !important;
+  }
 
 /* Stats-Kreise */
  .player-stats-circle-container {
@@ -559,15 +563,16 @@
    justify-content: flex-start !important;
    gap: 10px !important;
    margin-top: 5px;
-}
+  }
 
  /* Filter-Container */
  .playerpage-filter-container {
    padding: 15px;
-}
+  }
 
  .playerpage-filters {
    flex-direction: column;
    align-items: flex-start;
    /* Sicherstellen, dass Filter auch auf kleineren Bildschirmen linksbündig bleiben */
-}
+  }
+}  
