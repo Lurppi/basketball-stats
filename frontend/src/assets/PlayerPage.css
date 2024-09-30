@@ -222,11 +222,11 @@
 }
 
 /* Responsive Anpassung für mobile Ansicht */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
   /* Profilübersicht linksbündig ausrichten */
   .playerpage-profile-modern {
-    margin: 20px;
+    margin: 40px;
     width: 100%;
     text-align: left;
     align-items: flex-start;
@@ -402,7 +402,7 @@
   }
   
    /* Responsive Anpassung für Filter-Container */
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .playerpage-filter-container {
       padding: 15px;
     }
@@ -489,9 +489,10 @@
   max-width: 800px;
   width: 100%;
   margin-top: 5px;
-  margin-bottom: 20px;
-  gap: 30px;
-  /* Weniger Abstand zwischen den einzelnen Informationen */
+  margin-bottom: 10px;
+  /* Verringert den unteren Abstand */
+  gap: 10px;
+  /* Reduziert die Abstände in der Breite */
 }
 
 .player-info-row .info-item {
@@ -509,4 +510,83 @@
   font-size: 16px;
   font-weight: bold;
   color: #333;
+}
+
+/* Container für die Spielerinfos */
+.player-info-rows {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Jede Reihe der Informationen */
+.player-info-row {
+  display: flex;
+  justify-content: space-between;
+  /* Stellt sicher, dass die Elemente gleichmäßig verteilt sind */
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+  gap: 5px;
+  /* Weiter verringerte Abstände in der Breite */
+}
+
+/* Jedes Info-Item mit gleicher Breite */
+.info-item {
+  flex: 1 1 calc(33.33% - 10px);
+  /* Verringert den Abstand zwischen den Boxen */
+  text-align: center;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+.info-item h4 {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #888;
+  margin-bottom: 1px;
+  /* Verringert den Abstand unter der Überschrift */
+}
+
+.info-item p {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0;
+}
+
+/* Responsive Anpassung für mobile Ansicht */
+@media (max-width: 900px) {
+.player-info-rows {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start !important;
+  /* Links ausrichten */
+  margin: 1px 0;
+  width: 100%;
+  /* Volle Breite nutzen */
+  }
+
+.player-info-row {
+  display: flex;
+  /* Stellt sicher, dass die Elemente gleichmäßig verteilt sind */
+  gap: 1px;
+  }
+
+.info-item h4 {
+  margin-bottom: 2px;
+  /* Abstand unter der Überschrift weiter verringern */
+  font-size: 0.8em;
+  }
+
+.info-item p {
+  margin-top: 0;
+   }
+}
+
+.info-item p {
+  font-size: 1.0em;
 }

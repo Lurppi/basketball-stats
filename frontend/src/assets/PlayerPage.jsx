@@ -73,21 +73,6 @@ const PlayerPage = () => {
     fetchPlayerInfo();
   }, [id]);
 
-  // Funktion, um das Alter zu berechnen
-  const calculateAge = (birthDate) => {
-    if (!birthDate || typeof birthDate !== 'string' || birthDate === '00.01.1900') {
-      return 'Unknown';
-    }
-    const birth = new Date(birthDate.split('.').reverse().join('-'));
-    const today = new Date();
-    let age = today.getFullYear() - birth.getFullYear();
-    const monthDiff = today.getMonth() - birth.getMonth();
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
-      age--;
-    }
-    return age;
-  };
-
   // Fetch player stats data (Stats)
   useEffect(() => {
     const fetchPlayerStats = async () => {
@@ -405,6 +390,67 @@ const PlayerPage = () => {
     );
   };
 
+  // Funktion, um das Alter zu berechnen
+  const calculateAge = (birthDate) => {
+    if (!birthDate || typeof birthDate !== 'string' || birthDate === '00.01.1900') {
+      return 'Unknown';
+    }
+    const birth = new Date(birthDate.split('.').reverse().join('-'));
+    const today = new Date();
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+      age--;
+    }
+    return age;
+  };
+
+  // Funktion, um das Geburtsdatum zu formatieren
+  const formatBirthDate = (birthDate) => {
+    if (!birthDate || typeof birthDate !== 'string' || birthDate === '00.01.1900') {
+      return 'Unknown';
+    }
+
+    const birth = new Date(birthDate.split('.').reverse().join('-'));
+    return birth.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  };
+
+  // Funktion zur Umrechnung von cm in feet und inches
+  const convertHeightToFeetInches = (heightInCm) => {
+    if (!heightInCm || isNaN(heightInCm) || heightInCm === 0) {
+      return 'Unknown'; // Wenn Höhe nicht definiert oder ungültig ist
+    }
+
+    const totalInches = Math.round(heightInCm * 0.3937);
+    const feet = Math.floor(totalInches / 12);
+    const inches = totalInches % 12;
+    return `${feet}'${inches}"`;
+  };
+
+  // Funktion zur Umrechnung von cm in Meter
+  const convertHeightToMeters = (heightInCm) => {
+    if (!heightInCm || isNaN(heightInCm) || heightInCm === 0) {
+      return 'Unknown'; // Wenn Höhe nicht definiert oder ungültig ist
+    }
+
+    const heightInMeters = (heightInCm / 100).toFixed(2); // Zentimeter in Meter umrechnen und auf zwei Dezimalstellen runden
+    return `${heightInMeters}m`;
+  };
+
+  // Funktion zur Umrechnung von kg in Pfund (lb)
+  const convertWeightToPounds = (weightInKg) => {
+    if (!weightInKg || isNaN(weightInKg) || weightInKg === 0) {
+      return 'Unknown'; // Wenn das Gewicht nicht definiert oder ungültig ist
+    }
+
+    const weightInPounds = (weightInKg * 2.20462).toFixed(0); // Kilogramm in Pfund umrechnen und auf 0 Dezimalstellen runden
+    return `${weightInPounds}lb (${weightInKg}kg)`; // Gewicht im gewünschten Format anzeigen
+  };
+
   return (
     <div className="playerpage-grid-container">
       <Header />
@@ -422,24 +468,49 @@ const PlayerPage = () => {
               </div>
             </div>
 
-            {/* Flexbox für die Spielerinformationen */}
-            <div className="player-info-row">
-              <div className="info-item">
-                <h4>Position</h4>
-                <p>{playerInfo.POS || 'Unknown'}</p>
+            {/* Flexbox für die Spielerinformationen in zwei Reihen */}
+            <div className="player-info-rows">
+
+              {/* Erste Reihe: Position, Height, Weight */}
+              <div className="player-info-row">
+                <div className="info-item">
+                  <h4>Position</h4>
+                  <p>{playerInfo.POS || 'Unknown'}</p>
+                </div>
+                  <div className="info-item">
+                    <h4>Height</h4>
+                    <p>
+                      {playerInfo.HEIGHT && playerInfo.HEIGHT !== 0
+                        ? `${convertHeightToFeetInches(playerInfo.HEIGHT)} (${convertHeightToMeters(playerInfo.HEIGHT)})`
+                        : 'Unknown'}
+                    </p>
+                  </div>
+                  <div className="info-item">
+                    <h4>Weight</h4>
+                    <p>
+                      {playerInfo.WEIGHT && playerInfo.WEIGHT !== 0
+                        ? convertWeightToPounds(playerInfo.WEIGHT)
+                        : 'Unknown'}
+                    </p>
+                  </div>
               </div>
-              <div className="info-item">
-                <h4>Offensive Role</h4>
-                <p>{playerInfo.ROLE || 'Unknown'}</p>
-              </div>
-              <div className="info-item">
-                <h4>Born</h4>
-                <p>{playerInfo.BIRTHDATE || 'Unknown'}</p>
-              </div>
-              <div className="info-item">
-                <h4>Age</h4>
-                <p>{calculateAge(playerInfo.BIRTHDATE)} years</p>
-              </div>
+
+              {/* Zweite Reihe: Role, Age, Born */}
+              <div className="player-info-row">
+                  <div className="info-item">
+                    <h4>Offensive Role</h4>
+                    <p>{playerInfo.ROLE || 'Unknown'}</p>
+                  </div>
+                  <div className="info-item">
+                    <h4>Age</h4>
+                    <p>{calculateAge(playerInfo.BIRTHDATE)} years</p>
+                  </div>
+                  <div className="info-item">
+                    <h4>Born</h4>
+                    <p>{formatBirthDate(playerInfo.BIRTHDATE)}</p>
+                  </div>
+                </div>
+
             </div>
 
             {/* Statistische Kreise */}
