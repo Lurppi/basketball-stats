@@ -412,11 +412,10 @@ const PlayerPage = () => {
     }
 
     const birth = new Date(birthDate.split('.').reverse().join('-'));
-    return birth.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
+
+    // Formatieren des Geburtsdatums in "Mar 27, 1994"
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    return birth.toLocaleDateString('en-US', options);
   };
 
   // Funktion zur Umrechnung von cm in feet und inches
