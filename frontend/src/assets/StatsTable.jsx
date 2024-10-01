@@ -9,6 +9,13 @@ const StatsTable = ({ title, data, nameField, gamesField, statField, fullListUrl
         <span>{title}</span>
         <a href={fullListUrl} className="full-list-link">Full List</a>
       </div>
+
+      {/* Info-Überschriften für Games und Avg. */}
+      <div className="table-subheader">
+        <span className="subheader-games">Games</span>
+        <span className="subheader-average">Avg.</span>
+      </div>
+
       <div className="leaderboard-content">
         {data.length === 0 ? (
           <div>No data available</div>

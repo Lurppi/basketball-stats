@@ -3,7 +3,6 @@
 .leaderboard-table {
   width: 100%;
   max-width: 300px;
-  /* Schmaler */
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -16,9 +15,35 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f7f7f7;
+  background-color: #ffffff !important;
+  /* Hintergrund auf weiß gesetzt */
   padding: 10px 15px;
   font-weight: bold;
+}
+
+.table-subheader {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 5px 15px;
+  /* Höhe reduziert */
+  background-color: #ffffff;
+  /* Hintergrundfarbe weiß */
+  font-weight: bold;
+  font-size: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.subheader-name {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.subheader-games,
+.subheader-average {
+  width: 40px;
+  /* Gleiche Breite für beide Spalten */
+  text-align: center;
 }
 
 .full-list-link {
@@ -37,10 +62,8 @@
 .leader-item {
   display: flex;
   justify-content: space-between;
-  /* Gleichmäßige Verteilung */
   align-items: center;
   padding: 15px 10px;
-  /* Zeilenhöhe vergrößern */
   border-bottom: 1px solid #e0e0e0;
 }
 
@@ -49,9 +72,9 @@
 }
 
 .leader-highlight {
-  background: linear-gradient(90deg, #ff6700, #ff9500);
-  /* Orange Verlauf */
-  color: #fff;
+  background: linear-gradient(90deg, #f28b20, #f0a500);
+  /* Angepasstes dunkleres Orange */
+  color: #000000;
 }
 
 .leader-highlight .leader-name {
@@ -60,7 +83,7 @@
 
 .leader-highlight .games,
 .leader-highlight .average {
-  color: #fff;
+  color: #000000;
   font-weight: bold;
 }
 
@@ -72,8 +95,8 @@
 }
 
 .leader-image {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   margin-right: 10px;
 }
@@ -82,25 +105,38 @@
   font-size: 16px;
   font-weight: normal;
   word-wrap: break-word;
-  /* Aktiviert den Zeilenumbruch */
   max-width: 100px;
-  /* Optional: Begrenze die Breite, um Zeilenumbruch zu triggern */
+  /* Begrenze die Breite für Zeilenumbruch */
 }
 
 .leader-stats {
   display: flex;
   gap: 10px;
-  /* Abstand zwischen Games und Average */
   justify-content: flex-end;
   width: 80px;
-  /* Breite für beide Statistiken */
+  /* Gleiche Breite für Games und Average */
 }
 
 .games,
 .average {
   width: 40px;
-  /* Gleiche Breite für Games und Average */
-  text-align: right;
+  text-align: center;
   font-size: 14px;
   color: #333;
+}
+
+/* Highlight for Games and Average */
+.subheader-games,
+.subheader-average {
+  text-align: center;
+  color: #333;
+}
+
+/* Fix for Games and Avg to be centered over their respective columns */
+.subheader-games {
+  margin-right: 10px;
+}
+
+.subheader-average {
+  margin-left: 10px;
 }

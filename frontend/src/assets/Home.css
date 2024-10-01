@@ -130,16 +130,6 @@ body {
   color: #333;
 }
 
-/* Footer immer unten */
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  position: relative;
-  width: 100%;
-}
-
 /* Grid für die Tabellen: 4 Spalten, 2 Reihen */
 .table-grid {
   display: grid;
@@ -153,6 +143,65 @@ footer {
   /* Begrenze die Gesamtbreite des Grids */
   justify-items: center;
   /* Zentriere die Tabellen innerhalb des Grids */
+}
+
+/* Feste Höhe für die Tabellenüberschrift */
+.leaderboard-table .table-header {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  /* Schriftgröße auf 12px reduziert */
+  font-weight: bold;
+  padding: 0 10px;
+  background-color: #f0f0f0;
+  border-bottom: 2px solid #ddd;
+  white-space: normal;
+  /* Zeilenumbruch aktiviert */
+}
+
+/* Schriftgröße der "Full List"-Links auf 10px */
+.leaderboard-table .full-list-link {
+  font-size: 12px;
+  /* Schriftgröße auf 10px reduziert */
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Feste Höhe für jede Tabellenzeile */
+.leaderboard-table .leader-item {
+  min-height: 80px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  border-bottom: 1px solid #ddd;
+  white-space: normal;
+  /* Zeilenumbruch in den Tabellenzeilen */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Kleinere Schriftgröße für den Spieler- und Teamnamen */
+.leaderboard-table .leader-name {
+  font-size: 13px;
+  /* Verkleinert die Schriftgröße für die Namen */
+  font-weight: bold;
+  margin-left: 10px;
+  white-space: normal;
+  /* Zeilenumbruch für die Namen */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Tabelle: Flexibilität bei Zeilenumbrüchen */
+.leaderboard-content {
+  height: 100%;
+  /* Feste Höhe für die Tabelleninhalte */
+  overflow-y: auto;
 }
 
 /* Media Queries für kleinere Ansichten */
