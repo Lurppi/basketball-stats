@@ -12,6 +12,8 @@ import img60 from '../images/img60.jpg';
 import img61 from '../images/img61.jpg';
 import img62 from '../images/img62.jpg';
 import img63 from '../images/img63.jpg';
+import img100 from '../images/img100.png';
+import img101 from '../images/img101.png';
 
 export const columnHeaderMapping = {
   SEASON_YEAR: "SEASON",
@@ -317,6 +319,7 @@ export const ToolheadersMapping = {
 };
 
 export const teamImageMappings = {
+  'Jahn München': img100,
   Leverkusen: img101,
   Oldenburg: img51,
   'Braves Berlin': img52,
