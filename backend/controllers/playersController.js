@@ -590,6 +590,6 @@ module.exports = {
   getPlayerStatsBySeasonType,
   generateSitemap,
   getPlayersBySeason,
-  getTop10PlayersByStat,
+  getAllPlayersByStat,
 };
 

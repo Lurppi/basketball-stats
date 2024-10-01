@@ -118,5 +118,5 @@ const getAllTeamsByStat = (req, res) => {
 
 module.exports = {
   getTeamsData,
-  getTopTeamsByStat,
+  getAllTeamsByStat,
 };
