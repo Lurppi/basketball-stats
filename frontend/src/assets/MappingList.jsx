@@ -302,7 +302,20 @@ export const ToolheadersMapping = {
 };
 
 export const teamImageMappings = {
-  Leverkusen: '/src/images/img51.jpg',
+  Leverkusen: '/src/images/img50.jpg',
+  Oldenburg: '/src/images/img51.jpg',
+  'Braves Berlin': '/src/images/img52.jpg',
+  'Rasta Vechta': '/src/images/img53.jpg',
+  Paderborn: '/src/images/img54.jpg',
+  Ludwigsburg: '/src/images/img55.jpg',
+  Nürnberg: '/src/images/img56.jpg',
+  'Alba Berlin': '/src/images/img57.jpg',
+  IBAM: '/src/images/img58.jpg',
+  Ursrping: '/src/images/img59.jpg',
+  Jena: '/src/images/img60.jpg',
+  Münster: '/src/images/img61.jpg',
+  Chemnitz: '/src/images/img62.jpg',
+  Göttingen: '/src/images/img63.jpg',
 };
 
 export default teamImageMappings;
