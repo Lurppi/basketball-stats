@@ -1,4 +1,3 @@
-import img50 from '../images/img50.jpg';
 import img51 from '../images/img51.jpg';
 import img52 from '../images/img52.jpg';
 import img53 from '../images/img53.jpg';
