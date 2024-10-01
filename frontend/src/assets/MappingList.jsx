@@ -307,7 +307,7 @@ export const teamImageMappings = {
   'Bamberg freakcity academy': '/src/images/img41.jpg',
   'Baskets Juniors Oldenburg': '/src/images/img15.jpg',
   'Baskets Paderborn': '/src/images/img4.jpg',
-  'Bayer Giants Leverkusen': '/src/images/img7.jpg',
+  'Leverkusen': '/src/images/img33.jpg',
   'Berlin Braves Baskets': '/src/images/img5.jpg',
   'Basketball Löwen Erfurt': '/src/images/img41.jpg',
   'BBA Giants Kornwestheim': '/src/images/img41.jpg',
