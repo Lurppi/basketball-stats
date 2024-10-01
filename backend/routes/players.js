@@ -27,9 +27,8 @@ router.get('/season/:seasonYear', (req, res) => {
   playersController.getPlayersBySeason(req, res);
 });
 
-// Neue Route: Hole die Daten für alle Spieler der aktuellen Saison mit mindestens 50 MP
 router.get('/rankings', (req, res) => {
-  playersController.getAllPlayersByStat(req, res);
+  playersController.getAllPlayers(req, res);
 });
 
 module.exports = router;

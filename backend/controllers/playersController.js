@@ -350,20 +350,16 @@ const getPlayersData = (req, res) => {
   });
 };
 
-const getAllPlayersByStat = (req, res) => {
+const getAllPlayers = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv');
-  const { statField } = req.params; // Stat-Feld als Parameter
-
-  if (!statField) {
-    return res.status(400).send('Stat field is required');
-  }
-
   const results = [];
 
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       console.error(`File not found: ${filePath}`);
-      return res.status(404).send(`File not found: ${filePath}`);
+      if (!res.headersSent) {
+        return res.status(404).send(`File not found: ${filePath}`);
+      }
     }
 
     const stream = fs.createReadStream(filePath).pipe(csv({ separator: ';' }));
@@ -375,7 +371,7 @@ const getAllPlayersByStat = (req, res) => {
         cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
       }
 
-      // Filtere nur Spieler mit mindestens 50 gespielten Minuten ("MP") und SEASON_TYPE = 'SEASON'
+      // Filtere nur Spieler mit mindestens 50 gespielten Minuten ("MP") und Saison-Daten
       if (
         parseFloat(cleanedRow.MP) >= 50 &&
         cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON'
@@ -397,19 +393,9 @@ const getAllPlayersByStat = (req, res) => {
       // Filtere nur die Spieler der aktuellsten Saison
       const filteredResults = results.filter((row) => row.SEASON_YEAR === latestSeasonYear);
 
-      // Sortiere die Spieler nach dem angegebenen Stat-Feld
-      let sortedPlayers;
-      if (statField === 'DRTG') {
-        // Defensive Rating wird von klein nach groß sortiert
-        sortedPlayers = filteredResults.sort((a, b) => parseFloat(a[statField]) - parseFloat(b[statField]));
-      } else {
-        // Alle anderen Statistiken werden von groß nach klein sortiert
-        sortedPlayers = filteredResults.sort((a, b) => parseFloat(b[statField]) - parseFloat(a[statField]));
-      }
-
       // Gib die Spieler zurück
       if (!res.headersSent) {
-        res.json(sortedPlayers);
+        res.json(filteredResults);
       }
     });
 
