@@ -363,9 +363,7 @@ const getAllPlayersByStat = (req, res) => {
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       console.error(`File not found: ${filePath}`);
-      if (!res.headersSent) {
-        return res.status(404).send(`File not found: ${filePath}`);
-      }
+      return res.status(404).send(`File not found: ${filePath}`);
     }
 
     const stream = fs.createReadStream(filePath).pipe(csv({ separator: ';' }));
@@ -377,7 +375,7 @@ const getAllPlayersByStat = (req, res) => {
         cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
       }
 
-      // Filtere nur Spieler mit mindestens 50 gespielten Minuten ("MP") und Saison-Daten
+      // Filtere nur Spieler mit mindestens 50 gespielten Minuten ("MP") und SEASON_TYPE = 'SEASON'
       if (
         parseFloat(cleanedRow.MP) >= 50 &&
         cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON'

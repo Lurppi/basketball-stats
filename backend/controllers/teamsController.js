@@ -46,14 +46,8 @@ const getTeamsData = (req, res) => {
   });
 };
 
-// Neue Funktion: Filtere Teams-Daten nach der aktuellen Saison und SEASON_TYPE = 'SEASON'
 const getAllTeamsByStat = (req, res) => {
   const filePath = path.join(__dirname, '../data/TEAMS.csv');
-  const { statField } = req.params; // Stat-Feld, nach dem sortiert werden soll
-
-  if (!statField) {
-    return res.status(400).send('Stat field is required');
-  }
 
   const results = [];
 
@@ -72,7 +66,7 @@ const getAllTeamsByStat = (req, res) => {
         cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
       }
 
-      // Filtere nur Teams mit SEASON_TYPE = 'SEASON' und aktuellem Saisonjahr
+      // Filtere Teams basierend auf dem SEASON_TYPE 'SEASON'
       if (cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON' && cleanedRow.SEASON_YEAR.trim().match(/^\d{8}$/)) {
         results.push(cleanedRow);
       }
@@ -89,21 +83,10 @@ const getAllTeamsByStat = (req, res) => {
       const latestSeasonYear = results[0].SEASON_YEAR;
 
       // Filtere nur die Teams der aktuellsten Saison
-      const filteredResults = results.filter((row) => row.SEASON_YEAR === latestSeasonYear);
+      const filteredResults = results.filter(row => row.SEASON_YEAR === latestSeasonYear);
 
-      // Sortiere die Teams nach dem angegebenen Stat-Feld
-      let sortedTeams;
-      if (statField === 'DRTG') {
-        // Defensive Rating wird von klein nach groß sortiert
-        sortedTeams = filteredResults.sort((a, b) => parseFloat(a[statField]) - parseFloat(b[statField]));
-      } else {
-        // Alle anderen Statistiken werden von groß nach klein sortiert
-        sortedTeams = filteredResults.sort((a, b) => parseFloat(b[statField]) - parseFloat(a[statField]));
-      }
-
-      // Gib die Teams zurück
       if (!res.headersSent) {
-        res.json(sortedTeams);
+        res.json(filteredResults); // Rückgabe aller Teams
       }
     });
 
