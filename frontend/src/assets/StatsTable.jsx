@@ -2,7 +2,7 @@
 import React from 'react';
 import './StatsTable.css'; // Importiere die spezifischen Stile
 
-const StatsTable = ({ title, data, nameField, gamesField, statField, fullListUrl }) => {
+const StatsTable = ({ title, data, nameField, gamesField, statField, fullListUrl, teamLogoMap }) => {
   return (
     <div className="leaderboard-table">
       <div className="table-header">
@@ -23,7 +23,12 @@ const StatsTable = ({ title, data, nameField, gamesField, statField, fullListUrl
           data.map((item, index) => (
             <div key={index} className={`leader-item ${index === 0 ? 'leader-highlight' : ''}`}>
               <div className="leader-info">
-                <img src={item.image || 'https://via.placeholder.com/30'} alt={item[nameField]} className="leader-image" />
+                {/* Verwende das Team-Logo-Mapping, falls vorhanden */}
+                <img
+                  src={teamLogoMap[item.TEAM] || 'https://via.placeholder.com/30'}
+                  alt={item[nameField]}
+                  className="leader-image"
+                />
                 <div className="leader-name">
                   {item[nameField]} {/* Dynamisch gesetztes Feld für den Namen */}
                 </div>
