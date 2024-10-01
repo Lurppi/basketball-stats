@@ -16,7 +16,6 @@
   justify-content: space-between;
   align-items: center;
   background-color: #ffffff !important;
-  /* Hintergrund auf weiß gesetzt */
   padding: 10px 15px;
   font-weight: bold;
 }
@@ -26,9 +25,7 @@
   justify-content: flex-end;
   align-items: center;
   padding: 5px 15px;
-  /* Höhe reduziert */
   background-color: #ffffff;
-  /* Hintergrundfarbe weiß */
   font-weight: bold;
   font-size: 12px;
   border-bottom: 1px solid #ddd;
@@ -42,7 +39,6 @@
 .subheader-games,
 .subheader-average {
   width: 40px;
-  /* Gleiche Breite für beide Spalten */
   text-align: center;
 }
 
@@ -73,7 +69,6 @@
 
 .leader-highlight {
   background: linear-gradient(90deg, #f28b20, #f0a500);
-  /* Angepasstes dunkleres Orange */
   color: #000000;
 }
 
@@ -91,7 +86,6 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  /* Zeilenumbruch erlauben */
 }
 
 .leader-image {
@@ -106,7 +100,19 @@
   font-weight: normal;
   word-wrap: break-word;
   max-width: 100px;
-  /* Begrenze die Breite für Zeilenumbruch */
+}
+
+/* Ändere die Farbe der Links in der Spielername */
+.leader-name a {
+  color: #000000;
+  /* Link-Farbe auf Schwarz setzen */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.leader-name a:hover {
+  text-decoration: underline;
+  /* Optional: Unterstreichung bei Hover */
 }
 
 .leader-stats {
@@ -114,7 +120,6 @@
   gap: 10px;
   justify-content: flex-end;
   width: 80px;
-  /* Gleiche Breite für Games und Average */
 }
 
 .games,
@@ -125,14 +130,12 @@
   color: #333;
 }
 
-/* Highlight for Games and Average */
 .subheader-games,
 .subheader-average {
   text-align: center;
   color: #333;
 }
 
-/* Fix for Games and Avg to be centered over their respective columns */
 .subheader-games {
   margin-right: 10px;
 }

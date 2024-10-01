@@ -1,5 +1,6 @@
 // src/assets/StatsTable.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './StatsTable.css'; // Importiere die spezifischen Stile
 
 const StatsTable = ({ title, data, nameField, gamesField, statField, fullListUrl, teamLogoMap }) => {
@@ -30,7 +31,13 @@ const StatsTable = ({ title, data, nameField, gamesField, statField, fullListUrl
                   className="leader-image"
                 />
                 <div className="leader-name">
-                  {item[nameField]} {/* Dynamisch gesetztes Feld für den Namen */}
+                  {/* Spielername wird als Link zu seiner Detailseite */}
+                  {/* PlayerID ist nicht in der Tabelle, aber wir greifen darauf aus den API-Daten zu */}
+                  {item.PlayerID ? (
+                    <Link to={`/player/${item.PlayerID}`}>{item[nameField]}</Link>
+                  ) : (
+                    item[nameField] // Falls PlayerID fehlt, nur Name anzeigen
+                  )}
                 </div>
               </div>
               <div className="leader-stats">
