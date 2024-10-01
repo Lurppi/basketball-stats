@@ -1,3 +1,18 @@
+import img50 from '../images/img50.jpg';
+import img51 from '../images/img51.jpg';
+import img52 from '../images/img52.jpg';
+import img53 from '../images/img53.jpg';
+import img54 from '../images/img54.jpg';
+import img55 from '../images/img55.jpg';
+import img56 from '../images/img56.jpg';
+import img57 from '../images/img57.jpg';
+import img58 from '../images/img58.jpg';
+import img59 from '../images/img59.jpg';
+import img60 from '../images/img60.jpg';
+import img61 from '../images/img61.jpg';
+import img62 from '../images/img62.jpg';
+import img63 from '../images/img63.jpg';
+
 export const columnHeaderMapping = {
   SEASON_YEAR: "SEASON",
   LEAGUE: "LEAGUE",
@@ -302,21 +317,20 @@ export const ToolheadersMapping = {
 };
 
 export const teamImageMappings = {
-  Leverkusen: '/src/images/img50.jpg',
-  Oldenburg: '/src/images/img51.jpg',
-  'Braves Berlin': '/src/images/img52.jpg',
-  'Rasta Vechta': '/src/images/img53.jpg',
-  Paderborn: '/src/images/img54.jpg',
-  Ludwigsburg: '/src/images/img55.jpg',
-  Nürnberg: '/src/images/img56.jpg',
-  'Alba Berlin': '/src/images/img57.jpg',
-  IBAM: '/src/images/img58.jpg',
-  Ursrping: '/src/images/img59.jpg',
-  Jena: '/src/images/img60.jpg',
-  Münster: '/src/images/img61.jpg',
-  Chemnitz: '/src/images/img62.jpg',
-  Göttingen: '/src/images/img63.jpg',
+  Leverkusen: img50,
+  Oldenburg: img51,
+  'Braves Berlin': img52,
+  'Rasta Vechta': img53,
+  Paderborn: img54,
+  Ludwigsburg: img55,
+  Nürnberg: img56,
+  'Alba Berlin': img57,
+  IBAM: img58,
+  Ursrping: img59,
+  Jena: img60,
+  Münster: img61,
+  Chemnitz: img62,
+  Göttingen: img63,
 };
 
 export default teamImageMappings;
-
