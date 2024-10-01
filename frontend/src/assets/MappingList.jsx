@@ -302,7 +302,7 @@ export const ToolheadersMapping = {
 };
 
 export const teamImageMappings = {
-  Leverkusen: '/src/images/img33.jpg',
+  Leverkusen: '/src/images/img51.jpg',
 };
 
 export default teamImageMappings;
