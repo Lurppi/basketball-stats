@@ -430,7 +430,7 @@ const generateSitemap = (req, res) => {
           <loc>https://www.nbbl-stats.de/</loc>
           <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
           <changefreq>daily</changefreq>
-          <priority>0.50</priority>
+          <priority>1.00</priority>
         </url>
         <url>
           <loc>https://www.nbbl-stats.de/players</loc>
