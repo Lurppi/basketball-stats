@@ -574,6 +574,6 @@ module.exports = {
   getPlayerStatsBySeasonType,
   generateSitemap,
   getPlayersBySeason,
-  getAllPlayersByStat,
+  getAllPlayers,
 };
 
