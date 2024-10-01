@@ -38,7 +38,7 @@ const Home = () => {
 
   // Dynamische URL basierend auf der ausgewählten Liga, dem Tab und dem Stat-Feld
   const getApiUrl = (statField) => {
-    return `https://backend-sandy-rho.vercel.app/api/${selectedLeague.toLowerCase()}/${activeTab}/top10/${statField}?season_year=${seasonYear}&season_type=${seasonType}`;
+    return `/api/${selectedLeague.toLowerCase()}/${activeTab}/top10/${statField}`;
   };
 
   useEffect(() => {
