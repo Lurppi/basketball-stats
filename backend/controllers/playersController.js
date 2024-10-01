@@ -350,13 +350,12 @@ const getPlayersData = (req, res) => {
   });
 };
 
-// Neue Funktion: Filtere die Spieler der aktuellen Saison und mindestens 50 Minuten Spielzeit
 const getTop10PlayersByStat = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv');
-  const { statField } = req.params; // Stat-Feld, nach dem sortiert werden soll
+  const { statField, league } = req.params; // Stat-Feld und Liga als Parameter
 
-  if (!statField) {
-    return res.status(400).send('Stat field is required');
+  if (!statField || !league) {
+    return res.status(400).send('Stat field and league are required');
   }
 
   const results = [];
@@ -378,12 +377,10 @@ const getTop10PlayersByStat = (req, res) => {
         cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
       }
 
-      // Filtere nur Spieler mit mindestens 50 gespielten Minuten ("MP"), SEASON_TYPE = 'SEASON', und aktuelle Saison
-      if (
-        parseFloat(cleanedRow.MP) >= 50 &&
-        cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON' &&
-        cleanedRow.SEASON_YEAR.trim().match(/^\d{8}$/) // Matches SEASON_YEAR format
-      ) {
+      // Filtere nur Spieler mit mindestens 50 gespielten Minuten ("MP"), Saison-Daten und passender Liga
+      if (parseFloat(cleanedRow.MP) >= 50
+        && cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON'
+        && cleanedRow.LEAGUE.trim().toUpperCase() === league.toUpperCase()) {
         results.push(cleanedRow);
       }
     });
@@ -396,13 +393,7 @@ const getTop10PlayersByStat = (req, res) => {
 
       // Ermittle die aktuellste Saison
       results.sort((a, b) => b.SEASON_YEAR.localeCompare(a.SEASON_YEAR));
-
-      // Finde die aktuelle Saison basierend auf dem heutigen Datum
-      const currentYear = new Date().getFullYear();
-      const currentSeason = results.find(row => row.SEASON_YEAR.startsWith(String(currentYear)));
-
-      // Wenn keine aktuelle Saison vorhanden ist, nehme die nächstverfügbare
-      const latestSeasonYear = currentSeason ? currentSeason.SEASON_YEAR : results[0].SEASON_YEAR;
+      const latestSeasonYear = results[0].SEASON_YEAR;
 
       // Filtere nur die Spieler der aktuellsten Saison
       const filteredResults = results.filter(row => row.SEASON_YEAR === latestSeasonYear);
