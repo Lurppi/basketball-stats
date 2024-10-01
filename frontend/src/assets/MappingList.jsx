@@ -317,7 +317,8 @@ export const ToolheadersMapping = {
 };
 
 export const teamImageMappings = {
-  Leverkusen: img50,
+  'Jahn München': img100,
+  Leverkusen: img101,
   Oldenburg: img51,
   'Braves Berlin': img52,
   'Rasta Vechta': img53,
