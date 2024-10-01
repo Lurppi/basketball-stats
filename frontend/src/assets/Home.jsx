@@ -21,7 +21,7 @@ const Home = () => {
     { title: 'BOXSCORE PLUS/MINUS', apiField: 'BPM' },
     { title: 'PLAYER EFFICIENCY RATING', apiField: 'PER' },
     { title: 'PLAYER IMPACT ESTIMATE', apiField: 'PIE' },
-    { title: 'WIN SHARES', apiField: 'WS' },
+    { title: 'WIN SHARES / 40 MIN', apiField: 'WS_40' },
   ];
 
   // Definierte Tabellenüberschriften und API-Felder für Teams
