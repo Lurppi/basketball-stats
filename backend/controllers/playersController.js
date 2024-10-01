@@ -350,12 +350,12 @@ const getPlayersData = (req, res) => {
   });
 };
 
-const getTop10PlayersByStat = (req, res) => {
+const getAllPlayersByStat = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv');
-  const { statField, league } = req.params; // Stat-Feld und Liga als Parameter
+  const { statField } = req.params; // Stat-Feld als Parameter
 
-  if (!statField || !league) {
-    return res.status(400).send('Stat field and league are required');
+  if (!statField) {
+    return res.status(400).send('Stat field is required');
   }
 
   const results = [];
@@ -377,10 +377,11 @@ const getTop10PlayersByStat = (req, res) => {
         cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
       }
 
-      // Filtere nur Spieler mit mindestens 50 gespielten Minuten ("MP"), Saison-Daten und passender Liga
-      if (parseFloat(cleanedRow.MP) >= 50
-        && cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON'
-        && cleanedRow.LEAGUE.trim().toUpperCase() === league.toUpperCase()) {
+      // Filtere nur Spieler mit mindestens 50 gespielten Minuten ("MP") und Saison-Daten
+      if (
+        parseFloat(cleanedRow.MP) >= 50 &&
+        cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON'
+      ) {
         results.push(cleanedRow);
       }
     });
@@ -396,7 +397,7 @@ const getTop10PlayersByStat = (req, res) => {
       const latestSeasonYear = results[0].SEASON_YEAR;
 
       // Filtere nur die Spieler der aktuellsten Saison
-      const filteredResults = results.filter(row => row.SEASON_YEAR === latestSeasonYear);
+      const filteredResults = results.filter((row) => row.SEASON_YEAR === latestSeasonYear);
 
       // Sortiere die Spieler nach dem angegebenen Stat-Feld
       let sortedPlayers;
@@ -408,11 +409,9 @@ const getTop10PlayersByStat = (req, res) => {
         sortedPlayers = filteredResults.sort((a, b) => parseFloat(b[statField]) - parseFloat(a[statField]));
       }
 
-      // Gib die Top 10 zurück
-      const top10Players = sortedPlayers.slice(0, 10);
-
+      // Gib die Spieler zurück
       if (!res.headersSent) {
-        res.json(top10Players);
+        res.json(sortedPlayers);
       }
     });
 

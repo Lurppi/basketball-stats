@@ -47,7 +47,7 @@ const getTeamsData = (req, res) => {
 };
 
 // Neue Funktion: Filtere Teams-Daten nach der aktuellen Saison und SEASON_TYPE = 'SEASON'
-const getTopTeamsByStat = (req, res) => {
+const getAllTeamsByStat = (req, res) => {
   const filePath = path.join(__dirname, '../data/TEAMS.csv');
   const { statField } = req.params; // Stat-Feld, nach dem sortiert werden soll
 
@@ -73,10 +73,7 @@ const getTopTeamsByStat = (req, res) => {
       }
 
       // Filtere nur Teams mit SEASON_TYPE = 'SEASON' und aktuellem Saisonjahr
-      if (
-        cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON' &&
-        cleanedRow.SEASON_YEAR.trim().match(/^\d{8}$/)
-      ) {
+      if (cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON' && cleanedRow.SEASON_YEAR.trim().match(/^\d{8}$/)) {
         results.push(cleanedRow);
       }
     });
@@ -89,8 +86,6 @@ const getTopTeamsByStat = (req, res) => {
 
       // Ermittle die aktuellste Saison
       results.sort((a, b) => b.SEASON_YEAR.localeCompare(a.SEASON_YEAR));
-
-      // Aktuellste Saison ermitteln (wie in deinem Backend bereits gemacht)
       const latestSeasonYear = results[0].SEASON_YEAR;
 
       // Filtere nur die Teams der aktuellsten Saison
@@ -106,11 +101,9 @@ const getTopTeamsByStat = (req, res) => {
         sortedTeams = filteredResults.sort((a, b) => parseFloat(b[statField]) - parseFloat(a[statField]));
       }
 
-      // Gib die Top 10 zurück
-      const top10Teams = sortedTeams.slice(0, 10);
-
+      // Gib die Teams zurück
       if (!res.headersSent) {
-        res.json(top10Teams);
+        res.json(sortedTeams);
       }
     });
 

@@ -1,3 +1,4 @@
+// Home.jsx - Fetch alle Spieler- oder Teamdaten und filtere im Frontend
 import React, { useEffect, useState } from 'react';
 import StatsTable from '../assets/StatsTable'; // Importiere die Tabellenkomponente
 import './Home.css'; // Importiere CSS für die Home-Seite
@@ -8,8 +9,6 @@ import teamImageMappings from './MappingList';
 const Home = () => {
   const [activeTab, setActiveTab] = useState('players'); // Umschaltung zwischen Players und Teams
   const [selectedLeague, setSelectedLeague] = useState('NBBL'); // State für die ausgewählte Liga
-  const [seasonYear, setSeasonYear] = useState(2023); // Beispielhaft aktuelle Saison
-  const [seasonType, setSeasonType] = useState('SEASON'); // Beispielhaft Saisonart
   const [statsData, setStatsData] = useState({}); // Daten für alle Tabellen
 
   // Definierte Tabellenüberschriften und API-Felder für Spieler
@@ -36,28 +35,39 @@ const Home = () => {
     { title: 'True Shooting', apiField: 'TS%' },
   ];
 
-  // Dynamische URL basierend auf der ausgewählten Liga, dem Tab und dem Stat-Feld
-  const getApiUrl = (statField) => {
-    return `/api/${selectedLeague.toLowerCase()}/${activeTab}/top10/${statField}`;
+  // Dynamische URL basierend auf dem Tab (Players oder Teams)
+  const getApiUrl = () => {
+    return `/api/${activeTab}/rankings`;
   };
 
   useEffect(() => {
     const fetchData = async () => {
+      const response = await fetch(getApiUrl());
+      const data = await response.json();
+
+      // Filtere nur die Spieler/Teams aus der ausgewählten Liga (NBBL/JBBL)
+      const filteredData = data.filter(item => item.LEAGUE === selectedLeague);
+
+      // Berechne die Top 10 für jede Statistik im Frontend
       const statsConfig = activeTab === 'players' ? playerStatsConfig : teamStatsConfig;
 
-      const dataPromises = statsConfig.map(async (stat) => {
-        const response = await fetch(getApiUrl(stat.apiField));
-        const data = await response.json();
-        return { [stat.apiField]: data }; // Daten der API-Antwort (Top 10 Spieler/Teams)
-      });
+      const top10Data = statsConfig.reduce((acc, stat) => {
+        const sorted = filteredData
+          .sort((a, b) => stat.apiField === 'DRTG'
+            ? parseFloat(a[stat.apiField]) - parseFloat(b[stat.apiField]) // Defensive Rating von klein nach groß
+            : parseFloat(b[stat.apiField]) - parseFloat(a[stat.apiField]) // Andere Stats von groß nach klein
+          )
+          .slice(0, 10); // Top 10 filtern
 
-      const allData = await Promise.all(dataPromises);
-      const mergedData = allData.reduce((acc, curr) => ({ ...acc, ...curr }), {});
-      setStatsData(mergedData); // Setze die Statistiken-Daten für alle Tabellen
+        acc[stat.apiField] = sorted;
+        return acc;
+      }, {});
+
+      setStatsData(top10Data);
     };
 
     fetchData();
-  }, [activeTab, selectedLeague, seasonYear, seasonType]); // Neu laden bei Wechsel von Tab oder Liga
+  }, [activeTab, selectedLeague]); // Neu laden bei Wechsel von Tab oder Liga
 
   const statsConfig = activeTab === 'players' ? playerStatsConfig : teamStatsConfig;
 

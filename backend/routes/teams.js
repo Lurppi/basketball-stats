@@ -7,9 +7,9 @@ router.get('/', (req, res) => {
   teamsController.getTeamsData(req, res);
 });
 
-// Neue Route: Hole die Top 10 Teams basierend auf einem bestimmten Stat-Feld
-router.get('/top10/:statField', (req, res) => {
-  teamsController.getTopTeamsByStat(req, res);
+// Neue Route: Hole die Daten für alle Teams der aktuellen Saison
+router.get('/rankings', (req, res) => {
+  teamsController.getAllTeamsByStat(req, res);
 });
 
 module.exports = router;
