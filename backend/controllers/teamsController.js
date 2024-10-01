@@ -73,7 +73,10 @@ const getTopTeamsByStat = (req, res) => {
       }
 
       // Filtere nur Teams mit SEASON_TYPE = 'SEASON' und aktuellem Saisonjahr
-      if (cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON' && cleanedRow.SEASON_YEAR.trim().match(/^\d{8}$/)) {
+      if (
+        cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON' &&
+        cleanedRow.SEASON_YEAR.trim().match(/^\d{8}$/)
+      ) {
         results.push(cleanedRow);
       }
     });
@@ -87,15 +90,11 @@ const getTopTeamsByStat = (req, res) => {
       // Ermittle die aktuellste Saison
       results.sort((a, b) => b.SEASON_YEAR.localeCompare(a.SEASON_YEAR));
 
-      // Finde die aktuelle Saison basierend auf dem heutigen Datum
-      const currentYear = new Date().getFullYear();
-      const currentSeason = results.find(row => row.SEASON_YEAR.startsWith(String(currentYear)));
-
-      // Wenn keine aktuelle Saison vorhanden ist, nehme die nächstverfügbare
-      const latestSeasonYear = currentSeason ? currentSeason.SEASON_YEAR : results[0].SEASON_YEAR;
+      // Aktuellste Saison ermitteln (wie in deinem Backend bereits gemacht)
+      const latestSeasonYear = results[0].SEASON_YEAR;
 
       // Filtere nur die Teams der aktuellsten Saison
-      const filteredResults = results.filter(row => row.SEASON_YEAR === latestSeasonYear);
+      const filteredResults = results.filter((row) => row.SEASON_YEAR === latestSeasonYear);
 
       // Sortiere die Teams nach dem angegebenen Stat-Feld
       let sortedTeams;
