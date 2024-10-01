@@ -350,6 +350,90 @@ const getPlayersData = (req, res) => {
   });
 };
 
+// Neue Funktion: Filtere die Spieler der aktuellen Saison und mindestens 50 Minuten Spielzeit
+const getTop10PlayersByStat = (req, res) => {
+  const filePath = path.join(__dirname, '../data/PLAYERS.csv');
+  const { statField } = req.params; // Stat-Feld, nach dem sortiert werden soll
+
+  if (!statField) {
+    return res.status(400).send('Stat field is required');
+  }
+
+  const results = [];
+
+  fs.access(filePath, fs.constants.F_OK, (err) => {
+    if (err) {
+      console.error(`File not found: ${filePath}`);
+      if (!res.headersSent) {
+        return res.status(404).send(`File not found: ${filePath}`);
+      }
+    }
+
+    const stream = fs.createReadStream(filePath).pipe(csv({ separator: ';' }));
+
+    stream.on('data', (row) => {
+      const cleanedRow = {};
+      for (let key in row) {
+        const cleanedKey = key.replace(/\uFEFF/g, '').trim();
+        cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
+      }
+
+      // Filtere nur Spieler mit mindestens 50 gespielten Minuten ("MP"), SEASON_TYPE = 'SEASON', und aktuelle Saison
+      if (
+        parseFloat(cleanedRow.MP) >= 50 &&
+        cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON' &&
+        cleanedRow.SEASON_YEAR.trim().match(/^\d{8}$/) // Matches SEASON_YEAR format
+      ) {
+        results.push(cleanedRow);
+      }
+    });
+
+    stream.on('end', () => {
+      if (results.length === 0) {
+        console.log('No valid players found');
+        return res.json([]);
+      }
+
+      // Ermittle die aktuellste Saison
+      results.sort((a, b) => b.SEASON_YEAR.localeCompare(a.SEASON_YEAR));
+
+      // Finde die aktuelle Saison basierend auf dem heutigen Datum
+      const currentYear = new Date().getFullYear();
+      const currentSeason = results.find(row => row.SEASON_YEAR.startsWith(String(currentYear)));
+
+      // Wenn keine aktuelle Saison vorhanden ist, nehme die nächstverfügbare
+      const latestSeasonYear = currentSeason ? currentSeason.SEASON_YEAR : results[0].SEASON_YEAR;
+
+      // Filtere nur die Spieler der aktuellsten Saison
+      const filteredResults = results.filter(row => row.SEASON_YEAR === latestSeasonYear);
+
+      // Sortiere die Spieler nach dem angegebenen Stat-Feld
+      let sortedPlayers;
+      if (statField === 'DRTG') {
+        // Defensive Rating wird von klein nach groß sortiert
+        sortedPlayers = filteredResults.sort((a, b) => parseFloat(a[statField]) - parseFloat(b[statField]));
+      } else {
+        // Alle anderen Statistiken werden von groß nach klein sortiert
+        sortedPlayers = filteredResults.sort((a, b) => parseFloat(b[statField]) - parseFloat(a[statField]));
+      }
+
+      // Gib die Top 10 zurück
+      const top10Players = sortedPlayers.slice(0, 10);
+
+      if (!res.headersSent) {
+        res.json(top10Players);
+      }
+    });
+
+    stream.on('error', (err) => {
+      console.error(`Error reading the CSV file: ${err}`);
+      if (!res.headersSent) {
+        res.status(500).send('Error reading the CSV file');
+      }
+    });
+  });
+};
+
 // Funktion zur Generierung der Sitemap
 const generateSitemap = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv');
@@ -516,5 +600,6 @@ module.exports = {
   getPlayerStatsBySeasonType,
   generateSitemap,
   getPlayersBySeason,
+  getTop10PlayersByStat,
 };
 

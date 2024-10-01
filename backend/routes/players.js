@@ -27,4 +27,9 @@ router.get('/season/:seasonYear', (req, res) => {
   playersController.getPlayersBySeason(req, res);
 });
 
+// Neue Route: Hole die Top 10 Spieler basierend auf einem bestimmten Stat-Feld
+router.get('/top10/:statField', (req, res) => {
+  playersController.getTop10PlayersByStat(req, res);
+});
+
 module.exports = router;

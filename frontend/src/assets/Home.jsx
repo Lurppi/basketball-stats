@@ -1,144 +1,128 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import Header from './Header';
-import Footer from './Footer';
-import './Home.css';
-
-// Importiere alle 16 Bilder aus dem src/images Ordner
-import img1 from '../images/img1.jpg';
-import img2 from '../images/img2.jpg';
-import img3 from '../images/img3.jpg';
-import img4 from '../images/img4.jpg';
-import img5 from '../images/img5.jpg';
-import img6 from '../images/img6.jpg';
-import img7 from '../images/img7.jpg';
-import img8 from '../images/img8.jpg';
-import img9 from '../images/img9.jpg';
-import img10 from '../images/img10.jpg';
-import img11 from '../images/img11.jpg';
-import img12 from '../images/img12.jpg';
-import img13 from '../images/img13.jpg';
-import img14 from '../images/img14.jpg';
-import img15 from '../images/img15.jpg';
-import img16 from '../images/img16.jpg';
+import React, { useEffect, useState } from 'react';
+import StatsTable from '../assets/StatsTable'; // Importiere die Tabellenkomponente
+import './Home.css'; // Importiere CSS für die Home-Seite
+import NBBLLogo from '../images/NBBL.png'; // Importiere NBBL-Logo
+import JBBLLogo from '../images/JBBL.png'; // Importiere JBBL-Logo
+import teamImageMappings from './MappingList';
 
 const Home = () => {
+  const [activeTab, setActiveTab] = useState('players'); // Umschaltung zwischen Players und Teams
+  const [selectedLeague, setSelectedLeague] = useState('NBBL'); // State für die ausgewählte Liga
+  const [seasonYear, setSeasonYear] = useState(2023); // Beispielhaft aktuelle Saison
+  const [seasonType, setSeasonType] = useState('SEASON'); // Beispielhaft Saisonart
+  const [statsData, setStatsData] = useState({}); // Daten für alle Tabellen
+
+  // Definierte Tabellenüberschriften und API-Felder für Spieler
+  const playerStatsConfig = [
+    { title: 'Points per Game', apiField: 'PPG' },
+    { title: 'Rebounds per Game', apiField: 'RPG' },
+    { title: 'Assists per Game', apiField: 'APG' },
+    { title: '3-Pointer Made', apiField: '3PM' },
+    { title: 'Boxscore Plus/Minus', apiField: 'BPM' },
+    { title: 'Player Efficiency Rating', apiField: 'PER' },
+    { title: 'Player Impact Estimate', apiField: 'PIE' },
+    { title: 'Win Shares', apiField: 'WS' },
+  ];
+
+  // Definierte Tabellenüberschriften und API-Felder für Teams
+  const teamStatsConfig = [
+    { title: 'Points per Game', apiField: 'PPG' },
+    { title: 'Rebounds per Game', apiField: 'RPG' },
+    { title: 'Assists per Game', apiField: 'APG' },
+    { title: 'Efficiency per Game', apiField: 'EFPG' },
+    { title: 'Offensive Rating', apiField: 'ORTG' },
+    { title: 'Defensive Rating', apiField: 'DRTG' }, // Dieser Stat wird anders sortiert
+    { title: 'Net Rating', apiField: 'NRTG' },
+    { title: 'True Shooting', apiField: 'TS%' },
+  ];
+
+  // Dynamische URL basierend auf der ausgewählten Liga, dem Tab und dem Stat-Feld
+  const getApiUrl = (statField) => {
+    return `https://backend-sandy-rho.vercel.app/api/${selectedLeague.toLowerCase()}/${activeTab}/top10/${statField}?season_year=${seasonYear}&season_type=${seasonType}`;
+  };
+
   useEffect(() => {
-    const nextDom = document.getElementById('next');
-    const prevDom = document.getElementById('prev');
-    const carouselDom = document.querySelector('.carousel');
-    const sliderDom = carouselDom.querySelector('.list');
-    const thumbnailBorderDom = document.querySelector('.thumbnail');
-    
-    // Warte, bis alle DOM-Elemente geladen sind
-    if (!sliderDom || !thumbnailBorderDom) {
-      console.error("Slider or Thumbnail DOM not found.");
-      return;
-    }
+    const fetchData = async () => {
+      const statsConfig = activeTab === 'players' ? playerStatsConfig : teamStatsConfig;
 
-    const thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
-    const timeRunning = 3000;
-    const timeAutoNext = 7000;
+      const dataPromises = statsConfig.map(async (stat) => {
+        const response = await fetch(getApiUrl(stat.apiField));
+        const data = await response.json();
+        return { [stat.apiField]: data }; // Daten der API-Antwort (Top 10 Spieler/Teams)
+      });
 
-    let runTimeOut;
-    let runNextAuto;
-
-    // Vergewissere dich, dass thumbnailItemsDom nicht leer ist
-    if (thumbnailItemsDom.length > 0) {
-      thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-    } else {
-      console.error("No thumbnail items found.");
-    }
-
-    const showSlider = (type) => {
-      const sliderItemsDom = sliderDom.querySelectorAll('.item');
-      const thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
-
-      if (sliderItemsDom.length === 0 || thumbnailItemsDom.length === 0) {
-        console.error("No slider or thumbnail items found.");
-        return;
-      }
-
-      if (type === 'next') {
-        sliderDom.appendChild(sliderItemsDom[0]);
-        thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-        carouselDom.classList.add('next');
-      } else {
-        sliderDom.prepend(sliderItemsDom[sliderItemsDom.length - 1]);
-        thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
-        carouselDom.classList.add('prev');
-      }
-
-      clearTimeout(runTimeOut);
-      runTimeOut = setTimeout(() => {
-        carouselDom.classList.remove('next');
-        carouselDom.classList.remove('prev');
-      }, timeRunning);
-
-      clearTimeout(runNextAuto);
-      runNextAuto = setTimeout(() => {
-        nextDom.click();
-      }, timeAutoNext);
+      const allData = await Promise.all(dataPromises);
+      const mergedData = allData.reduce((acc, curr) => ({ ...acc, ...curr }), {});
+      setStatsData(mergedData); // Setze die Statistiken-Daten für alle Tabellen
     };
 
-    nextDom.onclick = () => showSlider('next');
-    prevDom.onclick = () => showSlider('prev');
+    fetchData();
+  }, [activeTab, selectedLeague, seasonYear, seasonType]); // Neu laden bei Wechsel von Tab oder Liga
 
-    runNextAuto = setTimeout(() => {
-      nextDom.click();
-    }, timeAutoNext);
-  }, []);
+  const statsConfig = activeTab === 'players' ? playerStatsConfig : teamStatsConfig;
 
-  // Array mit den 16 Bildimporten
-  const images = [
-    img1, img2, img3, img4, img5, img6, img7, img8,
-    img9, img10, img11, img12, img13, img14, img15, img16
-  ];
+  // Full List URL abhängig vom aktiven Tab (Players oder Teams)
+  const fullListUrl = activeTab === 'players'
+    ? 'https://www.nbbl-stats.de/players'
+    : 'https://www.nbbl-stats.de/teams';
 
   return (
     <div className="home-container">
-      <div className="slider-container">
-        <div className="carousel">
-          <div className="list">
-            {images.map((img, index) => (
-              <div className="item" key={index}>
-                <img src={img} alt={`Slide ${index + 1}`} />
-                <div className="content">
-                  <div className="author">NBBL</div>
-                  <div className="title">ADVANCED STATISTICS</div>
-                  <div className="topic"></div>
-                  <div className="des"></div>
-                  <div className="buttons">
-                    <Link to="/players">
-                      <button>PLAYERS</button>
-                    </Link>
-                    <Link to="/teams">
-                      <button>TEAMS</button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="thumbnail">
-            {images.map((img, index) => (
-              <div className="item" key={index}>
-                <img src={img} alt={`Thumbnail ${index + 1}`} />
-                <div className="content">
-                  <div className="title"></div>
-                  <div className="description"></div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="arrows">
-            <button id="prev">&lt;</button>
-            <button id="next">&gt;</button>
-          </div>
-          <div className="time"></div>
+      {/* Umschaltbare Logos für Ligen */}
+      <div className="league-switch">
+        <img
+          src={NBBLLogo}
+          alt="NBBL"
+          className={selectedLeague === 'NBBL' ? 'active-league' : ''}
+          onClick={() => setSelectedLeague('NBBL')}
+        />
+        <img
+          src={JBBLLogo}
+          alt="JBBL"
+          className={selectedLeague === 'JBBL' ? 'active-league' : ''}
+          onClick={() => setSelectedLeague('JBBL')}
+        />
+      </div>
+
+      {/* Umschaltknöpfe für Players / Teams */}
+      <nav className="breadcrumb">
+        <button
+          className={activeTab === 'players' ? 'active-tab' : ''}
+          onClick={() => setActiveTab('players')}
+        >
+          Players
+        </button>
+        <button
+          className={activeTab === 'teams' ? 'active-tab' : ''}
+          onClick={() => setActiveTab('teams')}
+        >
+          Teams
+        </button>
+      </nav>
+
+      <div className="content">
+        <div className="text-container">
+          <p>Here are the current top 10 players and teams in various categories.</p>
+          <h1>Top 10 Leaders</h1>
+        </div>
+
+        {/* 8 Tabellen: 4 pro Zeile */}
+        <div className="table-grid">
+          {statsConfig.map((stat, index) => (
+            <StatsTable
+              key={index}
+              title={stat.title}
+              data={statsData[stat.apiField] || []} // Daten für das spezifische Statfeld
+              nameField={activeTab === 'players' ? 'PLAYER' : 'TEAM'} // Name-Feld: Spielername oder Teamname
+              gamesField="GP" // Feld für gespielte Spiele
+              statField={stat.apiField} // Das aktuelle Stat-Feld
+              logoField="TEAM" // Verwende das "TEAM"-Feld für das Logo
+              fullListUrl={fullListUrl} // Full List URL für Players oder Teams
+              teamLogoMap={teamImageMappings} // Map für die Team-Logos
+            />
+          ))}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -1,0 +1,106 @@
+/* frontend/src/assets/StatsTable.css */
+
+.leaderboard-table {
+  width: 100%;
+  max-width: 300px;
+  /* Schmaler */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f7f7f7;
+  padding: 10px 15px;
+  font-weight: bold;
+}
+
+.full-list-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.full-list-link:hover {
+  text-decoration: underline;
+}
+
+.leaderboard-content {
+  padding: 10px;
+}
+
+.leader-item {
+  display: flex;
+  justify-content: space-between;
+  /* Gleichmäßige Verteilung */
+  align-items: center;
+  padding: 15px 10px;
+  /* Zeilenhöhe vergrößern */
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.leader-item:last-child {
+  border-bottom: none;
+}
+
+.leader-highlight {
+  background: linear-gradient(90deg, #ff6700, #ff9500);
+  /* Orange Verlauf */
+  color: #fff;
+}
+
+.leader-highlight .leader-name {
+  font-weight: bold;
+}
+
+.leader-highlight .games,
+.leader-highlight .average {
+  color: #fff;
+  font-weight: bold;
+}
+
+.leader-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  /* Zeilenumbruch erlauben */
+}
+
+.leader-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.leader-name {
+  font-size: 16px;
+  font-weight: normal;
+  word-wrap: break-word;
+  /* Aktiviert den Zeilenumbruch */
+  max-width: 100px;
+  /* Optional: Begrenze die Breite, um Zeilenumbruch zu triggern */
+}
+
+.leader-stats {
+  display: flex;
+  gap: 10px;
+  /* Abstand zwischen Games und Average */
+  justify-content: flex-end;
+  width: 80px;
+  /* Breite für beide Statistiken */
+}
+
+.games,
+.average {
+  width: 40px;
+  /* Gleiche Breite für Games und Average */
+  text-align: right;
+  font-size: 14px;
+  color: #333;
+}
