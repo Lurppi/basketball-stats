@@ -371,9 +371,9 @@ const getAllPlayers = (req, res) => {
         cleanedRow[cleanedKey] = row[key].replace(/\uFEFF/g, '').trim();
       }
 
-      // Filtere nur Spieler mit mindestens 50 gespielten Minuten ("MP") und Saison-Daten
+      // Filtere nur Spieler mit mindestens X gespielten Minuten ("MP") und Saison-Daten
       if (
-        parseFloat(cleanedRow.MP) >= 50 &&
+        parseFloat(cleanedRow.MP) >= 100 &&
         cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON'
       ) {
         results.push(cleanedRow);
