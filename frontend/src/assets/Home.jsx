@@ -119,7 +119,7 @@ const Home = () => {
 
       <div className="content">
         <div className="text-container">
-          <p>Here are the current top 10 players and teams in various categories.</p>
+          <p>Here are the current top 10 players and teams in various categories, like Points per Game, Rebounds per Game or Assists per Game.</p>
           <h1>Top 10 Leaders</h1>
         </div>
 

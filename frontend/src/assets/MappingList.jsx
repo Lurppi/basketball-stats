@@ -1,18 +1,64 @@
-import img51 from '../images/img51.jpg';
-import img52 from '../images/img52.jpg';
-import img53 from '../images/img53.jpg';
-import img54 from '../images/img54.jpg';
-import img55 from '../images/img55.jpg';
-import img56 from '../images/img56.jpg';
-import img57 from '../images/img57.jpg';
-import img58 from '../images/img58.jpg';
-import img59 from '../images/img59.jpg';
-import img60 from '../images/img60.jpg';
-import img61 from '../images/img61.jpg';
-import img62 from '../images/img62.jpg';
-import img63 from '../images/img63.jpg';
 import img100 from '../images/img100.png';
 import img101 from '../images/img101.png';
+import img102 from '../images/img102.png';
+import img103 from '../images/img103.png';
+import img104 from '../images/img104.png';
+import img105 from '../images/img105.png';
+import img106 from '../images/img106.png';
+import img107 from '../images/img107.png';
+import img108 from '../images/img108.png';
+import img109 from '../images/img109.png';
+import img110 from '../images/img110.png';
+import img111 from '../images/img111.png';
+import img112 from '../images/img112.png';
+import img113 from '../images/img113.png';
+import img114 from '../images/img114.png';
+import img115 from '../images/img115.png';
+import img116 from '../images/img116.png';
+import img117 from '../images/img117.png';
+import img118 from '../images/img118.png';
+import img119 from '../images/img119.png';
+import img120 from '../images/img120.png';
+import img121 from '../images/img121.png';
+import img122 from '../images/img122.png';
+import img123 from '../images/img123.png';
+import img124 from '../images/img124.png';
+import img125 from '../images/img125.png';
+import img126 from '../images/img126.png';
+import img127 from '../images/img127.png';
+import img128 from '../images/img128.png';
+import img129 from '../images/img129.png';
+import img130 from '../images/img130.png';
+import img131 from '../images/img131.png';
+import img132 from '../images/img132.png';
+import img133 from '../images/img133.png';
+import img134 from '../images/img134.png';
+import img135 from '../images/img135.png';
+import img136 from '../images/img136.png';
+import img137 from '../images/img137.png';
+import img138 from '../images/img138.png';
+import img139 from '../images/img139.png';
+import img140 from '../images/img140.png';
+import img141 from '../images/img141.png';
+import img142 from '../images/img142.png';
+import img143 from '../images/img143.png';
+import img144 from '../images/img144.png';
+import img145 from '../images/img145.png';
+import img146 from '../images/img146.png';
+import img147 from '../images/img147.png';
+import img148 from '../images/img148.png';
+import img149 from '../images/img149.png';
+import img150 from '../images/img150.png';
+import img151 from '../images/img151.png';
+import img152 from '../images/img152.png';
+import img153 from '../images/img153.png';
+import img154 from '../images/img154.png';
+import img155 from '../images/img155.png';
+import img156 from '../images/img156.png';
+import img157 from '../images/img157.png';
+import img158 from '../images/img158.png';
+import img159 from '../images/img159.png';
+import img160 from '../images/img160.png';
 
 export const columnHeaderMapping = {
   SEASON_YEAR: "SEASON",
@@ -320,19 +366,66 @@ export const ToolheadersMapping = {
 export const teamImageMappings = {
   'Jahn München': img100,
   Leverkusen: img101,
-  Oldenburg: img51,
-  'Braves Berlin': img52,
-  'Rasta Vechta': img53,
-  Paderborn: img54,
-  Ludwigsburg: img55,
-  Nürnberg: img56,
-  'Alba Berlin': img57,
-  IBAM: img58,
-  Ursrping: img59,
-  Jena: img60,
-  Münster: img61,
-  Chemnitz: img62,
-  Göttingen: img63,
+  Oldenburg: img102,
+  Paderborn: img103,
+  'Phoenix Hagen': img104,
+  'Bonn-Rhöndorf': img105,
+  'RS Köln': img106,
+  'Rasta Vechta': img107,
+  'Alba Berlin': img108,
+  'Braves Berlin': img109,
+  Göttingen: img110,
+  Giessen: img111,
+  Frankfurt: img112,
+  Bamberg: img113,
+  'SC Jena': img114,
+  'ratiopharm Ulm': img115,
+  'FC Bayern': img116,
+  Ludwigsburg: img117,
+  Urspring: img118,
+  Hamburg: img119,
+  Düsseldorf: img120,
+  IBAM: img121,
+  Chemnitz: img122,
+  'Rasta Academy': img123,
+  'TG Hanau': img124,
+  Orange: img125,
+  'BBA Hagen': img126,
+  Bremerhaven: img127,
+  Metropolitans: img128,
+  'Metropol Ruhr': img129,
+  Würzburg: img130,
+  Bayreuth: img131,
+  Münster: img132,
+  Rostock: img133,
+  Heidelberg: img134,
+  Dresden: img135,
+  Braunschweig: img136,
+  'Löwen Erfurt': img137,
+  Südhessen: img138,
+  Nürnberg: img139,
+  Kirchheim: img140,
+  Potsdam: img141,
+  MBC: img142,
+  Tübingen: img143,
+  Karlsruhe: img144,
+  Lichterfelde: img145,
+  'Young Bulls': img146,
+  Rockets: img147,
+  Bramfeld: img148,
+  Friedenau: img149,
+  Oberpfalz: img150,
+  Zehlendorf: img151,
+  'SG Bernau': img152,
+  'Team Frankfurt': img153,
+  ALBASS: img154,
+  'München-Ost': img155,
+  'MTV Stuttgart': img156,
+  Northwestern: img157,
+  Wuppertal: img158,
+  Wolfenbüttel: img159,
+  Kornwestheim: img160,
+
 };
 
 export default teamImageMappings;
