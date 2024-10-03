@@ -160,7 +160,7 @@ export const columnHeaderMapping = {
   'ORTG_ADJ': "ORTG",
   'DRTG_ADJ': "DRTG",
   'NRTG_ADJ': "NRTG",
-  'STOPS_Gm': "ST/Gm",
+  'STOPS_Gm': "St/Gm",
   '2PMPG': "2PM",
   '2PAPG': "2PA",
   '3PMPG': "3PM",
