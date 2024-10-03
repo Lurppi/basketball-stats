@@ -139,6 +139,12 @@ const Home = () => {
             />
           ))}
         </div>
+
+        {/* Neuer Text unterhalb der Tabellen */}
+        <div className="text-container">
+          <p>Feel free to use any stats from this site in articles, on podcasts, or on social media, as long as you say where you got them from.</p>
+          <p>Any problems using the site? Ideas to improve it? Random interesting thoughts? Email dennis.uhlig@icloud.com</p>
+        </div>
       </div>
       <Footer />
     </div>
