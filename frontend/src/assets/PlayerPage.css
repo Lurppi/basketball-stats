@@ -82,9 +82,14 @@
   margin-top: 10px;
 }
 
-.league-logo,
+.league-logo {
+  max-width: 80px;
+  /* Logo-Größe anpassen */
+  height: auto;
+}
+
 .nat-logo {
-  max-width: 50px;
+  max-width: 70px;
   /* Logo-Größe anpassen */
   height: auto;
 }
@@ -92,6 +97,7 @@
 .league-info,
 .nat-info {
   text-align: center;
+  margin-bottom: -10px;
 }
 
 /* Spielerinfos zentrieren */
@@ -521,14 +527,25 @@
     white-space: normal;
     margin-bottom: 10px;
     word-wrap: break-word;
-}
+  }
 
   .team-logo {
     margin: 0 auto;
     margin-bottom: 0px;
     width: 80px;
     height: 80px;
-}
+  }
+
+ .league-nat-container {
+   justify-content: flex-start;
+   /* Links ausrichten in mobiler Ansicht */
+ }
+
+ .league-info,
+ .nat-info {
+   text-align: left;
+   /* Links ausgerichteter Text */
+ }
 
   .info-item {
     width: auto !important;
