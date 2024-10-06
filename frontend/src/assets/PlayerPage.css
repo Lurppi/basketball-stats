@@ -44,26 +44,32 @@
   text-align: center;
 }
 
-.player-name {
-  font-size: 16px;
-  margin-bottom: 1px;
-}
-
-.team-position {
+.player-name {  
   font-size: 24px;
   font-weight: bold;
   color: #444343;
+  white-space: normal;
+  margin-bottom: -5px;
 }
+
+.team-long {
+  font-size: 16px;
+  font-weight: bold;
+  color: #444343;
+  white-space: normal;
+  margin-bottom: 0px;
+}
+
 
 .team-logo {
   margin: 0 auto;
   margin-bottom: 10px;
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
 }
 
 .position {
-  font-size: 24px;
+  font-size: 20px;
   color: #131212e1;
   font-weight: bold;
 }
@@ -84,13 +90,13 @@
 }
 
 .player-info-modern h4 {
-  font-size: 0.9em;
+  font-size: 20px;
   font-weight: bold;
   color: #888;
 }
 
 .player-info-modern p {
-  font-size: 1.2em;
+  font-size: 20px;
   font-weight: bold;
   color: #333;
 }
@@ -104,8 +110,9 @@
 }
 
 .player-stats-circle {
-  width: 70px;
-  height: 70px;
+  margin-top: 20px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: 2px solid;
   border-image-slice: 1;
@@ -120,7 +127,7 @@
 
 .player-stats-circle h4 {
   margin: 0;
-  font-size: 1.5em;
+  font-size: 1.0em;
   color: #000;
 }
 
@@ -357,7 +364,7 @@
   display: flex;
   justify-content: center;
   /* Zentriert die Badges */
-  gap: 20px;
+  gap: 10px;
   /* Abstand zwischen den Badges */
   padding: 0;
   list-style: none;
@@ -372,7 +379,7 @@
 }
 
 .player-badges img {
-  width: 80px;
+  width: 70px;
   /* Größe der Badge-Bilder anpassen */
   height: auto;
   margin-bottom: 10px;
@@ -380,9 +387,13 @@
 }
 
 .player-badges span {
-  font-size: 14px;
+  font-size: 12px;
   /* Textgröße für die Badge-Namen */
   font-weight: bold;
+  display: block;
+  white-space: normal;
+  word-wrap: break-word;
+  text-align: center;
 }
 
 /* Spielerinfos in einer Zeile anordnen */
@@ -448,7 +459,7 @@
 }
 
 .info-item h4 {
-  font-size: 0.9em;
+  font-size: 12px;
   font-weight: bold;
   color: #888;
   margin-bottom: 1px;
@@ -456,10 +467,11 @@
 }
 
 .info-item p {
-  font-size: 1.1em;
+  font-size: 14px;
   font-weight: bold;
   color: #333;
   margin-top: 0;
+  margin-bottom: -5px;
 }
 
 /* Responsive Anpassung für mobile Ansicht */
@@ -482,6 +494,22 @@
     gap: 1px;
   }
 
+  .player-name {
+    font-size: 22px;
+    font-weight: bold;
+    color: #444343;
+    white-space: normal;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+  .team-logo {
+    margin: 0 auto;
+    margin-bottom: 0px;
+    width: 80px;
+    height: 80px;
+}
+
   .info-item {
     width: auto !important;
     text-align: left !important;
@@ -490,16 +518,17 @@
 
   .info-item h4 {
     margin-bottom: 2px;
-    font-size: 0.8em;
+    font-size: 12px;
     font-weight: bold;
     color: #888;
   }
 
   .info-item p {
     margin-top: 0;
-    font-size: 1.0em;
+    font-size: 14px;
     font-weight: bold;
     color: #333;
+    margin-bottom: -50px;
   }
 
   /* Profilübersicht */
@@ -538,7 +567,7 @@
   }
 
   .player-badges span {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     display: block;
     white-space: normal;
@@ -547,7 +576,7 @@
   }
 
   .player-badges img {
-    width: 80px;
+    width: 60px;
     height: auto;
     margin-bottom: 10px;
   }

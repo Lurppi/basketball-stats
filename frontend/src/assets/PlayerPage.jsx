@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import './PlayerPage.css';
+import { teamImageMappings } from './MappingList';
 import Badge1 from '../images/Badge1.jpg';
 import Badge2 from '../images/Badge2.jpg';
 import Badge3 from '../images/Badge3.jpg';
@@ -460,10 +461,26 @@ const PlayerPage = () => {
       ) : playerInfo ? (
         <div className="playerpage-fixed-container">
           <div className="playerpage-profile-modern">
-            <h1 className="player-name">{playerInfo.TEAM_long || 'Unknown Team'}</h1>
-            <div className="team-position">
+            {/* Team-Logo hinzufügen */}
+            <div className="team-logo-container">
+              {teamImageMappings[playerInfo.TEAM] ? (
+                <img
+                  src={teamImageMappings[playerInfo.TEAM]}
+                  alt={playerInfo.TEAM}
+                  className="team-logo"
+                />
+              ) : (
+                <p>No logo available</p>
+              )}
+            </div>
+
+            {/* Spielername und Teaminfo */}
+            <div className="player-name-info">
               <div>
-                <p className="team-name">{playerInfo.PLAYER || 'Unknown Player'}</p>
+                <h1 className="player-name">{playerInfo.PLAYER || 'Unknown Player'}</h1>
+              </div>
+              <div>
+                <h2 className="team-long">{playerInfo.TEAM_long || 'Unknown Team'}</h2>
               </div>
             </div>
 
@@ -476,39 +493,39 @@ const PlayerPage = () => {
                   <h4>Position</h4>
                   <p>{playerInfo.POS || 'Unknown'}</p>
                 </div>
-                  <div className="info-item">
-                    <h4>Height</h4>
-                    <p>
-                      {playerInfo.HEIGHT && playerInfo.HEIGHT !== 0
-                        ? `${convertHeightToFeetInches(playerInfo.HEIGHT)} (${convertHeightToMeters(playerInfo.HEIGHT)})`
-                        : 'Unknown'}
-                    </p>
-                  </div>
-                  <div className="info-item">
-                    <h4>Weight</h4>
-                    <p>
-                      {playerInfo.WEIGHT && playerInfo.WEIGHT !== 0
-                        ? convertWeightToPounds(playerInfo.WEIGHT)
-                        : 'Unknown'}
-                    </p>
-                  </div>
+                <div className="info-item">
+                  <h4>Height</h4>
+                  <p>
+                    {playerInfo.HEIGHT && playerInfo.HEIGHT !== 0
+                      ? `${convertHeightToFeetInches(playerInfo.HEIGHT)} (${convertHeightToMeters(playerInfo.HEIGHT)})`
+                      : 'Unknown'}
+                  </p>
+                </div>
+                <div className="info-item">
+                  <h4>Weight</h4>
+                  <p>
+                    {playerInfo.WEIGHT && playerInfo.WEIGHT !== 0
+                      ? convertWeightToPounds(playerInfo.WEIGHT)
+                      : 'Unknown'}
+                  </p>
+                </div>
               </div>
 
               {/* Zweite Reihe: Role, Age, Born */}
               <div className="player-info-row">
-                  <div className="info-item">
-                    <h4>Offensive Role</h4>
-                    <p>{playerInfo.ROLE || 'Unknown'}</p>
-                  </div>
-                  <div className="info-item">
-                    <h4>Age</h4>
-                    <p>{calculateAge(playerInfo.BIRTHDATE)} years</p>
-                  </div>
-                  <div className="info-item">
-                    <h4>Born</h4>
-                    <p>{formatBirthDate(playerInfo.BIRTHDATE)}</p>
-                  </div>
+                <div className="info-item">
+                  <h4>Offensive Role</h4>
+                  <p>{playerInfo.ROLE || 'Unknown'}</p>
                 </div>
+                <div className="info-item">
+                  <h4>Age</h4>
+                  <p>{calculateAge(playerInfo.BIRTHDATE)} years</p>
+                </div>
+                <div className="info-item">
+                  <h4>Born</h4>
+                  <p>{formatBirthDate(playerInfo.BIRTHDATE)}</p>
+                </div>
+              </div>
 
             </div>
 
