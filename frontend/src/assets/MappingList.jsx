@@ -745,7 +745,7 @@ export const nationalityImageMappings = {
   GAB: ga,
   GMB: gm,
   GEO: ge,
-  DEU: de,
+  GER: de,
   GHA: gh,
   GIB: gi,
   GRC: gr,
