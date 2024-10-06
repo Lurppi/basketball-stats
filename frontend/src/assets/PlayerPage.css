@@ -122,7 +122,7 @@
 }
 
 .player-info-modern p {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   color: #333;
 }
@@ -442,7 +442,7 @@
 }
 
 .player-info-row h4 {
-  font-size: 0.9em;
+  font-size: 16px;
   font-weight: bold;
   color: #888;
 }
@@ -485,7 +485,7 @@
 }
 
 .info-item h4 {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: bold;
   color: #888;
   margin-bottom: 1px;
@@ -493,7 +493,7 @@
 }
 
 .info-item p {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bold;
   color: #333;
   margin-top: 0;
@@ -521,11 +521,22 @@
   }
 
   .player-name {
+    width: 300px;
     font-size: 22px;
     font-weight: bold;
     color: #444343;
     white-space: normal;
-    margin-bottom: 10px;
+    margin-bottom: -5px;
+    word-wrap: break-word;
+  }
+  
+  .team-long {
+    width: 300px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #444343;
+    white-space: normal;
+    margin-bottom: 0px;
     word-wrap: break-word;
   }
 
@@ -536,16 +547,16 @@
     height: 80px;
   }
 
- .league-nat-container {
-   justify-content: flex-start;
-   /* Links ausrichten in mobiler Ansicht */
- }
+  .league-nat-container {
+     justify-content: flex-start;
+    /* Links ausrichten in mobiler Ansicht */
+  }
 
- .league-info,
- .nat-info {
-   text-align: left;
-   /* Links ausgerichteter Text */
- }
+  .league-info,
+  .nat-info {
+    text-align: left;
+    /* Links ausgerichteter Text */
+  }
 
   .info-item {
     width: auto !important;
@@ -579,7 +590,7 @@
 
   .player-badges {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     /* 4 Badges in einer Reihe */
     gap: 10px;
     /* Abstand zwischen den Badges */
@@ -589,7 +600,7 @@
 
   .player-badges ul {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     /* Gleiche Einstellung für das UL */
     gap: 20px;
     /* Gleicher Abstand */
