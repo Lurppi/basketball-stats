@@ -411,7 +411,7 @@ const getAllPlayers = (req, res) => {
 // Funktion zur Generierung der Sitemap
 const generateSitemap = (req, res) => {
   const filePath = path.join(__dirname, '../data/PLAYERS.csv');
-  const baseUrl = 'https://www.nbbl-stats.de/player/';
+  const baseUrl = 'https://www.nbbl-stats.de/player/'; // sicherstellen, dass die URL konsistent ist
 
   const playerIDs = new Set(); // Set verwenden, um Duplikate zu vermeiden
 
@@ -484,6 +484,7 @@ const generateSitemap = (req, res) => {
         <url>
           <loc>${baseUrl}${id}</loc>
           <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+          <changefreq>weekly</changefreq>
           <priority>0.80</priority>
         </url>`
         )
