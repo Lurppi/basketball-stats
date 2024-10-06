@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import './PlayerPage.css';
-import { teamImageMappings } from './MappingList';
+import { teamImageMappings, nationalityImageMappings, leagueImageMappings } from './MappingList';
 import Badge1 from '../images/Badge1.jpg';
 import Badge2 from '../images/Badge2.jpg';
 import Badge3 from '../images/Badge3.jpg';
@@ -482,6 +482,32 @@ const PlayerPage = () => {
               <div>
                 <h2 className="team-long">{playerInfo.TEAM_long || 'Unknown Team'}</h2>
               </div>
+
+              {/* League und Nationalität nebeneinander anzeigen */}
+              <div className="league-nat-container">
+                <div className="league-info">
+                  {leagueImageMappings[playerInfo.LEAGUE] ? (
+                    <img
+                      src={leagueImageMappings[playerInfo.LEAGUE]}
+                      alt={playerInfo.LEAGUE}
+                      className="league-logo"
+                    />
+                  ) : (
+                    <p>League: {playerInfo.LEAGUE || 'Unknown League'}</p>
+                  )}
+                </div>
+                <div className="nat-info">
+                  {nationalityImageMappings[playerInfo.NAT] ? (
+                    <img
+                      src={nationalityImageMappings[playerInfo.NAT]}
+                      alt={playerInfo.NAT}
+                      className="nat-logo"
+                    />
+                  ) : (
+                    <p>Nationality: {playerInfo.NAT || 'Unknown Nationality'}</p>
+                  )}
+                </div>
+              </div>
             </div>
 
             {/* Flexbox für die Spielerinformationen in zwei Reihen */}
@@ -559,7 +585,7 @@ const PlayerPage = () => {
 
         </div>
       ) : (
-        <p>Player profile is loading or unavailable</p> // Fallback, wenn kein Spielerprofil vorhanden
+        <p>Player profile is loading or unavailable</p>
       )}
 
       {/* Breadcrumb navigation */}

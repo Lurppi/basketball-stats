@@ -74,6 +74,26 @@
   font-weight: bold;
 }
 
+.league-nat-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.league-logo,
+.nat-logo {
+  max-width: 50px;
+  /* Logo-Größe anpassen */
+  height: auto;
+}
+
+.league-info,
+.nat-info {
+  text-align: center;
+}
+
 /* Spielerinfos zentrieren */
 .player-info-modern {
   margin-top: 20px;

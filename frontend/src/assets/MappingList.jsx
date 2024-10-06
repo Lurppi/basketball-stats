@@ -59,6 +59,243 @@ import img157 from '../images/img157.png';
 import img158 from '../images/img158.png';
 import img159 from '../images/img159.png';
 import img160 from '../images/img160.png';
+import af from '../images/af.png';  // Afghanistan
+import al from '../images/al.png';  // Albanien
+import dz from '../images/dz.png';  // Algerien
+import as from '../images/as.png';  // Amerikanisch-Samoa
+import ad from '../images/ad.png';  // Andorra
+import ao from '../images/ao.png';  // Angola
+import ai from '../images/ai.png';  // Anguilla
+import aq from '../images/aq.png';  // Antarktis
+import ag from '../images/ag.png';  // Antigua und Barbuda
+import ar from '../images/ar.png';  // Argentinien
+import am from '../images/am.png';  // Armenien
+import aw from '../images/aw.png';  // Aruba
+import au from '../images/au.png';  // Australien
+import at from '../images/at.png';  // Österreich
+import az from '../images/az.png';  // Aserbaidschan
+import bs from '../images/bs.png';  // Bahamas
+import bh from '../images/bh.png';  // Bahrain
+import bd from '../images/bd.png';  // Bangladesch
+import bb from '../images/bb.png';  // Barbados
+import by from '../images/by.png';  // Belarus
+import be from '../images/be.png';  // Belgien
+import bz from '../images/bz.png';  // Belize
+import bj from '../images/bj.png';  // Benin
+import bm from '../images/bm.png';  // Bermuda
+import bt from '../images/bt.png';  // Bhutan
+import bo from '../images/bo.png';  // Bolivien
+import ba from '../images/ba.png';  // Bosnien und Herzegowina
+import bw from '../images/bw.png';  // Botswana
+import br from '../images/br.png';  // Brasilien
+import bn from '../images/bn.png';  // Brunei
+import bg from '../images/bg.png';  // Bulgarien
+import bf from '../images/bf.png';  // Burkina Faso
+import bi from '../images/bi.png';  // Burundi
+import cv from '../images/cv.png';  // Kap Verde
+import kh from '../images/kh.png';  // Kambodscha
+import cm from '../images/cm.png';  // Kamerun
+import ca from '../images/ca.png';  // Kanada
+import ky from '../images/ky.png';  // Kaimaninseln
+import cf from '../images/cf.png';  // Zentralafrikanische Republik
+import td from '../images/td.png';  // Tschad
+import cl from '../images/cl.png';  // Chile
+import cn from '../images/cn.png';  // China
+import co from '../images/co.png';  // Kolumbien
+import km from '../images/km.png';  // Komoren
+import cg from '../images/cg.png';  // Kongo (Brazzaville)
+import cd from '../images/cd.png';  // Kongo (Kinshasa)
+import ck from '../images/ck.png';  // Cookinseln
+import cr from '../images/cr.png';  // Costa Rica
+import ci from '../images/ci.png';  // Côte d’Ivoire
+import hr from '../images/hr.png';  // Kroatien
+import cu from '../images/cu.png';  // Kuba
+import cw from '../images/cw.png';  // Curaçao
+import cy from '../images/cy.png';  // Zypern
+import cz from '../images/cz.png';  // Tschechien
+import dk from '../images/dk.png';  // Dänemark
+import dj from '../images/dj.png';  // Dschibuti
+import dm from '../images/dm.png';  // Dominica
+import do_ from '../images/do.png'; // Dominikanische Republik
+import ec from '../images/ec.png';  // Ecuador
+import eg from '../images/eg.png';  // Ägypten
+import sv from '../images/sv.png';  // El Salvador
+import gq from '../images/gq.png';  // Äquatorialguinea
+import er from '../images/er.png';  // Eritrea
+import ee from '../images/ee.png';  // Estland
+import sz from '../images/sz.png';  // Eswatini
+import et from '../images/et.png';  // Äthiopien
+import fk from '../images/fk.png';  // Falklandinseln
+import fo from '../images/fo.png';  // Färöer
+import fj from '../images/fj.png';  // Fidschi
+import fi from '../images/fi.png';  // Finnland
+import fr from '../images/fr.png';  // Frankreich
+import gf from '../images/gf.png';  // Französisch-Guayana
+import pf from '../images/pf.png';  // Französisch-Polynesien
+import ga from '../images/ga.png';  // Gabun
+import gm from '../images/gm.png';  // Gambia
+import ge from '../images/ge.png';  // Georgien
+import de from '../images/de.png';  // Deutschland
+import gh from '../images/gh.png';  // Ghana
+import gi from '../images/gi.png';  // Gibraltar
+import gr from '../images/gr.png';  // Griechenland
+import gl from '../images/gl.png';  // Grönland
+import gd from '../images/gd.png';  // Grenada
+import gp from '../images/gp.png';  // Guadeloupe
+import gu from '../images/gu.png';  // Guam
+import gt from '../images/gt.png';  // Guatemala
+import gg from '../images/gg.png';  // Guernsey
+import gn from '../images/gn.png';  // Guinea
+import gw from '../images/gw.png';  // Guinea-Bissau
+import gy from '../images/gy.png';  // Guyana
+import ht from '../images/ht.png';  // Haiti
+import va from '../images/va.png';  // Vatikanstadt
+import hn from '../images/hn.png';  // Honduras
+import hk from '../images/hk.png';  // Hongkong
+import hu from '../images/hu.png';  // Ungarn
+import is from '../images/is.png';  // Island
+import in_ from '../images/in.png';  // Indien
+import id from '../images/id.png';  // Indonesien
+import ir from '../images/ir.png';  // Iran
+import iq from '../images/iq.png';  // Irak
+import ie from '../images/ie.png';  // Irland
+import im from '../images/im.png';  // Isle of Man
+import il from '../images/il.png';  // Israel
+import it from '../images/it.png';  // Italien
+import jm from '../images/jm.png';  // Jamaika
+import jp from '../images/jp.png';  // Japan
+import je from '../images/je.png';  // Jersey
+import jo from '../images/jo.png';  // Jordanien
+import kz from '../images/kz.png';  // Kasachstan
+import ke from '../images/ke.png';  // Kenia
+import ki from '../images/ki.png';  // Kiribati
+import kp from '../images/kp.png';  // Nordkorea
+import kr from '../images/kr.png';  // Südkorea
+import kw from '../images/kw.png';  // Kuwait
+import kg from '../images/kg.png';  // Kirgisistan
+import la from '../images/la.png';  // Laos
+import lv from '../images/lv.png';  // Lettland
+import lb from '../images/lb.png';  // Libanon
+import ls from '../images/ls.png';  // Lesotho
+import lr from '../images/lr.png';  // Liberia
+import ly from '../images/ly.png';  // Libyen
+import li from '../images/li.png';  // Liechtenstein
+import lt from '../images/lt.png';  // Litauen
+import lu from '../images/lu.png';  // Luxemburg
+import mo from '../images/mo.png';  // Macao
+import mg from '../images/mg.png';  // Madagaskar
+import mw from '../images/mw.png';  // Malawi
+import my from '../images/my.png';  // Malaysia
+import mv from '../images/mv.png';  // Malediven
+import ml from '../images/ml.png';  // Mali
+import mt from '../images/mt.png';  // Malta
+import mh from '../images/mh.png';  // Marshallinseln
+import mq from '../images/mq.png';  // Martinique
+import mr from '../images/mr.png';  // Mauretanien
+import mu from '../images/mu.png';  // Mauritius
+import yt from '../images/yt.png';  // Mayotte
+import mx from '../images/mx.png';  // Mexiko
+import fm from '../images/fm.png';  // Mikronesien
+import md from '../images/md.png';  // Moldawien
+import mc from '../images/mc.png';  // Monaco
+import mn from '../images/mn.png';  // Mongolei
+import me from '../images/me.png';  // Montenegro
+import ms from '../images/ms.png';  // Montserrat
+import ma from '../images/ma.png';  // Marokko
+import mz from '../images/mz.png';  // Mosambik
+import mm from '../images/mm.png';  // Myanmar
+import na from '../images/na.png';  // Namibia
+import nr from '../images/nr.png';  // Nauru
+import np from '../images/np.png';  // Nepal
+import nl from '../images/nl.png';  // Niederlande
+import nc from '../images/nc.png';  // Neukaledonien
+import nz from '../images/nz.png';  // Neuseeland
+import ni from '../images/ni.png';  // Nicaragua
+import ne from '../images/ne.png';  // Niger
+import ng from '../images/ng.png';  // Nigeria
+import nu from '../images/nu.png';  // Niue
+import nf from '../images/nf.png';  // Norfolkinsel
+import mk from '../images/mk.png';  // Nordmazedonien
+import mp from '../images/mp.png';  // Nördliche Marianen
+import no from '../images/no.png';  // Norwegen
+import om from '../images/om.png';  // Oman
+import pk from '../images/pk.png';  // Pakistan
+import pw from '../images/pw.png';  // Palau
+import pa from '../images/pa.png';  // Panama
+import pg from '../images/pg.png';  // Papua-Neuguinea
+import py from '../images/py.png';  // Paraguay
+import pe from '../images/pe.png';  // Peru
+import ph from '../images/ph.png';  // Philippinen
+import pn from '../images/pn.png';  // Pitcairninseln
+import pl from '../images/pl.png';  // Polen
+import pt from '../images/pt.png';  // Portugal
+import pr from '../images/pr.png';  // Puerto Rico
+import qa from '../images/qa.png';  // Katar
+import ro from '../images/ro.png';  // Rumänien
+import ru from '../images/ru.png';  // Russland
+import rw from '../images/rw.png';  // Ruanda
+import re from '../images/re.png';  // Réunion
+import bl from '../images/bl.png';  // St. Barthélemy
+import sh from '../images/sh.png';  // St. Helena
+import kn from '../images/kn.png';  // St. Kitts und Nevis
+import lc from '../images/lc.png';  // St. Lucia
+import mf from '../images/mf.png';  // St. Martin
+import pm from '../images/pm.png';  // St. Pierre und Miquelon
+import vc from '../images/vc.png';  // St. Vincent und die Grenadinen
+import ws from '../images/ws.png';  // Samoa
+import sm from '../images/sm.png';  // San Marino
+import st from '../images/st.png';  // São Tomé und Príncipe
+import sa from '../images/sa.png';  // Saudi-Arabien
+import sn from '../images/sn.png';  // Senegal
+import rs from '../images/rs.png';  // Serbien
+import sc from '../images/sc.png';  // Seychellen
+import sl from '../images/sl.png';  // Sierra Leone
+import sg from '../images/sg.png';  // Singapur
+import sx from '../images/sx.png';  // Sint Maarten
+import sk from '../images/sk.png';  // Slowakei
+import si from '../images/si.png';  // Slowenien
+import sb from '../images/sb.png';  // Salomonen
+import so from '../images/so.png';  // Somalia
+import za from '../images/za.png';  // Südafrika
+import ss from '../images/ss.png';  // Südsudan
+import es from '../images/es.png';  // Spanien
+import lk from '../images/lk.png';  // Sri Lanka
+import sd from '../images/sd.png';  // Sudan
+import sr from '../images/sr.png';  // Suriname
+import sj from '../images/sj.png';  // Spitzbergen und Jan Mayen
+import se from '../images/se.png';  // Schweden
+import ch from '../images/ch.png';  // Schweiz
+import sy from '../images/sy.png';  // Syrien
+import tw from '../images/tw.png';  // Taiwan
+import tj from '../images/tj.png';  // Tadschikistan
+import tz from '../images/tz.png';  // Tansania
+import th from '../images/th.png';  // Thailand
+import tl from '../images/tl.png';  // Timor-Leste
+import tg from '../images/tg.png';  // Togo
+import tk from '../images/tk.png';  // Tokelau
+import to from '../images/to.png';  // Tonga
+import tt from '../images/tt.png';  // Trinidad und Tobago
+import tn from '../images/tn.png';  // Tunesien
+import tr from '../images/tr.png';  // Türkei
+import tm from '../images/tm.png';  // Turkmenistan
+import tc from '../images/tc.png';  // Turks- und Caicosinseln
+import tv from '../images/tv.png';  // Tuvalu
+import ug from '../images/ug.png';  // Uganda
+import ua from '../images/ua.png';  // Ukraine
+import ae from '../images/ae.png';  // Vereinigte Arabische Emirate
+import gb from '../images/gb.png';  // Vereinigtes Königreich
+import us from '../images/us.png';  // Vereinigte Staaten von Amerika
+import uy from '../images/uy.png';  // Uruguay
+import uz from '../images/uz.png';  // Usbekistan
+import vu from '../images/vu.png';  // Vanuatu
+import ve from '../images/ve.png';  // Venezuela
+import vn from '../images/vn.png';  // Vietnam
+import eh from '../images/eh.png';  // Westsahara
+import ye from '../images/ye.png';  // Jemen
+import zm from '../images/zm.png';  // Sambia
+import zw from '../images/zw.png';  // Simbabwe
+import nbblLogo from '../images/NBBL QUER.png';
+import jbblLogo from '../images/JBBL QUER.png';
 
 export const columnHeaderMapping = {
   SEASON_YEAR: "SEASON",
@@ -429,3 +666,248 @@ export const teamImageMappings = {
 };
 
 export default teamImageMappings;
+
+// Mapping für Ländercodes (ISO-3166 Alpha-3 Codes zu Flaggen)
+export const nationalityImageMappings = {
+  AFG: af,
+  ALB: al,
+  DZA: dz,
+  ASM: as,
+  AND: ad,
+  AGO: ao,
+  AIA: ai,
+  ATA: aq,
+  ATG: ag,
+  ARG: ar,
+  ARM: am,
+  ABW: aw,
+  AUS: au,
+  AUT: at,
+  AZE: az,
+  BHS: bs,
+  BHR: bh,
+  BGD: bd,
+  BRB: bb,
+  BLR: by,
+  BEL: be,
+  BLZ: bz,
+  BEN: bj,
+  BMU: bm,
+  BTN: bt,
+  BOL: bo,
+  BIH: ba,
+  BWA: bw,
+  BRA: br,
+  BRN: bn,
+  BGR: bg,
+  BFA: bf,
+  BDI: bi,
+  CPV: cv,
+  KHM: kh,
+  CMR: cm,
+  CAN: ca,
+  CYM: ky,
+  CAF: cf,
+  TCD: td,
+  CHL: cl,
+  CHN: cn,
+  COL: co,
+  COM: km,
+  COG: cg,
+  COD: cd,
+  COK: ck,
+  CRI: cr,
+  CIV: ci,
+  HRV: hr,
+  CUB: cu,
+  CUW: cw,
+  CYP: cy,
+  CZE: cz,
+  DNK: dk,
+  DJI: dj,
+  DMA: dm,
+  DOM: do_,
+  ECU: ec,
+  EGY: eg,
+  SLV: sv,
+  GNQ: gq,
+  ERI: er,
+  EST: ee,
+  SWZ: sz,
+  ETH: et,
+  FLK: fk,
+  FRO: fo,
+  FJI: fj,
+  FIN: fi,
+  FRA: fr,
+  GUF: gf,
+  PYF: pf,
+  GAB: ga,
+  GMB: gm,
+  GEO: ge,
+  DEU: de,
+  GHA: gh,
+  GIB: gi,
+  GRC: gr,
+  GRL: gl,
+  GRD: gd,
+  GLP: gp,
+  GUM: gu,
+  GTM: gt,
+  GGY: gg,
+  GIN: gn,
+  GNB: gw,
+  GUY: gy,
+  HTI: ht,
+  VAT: va,
+  HND: hn,
+  HKG: hk,
+  HUN: hu,
+  ISL: is,
+  IND: in_,
+  IDN: id,
+  IRN: ir,
+  IRQ: iq,
+  IRL: ie,
+  IMN: im,
+  ISR: il,
+  ITA: it,
+  JAM: jm,
+  JPN: jp,
+  JEY: je,
+  JOR: jo,
+  KAZ: kz,
+  KEN: ke,
+  KIR: ki,
+  PRK: kp,
+  KOR: kr,
+  KWT: kw,
+  KGZ: kg,
+  LAO: la,
+  LVA: lv,
+  LBN: lb,
+  LSO: ls,
+  LBR: lr,
+  LBY: ly,
+  LIE: li,
+  LTU: lt,
+  LUX: lu,
+  MAC: mo,
+  MDG: mg,
+  MWI: mw,
+  MYS: my,
+  MDV: mv,
+  MLI: ml,
+  MLT: mt,
+  MHL: mh,
+  MTQ: mq,
+  MRT: mr,
+  MUS: mu,
+  MYT: yt,
+  MEX: mx,
+  FSM: fm,
+  MDA: md,
+  MCO: mc,
+  MNG: mn,
+  MNE: me,
+  MSR: ms,
+  MAR: ma,
+  MOZ: mz,
+  MMR: mm,
+  NAM: na,
+  NRU: nr,
+  NPL: np,
+  NLD: nl,
+  NCL: nc,
+  NZL: nz,
+  NIC: ni,
+  NER: ne,
+  NGA: ng,
+  NIU: nu,
+  NFK: nf,
+  MKD: mk,
+  MNP: mp,
+  NOR: no,
+  OMN: om,
+  PAK: pk,
+  PLW: pw,
+  PAN: pa,
+  PNG: pg,
+  PRY: py,
+  PER: pe,
+  PHL: ph,
+  PCN: pn,
+  POL: pl,
+  PRT: pt,
+  PRI: pr,
+  QAT: qa,
+  ROU: ro,
+  RUS: ru,
+  RWA: rw,
+  REU: re,
+  BLM: bl,
+  SHN: sh,
+  KNA: kn,
+  LCA: lc,
+  MAF: mf,
+  SPM: pm,
+  VCT: vc,
+  WSM: ws,
+  SMR: sm,
+  STP: st,
+  SAU: sa,
+  SEN: sn,
+  SRB: rs,
+  SYC: sc,
+  SLE: sl,
+  SGP: sg,
+  SXM: sx,
+  SVK: sk,
+  SVN: si,
+  SLB: sb,
+  SOM: so,
+  ZAF: za,
+  SSD: ss,
+  ESP: es,
+  LKA: lk,
+  SDN: sd,
+  SUR: sr,
+  SJM: sj,
+  SWE: se,
+  CHE: ch,
+  SYR: sy,
+  TWN: tw,
+  TJK: tj,
+  TZA: tz,
+  THA: th,
+  TLS: tl,
+  TGO: tg,
+  TKL: tk,
+  TON: to,
+  TTO: tt,
+  TUN: tn,
+  TUR: tr,
+  TKM: tm,
+  TCA: tc,
+  TUV: tv,
+  UGA: ug,
+  UKR: ua,
+  ARE: ae,
+  GBR: gb,
+  USA: us,
+  URY: uy,
+  UZB: uz,
+  VUT: vu,
+  VEN: ve,
+  VNM: vn,
+  ESH: eh,
+  YEM: ye,
+  ZMB: zm,
+  ZWE: zw
+};
+
+// League-Mapping für verschiedene Ligen
+export const leagueImageMappings = {
+  NBBL: nbblLogo,
+  JBBL: jbblLogo,
+};
