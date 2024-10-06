@@ -380,7 +380,7 @@ export const teamImageMappings = {
   Bamberg: img113,
   Jena: img114,
   Ulm: img115,
-  'FC Bayern': img116,
+  'Bayern München': img116,
   Ludwigsburg: img117,
   Urspring: img118,
   Hamburg: img119,
