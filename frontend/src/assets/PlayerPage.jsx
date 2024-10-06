@@ -496,23 +496,19 @@ const PlayerPage = () => {
                     <p>League: {playerInfo.LEAGUE || 'Unknown League'}</p>
                   )}
                 </div>
-                  <div className="nat-info">
-                    {nationalityImageMappings[playerInfo.NAT] ? (
-                      <img
-                        src={nationalityImageMappings[playerInfo.NAT]}
-                        alt={playerInfo.NAT}
-                        className="nat-logo"
-                      />
-                    ) : (
-                      <img
-                        src={nationalityImageMappings['GER']}  // Verwende das Bild 'de.png' für Deutschland, wenn 'NAT' leer ist
-                        alt="Germany"
-                        className="nat-logo"
-                      />
-                    )}
-                  </div>
+                <div className="nat-info">
+                  {nationalityImageMappings[playerInfo.NAT] ? (
+                    <img
+                      src={nationalityImageMappings[playerInfo.NAT]}
+                      alt={playerInfo.NAT}
+                      className="nat-logo"
+                    />
+                  ) : (
+                    <p>Nationality: {playerInfo.NAT || 'Unknown Nationality'}</p>
+                  )}
                 </div>
               </div>
+            </div>
 
             {/* Flexbox für die Spielerinformationen in zwei Reihen */}
             <div className="player-info-rows">
