@@ -3,37 +3,7 @@ import { useParams } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import './PlayerPage.css';
-import { teamImageMappings, nationalityImageMappings, leagueImageMappings } from './MappingList';
-import Badge1 from '../images/Badge1.jpg';
-import Badge2 from '../images/Badge2.jpg';
-import Badge3 from '../images/Badge3.jpg';
-import Badge4 from '../images/Badge4.jpg';
-import Badge5 from '../images/Badge5.jpg';
-import Badge6 from '../images/Badge6.jpg';
-import Badge7 from '../images/Badge7.jpg';
-import Badge8 from '../images/Badge8.jpg';
-import Badge9 from '../images/Badge9.jpg';
-import Badge10 from '../images/Badge10.jpg';
-import Badge11 from '../images/Badge11.jpg';
-import Badge12 from '../images/Badge12.jpg';
-import Badge13 from '../images/Badge13.jpg';
-
-// Badge-Zuordnung:
-const badgeImages = {
-  Sharpshooter: Badge1,
-  'Volume Scorer': Badge2,
-  'Inside Scorer': Badge3,
-  'Free Throw Ace': Badge4,
-  'Lockdown Defender': Badge5,
-  'Rim Protector': Badge6,
-  'Rebounding Machine': Badge7,
-  Playmaker: Badge8,
-  'Floor General': Badge9,
-  'Two-Way Player': Badge10,
-  'Efficient Shooter': Badge11,
-  'High Impact Player': Badge12,
-  'Sixth Man': Badge13,
-};
+import { teamImageMappings, nationalityImageMappings, leagueImageMappings, badgeImages } from './MappingList';
 
 const PlayerPage = () => {
   const { id } = useParams(); // Player ID from URL
@@ -134,6 +104,7 @@ const PlayerPage = () => {
     if (loadingBadges) return <p>Loading badges...</p>;
     if (badges.length === 0) return <p>No badges available for this player.</p>;
 
+    // Badge-Anzeige:
     return (
       <div className="player-badges">
         <ul>

@@ -296,6 +296,36 @@ import zm from '../images/zm.png';  // Sambia
 import zw from '../images/zw.png';  // Simbabwe
 import nbblLogo from '../images/NBBL QUER.png';
 import jbblLogo from '../images/JBBL QUER.png';
+import Badge1 from '../images/Badge1.png';
+import Badge2 from '../images/Badge2.png';
+import Badge3 from '../images/Badge3.png';
+import Badge4 from '../images/Badge4.png';
+import Badge5 from '../images/Badge5.png';
+import Badge6 from '../images/Badge6.png';
+import Badge7 from '../images/Badge7.png';
+import Badge8 from '../images/Badge8.png';
+import Badge9 from '../images/Badge9.png';
+import Badge10 from '../images/Badge10.png';
+import Badge11 from '../images/Badge11.png';
+import Badge12 from '../images/Badge12.png';
+import Badge13 from '../images/Badge13.png';
+
+// Badge-Zuordnung:
+export const badgeImages = {
+  Sharpshooter: Badge1,
+  'Volume Scorer': Badge2,
+  'Inside Scorer': Badge3,
+  'Free Throw Ace': Badge4,
+  'Lockdown Defender': Badge5,
+  'Rim Protector': Badge6,
+  'Rebounding Machine': Badge7,
+  Playmaker: Badge8,
+  'Floor General': Badge9,
+  'Two-Way Player': Badge10,
+  'Efficient Shooter': Badge11,
+  'High Impact Player': Badge12,
+  'Sixth Man': Badge13,
+};
 
 export const columnHeaderMapping = {
   SEASON_YEAR: "SEASON",
