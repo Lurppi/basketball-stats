@@ -71,14 +71,14 @@ const Players = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [headers, setHeaders] = useState([]);
   const defaultFilters = {
-    season: '20232024',
+    season: '20242025',
     league: 'NBBL',
     statsType: 'Advanced 1',
-    division: 'NBBL A',
+    division: '',
     team: 'All',
     position: 'All',
     offensiveRole: 'All',
-    seasonType: 'PLAYOFFS',
+    seasonType: '',
     born: 'All',
     gamesPlayed: '',
     minutesPlayed: '',
