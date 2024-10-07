@@ -1,34 +1,36 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './assets/Home';
-import Players from './assets/Players';
-import Teams from './assets/Teams';
-import Form from './assets/Form';  // Import der neuen Form-Komponente
-import Impressum from './assets/Impressum';
-import Glossary from './assets/Glossary';
-import Policy from './assets/Policy';
-import Rankings from './assets/Rankings'; // Rankings-Komponente importieren
 import Header from './assets/Header';
-import PlayerPage from './assets/PlayerPage'; // Importiere PlayerPage
 import './assets/Header.css';
+
+// Lazy load der Komponenten
+const Home = lazy(() => import('./assets/Home'));
+const Players = lazy(() => import('./assets/Players'));
+const Teams = lazy(() => import('./assets/Teams'));
+const Form = lazy(() => import('./assets/Form'));
+const Impressum = lazy(() => import('./assets/Impressum'));
+const Glossary = lazy(() => import('./assets/Glossary'));
+const Policy = lazy(() => import('./assets/Policy'));
+const Rankings = lazy(() => import('./assets/Rankings'));
+const PlayerPage = lazy(() => import('./assets/PlayerPage'));
 
 function App() {
   return (
     <Router>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/players" element={<Players />} />
-        <Route path="/teams" element={<Teams />} />
-        <Route path="/teams/form" element={<Form />} /> {/* Neue Form-Route */}
-        <Route path="/standings" element={<Rankings />} />
-        <Route path="/impressum" element={<Impressum />} />
-        <Route path="/glossary" element={<Glossary />} />
-        <Route path="/privacy-policy" element={<Policy />} />
-
-        {/* Neue Route für dynamische Spielerprofile */}
-        <Route path="/player/:id" element={<PlayerPage />} />
-      </Routes>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/players" element={<Players />} />
+          <Route path="/teams" element={<Teams />} />
+          <Route path="/teams/form" element={<Form />} />
+          <Route path="/standings" element={<Rankings />} />
+          <Route path="/impressum" element={<Impressum />} />
+          <Route path="/glossary" element={<Glossary />} />
+          <Route path="/privacy-policy" element={<Policy />} />
+          <Route path="/player/:id" element={<PlayerPage />} />
+        </Routes>
+      </Suspense>
     </Router>
   );
 }
