@@ -1,645 +1,645 @@
 ﻿FormCurve-ID;Date;Season;League;Division;Season_Type;Team_long;Opponent_long;Team;Opponent;Home;PTS;OPP_PTS
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Würzburg Baskets Akademie_Tornados Franken;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Würzburg Baskets Akademie;Tornados Franken;Würzburg;Nürnberg;1;78;85
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_VfL Kirchheim Knights_BBA Giants Kornwestheim;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;VfL Kirchheim Knights;BBA Giants Kornwestheim;Kirchheim;Kornwestheim;0;90;86
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_USC Heidelberg_Eintracht Frankfurt;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;USC Heidelberg;Eintracht Frankfurt;Heidelberg;Frankfurt;0;71;79
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TS Jahn München_Orange Academy;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TS Jahn München;Orange Academy;Jahn München;Orange;1;58;72
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Tornados Franken_Würzburg Baskets Akademie;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Tornados Franken;Würzburg Baskets Akademie;Nürnberg;Würzburg;0;85;78
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TG Hanau_Team Südhessen;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TG Hanau;Team Südhessen;TG Hanau;Südhessen;0;71;65
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Südhessen_TG Hanau;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Südhessen;TG Hanau;Südhessen;TG Hanau;1;65;71
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Bonn/Rhöndorf_Metropol Baskets Ruhr;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Bonn/Rhöndorf;Metropol Baskets Ruhr;Bonn-Rhöndorf;Metropol Ruhr;1;100;90
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Sartorius Juniors_Basketball Löwen Erfurt;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Sartorius Juniors;Basketball Löwen Erfurt;Göttingen;Löwen Erfurt;0;109;75
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Rostock Seawolves_Berlin Braves Baskets;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Rostock Seawolves;Berlin Braves Baskets;Rostock;Braves Berlin;0;64;68
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_ratiopharm Ulm_HAKRO Merlins Crailsheim;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;ratiopharm Ulm;HAKRO Merlins Crailsheim;ratiopharm Ulm;Crailsheim;1;90;64
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Phoenix Hagen_ART Giants Düsseldorf;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Phoenix Hagen;ART Giants Düsseldorf;Phoenix Hagen;Düsseldorf;0;72;83
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Orange Academy_TS Jahn München;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Orange Academy;TS Jahn München;Orange;Jahn München;0;72;58
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Metropol Baskets Ruhr_Team Bonn/Rhöndorf;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Metropol Baskets Ruhr;Team Bonn/Rhöndorf;Metropol Ruhr;Bonn-Rhöndorf;0;90;100
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_HAKRO Merlins Crailsheim_ratiopharm Ulm;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;HAKRO Merlins Crailsheim;ratiopharm Ulm;Crailsheim;ratiopharm Ulm;0;64;90
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Eintracht Frankfurt_USC Heidelberg;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Eintracht Frankfurt;USC Heidelberg;Frankfurt;Heidelberg;1;79;71
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Berlin Braves Baskets_Rostock Seawolves;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Berlin Braves Baskets;Rostock Seawolves;Braves Berlin;Rostock;1;68;64
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Giants Kornwestheim_VfL Kirchheim Knights;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Giants Kornwestheim;VfL Kirchheim Knights;Kornwestheim;Kirchheim;1;86;90
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Basketball Löwen Erfurt_Sartorius Juniors;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Basketball Löwen Erfurt;Sartorius Juniors;Löwen Erfurt;Göttingen;1;75;109
-01.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_ART Giants Düsseldorf_Phoenix Hagen;01.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;ART Giants Düsseldorf;Phoenix Hagen;Düsseldorf;Phoenix Hagen;1;83;72
-01.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Young Rasta Dragons_UBC Münster;01.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Young Rasta Dragons;UBC Münster;Rasta Vechta;Münster;1;91;69
-01.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_UBC Münster_Young Rasta Dragons;01.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;UBC Münster;Young Rasta Dragons;Münster;Rasta Vechta;0;69;91
-01.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_ROTH Energie BBA GIESSEN 46ers_Niners Chemnitz Academy;01.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;ROTH Energie BBA GIESSEN 46ers;Niners Chemnitz Academy;Giessen;Chemnitz;0;75;93
-01.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Niners Chemnitz Academy_ROTH Energie BBA GIESSEN 46ers;01.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Niners Chemnitz Academy;ROTH Energie BBA GIESSEN 46ers;Chemnitz;Giessen;1;93;75
-01.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_KICKZ IBAM_FC Bayern München;01.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;KICKZ IBAM;FC Bayern München;IBAM;FC Bayern;0;89;55
-01.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Hamburg Towers_Alba Berlin;01.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Hamburg Towers;Alba Berlin;Hamburg;Alba Berlin;0;71;73
-01.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_FC Bayern München_KICKZ IBAM;01.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;FC Bayern München;KICKZ IBAM;FC Bayern;IBAM;1;55;89
-01.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Eisbären Bremerhaven_Baskets Paderborn;01.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Eisbären Bremerhaven;Baskets Paderborn;Bremerhaven;Paderborn;0;86;115
-01.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bayer Giants Leverkusen_Baskets Juniors Oldenburg;01.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bayer Giants Leverkusen;Baskets Juniors Oldenburg;Leverkusen;Oldenburg;1;85;66
-01.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Paderborn_Eisbären Bremerhaven;01.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Paderborn;Eisbären Bremerhaven;Paderborn;Bremerhaven;1;115;86
-01.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Juniors Oldenburg_Bayer Giants Leverkusen;01.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Juniors Oldenburg;Bayer Giants Leverkusen;Oldenburg;Leverkusen;0;66;85
-01.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Alba Berlin_Hamburg Towers;01.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Alba Berlin;Hamburg Towers;Alba Berlin;Hamburg;1;73;71
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Würzburg Baskets Akademie_Eintracht Frankfurt;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Würzburg Baskets Akademie;Eintracht Frankfurt;Würzburg;Frankfurt;1;58;77
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_VfL Kirchheim Knights_ratiopharm Ulm;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;VfL Kirchheim Knights;ratiopharm Ulm;Kirchheim;ratiopharm Ulm;1;57;76
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_USC Heidelberg_Team Südhessen;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;USC Heidelberg;Team Südhessen;Heidelberg;Südhessen;1;85;68
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Tornados Franken_TG Hanau;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Tornados Franken;TG Hanau;Nürnberg;TG Hanau;1;125;48
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TG Hanau_Tornados Franken;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TG Hanau;Tornados Franken;TG Hanau;Nürnberg;0;48;125
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Südhessen_USC Heidelberg;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Südhessen;USC Heidelberg;Südhessen;Heidelberg;0;68;85
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Bonn/Rhöndorf_BBA Hagen;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Bonn/Rhöndorf;BBA Hagen;Bonn-Rhöndorf;BBA Hagen;0;95;68
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_SG Junior Löwen Braunschweig_Berlin Braves Baskets;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;SG Junior Löwen Braunschweig;Berlin Braves Baskets;Braunschweig;Braves Berlin;1;89;83
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Sartorius Juniors_Dresden Titans;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Sartorius Juniors;Dresden Titans;Göttingen;Dresden;1;86;61
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Rostock Seawolves_Basketball Löwen Erfurt;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Rostock Seawolves;Basketball Löwen Erfurt;Rostock;Löwen Erfurt;1;92;82
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_RheinStars Köln_ART Giants Düsseldorf;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;RheinStars Köln;ART Giants Düsseldorf;RS Köln;Düsseldorf;1;96;51
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_ratiopharm Ulm_VfL Kirchheim Knights;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;ratiopharm Ulm;VfL Kirchheim Knights;ratiopharm Ulm;Kirchheim;0;76;57
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Eintracht Frankfurt_Würzburg Baskets Akademie;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Eintracht Frankfurt;Würzburg Baskets Akademie;Frankfurt;Würzburg;0;77;58
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Dresden Titans_Sartorius Juniors;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Dresden Titans;Sartorius Juniors;Dresden;Göttingen;0;61;86
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Berlin Braves Baskets_SG Junior Löwen Braunschweig;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Berlin Braves Baskets;SG Junior Löwen Braunschweig;Braves Berlin;Braunschweig;0;83;89
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Hagen_Team Bonn/Rhöndorf;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Hagen;Team Bonn/Rhöndorf;BBA Hagen;Bonn-Rhöndorf;1;68;95
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Basketball Löwen Erfurt_Rostock Seawolves;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Basketball Löwen Erfurt;Rostock Seawolves;Löwen Erfurt;Rostock;0;82;92
-08.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_ART Giants Düsseldorf_RheinStars Köln;08.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;ART Giants Düsseldorf;RheinStars Köln;Düsseldorf;RS Köln;0;51;96
-08.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Young Rasta Dragons_Baskets Juniors Oldenburg;08.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Young Rasta Dragons;Baskets Juniors Oldenburg;Rasta Vechta;Oldenburg;0;76;68
-08.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_UBC Münster_Baskets Paderborn;08.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;UBC Münster;Baskets Paderborn;Münster;Paderborn;1;72;81
-08.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Team Urspring_Niners Chemnitz Academy;08.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Team Urspring;Niners Chemnitz Academy;Urspring;Chemnitz;1;76;68
-08.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_ROTH Energie BBA GIESSEN 46ers_Bamberg freakcity academy;08.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;ROTH Energie BBA GIESSEN 46ers;Bamberg freakcity academy;Giessen;Bamberg;1;79;84
-08.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Niners Chemnitz Academy_Team Urspring;08.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Niners Chemnitz Academy;Team Urspring;Chemnitz;Urspring;0;68;76
-08.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Medipolis SC Jena_KICKZ IBAM;08.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Medipolis SC Jena;KICKZ IBAM;SC Jena;IBAM;0;70;81
-08.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_KICKZ IBAM_Medipolis SC Jena;08.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;KICKZ IBAM;Medipolis SC Jena;IBAM;SC Jena;1;81;70
-08.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Hamburg Towers_Bayer Giants Leverkusen;08.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Hamburg Towers;Bayer Giants Leverkusen;Hamburg;Leverkusen;1;74;48
-08.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Eisbären Bremerhaven_Alba Berlin;08.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Eisbären Bremerhaven;Alba Berlin;Bremerhaven;Alba Berlin;1;63;77
-08.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bayer Giants Leverkusen_Hamburg Towers;08.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bayer Giants Leverkusen;Hamburg Towers;Leverkusen;Hamburg;0;48;74
-08.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Paderborn_UBC Münster;08.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Paderborn;UBC Münster;Paderborn;Münster;0;81;72
-08.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Juniors Oldenburg_Young Rasta Dragons;08.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Juniors Oldenburg;Young Rasta Dragons;Oldenburg;Rasta Vechta;1;68;76
-08.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bamberg freakcity academy_ROTH Energie BBA GIESSEN 46ers;08.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bamberg freakcity academy;ROTH Energie BBA GIESSEN 46ers;Bamberg;Giessen;0;84;79
-08.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Alba Berlin_Eisbären Bremerhaven;08.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Alba Berlin;Eisbären Bremerhaven;Alba Berlin;Bremerhaven;0;77;63
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Würzburg Baskets Akademie_Team Südhessen;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Würzburg Baskets Akademie;Team Südhessen;Würzburg;Südhessen;0;93;68
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_VfL Kirchheim Knights_TS Jahn München;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;VfL Kirchheim Knights;TS Jahn München;Kirchheim;Jahn München;0;55;64
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_USC Heidelberg_TG Hanau;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;USC Heidelberg;TG Hanau;Heidelberg;TG Hanau;0;99;75
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TS Jahn München_VfL Kirchheim Knights;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TS Jahn München;VfL Kirchheim Knights;Jahn München;Kirchheim;1;64;55
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Tornados Franken_Eintracht Frankfurt;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Tornados Franken;Eintracht Frankfurt;Nürnberg;Frankfurt;0;62;77
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TG Hanau_USC Heidelberg;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TG Hanau;USC Heidelberg;TG Hanau;Heidelberg;1;75;99
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Südhessen_Würzburg Baskets Akademie;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Südhessen;Würzburg Baskets Akademie;Südhessen;Würzburg;1;68;93
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Bonn/Rhöndorf_Phoenix Hagen;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Bonn/Rhöndorf;Phoenix Hagen;Bonn-Rhöndorf;Phoenix Hagen;1;69;73
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_SG Junior Löwen Braunschweig_Basketball Löwen Erfurt;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;SG Junior Löwen Braunschweig;Basketball Löwen Erfurt;Braunschweig;Löwen Erfurt;0;91;62
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Sartorius Juniors_Rostock Seawolves;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Sartorius Juniors;Rostock Seawolves;Göttingen;Rostock;1;92;58
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Rostock Seawolves_Sartorius Juniors;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Rostock Seawolves;Sartorius Juniors;Rostock;Göttingen;0;58;92
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_RheinStars Köln_Metropol Baskets Ruhr;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;RheinStars Köln;Metropol Baskets Ruhr;RS Köln;Metropol Ruhr;0;77;91
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_ratiopharm Ulm_BBA Giants Kornwestheim;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;ratiopharm Ulm;BBA Giants Kornwestheim;ratiopharm Ulm;Kornwestheim;0;78;70
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Phoenix Hagen_Team Bonn/Rhöndorf;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Phoenix Hagen;Team Bonn/Rhöndorf;Phoenix Hagen;Bonn-Rhöndorf;0;73;69
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Orange Academy_HAKRO Merlins Crailsheim;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Orange Academy;HAKRO Merlins Crailsheim;Orange;Crailsheim;1;63;58
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Metropol Baskets Ruhr_RheinStars Köln;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Metropol Baskets Ruhr;RheinStars Köln;Metropol Ruhr;RS Köln;1;91;77
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_HAKRO Merlins Crailsheim_Orange Academy;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;HAKRO Merlins Crailsheim;Orange Academy;Crailsheim;Orange;0;58;63
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Eintracht Frankfurt_Tornados Franken;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Eintracht Frankfurt;Tornados Franken;Frankfurt;Nürnberg;1;77;62
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Dresden Titans_Berlin Braves Baskets;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Dresden Titans;Berlin Braves Baskets;Dresden;Braves Berlin;1;69;71
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Berlin Braves Baskets_Dresden Titans;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Berlin Braves Baskets;Dresden Titans;Braves Berlin;Dresden;0;71;69
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Hagen_ART Giants Düsseldorf;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Hagen;ART Giants Düsseldorf;BBA Hagen;Düsseldorf;0;74;76
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Giants Kornwestheim_ratiopharm Ulm;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Giants Kornwestheim;ratiopharm Ulm;Kornwestheim;ratiopharm Ulm;1;70;78
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Basketball Löwen Erfurt_SG Junior Löwen Braunschweig;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Basketball Löwen Erfurt;SG Junior Löwen Braunschweig;Löwen Erfurt;Braunschweig;1;62;91
-15.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_ART Giants Düsseldorf_BBA Hagen;15.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;ART Giants Düsseldorf;BBA Hagen;Düsseldorf;BBA Hagen;1;76;74
-15.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Young Rasta Dragons_Hamburg Towers;15.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Young Rasta Dragons;Hamburg Towers;Rasta Vechta;Hamburg;1;77;73
-15.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_UBC Münster_Alba Berlin;15.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;UBC Münster;Alba Berlin;Münster;Alba Berlin;0;85;91
-15.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Team Urspring_ROTH Energie BBA GIESSEN 46ers;15.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Team Urspring;ROTH Energie BBA GIESSEN 46ers;Urspring;Giessen;0;95;90
-15.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_ROTH Energie BBA GIESSEN 46ers_Team Urspring;15.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;ROTH Energie BBA GIESSEN 46ers;Team Urspring;Giessen;Urspring;1;90;95
-15.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Porsche BBA Ludwigsburg_Niners Chemnitz Academy;15.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Porsche BBA Ludwigsburg;Niners Chemnitz Academy;Ludwigsburg;Chemnitz;1;99;68
-15.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Niners Chemnitz Academy_Porsche BBA Ludwigsburg;15.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Niners Chemnitz Academy;Porsche BBA Ludwigsburg;Chemnitz;Ludwigsburg;0;68;99
-15.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Medipolis SC Jena_FC Bayern München;15.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Medipolis SC Jena;FC Bayern München;SC Jena;FC Bayern;1;84;88
-15.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_KICKZ IBAM_Bamberg freakcity academy;15.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;KICKZ IBAM;Bamberg freakcity academy;IBAM;Bamberg;0;87;60
-15.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Hamburg Towers_Young Rasta Dragons;15.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Hamburg Towers;Young Rasta Dragons;Hamburg;Rasta Vechta;0;73;77
-15.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_FC Bayern München_Medipolis SC Jena;15.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;FC Bayern München;Medipolis SC Jena;FC Bayern;SC Jena;0;88;84
-15.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Eisbären Bremerhaven_Bayer Giants Leverkusen;15.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Eisbären Bremerhaven;Bayer Giants Leverkusen;Bremerhaven;Leverkusen;0;59;91
-15.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bayer Giants Leverkusen_Eisbären Bremerhaven;15.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bayer Giants Leverkusen;Eisbären Bremerhaven;Leverkusen;Bremerhaven;1;91;59
-15.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Paderborn_Baskets Juniors Oldenburg;15.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Paderborn;Baskets Juniors Oldenburg;Paderborn;Oldenburg;1;80;88
-15.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Juniors Oldenburg_Baskets Paderborn;15.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Juniors Oldenburg;Baskets Paderborn;Oldenburg;Paderborn;0;88;80
-15.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bamberg freakcity academy_KICKZ IBAM;15.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bamberg freakcity academy;KICKZ IBAM;Bamberg;IBAM;1;60;87
-15.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Alba Berlin_UBC Münster;15.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Alba Berlin;UBC Münster;Alba Berlin;Münster;1;91;85
-18.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Orange Academy_BBA Giants Kornwestheim;18.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Orange Academy;BBA Giants Kornwestheim;Orange;Kornwestheim;1;83;85
-18.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Giants Kornwestheim_Orange Academy;18.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Giants Kornwestheim;Orange Academy;Kornwestheim;Orange;0;85;83
-22.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Young Rasta Dragons_Eisbären Bremerhaven;22.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Young Rasta Dragons;Eisbären Bremerhaven;Rasta Vechta;Bremerhaven;0;100;50
-22.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Team Urspring_KICKZ IBAM;22.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Team Urspring;KICKZ IBAM;Urspring;IBAM;0;76;85
-22.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_KICKZ IBAM_Team Urspring;22.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;KICKZ IBAM;Team Urspring;IBAM;Urspring;1;85;76
-22.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Eisbären Bremerhaven_Young Rasta Dragons;22.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Eisbären Bremerhaven;Young Rasta Dragons;Bremerhaven;Rasta Vechta;1;50;100
-22.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bayer Giants Leverkusen_Alba Berlin;22.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bayer Giants Leverkusen;Alba Berlin;Leverkusen;Alba Berlin;1;83;90
-22.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Alba Berlin_Bayer Giants Leverkusen;22.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Alba Berlin;Bayer Giants Leverkusen;Alba Berlin;Leverkusen;0;90;83
-24.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_UBC Münster_Baskets Juniors Oldenburg;24.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;UBC Münster;Baskets Juniors Oldenburg;Münster;Oldenburg;1;94;104
-24.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Juniors Oldenburg_UBC Münster;24.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Juniors Oldenburg;UBC Münster;Oldenburg;Münster;0;104;94
-28.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Hamburg Towers_Baskets Paderborn;28.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Hamburg Towers;Baskets Paderborn;Hamburg;Paderborn;1;49;61
-28.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Paderborn_Hamburg Towers;28.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Paderborn;Hamburg Towers;Paderborn;Hamburg;0;61;49
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Würzburg Baskets Akademie_USC Heidelberg;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Würzburg Baskets Akademie;USC Heidelberg;Würzburg;Heidelberg;1;97;88
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_VfL Kirchheim Knights_HAKRO Merlins Crailsheim;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;VfL Kirchheim Knights;HAKRO Merlins Crailsheim;Kirchheim;Crailsheim;0;83;71
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_USC Heidelberg_Würzburg Baskets Akademie;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;USC Heidelberg;Würzburg Baskets Akademie;Heidelberg;Würzburg;0;88;97
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TS Jahn München_BBA Giants Kornwestheim;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TS Jahn München;BBA Giants Kornwestheim;Jahn München;Kornwestheim;0;76;58
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Tornados Franken_Team Südhessen;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Tornados Franken;Team Südhessen;Nürnberg;Südhessen;1;73;63
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TG Hanau_Eintracht Frankfurt;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TG Hanau;Eintracht Frankfurt;TG Hanau;Frankfurt;0;72;65
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Südhessen_Tornados Franken;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Südhessen;Tornados Franken;Südhessen;Nürnberg;0;63;73
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Bonn/Rhöndorf_RheinStars Köln;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Bonn/Rhöndorf;RheinStars Köln;Bonn-Rhöndorf;RS Köln;0;80;81
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_SG Junior Löwen Braunschweig_Rostock Seawolves;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;SG Junior Löwen Braunschweig;Rostock Seawolves;Braunschweig;Rostock;1;73;88
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Sartorius Juniors_Berlin Braves Baskets;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Sartorius Juniors;Berlin Braves Baskets;Göttingen;Braves Berlin;0;76;72
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Rostock Seawolves_SG Junior Löwen Braunschweig;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Rostock Seawolves;SG Junior Löwen Braunschweig;Rostock;Braunschweig;0;88;73
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_RheinStars Köln_Team Bonn/Rhöndorf;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;RheinStars Köln;Team Bonn/Rhöndorf;RS Köln;Bonn-Rhöndorf;1;81;80
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Phoenix Hagen_BBA Hagen;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Phoenix Hagen;BBA Hagen;Phoenix Hagen;BBA Hagen;0;67;80
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Metropol Baskets Ruhr_ART Giants Düsseldorf;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Metropol Baskets Ruhr;ART Giants Düsseldorf;Metropol Ruhr;Düsseldorf;0;90;72
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_HAKRO Merlins Crailsheim_VfL Kirchheim Knights;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;HAKRO Merlins Crailsheim;VfL Kirchheim Knights;Crailsheim;Kirchheim;1;71;83
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Eintracht Frankfurt_TG Hanau;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Eintracht Frankfurt;TG Hanau;Frankfurt;TG Hanau;1;65;72
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Dresden Titans_Basketball Löwen Erfurt;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Dresden Titans;Basketball Löwen Erfurt;Dresden;Löwen Erfurt;1;50;81
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Berlin Braves Baskets_Sartorius Juniors;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Berlin Braves Baskets;Sartorius Juniors;Braves Berlin;Göttingen;1;72;76
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Hagen_Phoenix Hagen;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Hagen;Phoenix Hagen;BBA Hagen;Phoenix Hagen;1;80;67
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Giants Kornwestheim_TS Jahn München;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Giants Kornwestheim;TS Jahn München;Kornwestheim;Jahn München;1;58;76
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Basketball Löwen Erfurt_Dresden Titans;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Basketball Löwen Erfurt;Dresden Titans;Löwen Erfurt;Dresden;0;81;50
-29.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_ART Giants Düsseldorf_Metropol Baskets Ruhr;29.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;ART Giants Düsseldorf;Metropol Baskets Ruhr;Düsseldorf;Metropol Ruhr;1;72;90
-29.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Team Urspring_Bamberg freakcity academy;29.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Team Urspring;Bamberg freakcity academy;Urspring;Bamberg;1;86;67
-29.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_ROTH Energie BBA GIESSEN 46ers_FC Bayern München;29.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;ROTH Energie BBA GIESSEN 46ers;FC Bayern München;Giessen;FC Bayern;0;67;100
-29.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_FC Bayern München_ROTH Energie BBA GIESSEN 46ers;29.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;FC Bayern München;ROTH Energie BBA GIESSEN 46ers;FC Bayern;Giessen;1;100;67
-29.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bamberg freakcity academy_Team Urspring;29.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bamberg freakcity academy;Team Urspring;Bamberg;Urspring;0;67;86
-31.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_SG Junior Löwen Braunschweig_Dresden Titans;31.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;SG Junior Löwen Braunschweig;Dresden Titans;Braunschweig;Dresden;0;64;60
-31.10.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Dresden Titans_SG Junior Löwen Braunschweig;31.10.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Dresden Titans;SG Junior Löwen Braunschweig;Dresden;Braunschweig;1;60;64
-31.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Porsche BBA Ludwigsburg_Medipolis SC Jena;31.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Porsche BBA Ludwigsburg;Medipolis SC Jena;Ludwigsburg;SC Jena;0;88;69
-31.10.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Medipolis SC Jena_Porsche BBA Ludwigsburg;31.10.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Medipolis SC Jena;Porsche BBA Ludwigsburg;SC Jena;Ludwigsburg;1;69;88
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_VfL Kirchheim Knights_Orange Academy;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;VfL Kirchheim Knights;Orange Academy;Kirchheim;Orange;0;80;74
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_USC Heidelberg_Tornados Franken;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;USC Heidelberg;Tornados Franken;Heidelberg;Nürnberg;1;67;78
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TS Jahn München_ratiopharm Ulm;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TS Jahn München;ratiopharm Ulm;Jahn München;ratiopharm Ulm;1;77;66
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Tornados Franken_USC Heidelberg;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Tornados Franken;USC Heidelberg;Nürnberg;Heidelberg;0;78;67
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Südhessen_Eintracht Frankfurt;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Südhessen;Eintracht Frankfurt;Südhessen;Frankfurt;1;59;77
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Bonn/Rhöndorf_ART Giants Düsseldorf;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Bonn/Rhöndorf;ART Giants Düsseldorf;Bonn-Rhöndorf;Düsseldorf;1;103;76
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_SG Junior Löwen Braunschweig_Sartorius Juniors;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;SG Junior Löwen Braunschweig;Sartorius Juniors;Braunschweig;Göttingen;0;86;87
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Sartorius Juniors_SG Junior Löwen Braunschweig;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Sartorius Juniors;SG Junior Löwen Braunschweig;Göttingen;Braunschweig;1;87;86
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Rostock Seawolves_Dresden Titans;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Rostock Seawolves;Dresden Titans;Rostock;Dresden;1;77;59
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_RheinStars Köln_Phoenix Hagen;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;RheinStars Köln;Phoenix Hagen;RS Köln;Phoenix Hagen;0;85;82
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_ratiopharm Ulm_TS Jahn München;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;ratiopharm Ulm;TS Jahn München;ratiopharm Ulm;Jahn München;0;66;77
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Phoenix Hagen_RheinStars Köln;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Phoenix Hagen;RheinStars Köln;Phoenix Hagen;RS Köln;1;82;85
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Orange Academy_VfL Kirchheim Knights;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Orange Academy;VfL Kirchheim Knights;Orange;Kirchheim;1;74;80
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Metropol Baskets Ruhr_BBA Hagen;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Metropol Baskets Ruhr;BBA Hagen;Metropol Ruhr;BBA Hagen;1;100;62
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_HAKRO Merlins Crailsheim_BBA Giants Kornwestheim;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;HAKRO Merlins Crailsheim;BBA Giants Kornwestheim;Crailsheim;Kornwestheim;1;44;59
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Eintracht Frankfurt_Team Südhessen;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Eintracht Frankfurt;Team Südhessen;Frankfurt;Südhessen;0;77;59
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Dresden Titans_Rostock Seawolves;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Dresden Titans;Rostock Seawolves;Dresden;Rostock;0;59;77
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Berlin Braves Baskets_Basketball Löwen Erfurt;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Berlin Braves Baskets;Basketball Löwen Erfurt;Braves Berlin;Löwen Erfurt;0;104;81
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Hagen_Metropol Baskets Ruhr;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Hagen;Metropol Baskets Ruhr;BBA Hagen;Metropol Ruhr;0;62;100
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Giants Kornwestheim_HAKRO Merlins Crailsheim;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Giants Kornwestheim;HAKRO Merlins Crailsheim;Kornwestheim;Crailsheim;0;59;44
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Basketball Löwen Erfurt_Berlin Braves Baskets;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Basketball Löwen Erfurt;Berlin Braves Baskets;Löwen Erfurt;Braves Berlin;1;81;104
-05.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_ART Giants Düsseldorf_Team Bonn/Rhöndorf;05.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;ART Giants Düsseldorf;Team Bonn/Rhöndorf;Düsseldorf;Bonn-Rhöndorf;0;76;103
-05.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Young Rasta Dragons_Alba Berlin;05.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Young Rasta Dragons;Alba Berlin;Rasta Vechta;Alba Berlin;1;80;76
-05.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_UBC Münster_Eisbären Bremerhaven;05.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;UBC Münster;Eisbären Bremerhaven;Münster;Bremerhaven;0;68;66
-05.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Team Urspring_Porsche BBA Ludwigsburg;05.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Team Urspring;Porsche BBA Ludwigsburg;Urspring;Ludwigsburg;0;52;83
-05.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_ROTH Energie BBA GIESSEN 46ers_KICKZ IBAM;05.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;ROTH Energie BBA GIESSEN 46ers;KICKZ IBAM;Giessen;IBAM;1;70;85
-05.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Porsche BBA Ludwigsburg_Team Urspring;05.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Porsche BBA Ludwigsburg;Team Urspring;Ludwigsburg;Urspring;1;83;52
-05.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Niners Chemnitz Academy_FC Bayern München;05.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Niners Chemnitz Academy;FC Bayern München;Chemnitz;FC Bayern;1;65;78
-05.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Medipolis SC Jena_Bamberg freakcity academy;05.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Medipolis SC Jena;Bamberg freakcity academy;SC Jena;Bamberg;0;105;60
-05.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_KICKZ IBAM_ROTH Energie BBA GIESSEN 46ers;05.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;KICKZ IBAM;ROTH Energie BBA GIESSEN 46ers;IBAM;Giessen;0;85;70
-05.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Hamburg Towers_Baskets Juniors Oldenburg;05.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Hamburg Towers;Baskets Juniors Oldenburg;Hamburg;Oldenburg;0;83;71
-05.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_FC Bayern München_Niners Chemnitz Academy;05.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;FC Bayern München;Niners Chemnitz Academy;FC Bayern;Chemnitz;0;78;65
-05.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Eisbären Bremerhaven_UBC Münster;05.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Eisbären Bremerhaven;UBC Münster;Bremerhaven;Münster;1;66;68
-05.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bayer Giants Leverkusen_Baskets Paderborn;05.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bayer Giants Leverkusen;Baskets Paderborn;Leverkusen;Paderborn;0;81;72
-05.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Paderborn_Bayer Giants Leverkusen;05.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Paderborn;Bayer Giants Leverkusen;Paderborn;Leverkusen;1;72;81
-05.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Juniors Oldenburg_Hamburg Towers;05.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Juniors Oldenburg;Hamburg Towers;Oldenburg;Hamburg;1;71;83
-05.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bamberg freakcity academy_Medipolis SC Jena;05.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bamberg freakcity academy;Medipolis SC Jena;Bamberg;SC Jena;1;60;105
-05.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Alba Berlin_Young Rasta Dragons;05.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Alba Berlin;Young Rasta Dragons;Alba Berlin;Rasta Vechta;0;76;80
-11.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Team Urspring_Medipolis SC Jena;11.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Team Urspring;Medipolis SC Jena;Urspring;SC Jena;0;71;74
-11.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Medipolis SC Jena_Team Urspring;11.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Medipolis SC Jena;Team Urspring;SC Jena;Urspring;1;74;71
-12.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Würzburg Baskets Akademie_TG Hanau;12.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Würzburg Baskets Akademie;TG Hanau;Würzburg;TG Hanau;0;95;91
-12.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_VfL Kirchheim Knights_Orange Academy;12.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;VfL Kirchheim Knights;Orange Academy;Kirchheim;Orange;1;73;57
-12.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TS Jahn München_HAKRO Merlins Crailsheim;12.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TS Jahn München;HAKRO Merlins Crailsheim;Jahn München;Crailsheim;0;77;53
-12.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TG Hanau_Würzburg Baskets Akademie;12.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TG Hanau;Würzburg Baskets Akademie;TG Hanau;Würzburg;1;91;95
-12.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Bonn/Rhöndorf_Phoenix Hagen;12.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Bonn/Rhöndorf;Phoenix Hagen;Bonn-Rhöndorf;Phoenix Hagen;0;118;63
-12.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Phoenix Hagen_Team Bonn/Rhöndorf;12.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Phoenix Hagen;Team Bonn/Rhöndorf;Phoenix Hagen;Bonn-Rhöndorf;1;63;118
-12.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Orange Academy_VfL Kirchheim Knights;12.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Orange Academy;VfL Kirchheim Knights;Orange;Kirchheim;0;57;73
-12.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_HAKRO Merlins Crailsheim_TS Jahn München;12.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;HAKRO Merlins Crailsheim;TS Jahn München;Crailsheim;Jahn München;1;53;77
-12.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Hagen_ART Giants Düsseldorf;12.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Hagen;ART Giants Düsseldorf;BBA Hagen;Düsseldorf;1;84;69
-12.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_ART Giants Düsseldorf_BBA Hagen;12.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;ART Giants Düsseldorf;BBA Hagen;Düsseldorf;BBA Hagen;0;69;84
-12.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_UBC Münster_Bayer Giants Leverkusen;12.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;UBC Münster;Bayer Giants Leverkusen;Münster;Leverkusen;1;91;67
-12.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_ROTH Energie BBA GIESSEN 46ers_FC Bayern München;12.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;ROTH Energie BBA GIESSEN 46ers;FC Bayern München;Giessen;FC Bayern;1;64;74
-12.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Porsche BBA Ludwigsburg_KICKZ IBAM;12.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Porsche BBA Ludwigsburg;KICKZ IBAM;Ludwigsburg;IBAM;0;81;80
-12.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_KICKZ IBAM_Porsche BBA Ludwigsburg;12.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;KICKZ IBAM;Porsche BBA Ludwigsburg;IBAM;Ludwigsburg;1;80;81
-12.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Hamburg Towers_Eisbären Bremerhaven;12.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Hamburg Towers;Eisbären Bremerhaven;Hamburg;Bremerhaven;1;76;77
-12.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_FC Bayern München_ROTH Energie BBA GIESSEN 46ers;12.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;FC Bayern München;ROTH Energie BBA GIESSEN 46ers;FC Bayern;Giessen;0;74;64
-12.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Eisbären Bremerhaven_Hamburg Towers;12.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Eisbären Bremerhaven;Hamburg Towers;Bremerhaven;Hamburg;0;77;76
-12.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bayer Giants Leverkusen_UBC Münster;12.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bayer Giants Leverkusen;UBC Münster;Leverkusen;Münster;0;67;91
-12.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Paderborn_Alba Berlin;12.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Paderborn;Alba Berlin;Paderborn;Alba Berlin;0;67;86
-12.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Alba Berlin_Baskets Paderborn;12.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Alba Berlin;Baskets Paderborn;Alba Berlin;Paderborn;1;86;67
-15.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_ratiopharm Ulm_HAKRO Merlins Crailsheim;15.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;ratiopharm Ulm;HAKRO Merlins Crailsheim;ratiopharm Ulm;Crailsheim;0;119;57
-15.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_HAKRO Merlins Crailsheim_ratiopharm Ulm;15.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;HAKRO Merlins Crailsheim;ratiopharm Ulm;Crailsheim;ratiopharm Ulm;1;57;119
-18.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Young Rasta Dragons_Bayer Giants Leverkusen;18.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Young Rasta Dragons;Bayer Giants Leverkusen;Rasta Vechta;Leverkusen;0;89;92
-18.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bayer Giants Leverkusen_Young Rasta Dragons;18.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bayer Giants Leverkusen;Young Rasta Dragons;Leverkusen;Rasta Vechta;1;92;89
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Würzburg Baskets Akademie_TG Hanau;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Würzburg Baskets Akademie;TG Hanau;Würzburg;TG Hanau;1;83;70
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_USC Heidelberg_Tornados Franken;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;USC Heidelberg;Tornados Franken;Heidelberg;Nürnberg;0;60;81
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TS Jahn München_ratiopharm Ulm;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TS Jahn München;ratiopharm Ulm;Jahn München;ratiopharm Ulm;0;77;92
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Tornados Franken_USC Heidelberg;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Tornados Franken;USC Heidelberg;Nürnberg;Heidelberg;1;81;60
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TG Hanau_Würzburg Baskets Akademie;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TG Hanau;Würzburg Baskets Akademie;TG Hanau;Würzburg;0;70;83
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Südhessen_Eintracht Frankfurt;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Südhessen;Eintracht Frankfurt;Südhessen;Frankfurt;0;58;84
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Bonn/Rhöndorf_ART Giants Düsseldorf;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Bonn/Rhöndorf;ART Giants Düsseldorf;Bonn-Rhöndorf;Düsseldorf;0;98;44
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_SG Junior Löwen Braunschweig_Dresden Titans;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;SG Junior Löwen Braunschweig;Dresden Titans;Braunschweig;Dresden;1;85;56
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Sartorius Juniors_Basketball Löwen Erfurt;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Sartorius Juniors;Basketball Löwen Erfurt;Göttingen;Löwen Erfurt;1;114;79
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Rostock Seawolves_Berlin Braves Baskets;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Rostock Seawolves;Berlin Braves Baskets;Rostock;Braves Berlin;1;84;102
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_RheinStars Köln_BBA Hagen;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;RheinStars Köln;BBA Hagen;RS Köln;BBA Hagen;1;81;62
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_ratiopharm Ulm_TS Jahn München;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;ratiopharm Ulm;TS Jahn München;ratiopharm Ulm;Jahn München;1;92;77
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Phoenix Hagen_Metropol Baskets Ruhr;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Phoenix Hagen;Metropol Baskets Ruhr;Phoenix Hagen;Metropol Ruhr;0;77;92
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Metropol Baskets Ruhr_Phoenix Hagen;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Metropol Baskets Ruhr;Phoenix Hagen;Metropol Ruhr;Phoenix Hagen;1;92;77
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_HAKRO Merlins Crailsheim_BBA Giants Kornwestheim;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;HAKRO Merlins Crailsheim;BBA Giants Kornwestheim;Crailsheim;Kornwestheim;0;42;91
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Eintracht Frankfurt_Team Südhessen;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Eintracht Frankfurt;Team Südhessen;Frankfurt;Südhessen;1;84;58
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Dresden Titans_SG Junior Löwen Braunschweig;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Dresden Titans;SG Junior Löwen Braunschweig;Dresden;Braunschweig;0;56;85
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Berlin Braves Baskets_Rostock Seawolves;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Berlin Braves Baskets;Rostock Seawolves;Braves Berlin;Rostock;0;102;84
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Hagen_RheinStars Köln;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Hagen;RheinStars Köln;BBA Hagen;RS Köln;0;62;81
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Giants Kornwestheim_HAKRO Merlins Crailsheim;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Giants Kornwestheim;HAKRO Merlins Crailsheim;Kornwestheim;Crailsheim;1;91;42
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Basketball Löwen Erfurt_Sartorius Juniors;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Basketball Löwen Erfurt;Sartorius Juniors;Löwen Erfurt;Göttingen;0;79;114
-19.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_ART Giants Düsseldorf_Team Bonn/Rhöndorf;19.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;ART Giants Düsseldorf;Team Bonn/Rhöndorf;Düsseldorf;Bonn-Rhöndorf;1;44;98
-19.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_UBC Münster_Hamburg Towers;19.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;UBC Münster;Hamburg Towers;Münster;Hamburg;0;82;77
-19.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_ROTH Energie BBA GIESSEN 46ers_Porsche BBA Ludwigsburg;19.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;ROTH Energie BBA GIESSEN 46ers;Porsche BBA Ludwigsburg;Giessen;Ludwigsburg;0;60;108
-19.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Porsche BBA Ludwigsburg_ROTH Energie BBA GIESSEN 46ers;19.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Porsche BBA Ludwigsburg;ROTH Energie BBA GIESSEN 46ers;Ludwigsburg;Giessen;1;108;60
-19.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Niners Chemnitz Academy_Medipolis SC Jena;19.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Niners Chemnitz Academy;Medipolis SC Jena;Chemnitz;SC Jena;0;64;96
-19.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Medipolis SC Jena_Niners Chemnitz Academy;19.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Medipolis SC Jena;Niners Chemnitz Academy;SC Jena;Chemnitz;1;96;64
-19.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Hamburg Towers_UBC Münster;19.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Hamburg Towers;UBC Münster;Hamburg;Münster;1;77;82
-19.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_FC Bayern München_Bamberg freakcity academy;19.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;FC Bayern München;Bamberg freakcity academy;FC Bayern;Bamberg;1;92;90
-19.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Eisbären Bremerhaven_Baskets Juniors Oldenburg;19.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Eisbären Bremerhaven;Baskets Juniors Oldenburg;Bremerhaven;Oldenburg;0;65;88
-19.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Paderborn_Alba Berlin;19.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Paderborn;Alba Berlin;Paderborn;Alba Berlin;1;88;74
-19.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Juniors Oldenburg_Eisbären Bremerhaven;19.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Juniors Oldenburg;Eisbären Bremerhaven;Oldenburg;Bremerhaven;1;88;65
-19.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bamberg freakcity academy_FC Bayern München;19.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bamberg freakcity academy;FC Bayern München;Bamberg;FC Bayern;0;90;92
-19.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Alba Berlin_Baskets Paderborn;19.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Alba Berlin;Baskets Paderborn;Alba Berlin;Paderborn;0;74;88
-25.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Rostock Seawolves_Basketball Löwen Erfurt;25.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Rostock Seawolves;Basketball Löwen Erfurt;Rostock;Löwen Erfurt;0;99;95
-25.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_RheinStars Köln_Metropol Baskets Ruhr;25.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;RheinStars Köln;Metropol Baskets Ruhr;RS Köln;Metropol Ruhr;1;77;67
-25.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Metropol Baskets Ruhr_RheinStars Köln;25.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Metropol Baskets Ruhr;RheinStars Köln;Metropol Ruhr;RS Köln;0;67;77
-25.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Basketball Löwen Erfurt_Rostock Seawolves;25.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Basketball Löwen Erfurt;Rostock Seawolves;Löwen Erfurt;Rostock;1;95;99
-26.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Würzburg Baskets Akademie_USC Heidelberg;26.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Würzburg Baskets Akademie;USC Heidelberg;Würzburg;Heidelberg;0;101;91
-26.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_VfL Kirchheim Knights_HAKRO Merlins Crailsheim;26.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;VfL Kirchheim Knights;HAKRO Merlins Crailsheim;Kirchheim;Crailsheim;1;73;55
-26.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_USC Heidelberg_Würzburg Baskets Akademie;26.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;USC Heidelberg;Würzburg Baskets Akademie;Heidelberg;Würzburg;1;91;101
-26.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TS Jahn München_BBA Giants Kornwestheim;26.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TS Jahn München;BBA Giants Kornwestheim;Jahn München;Kornwestheim;1;70;62
-26.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Tornados Franken_Team Südhessen;26.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Tornados Franken;Team Südhessen;Nürnberg;Südhessen;0;68;92
-26.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TG Hanau_Eintracht Frankfurt;26.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TG Hanau;Eintracht Frankfurt;TG Hanau;Frankfurt;1;58;96
-26.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Südhessen_Tornados Franken;26.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Südhessen;Tornados Franken;Südhessen;Nürnberg;1;92;68
-26.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_SG Junior Löwen Braunschweig_Berlin Braves Baskets;26.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;SG Junior Löwen Braunschweig;Berlin Braves Baskets;Braunschweig;Braves Berlin;0;66;83
-26.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Sartorius Juniors_Dresden Titans;26.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Sartorius Juniors;Dresden Titans;Göttingen;Dresden;0;92;67
-26.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_HAKRO Merlins Crailsheim_VfL Kirchheim Knights;26.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;HAKRO Merlins Crailsheim;VfL Kirchheim Knights;Crailsheim;Kirchheim;0;55;73
-26.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Eintracht Frankfurt_TG Hanau;26.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Eintracht Frankfurt;TG Hanau;Frankfurt;TG Hanau;0;96;58
-26.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Dresden Titans_Sartorius Juniors;26.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Dresden Titans;Sartorius Juniors;Dresden;Göttingen;1;67;92
-26.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Berlin Braves Baskets_SG Junior Löwen Braunschweig;26.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Berlin Braves Baskets;SG Junior Löwen Braunschweig;Braves Berlin;Braunschweig;1;83;66
-26.11.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Giants Kornwestheim_TS Jahn München;26.11.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Giants Kornwestheim;TS Jahn München;Kornwestheim;Jahn München;0;62;70
-26.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Young Rasta Dragons_Baskets Paderborn;26.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Young Rasta Dragons;Baskets Paderborn;Rasta Vechta;Paderborn;1;74;51
-26.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Team Urspring_FC Bayern München;26.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Team Urspring;FC Bayern München;Urspring;FC Bayern;0;72;58
-26.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_ROTH Energie BBA GIESSEN 46ers_Medipolis SC Jena;26.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;ROTH Energie BBA GIESSEN 46ers;Medipolis SC Jena;Giessen;SC Jena;1;97;92
-26.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Niners Chemnitz Academy_Bamberg freakcity academy;26.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Niners Chemnitz Academy;Bamberg freakcity academy;Chemnitz;Bamberg;1;105;67
-26.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Medipolis SC Jena_ROTH Energie BBA GIESSEN 46ers;26.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Medipolis SC Jena;ROTH Energie BBA GIESSEN 46ers;SC Jena;Giessen;0;92;97
-26.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Hamburg Towers_Eisbären Bremerhaven;26.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Hamburg Towers;Eisbären Bremerhaven;Hamburg;Bremerhaven;0;72;64
-26.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_FC Bayern München_Team Urspring;26.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;FC Bayern München;Team Urspring;FC Bayern;Urspring;1;58;72
-26.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Eisbären Bremerhaven_Hamburg Towers;26.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Eisbären Bremerhaven;Hamburg Towers;Bremerhaven;Hamburg;1;64;72
-26.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Paderborn_Young Rasta Dragons;26.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Paderborn;Young Rasta Dragons;Paderborn;Rasta Vechta;0;51;74
-26.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Juniors Oldenburg_Alba Berlin;26.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Juniors Oldenburg;Alba Berlin;Oldenburg;Alba Berlin;0;61;56
-26.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bamberg freakcity academy_Niners Chemnitz Academy;26.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bamberg freakcity academy;Niners Chemnitz Academy;Bamberg;Chemnitz;0;67;105
-26.11.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Alba Berlin_Baskets Juniors Oldenburg;26.11.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Alba Berlin;Baskets Juniors Oldenburg;Alba Berlin;Oldenburg;1;56;61
-03.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Würzburg Baskets Akademie_Tornados Franken;03.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Würzburg Baskets Akademie;Tornados Franken;Würzburg;Nürnberg;0;82;92
-03.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Tornados Franken_Würzburg Baskets Akademie;03.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Tornados Franken;Würzburg Baskets Akademie;Nürnberg;Würzburg;1;92;82
-09.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Hamburg Towers_Bayer Giants Leverkusen;09.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Hamburg Towers;Bayer Giants Leverkusen;Hamburg;Leverkusen;0;72;75
-09.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bayer Giants Leverkusen_Hamburg Towers;09.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bayer Giants Leverkusen;Hamburg Towers;Leverkusen;Hamburg;1;75;72
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Würzburg Baskets Akademie_Team Südhessen;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Würzburg Baskets Akademie;Team Südhessen;Würzburg;Südhessen;1;92;80
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_VfL Kirchheim Knights_TS Jahn München;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;VfL Kirchheim Knights;TS Jahn München;Kirchheim;Jahn München;1;85;67
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_USC Heidelberg_TG Hanau;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;USC Heidelberg;TG Hanau;Heidelberg;TG Hanau;1;95;64
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TS Jahn München_VfL Kirchheim Knights;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TS Jahn München;VfL Kirchheim Knights;Jahn München;Kirchheim;0;67;85
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Tornados Franken_Eintracht Frankfurt;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Tornados Franken;Eintracht Frankfurt;Nürnberg;Frankfurt;1;91;83
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TG Hanau_USC Heidelberg;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TG Hanau;USC Heidelberg;TG Hanau;Heidelberg;0;64;95
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Südhessen_Würzburg Baskets Akademie;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Südhessen;Würzburg Baskets Akademie;Südhessen;Würzburg;0;80;92
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Bonn/Rhöndorf_Metropol Baskets Ruhr;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Bonn/Rhöndorf;Metropol Baskets Ruhr;Bonn-Rhöndorf;Metropol Ruhr;0;87;83
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_SG Junior Löwen Braunschweig_Basketball Löwen Erfurt;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;SG Junior Löwen Braunschweig;Basketball Löwen Erfurt;Braunschweig;Löwen Erfurt;1;83;70
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Sartorius Juniors_Rostock Seawolves;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Sartorius Juniors;Rostock Seawolves;Göttingen;Rostock;0;112;77
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Rostock Seawolves_Sartorius Juniors;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Rostock Seawolves;Sartorius Juniors;Rostock;Göttingen;1;77;112
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_RheinStars Köln_ART Giants Düsseldorf;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;RheinStars Köln;ART Giants Düsseldorf;RS Köln;Düsseldorf;0;71;65
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_ratiopharm Ulm_BBA Giants Kornwestheim;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;ratiopharm Ulm;BBA Giants Kornwestheim;ratiopharm Ulm;Kornwestheim;1;100;52
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Phoenix Hagen_BBA Hagen;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Phoenix Hagen;BBA Hagen;Phoenix Hagen;BBA Hagen;1;71;65
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Orange Academy_HAKRO Merlins Crailsheim;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Orange Academy;HAKRO Merlins Crailsheim;Orange;Crailsheim;0;64;54
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Metropol Baskets Ruhr_Team Bonn/Rhöndorf;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Metropol Baskets Ruhr;Team Bonn/Rhöndorf;Metropol Ruhr;Bonn-Rhöndorf;1;83;87
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_HAKRO Merlins Crailsheim_Orange Academy;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;HAKRO Merlins Crailsheim;Orange Academy;Crailsheim;Orange;1;54;64
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Eintracht Frankfurt_Tornados Franken;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Eintracht Frankfurt;Tornados Franken;Frankfurt;Nürnberg;0;83;91
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Dresden Titans_Berlin Braves Baskets;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Dresden Titans;Berlin Braves Baskets;Dresden;Braves Berlin;0;53;73
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Berlin Braves Baskets_Dresden Titans;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Berlin Braves Baskets;Dresden Titans;Braves Berlin;Dresden;1;73;53
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Hagen_Phoenix Hagen;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Hagen;Phoenix Hagen;BBA Hagen;Phoenix Hagen;0;65;71
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Giants Kornwestheim_ratiopharm Ulm;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Giants Kornwestheim;ratiopharm Ulm;Kornwestheim;ratiopharm Ulm;0;52;100
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Basketball Löwen Erfurt_SG Junior Löwen Braunschweig;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Basketball Löwen Erfurt;SG Junior Löwen Braunschweig;Löwen Erfurt;Braunschweig;0;70;83
-10.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_ART Giants Düsseldorf_RheinStars Köln;10.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;ART Giants Düsseldorf;RheinStars Köln;Düsseldorf;RS Köln;1;65;71
-10.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Young Rasta Dragons_Alba Berlin;10.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Young Rasta Dragons;Alba Berlin;Rasta Vechta;Alba Berlin;0;64;61
-10.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Team Urspring_Niners Chemnitz Academy;10.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Team Urspring;Niners Chemnitz Academy;Urspring;Chemnitz;0;71;72
-10.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_ROTH Energie BBA GIESSEN 46ers_Bamberg freakcity academy;10.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;ROTH Energie BBA GIESSEN 46ers;Bamberg freakcity academy;Giessen;Bamberg;0;75;82
-10.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Porsche BBA Ludwigsburg_FC Bayern München;10.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Porsche BBA Ludwigsburg;FC Bayern München;Ludwigsburg;FC Bayern;0;93;87
-10.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Niners Chemnitz Academy_Team Urspring;10.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Niners Chemnitz Academy;Team Urspring;Chemnitz;Urspring;1;72;71
-10.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Medipolis SC Jena_KICKZ IBAM;10.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Medipolis SC Jena;KICKZ IBAM;SC Jena;IBAM;1;90;68
-10.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_KICKZ IBAM_Medipolis SC Jena;10.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;KICKZ IBAM;Medipolis SC Jena;IBAM;SC Jena;0;68;90
-10.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_FC Bayern München_Porsche BBA Ludwigsburg;10.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;FC Bayern München;Porsche BBA Ludwigsburg;FC Bayern;Ludwigsburg;1;87;93
-10.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Paderborn_Baskets Juniors Oldenburg;10.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Paderborn;Baskets Juniors Oldenburg;Paderborn;Oldenburg;0;55;72
-10.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Juniors Oldenburg_Baskets Paderborn;10.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Juniors Oldenburg;Baskets Paderborn;Oldenburg;Paderborn;1;72;55
-10.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bamberg freakcity academy_ROTH Energie BBA GIESSEN 46ers;10.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bamberg freakcity academy;ROTH Energie BBA GIESSEN 46ers;Bamberg;Giessen;1;82;75
-10.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Alba Berlin_Young Rasta Dragons;10.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Alba Berlin;Young Rasta Dragons;Alba Berlin;Rasta Vechta;1;61;64
-16.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Würzburg Baskets Akademie_Eintracht Frankfurt;16.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Würzburg Baskets Akademie;Eintracht Frankfurt;Würzburg;Frankfurt;0;64;101
-16.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Eintracht Frankfurt_Würzburg Baskets Akademie;16.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Eintracht Frankfurt;Würzburg Baskets Akademie;Frankfurt;Würzburg;1;101;64
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_VfL Kirchheim Knights_ratiopharm Ulm;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;VfL Kirchheim Knights;ratiopharm Ulm;Kirchheim;ratiopharm Ulm;0;69;92
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_USC Heidelberg_Team Südhessen;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;USC Heidelberg;Team Südhessen;Heidelberg;Südhessen;0;75;80
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TS Jahn München_HAKRO Merlins Crailsheim;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TS Jahn München;HAKRO Merlins Crailsheim;Jahn München;Crailsheim;1;64;58
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Tornados Franken_TG Hanau;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Tornados Franken;TG Hanau;Nürnberg;TG Hanau;0;88;83
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_TG Hanau_Tornados Franken;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;TG Hanau;Tornados Franken;TG Hanau;Nürnberg;1;83;88
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Südhessen_USC Heidelberg;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Südhessen;USC Heidelberg;Südhessen;Heidelberg;1;80;75
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Bonn/Rhöndorf_RheinStars Köln;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Bonn/Rhöndorf;RheinStars Köln;Bonn-Rhöndorf;RS Köln;1;71;91
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_SG Junior Löwen Braunschweig_Sartorius Juniors;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;SG Junior Löwen Braunschweig;Sartorius Juniors;Braunschweig;Göttingen;1;64;84
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Sartorius Juniors_SG Junior Löwen Braunschweig;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Sartorius Juniors;SG Junior Löwen Braunschweig;Göttingen;Braunschweig;0;84;64
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Rostock Seawolves_Dresden Titans;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Rostock Seawolves;Dresden Titans;Rostock;Dresden;0;65;84
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_RheinStars Köln_Team Bonn/Rhöndorf;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;RheinStars Köln;Team Bonn/Rhöndorf;RS Köln;Bonn-Rhöndorf;0;91;71
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_ratiopharm Ulm_VfL Kirchheim Knights;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;ratiopharm Ulm;VfL Kirchheim Knights;ratiopharm Ulm;Kirchheim;1;92;69
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Orange Academy_BBA Giants Kornwestheim;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Orange Academy;BBA Giants Kornwestheim;Orange;Kornwestheim;0;76;66
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_HAKRO Merlins Crailsheim_TS Jahn München;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;HAKRO Merlins Crailsheim;TS Jahn München;Crailsheim;Jahn München;0;58;64
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Dresden Titans_Rostock Seawolves;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Dresden Titans;Rostock Seawolves;Dresden;Rostock;1;84;65
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Berlin Braves Baskets_Basketball Löwen Erfurt;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Berlin Braves Baskets;Basketball Löwen Erfurt;Braves Berlin;Löwen Erfurt;1;75;57
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Giants Kornwestheim_Orange Academy;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Giants Kornwestheim;Orange Academy;Kornwestheim;Orange;1;66;76
-17.12.2023_2023-2024_NBBL_NBBL B_REGULAR SEASON_Basketball Löwen Erfurt_Berlin Braves Baskets;17.12.2023;2023-2024;NBBL;NBBL B;REGULAR SEASON;Basketball Löwen Erfurt;Berlin Braves Baskets;Löwen Erfurt;Braves Berlin;0;57;75
-17.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Young Rasta Dragons_Bayer Giants Leverkusen;17.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Young Rasta Dragons;Bayer Giants Leverkusen;Rasta Vechta;Leverkusen;1;85;58
-17.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_UBC Münster_Baskets Paderborn;17.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;UBC Münster;Baskets Paderborn;Münster;Paderborn;0;69;67
-17.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Team Urspring_Medipolis SC Jena;17.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Team Urspring;Medipolis SC Jena;Urspring;SC Jena;1;89;69
-17.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Medipolis SC Jena_Team Urspring;17.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Medipolis SC Jena;Team Urspring;SC Jena;Urspring;0;69;89
-17.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bayer Giants Leverkusen_Young Rasta Dragons;17.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bayer Giants Leverkusen;Young Rasta Dragons;Leverkusen;Rasta Vechta;0;58;85
-17.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Paderborn_UBC Münster;17.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Paderborn;UBC Münster;Paderborn;Münster;1;67;69
-17.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Juniors Oldenburg_Alba Berlin;17.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Juniors Oldenburg;Alba Berlin;Oldenburg;Alba Berlin;1;95;76
-17.12.2023_2023-2024_NBBL_NBBL A_REGULAR SEASON_Alba Berlin_Baskets Juniors Oldenburg;17.12.2023;2023-2024;NBBL;NBBL A;REGULAR SEASON;Alba Berlin;Baskets Juniors Oldenburg;Alba Berlin;Oldenburg;0;76;95
-03.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_ratiopharm Ulm_Orange Academy;03.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;ratiopharm Ulm;Orange Academy;ratiopharm Ulm;Orange;0;73;63
-03.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Orange Academy_ratiopharm Ulm;03.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Orange Academy;ratiopharm Ulm;Orange;ratiopharm Ulm;1;63;73
-03.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Porsche BBA Ludwigsburg_FC Bayern München;03.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Porsche BBA Ludwigsburg;FC Bayern München;Ludwigsburg;FC Bayern;1;80;78
-03.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_FC Bayern München_Porsche BBA Ludwigsburg;03.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;FC Bayern München;Porsche BBA Ludwigsburg;FC Bayern;Ludwigsburg;0;78;80
-06.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Rostock Seawolves_SG Junior Löwen Braunschweig;06.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Rostock Seawolves;SG Junior Löwen Braunschweig;Rostock;Braunschweig;1;72;103
-06.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Dresden Titans_Basketball Löwen Erfurt;06.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Dresden Titans;Basketball Löwen Erfurt;Dresden;Löwen Erfurt;0;63;86
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_VfL Kirchheim Knights_BBA Giants Kornwestheim;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;VfL Kirchheim Knights;BBA Giants Kornwestheim;Kirchheim;Kornwestheim;1;91;52
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_USC Heidelberg_Eintracht Frankfurt;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;USC Heidelberg;Eintracht Frankfurt;Heidelberg;Frankfurt;1;61;81
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_TS Jahn München_Orange Academy;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;TS Jahn München;Orange Academy;Jahn München;Orange;0;59;71
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_TG Hanau_Team Südhessen;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;TG Hanau;Team Südhessen;TG Hanau;Südhessen;1;70;67
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Südhessen_TG Hanau;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Südhessen;TG Hanau;Südhessen;TG Hanau;0;67;70
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Bonn/Rhöndorf_BBA Hagen;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Bonn/Rhöndorf;BBA Hagen;Bonn-Rhöndorf;BBA Hagen;1;101;45
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_SG Junior Löwen Braunschweig_Rostock Seawolves;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;SG Junior Löwen Braunschweig;Rostock Seawolves;Braunschweig;Rostock;0;103;72
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Sartorius Juniors_Berlin Braves Baskets;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Sartorius Juniors;Berlin Braves Baskets;Göttingen;Braves Berlin;1;69;72
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_RheinStars Köln_Phoenix Hagen;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;RheinStars Köln;Phoenix Hagen;RS Köln;Phoenix Hagen;1;85;65
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Phoenix Hagen_RheinStars Köln;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Phoenix Hagen;RheinStars Köln;Phoenix Hagen;RS Köln;0;65;85
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Orange Academy_TS Jahn München;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Orange Academy;TS Jahn München;Orange;Jahn München;1;71;59
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Metropol Baskets Ruhr_ART Giants Düsseldorf;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Metropol Baskets Ruhr;ART Giants Düsseldorf;Metropol Ruhr;Düsseldorf;1;93;86
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Eintracht Frankfurt_USC Heidelberg;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Eintracht Frankfurt;USC Heidelberg;Frankfurt;Heidelberg;0;81;61
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Berlin Braves Baskets_Sartorius Juniors;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Berlin Braves Baskets;Sartorius Juniors;Braves Berlin;Göttingen;0;72;69
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Hagen_Team Bonn/Rhöndorf;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Hagen;Team Bonn/Rhöndorf;BBA Hagen;Bonn-Rhöndorf;0;45;101
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_BBA Giants Kornwestheim_VfL Kirchheim Knights;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;BBA Giants Kornwestheim;VfL Kirchheim Knights;Kornwestheim;Kirchheim;0;52;91
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Basketball Löwen Erfurt_Dresden Titans;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Basketball Löwen Erfurt;Dresden Titans;Löwen Erfurt;Dresden;1;86;63
-07.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_ART Giants Düsseldorf_Metropol Baskets Ruhr;07.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;ART Giants Düsseldorf;Metropol Baskets Ruhr;Düsseldorf;Metropol Ruhr;0;86;93
-07.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Young Rasta Dragons_UBC Münster;07.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Young Rasta Dragons;UBC Münster;Rasta Vechta;Münster;0;90;103
-07.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_UBC Münster_Young Rasta Dragons;07.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;UBC Münster;Young Rasta Dragons;Münster;Rasta Vechta;1;103;90
-07.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Niners Chemnitz Academy_FC Bayern München;07.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Niners Chemnitz Academy;FC Bayern München;Chemnitz;FC Bayern;0;75;83
-07.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Hamburg Towers_Baskets Juniors Oldenburg;07.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Hamburg Towers;Baskets Juniors Oldenburg;Hamburg;Oldenburg;1;85;74
-07.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_FC Bayern München_Niners Chemnitz Academy;07.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;FC Bayern München;Niners Chemnitz Academy;FC Bayern;Chemnitz;1;83;75
-07.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Eisbären Bremerhaven_Bayer Giants Leverkusen;07.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Eisbären Bremerhaven;Bayer Giants Leverkusen;Bremerhaven;Leverkusen;1;57;105
-07.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bayer Giants Leverkusen_Eisbären Bremerhaven;07.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bayer Giants Leverkusen;Eisbären Bremerhaven;Leverkusen;Bremerhaven;0;105;57
-07.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Juniors Oldenburg_Hamburg Towers;07.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Juniors Oldenburg;Hamburg Towers;Oldenburg;Hamburg;0;74;85
-09.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Team Urspring_Porsche BBA Ludwigsburg;09.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Team Urspring;Porsche BBA Ludwigsburg;Urspring;Ludwigsburg;1;67;61
-09.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Porsche BBA Ludwigsburg_Team Urspring;09.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Porsche BBA Ludwigsburg;Team Urspring;Ludwigsburg;Urspring;0;61;67
-14.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Young Rasta Dragons_Hamburg Towers;14.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Young Rasta Dragons;Hamburg Towers;Rasta Vechta;Hamburg;0;76;75
-14.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_KICKZ IBAM_FC Bayern München;14.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;KICKZ IBAM;FC Bayern München;IBAM;FC Bayern;1;92;83
-14.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Hamburg Towers_Young Rasta Dragons;14.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Hamburg Towers;Young Rasta Dragons;Hamburg;Rasta Vechta;1;75;76
-14.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_FC Bayern München_KICKZ IBAM;14.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;FC Bayern München;KICKZ IBAM;FC Bayern;IBAM;0;83;92
-14.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Eisbären Bremerhaven_Alba Berlin;14.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Eisbären Bremerhaven;Alba Berlin;Bremerhaven;Alba Berlin;0;47;104
-14.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Alba Berlin_Eisbären Bremerhaven;14.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Alba Berlin;Eisbären Bremerhaven;Alba Berlin;Bremerhaven;1;104;47
-19.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Würzburg Baskets Akademie_HAKRO Merlins Crailsheim;19.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Würzburg Baskets Akademie;HAKRO Merlins Crailsheim;Würzburg;Crailsheim;1;89;79
-19.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_HAKRO Merlins Crailsheim_Würzburg Baskets Akademie;19.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;HAKRO Merlins Crailsheim;Würzburg Baskets Akademie;Crailsheim;Würzburg;0;79;89
-19.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Porsche BBA Ludwigsburg_Bamberg freakcity academy;19.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Porsche BBA Ludwigsburg;Bamberg freakcity academy;Ludwigsburg;Bamberg;1;88;77
-19.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bamberg freakcity academy_Porsche BBA Ludwigsburg;19.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bamberg freakcity academy;Porsche BBA Ludwigsburg;Bamberg;Ludwigsburg;0;77;88
-21.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_VfL Kirchheim Knights_Eintracht Frankfurt;21.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;VfL Kirchheim Knights;Eintracht Frankfurt;Kirchheim;Frankfurt;0;72;86
-21.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Bonn/Rhöndorf_Sartorius Juniors;21.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Bonn/Rhöndorf;Sartorius Juniors;Bonn-Rhöndorf;Göttingen;0;70;88
-21.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Sartorius Juniors_Team Bonn/Rhöndorf;21.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Sartorius Juniors;Team Bonn/Rhöndorf;Göttingen;Bonn-Rhöndorf;1;88;70
-21.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Phoenix Hagen_Basketball Löwen Erfurt;21.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Phoenix Hagen;Basketball Löwen Erfurt;Phoenix Hagen;Löwen Erfurt;1;69;67
-21.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Eintracht Frankfurt_VfL Kirchheim Knights;21.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Eintracht Frankfurt;VfL Kirchheim Knights;Frankfurt;Kirchheim;1;86;72
-21.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Basketball Löwen Erfurt_Phoenix Hagen;21.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Basketball Löwen Erfurt;Phoenix Hagen;Löwen Erfurt;Phoenix Hagen;0;67;69
-21.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_TS Jahn München_TG Hanau;21.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;TS Jahn München;TG Hanau;Jahn München;TG Hanau;1;63;59
-21.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_TG Hanau_TS Jahn München;21.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;TG Hanau;TS Jahn München;TG Hanau;Jahn München;0;59;63
-21.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Team Südhessen_Orange Academy;21.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Team Südhessen;Orange Academy;Südhessen;Orange;0;76;78
-21.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Rostock Seawolves_ART Giants Düsseldorf;21.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Rostock Seawolves;ART Giants Düsseldorf;Rostock;Düsseldorf;1;72;51
-21.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Orange Academy_Team Südhessen;21.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Orange Academy;Team Südhessen;Orange;Südhessen;1;78;76
-21.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Metropol Baskets Ruhr_Dresden Titans;21.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Metropol Baskets Ruhr;Dresden Titans;Metropol Ruhr;Dresden;0;64;70
-21.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Dresden Titans_Metropol Baskets Ruhr;21.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Dresden Titans;Metropol Baskets Ruhr;Dresden;Metropol Ruhr;1;70;64
-21.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_ART Giants Düsseldorf_Rostock Seawolves;21.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;ART Giants Düsseldorf;Rostock Seawolves;Düsseldorf;Rostock;0;51;72
-21.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_UBC Münster_Alba Berlin;21.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;UBC Münster;Alba Berlin;Münster;Alba Berlin;1;76;78
-21.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Team Urspring_ROTH Energie BBA GIESSEN 46ers;21.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Team Urspring;ROTH Energie BBA GIESSEN 46ers;Urspring;Giessen;1;88;56
-21.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_ROTH Energie BBA GIESSEN 46ers_Team Urspring;21.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;ROTH Energie BBA GIESSEN 46ers;Team Urspring;Giessen;Urspring;0;56;88
-21.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Niners Chemnitz Academy_Medipolis SC Jena;21.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Niners Chemnitz Academy;Medipolis SC Jena;Chemnitz;SC Jena;1;57;91
-21.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Medipolis SC Jena_Niners Chemnitz Academy;21.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Medipolis SC Jena;Niners Chemnitz Academy;SC Jena;Chemnitz;0;91;57
-21.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Eisbären Bremerhaven_Baskets Paderborn;21.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Eisbären Bremerhaven;Baskets Paderborn;Bremerhaven;Paderborn;1;71;89
-21.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bayer Giants Leverkusen_Baskets Juniors Oldenburg;21.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bayer Giants Leverkusen;Baskets Juniors Oldenburg;Leverkusen;Oldenburg;0;73;85
-21.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Paderborn_Eisbären Bremerhaven;21.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Paderborn;Eisbären Bremerhaven;Paderborn;Bremerhaven;0;89;71
-21.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Juniors Oldenburg_Bayer Giants Leverkusen;21.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Juniors Oldenburg;Bayer Giants Leverkusen;Oldenburg;Leverkusen;1;85;73
-21.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Alba Berlin_UBC Münster;21.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Alba Berlin;UBC Münster;Alba Berlin;Münster;0;78;76
-27.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Rostock Seawolves_BBA Hagen;27.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Rostock Seawolves;BBA Hagen;Rostock;BBA Hagen;0;95;59
-27.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_BBA Hagen_Rostock Seawolves;27.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;BBA Hagen;Rostock Seawolves;BBA Hagen;Rostock;1;59;95
-27.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Porsche BBA Ludwigsburg_Medipolis SC Jena;27.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Porsche BBA Ludwigsburg;Medipolis SC Jena;Ludwigsburg;SC Jena;1;92;66
-27.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Medipolis SC Jena_Porsche BBA Ludwigsburg;27.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Medipolis SC Jena;Porsche BBA Ludwigsburg;SC Jena;Ludwigsburg;0;66;92
-28.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_VfL Kirchheim Knights_Eintracht Frankfurt;28.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;VfL Kirchheim Knights;Eintracht Frankfurt;Kirchheim;Frankfurt;1;50;67
-28.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_RheinStars Köln_Berlin Braves Baskets;28.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;RheinStars Köln;Berlin Braves Baskets;RS Köln;Braves Berlin;0;76;75
-28.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Eintracht Frankfurt_VfL Kirchheim Knights;28.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Eintracht Frankfurt;VfL Kirchheim Knights;Frankfurt;Kirchheim;0;67;50
-28.01.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Berlin Braves Baskets_RheinStars Köln;28.01.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Berlin Braves Baskets;RheinStars Köln;Braves Berlin;RS Köln;1;75;76
-28.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Würzburg Baskets Akademie_BBA Giants Kornwestheim;28.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Würzburg Baskets Akademie;BBA Giants Kornwestheim;Würzburg;Kornwestheim;0;82;55
-28.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_USC Heidelberg_HAKRO Merlins Crailsheim;28.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;USC Heidelberg;HAKRO Merlins Crailsheim;Heidelberg;Crailsheim;0;106;55
-28.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_TS Jahn München_Team Südhessen;28.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;TS Jahn München;Team Südhessen;Jahn München;Südhessen;0;67;81
-28.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_TG Hanau_Orange Academy;28.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;TG Hanau;Orange Academy;TG Hanau;Orange;1;87;65
-28.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Team Südhessen_TS Jahn München;28.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Team Südhessen;TS Jahn München;Südhessen;Jahn München;1;81;67
-28.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_SG Junior Löwen Braunschweig_ART Giants Düsseldorf;28.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;SG Junior Löwen Braunschweig;ART Giants Düsseldorf;Braunschweig;Düsseldorf;0;75;66
-28.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Phoenix Hagen_Dresden Titans;28.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Phoenix Hagen;Dresden Titans;Phoenix Hagen;Dresden;0;61;69
-28.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Orange Academy_TG Hanau;28.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Orange Academy;TG Hanau;Orange;TG Hanau;0;65;87
-28.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Metropol Baskets Ruhr_Basketball Löwen Erfurt;28.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Metropol Baskets Ruhr;Basketball Löwen Erfurt;Metropol Ruhr;Löwen Erfurt;0;79;72
-28.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_HAKRO Merlins Crailsheim_USC Heidelberg;28.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;HAKRO Merlins Crailsheim;USC Heidelberg;Crailsheim;Heidelberg;1;55;106
-28.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Dresden Titans_Phoenix Hagen;28.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Dresden Titans;Phoenix Hagen;Dresden;Phoenix Hagen;1;69;61
-28.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_BBA Giants Kornwestheim_Würzburg Baskets Akademie;28.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;BBA Giants Kornwestheim;Würzburg Baskets Akademie;Kornwestheim;Würzburg;1;55;82
-28.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Basketball Löwen Erfurt_Metropol Baskets Ruhr;28.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Basketball Löwen Erfurt;Metropol Baskets Ruhr;Löwen Erfurt;Metropol Ruhr;1;72;79
-28.01.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_ART Giants Düsseldorf_SG Junior Löwen Braunschweig;28.01.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;ART Giants Düsseldorf;SG Junior Löwen Braunschweig;Düsseldorf;Braunschweig;1;66;75
-28.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Young Rasta Dragons_Baskets Juniors Oldenburg;28.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Young Rasta Dragons;Baskets Juniors Oldenburg;Rasta Vechta;Oldenburg;1;72;78
-28.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_UBC Münster_Bayer Giants Leverkusen;28.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;UBC Münster;Bayer Giants Leverkusen;Münster;Leverkusen;0;80;72
-28.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Team Urspring_KICKZ IBAM;28.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Team Urspring;KICKZ IBAM;Urspring;IBAM;1;77;79
-28.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_ROTH Energie BBA GIESSEN 46ers_Niners Chemnitz Academy;28.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;ROTH Energie BBA GIESSEN 46ers;Niners Chemnitz Academy;Giessen;Chemnitz;1;86;77
-28.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Niners Chemnitz Academy_ROTH Energie BBA GIESSEN 46ers;28.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Niners Chemnitz Academy;ROTH Energie BBA GIESSEN 46ers;Chemnitz;Giessen;0;77;86
-28.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_KICKZ IBAM_Team Urspring;28.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;KICKZ IBAM;Team Urspring;IBAM;Urspring;0;79;77
-28.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Hamburg Towers_Baskets Paderborn;28.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Hamburg Towers;Baskets Paderborn;Hamburg;Paderborn;0;75;80
-28.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bayer Giants Leverkusen_UBC Münster;28.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bayer Giants Leverkusen;UBC Münster;Leverkusen;Münster;1;72;80
-28.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Paderborn_Hamburg Towers;28.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Paderborn;Hamburg Towers;Paderborn;Hamburg;1;80;75
-28.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Juniors Oldenburg_Young Rasta Dragons;28.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Juniors Oldenburg;Young Rasta Dragons;Oldenburg;Rasta Vechta;0;78;72
-31.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Porsche BBA Ludwigsburg_KICKZ IBAM;31.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Porsche BBA Ludwigsburg;KICKZ IBAM;Ludwigsburg;IBAM;1;84;74
-31.01.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_KICKZ IBAM_Porsche BBA Ludwigsburg;31.01.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;KICKZ IBAM;Porsche BBA Ludwigsburg;IBAM;Ludwigsburg;0;74;84
-04.02.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Tornados Franken_ratiopharm Ulm;04.02.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Tornados Franken;ratiopharm Ulm;Nürnberg;ratiopharm Ulm;0;96;101
-04.02.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Bonn/Rhöndorf_Berlin Braves Baskets;04.02.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Bonn/Rhöndorf;Berlin Braves Baskets;Bonn-Rhöndorf;Braves Berlin;1;71;66
-04.02.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_ratiopharm Ulm_Tornados Franken;04.02.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;ratiopharm Ulm;Tornados Franken;ratiopharm Ulm;Nürnberg;1;101;96
-04.02.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Berlin Braves Baskets_Team Bonn/Rhöndorf;04.02.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Berlin Braves Baskets;Team Bonn/Rhöndorf;Braves Berlin;Bonn-Rhöndorf;0;66;71
-04.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Würzburg Baskets Akademie_TS Jahn München;04.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Würzburg Baskets Akademie;TS Jahn München;Würzburg;Jahn München;1;76;70
-04.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_TS Jahn München_Würzburg Baskets Akademie;04.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;TS Jahn München;Würzburg Baskets Akademie;Jahn München;Würzburg;0;70;76
-04.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_SG Junior Löwen Braunschweig_BBA Hagen;04.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;SG Junior Löwen Braunschweig;BBA Hagen;Braunschweig;BBA Hagen;1;93;91
-04.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_BBA Hagen_SG Junior Löwen Braunschweig;04.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;BBA Hagen;SG Junior Löwen Braunschweig;BBA Hagen;Braunschweig;0;91;93
-04.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_ROTH Energie BBA GIESSEN 46ers_Medipolis SC Jena;04.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;ROTH Energie BBA GIESSEN 46ers;Medipolis SC Jena;Giessen;SC Jena;0;69;99
-04.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Medipolis SC Jena_ROTH Energie BBA GIESSEN 46ers;04.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Medipolis SC Jena;ROTH Energie BBA GIESSEN 46ers;SC Jena;Giessen;1;99;69
-04.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_KICKZ IBAM_Bamberg freakcity academy;04.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;KICKZ IBAM;Bamberg freakcity academy;IBAM;Bamberg;1;83;76
-04.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bamberg freakcity academy_KICKZ IBAM;04.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bamberg freakcity academy;KICKZ IBAM;Bamberg;IBAM;0;76;83
-07.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_FC Bayern München_Bamberg freakcity academy;07.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;FC Bayern München;Bamberg freakcity academy;FC Bayern;Bamberg;0;96;92
-07.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bamberg freakcity academy_FC Bayern München;07.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bamberg freakcity academy;FC Bayern München;Bamberg;FC Bayern;1;92;96
-11.02.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_VfL Kirchheim Knights_Tornados Franken;11.02.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;VfL Kirchheim Knights;Tornados Franken;Kirchheim;Nürnberg;0;81;94
-11.02.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Tornados Franken_VfL Kirchheim Knights;11.02.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Tornados Franken;VfL Kirchheim Knights;Nürnberg;Kirchheim;1;94;81
-11.02.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Team Bonn/Rhöndorf_Berlin Braves Baskets;11.02.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Team Bonn/Rhöndorf;Berlin Braves Baskets;Bonn-Rhöndorf;Braves Berlin;0;59;64
-11.02.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Berlin Braves Baskets_Team Bonn/Rhöndorf;11.02.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Berlin Braves Baskets;Team Bonn/Rhöndorf;Braves Berlin;Bonn-Rhöndorf;1;64;59
-11.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_USC Heidelberg_Orange Academy;11.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;USC Heidelberg;Orange Academy;Heidelberg;Orange;1;71;84
-11.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_TG Hanau_BBA Giants Kornwestheim;11.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;TG Hanau;BBA Giants Kornwestheim;TG Hanau;Kornwestheim;1;66;58
-11.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Team Südhessen_HAKRO Merlins Crailsheim;11.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Team Südhessen;HAKRO Merlins Crailsheim;Südhessen;Crailsheim;1;81;78
-11.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_SG Junior Löwen Braunschweig_Metropol Baskets Ruhr;11.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;SG Junior Löwen Braunschweig;Metropol Baskets Ruhr;Braunschweig;Metropol Ruhr;0;55;103
-11.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Rostock Seawolves_Phoenix Hagen;11.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Rostock Seawolves;Phoenix Hagen;Rostock;Phoenix Hagen;0;96;95
-11.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Phoenix Hagen_Rostock Seawolves;11.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Phoenix Hagen;Rostock Seawolves;Phoenix Hagen;Rostock;1;95;96
-11.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Orange Academy_USC Heidelberg;11.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Orange Academy;USC Heidelberg;Orange;Heidelberg;0;84;71
-11.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Metropol Baskets Ruhr_SG Junior Löwen Braunschweig;11.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Metropol Baskets Ruhr;SG Junior Löwen Braunschweig;Metropol Ruhr;Braunschweig;1;103;55
-11.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_HAKRO Merlins Crailsheim_Team Südhessen;11.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;HAKRO Merlins Crailsheim;Team Südhessen;Crailsheim;Südhessen;0;78;81
-11.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_BBA Giants Kornwestheim_TG Hanau;11.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;BBA Giants Kornwestheim;TG Hanau;Kornwestheim;TG Hanau;0;58;66
-11.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Young Rasta Dragons_Baskets Paderborn;11.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Young Rasta Dragons;Baskets Paderborn;Rasta Vechta;Paderborn;0;69;72
-11.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_UBC Münster_Hamburg Towers;11.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;UBC Münster;Hamburg Towers;Münster;Hamburg;1;79;88
-11.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_ROTH Energie BBA GIESSEN 46ers_Porsche BBA Ludwigsburg;11.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;ROTH Energie BBA GIESSEN 46ers;Porsche BBA Ludwigsburg;Giessen;Ludwigsburg;1;95;92
-11.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Porsche BBA Ludwigsburg_ROTH Energie BBA GIESSEN 46ers;11.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Porsche BBA Ludwigsburg;ROTH Energie BBA GIESSEN 46ers;Ludwigsburg;Giessen;0;92;95
-11.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Niners Chemnitz Academy_KICKZ IBAM;11.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Niners Chemnitz Academy;KICKZ IBAM;Chemnitz;IBAM;1;84;77
-11.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Medipolis SC Jena_Bamberg freakcity academy;11.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Medipolis SC Jena;Bamberg freakcity academy;SC Jena;Bamberg;1;97;67
-11.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_KICKZ IBAM_Niners Chemnitz Academy;11.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;KICKZ IBAM;Niners Chemnitz Academy;IBAM;Chemnitz;0;77;84
-11.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Hamburg Towers_UBC Münster;11.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Hamburg Towers;UBC Münster;Hamburg;Münster;0;88;79
-11.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Eisbären Bremerhaven_Baskets Juniors Oldenburg;11.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Eisbären Bremerhaven;Baskets Juniors Oldenburg;Bremerhaven;Oldenburg;1;36;88
-11.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bayer Giants Leverkusen_Alba Berlin;11.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bayer Giants Leverkusen;Alba Berlin;Leverkusen;Alba Berlin;0;73;65
-11.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Paderborn_Young Rasta Dragons;11.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Paderborn;Young Rasta Dragons;Paderborn;Rasta Vechta;1;72;69
-11.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Juniors Oldenburg_Eisbären Bremerhaven;11.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Juniors Oldenburg;Eisbären Bremerhaven;Oldenburg;Bremerhaven;0;88;36
-11.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bamberg freakcity academy_Medipolis SC Jena;11.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bamberg freakcity academy;Medipolis SC Jena;Bamberg;SC Jena;0;67;97
-11.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Alba Berlin_Bayer Giants Leverkusen;11.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Alba Berlin;Bayer Giants Leverkusen;Alba Berlin;Leverkusen;1;65;73
-14.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Porsche BBA Ludwigsburg_Bamberg freakcity academy;14.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Porsche BBA Ludwigsburg;Bamberg freakcity academy;Ludwigsburg;Bamberg;0;65;74
-14.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Niners Chemnitz Academy_KICKZ IBAM;14.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Niners Chemnitz Academy;KICKZ IBAM;Chemnitz;IBAM;0;86;85
-14.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_KICKZ IBAM_Niners Chemnitz Academy;14.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;KICKZ IBAM;Niners Chemnitz Academy;IBAM;Chemnitz;1;85;86
-14.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bamberg freakcity academy_Porsche BBA Ludwigsburg;14.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bamberg freakcity academy;Porsche BBA Ludwigsburg;Bamberg;Ludwigsburg;1;74;65
-15.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Medipolis SC Jena_FC Bayern München;15.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Medipolis SC Jena;FC Bayern München;SC Jena;FC Bayern;0;78;90
-15.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_FC Bayern München_Medipolis SC Jena;15.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;FC Bayern München;Medipolis SC Jena;FC Bayern;SC Jena;1;90;78
-16.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Young Rasta Dragons_Eisbären Bremerhaven;16.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Young Rasta Dragons;Eisbären Bremerhaven;Rasta Vechta;Bremerhaven;1;90;71
-16.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Eisbären Bremerhaven_Young Rasta Dragons;16.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Eisbären Bremerhaven;Young Rasta Dragons;Bremerhaven;Rasta Vechta;0;71;90
-17.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bayer Giants Leverkusen_Baskets Paderborn;17.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bayer Giants Leverkusen;Baskets Paderborn;Leverkusen;Paderborn;1;74;73
-17.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Paderborn_Bayer Giants Leverkusen;17.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Paderborn;Bayer Giants Leverkusen;Paderborn;Leverkusen;0;73;74
-18.02.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_VfL Kirchheim Knights_Tornados Franken;18.02.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;VfL Kirchheim Knights;Tornados Franken;Kirchheim;Nürnberg;1;70;82
-18.02.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Tornados Franken_VfL Kirchheim Knights;18.02.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Tornados Franken;VfL Kirchheim Knights;Nürnberg;Kirchheim;0;82;70
-18.02.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_ratiopharm Ulm_Eintracht Frankfurt;18.02.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;ratiopharm Ulm;Eintracht Frankfurt;ratiopharm Ulm;Frankfurt;1;67;76
-18.02.2024_2023-2024_NBBL_NBBL B_REGULAR SEASON_Eintracht Frankfurt_ratiopharm Ulm;18.02.2024;2023-2024;NBBL;NBBL B;REGULAR SEASON;Eintracht Frankfurt;ratiopharm Ulm;Frankfurt;ratiopharm Ulm;0;76;67
-18.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Würzburg Baskets Akademie_Orange Academy;18.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Würzburg Baskets Akademie;Orange Academy;Würzburg;Orange;0;105;82
-18.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_USC Heidelberg_TS Jahn München;18.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;USC Heidelberg;TS Jahn München;Heidelberg;Jahn München;0;85;82
-18.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_TS Jahn München_USC Heidelberg;18.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;TS Jahn München;USC Heidelberg;Jahn München;Heidelberg;1;82;85
-18.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_TG Hanau_HAKRO Merlins Crailsheim;18.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;TG Hanau;HAKRO Merlins Crailsheim;TG Hanau;Crailsheim;0;75;77
-18.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Team Südhessen_BBA Giants Kornwestheim;18.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Team Südhessen;BBA Giants Kornwestheim;Südhessen;Kornwestheim;0;76;62
-18.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Rostock Seawolves_Metropol Baskets Ruhr;18.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Rostock Seawolves;Metropol Baskets Ruhr;Rostock;Metropol Ruhr;1;93;72
-18.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Orange Academy_Würzburg Baskets Akademie;18.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Orange Academy;Würzburg Baskets Akademie;Orange;Würzburg;1;82;105
-18.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Metropol Baskets Ruhr_Rostock Seawolves;18.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Metropol Baskets Ruhr;Rostock Seawolves;Metropol Ruhr;Rostock;0;72;93
-18.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_HAKRO Merlins Crailsheim_TG Hanau;18.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;HAKRO Merlins Crailsheim;TG Hanau;Crailsheim;TG Hanau;1;77;75
-18.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Dresden Titans_BBA Hagen;18.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Dresden Titans;BBA Hagen;Dresden;BBA Hagen;1;71;81
-18.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_BBA Hagen_Dresden Titans;18.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;BBA Hagen;Dresden Titans;BBA Hagen;Dresden;0;81;71
-18.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_BBA Giants Kornwestheim_Team Südhessen;18.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;BBA Giants Kornwestheim;Team Südhessen;Kornwestheim;Südhessen;1;62;76
-18.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Basketball Löwen Erfurt_ART Giants Düsseldorf;18.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Basketball Löwen Erfurt;ART Giants Düsseldorf;Löwen Erfurt;Düsseldorf;1;54;81
-18.02.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_ART Giants Düsseldorf_Basketball Löwen Erfurt;18.02.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;ART Giants Düsseldorf;Basketball Löwen Erfurt;Düsseldorf;Löwen Erfurt;0;81;54
-18.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_UBC Münster_Baskets Juniors Oldenburg;18.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;UBC Münster;Baskets Juniors Oldenburg;Münster;Oldenburg;0;68;77
-18.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Team Urspring_Bamberg freakcity academy;18.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Team Urspring;Bamberg freakcity academy;Urspring;Bamberg;0;90;61
-18.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_ROTH Energie BBA GIESSEN 46ers_KICKZ IBAM;18.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;ROTH Energie BBA GIESSEN 46ers;KICKZ IBAM;Giessen;IBAM;0;63;85
-18.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Porsche BBA Ludwigsburg_Niners Chemnitz Academy;18.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Porsche BBA Ludwigsburg;Niners Chemnitz Academy;Ludwigsburg;Chemnitz;0;77;85
-18.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Niners Chemnitz Academy_Porsche BBA Ludwigsburg;18.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Niners Chemnitz Academy;Porsche BBA Ludwigsburg;Chemnitz;Ludwigsburg;1;85;77
-18.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_KICKZ IBAM_ROTH Energie BBA GIESSEN 46ers;18.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;KICKZ IBAM;ROTH Energie BBA GIESSEN 46ers;IBAM;Giessen;1;85;63
-18.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Hamburg Towers_Alba Berlin;18.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Hamburg Towers;Alba Berlin;Hamburg;Alba Berlin;1;75;63
-18.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Baskets Juniors Oldenburg_UBC Münster;18.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Baskets Juniors Oldenburg;UBC Münster;Oldenburg;Münster;1;77;68
-18.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Bamberg freakcity academy_Team Urspring;18.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Bamberg freakcity academy;Team Urspring;Bamberg;Urspring;1;61;90
-18.02.2024_2023-2024_NBBL_NBBL A_REGULAR SEASON_Alba Berlin_Hamburg Towers;18.02.2024;2023-2024;NBBL;NBBL A;REGULAR SEASON;Alba Berlin;Hamburg Towers;Alba Berlin;Hamburg;0;63;75
-03.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_USC Heidelberg_BBA Giants Kornwestheim;03.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;USC Heidelberg;BBA Giants Kornwestheim;Heidelberg;Kornwestheim;0;77;82
-03.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_TS Jahn München_TG Hanau;03.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;TS Jahn München;TG Hanau;Jahn München;TG Hanau;0;71;63
-03.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_TG Hanau_TS Jahn München;03.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;TG Hanau;TS Jahn München;TG Hanau;Jahn München;1;63;71
-03.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Team Südhessen_Orange Academy;03.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Team Südhessen;Orange Academy;Südhessen;Orange;1;92;87
-03.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_SG Junior Löwen Braunschweig_BBA Hagen;03.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;SG Junior Löwen Braunschweig;BBA Hagen;Braunschweig;BBA Hagen;0;65;82
-03.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Phoenix Hagen_Basketball Löwen Erfurt;03.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Phoenix Hagen;Basketball Löwen Erfurt;Phoenix Hagen;Löwen Erfurt;0;60;62
-03.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Orange Academy_Team Südhessen;03.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Orange Academy;Team Südhessen;Orange;Südhessen;0;87;92
-03.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Metropol Baskets Ruhr_Dresden Titans;03.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Metropol Baskets Ruhr;Dresden Titans;Metropol Ruhr;Dresden;1;73;71
-03.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Dresden Titans_Metropol Baskets Ruhr;03.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Dresden Titans;Metropol Baskets Ruhr;Dresden;Metropol Ruhr;0;71;73
-03.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_BBA Hagen_SG Junior Löwen Braunschweig;03.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;BBA Hagen;SG Junior Löwen Braunschweig;BBA Hagen;Braunschweig;1;82;65
-03.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_BBA Giants Kornwestheim_USC Heidelberg;03.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;BBA Giants Kornwestheim;USC Heidelberg;Kornwestheim;Heidelberg;1;82;77
-03.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Basketball Löwen Erfurt_Phoenix Hagen;03.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Basketball Löwen Erfurt;Phoenix Hagen;Löwen Erfurt;Phoenix Hagen;1;62;60
-03.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Young Rasta Dragons_Berlin Braves Baskets;03.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Young Rasta Dragons;Berlin Braves Baskets;Rasta Vechta;Braves Berlin;0;75;86
-03.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_UBC Münster_Bayer Giants Leverkusen;03.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;UBC Münster;Bayer Giants Leverkusen;Münster;Leverkusen;0;68;88
-03.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Tornados Franken_Porsche BBA Ludwigsburg;03.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Tornados Franken;Porsche BBA Ludwigsburg;Nürnberg;Ludwigsburg;0;85;87
-03.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Team Urspring_Medipolis SC Jena;03.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Team Urspring;Medipolis SC Jena;Urspring;SC Jena;1;78;67
-03.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Sartorius Juniors_Baskets Juniors Oldenburg;03.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Sartorius Juniors;Baskets Juniors Oldenburg;Göttingen;Oldenburg;0;65;83
-03.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Porsche BBA Ludwigsburg_Tornados Franken;03.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Porsche BBA Ludwigsburg;Tornados Franken;Ludwigsburg;Nürnberg;1;87;85
-03.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Niners Chemnitz Academy_FC Bayern München;03.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Niners Chemnitz Academy;FC Bayern München;Chemnitz;FC Bayern;0;73;97
-03.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Medipolis SC Jena_Team Urspring;03.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Medipolis SC Jena;Team Urspring;SC Jena;Urspring;0;67;78
-03.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_KICKZ IBAM_Eintracht Frankfurt;03.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;KICKZ IBAM;Eintracht Frankfurt;IBAM;Frankfurt;1;83;63
-03.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_FC Bayern München_Niners Chemnitz Academy;03.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;FC Bayern München;Niners Chemnitz Academy;FC Bayern;Chemnitz;1;97;73
-03.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Eintracht Frankfurt_KICKZ IBAM;03.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Eintracht Frankfurt;KICKZ IBAM;Frankfurt;IBAM;0;63;83
-03.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Berlin Braves Baskets_Young Rasta Dragons;03.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Berlin Braves Baskets;Young Rasta Dragons;Braves Berlin;Rasta Vechta;1;86;75
-03.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Bayer Giants Leverkusen_UBC Münster;03.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Bayer Giants Leverkusen;UBC Münster;Leverkusen;Münster;1;88;68
-03.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Baskets Paderborn_Alba Berlin;03.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Baskets Paderborn;Alba Berlin;Paderborn;Alba Berlin;0;57;77
-03.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Baskets Juniors Oldenburg_Sartorius Juniors;03.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Baskets Juniors Oldenburg;Sartorius Juniors;Oldenburg;Göttingen;1;83;65
-03.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Alba Berlin_Baskets Paderborn;03.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Alba Berlin;Baskets Paderborn;Alba Berlin;Paderborn;1;77;57
-10.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Würzburg Baskets Akademie_BBA Giants Kornwestheim;10.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Würzburg Baskets Akademie;BBA Giants Kornwestheim;Würzburg;Kornwestheim;1;74;65
-10.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_USC Heidelberg_HAKRO Merlins Crailsheim;10.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;USC Heidelberg;HAKRO Merlins Crailsheim;Heidelberg;Crailsheim;1;76;84
-10.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_TS Jahn München_Team Südhessen;10.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;TS Jahn München;Team Südhessen;Jahn München;Südhessen;1;63;84
-10.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_TG Hanau_Orange Academy;10.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;TG Hanau;Orange Academy;TG Hanau;Orange;0;64;81
-10.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Team Südhessen_TS Jahn München;10.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Team Südhessen;TS Jahn München;Südhessen;Jahn München;0;84;63
-10.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Rostock Seawolves_BBA Hagen;10.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Rostock Seawolves;BBA Hagen;Rostock;BBA Hagen;1;90;99
-10.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Orange Academy_TG Hanau;10.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Orange Academy;TG Hanau;Orange;TG Hanau;1;81;64
-10.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Metropol Baskets Ruhr_Basketball Löwen Erfurt;10.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Metropol Baskets Ruhr;Basketball Löwen Erfurt;Metropol Ruhr;Löwen Erfurt;1;63;75
-10.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_HAKRO Merlins Crailsheim_USC Heidelberg;10.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;HAKRO Merlins Crailsheim;USC Heidelberg;Crailsheim;Heidelberg;0;84;76
-10.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_BBA Hagen_Rostock Seawolves;10.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;BBA Hagen;Rostock Seawolves;BBA Hagen;Rostock;0;99;90
-10.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_BBA Giants Kornwestheim_Würzburg Baskets Akademie;10.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;BBA Giants Kornwestheim;Würzburg Baskets Akademie;Kornwestheim;Würzburg;0;65;74
-10.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Basketball Löwen Erfurt_Metropol Baskets Ruhr;10.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Basketball Löwen Erfurt;Metropol Baskets Ruhr;Löwen Erfurt;Metropol Ruhr;0;75;63
-10.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Young Rasta Dragons_Berlin Braves Baskets;10.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Young Rasta Dragons;Berlin Braves Baskets;Rasta Vechta;Braves Berlin;1;82;66
-10.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_UBC Münster_Bayer Giants Leverkusen;10.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;UBC Münster;Bayer Giants Leverkusen;Münster;Leverkusen;1;85;73
-10.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Tornados Franken_Porsche BBA Ludwigsburg;10.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Tornados Franken;Porsche BBA Ludwigsburg;Nürnberg;Ludwigsburg;1;69;59
-10.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Team Urspring_Medipolis SC Jena;10.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Team Urspring;Medipolis SC Jena;Urspring;SC Jena;0;67;71
-10.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Sartorius Juniors_Baskets Juniors Oldenburg;10.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Sartorius Juniors;Baskets Juniors Oldenburg;Göttingen;Oldenburg;1;93;78
-10.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Porsche BBA Ludwigsburg_Tornados Franken;10.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Porsche BBA Ludwigsburg;Tornados Franken;Ludwigsburg;Nürnberg;0;59;69
-10.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Niners Chemnitz Academy_FC Bayern München;10.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Niners Chemnitz Academy;FC Bayern München;Chemnitz;FC Bayern;1;83;100
-10.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Medipolis SC Jena_Team Urspring;10.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Medipolis SC Jena;Team Urspring;SC Jena;Urspring;1;71;67
-10.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_KICKZ IBAM_Eintracht Frankfurt;10.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;KICKZ IBAM;Eintracht Frankfurt;IBAM;Frankfurt;0;79;73
-10.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_FC Bayern München_Niners Chemnitz Academy;10.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;FC Bayern München;Niners Chemnitz Academy;FC Bayern;Chemnitz;0;100;83
-10.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Eintracht Frankfurt_KICKZ IBAM;10.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Eintracht Frankfurt;KICKZ IBAM;Frankfurt;IBAM;1;73;79
-10.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Berlin Braves Baskets_Young Rasta Dragons;10.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Berlin Braves Baskets;Young Rasta Dragons;Braves Berlin;Rasta Vechta;0;66;82
-10.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Bayer Giants Leverkusen_UBC Münster;10.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Bayer Giants Leverkusen;UBC Münster;Leverkusen;Münster;0;73;85
-10.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Baskets Paderborn_Alba Berlin;10.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Baskets Paderborn;Alba Berlin;Paderborn;Alba Berlin;1;85;70
-10.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Baskets Juniors Oldenburg_Sartorius Juniors;10.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Baskets Juniors Oldenburg;Sartorius Juniors;Oldenburg;Göttingen;0;78;93
-10.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Alba Berlin_Baskets Paderborn;10.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Alba Berlin;Baskets Paderborn;Alba Berlin;Paderborn;0;70;85
-17.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Würzburg Baskets Akademie_TS Jahn München;17.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Würzburg Baskets Akademie;TS Jahn München;Würzburg;Jahn München;0;94;87
-17.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_USC Heidelberg_Orange Academy;17.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;USC Heidelberg;Orange Academy;Heidelberg;Orange;0;75;76
-17.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_TS Jahn München_Würzburg Baskets Akademie;17.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;TS Jahn München;Würzburg Baskets Akademie;Jahn München;Würzburg;1;87;94
-17.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_TG Hanau_BBA Giants Kornwestheim;17.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;TG Hanau;BBA Giants Kornwestheim;TG Hanau;Kornwestheim;0;68;73
-17.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Team Südhessen_HAKRO Merlins Crailsheim;17.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Team Südhessen;HAKRO Merlins Crailsheim;Südhessen;Crailsheim;0;84;75
-17.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_SG Junior Löwen Braunschweig_Metropol Baskets Ruhr;17.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;SG Junior Löwen Braunschweig;Metropol Baskets Ruhr;Braunschweig;Metropol Ruhr;1;63;99
-17.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Rostock Seawolves_Phoenix Hagen;17.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Rostock Seawolves;Phoenix Hagen;Rostock;Phoenix Hagen;1;66;84
-17.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Phoenix Hagen_Rostock Seawolves;17.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Phoenix Hagen;Rostock Seawolves;Phoenix Hagen;Rostock;0;84;66
-17.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Orange Academy_USC Heidelberg;17.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Orange Academy;USC Heidelberg;Orange;Heidelberg;1;76;75
-17.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Metropol Baskets Ruhr_SG Junior Löwen Braunschweig;17.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Metropol Baskets Ruhr;SG Junior Löwen Braunschweig;Metropol Ruhr;Braunschweig;0;99;63
-17.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_HAKRO Merlins Crailsheim_Team Südhessen;17.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;HAKRO Merlins Crailsheim;Team Südhessen;Crailsheim;Südhessen;1;75;84
-17.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Dresden Titans_ART Giants Düsseldorf;17.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Dresden Titans;ART Giants Düsseldorf;Dresden;Düsseldorf;1;70;50
-17.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_BBA Hagen_Basketball Löwen Erfurt;17.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;BBA Hagen;Basketball Löwen Erfurt;BBA Hagen;Löwen Erfurt;0;52;65
-17.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_BBA Giants Kornwestheim_TG Hanau;17.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;BBA Giants Kornwestheim;TG Hanau;Kornwestheim;TG Hanau;1;73;68
-17.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Basketball Löwen Erfurt_BBA Hagen;17.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Basketball Löwen Erfurt;BBA Hagen;Löwen Erfurt;BBA Hagen;1;65;52
-17.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_ART Giants Düsseldorf_Dresden Titans;17.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;ART Giants Düsseldorf;Dresden Titans;Düsseldorf;Dresden;0;50;70
-17.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Young Rasta Dragons_Berlin Braves Baskets;17.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Young Rasta Dragons;Berlin Braves Baskets;Rasta Vechta;Braves Berlin;1;84;66
-17.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_UBC Münster_Bayer Giants Leverkusen;17.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;UBC Münster;Bayer Giants Leverkusen;Münster;Leverkusen;0;58;78
-17.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Tornados Franken_Porsche BBA Ludwigsburg;17.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Tornados Franken;Porsche BBA Ludwigsburg;Nürnberg;Ludwigsburg;0;62;97
-17.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Team Urspring_Medipolis SC Jena;17.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Team Urspring;Medipolis SC Jena;Urspring;SC Jena;1;87;76
-17.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Sartorius Juniors_Baskets Juniors Oldenburg;17.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Sartorius Juniors;Baskets Juniors Oldenburg;Göttingen;Oldenburg;0;57;73
-17.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Porsche BBA Ludwigsburg_Tornados Franken;17.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Porsche BBA Ludwigsburg;Tornados Franken;Ludwigsburg;Nürnberg;1;97;62
-17.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Medipolis SC Jena_Team Urspring;17.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Medipolis SC Jena;Team Urspring;SC Jena;Urspring;0;76;87
-17.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Berlin Braves Baskets_Young Rasta Dragons;17.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Berlin Braves Baskets;Young Rasta Dragons;Braves Berlin;Rasta Vechta;0;66;84
-17.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Bayer Giants Leverkusen_UBC Münster;17.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Bayer Giants Leverkusen;UBC Münster;Leverkusen;Münster;1;78;58
-17.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Baskets Paderborn_Alba Berlin;17.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Baskets Paderborn;Alba Berlin;Paderborn;Alba Berlin;0;64;91
-17.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Baskets Juniors Oldenburg_Sartorius Juniors;17.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Baskets Juniors Oldenburg;Sartorius Juniors;Oldenburg;Göttingen;1;73;57
-17.03.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Alba Berlin_Baskets Paderborn;17.03.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Alba Berlin;Baskets Paderborn;Alba Berlin;Paderborn;1;91;64
-24.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_USC Heidelberg_TS Jahn München;24.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;USC Heidelberg;TS Jahn München;Heidelberg;Jahn München;1;88;68
-24.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_TS Jahn München_USC Heidelberg;24.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;TS Jahn München;USC Heidelberg;Jahn München;Heidelberg;0;68;88
-24.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_TG Hanau_HAKRO Merlins Crailsheim;24.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;TG Hanau;HAKRO Merlins Crailsheim;TG Hanau;Crailsheim;1;88;80
-24.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Team Südhessen_BBA Giants Kornwestheim;24.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Team Südhessen;BBA Giants Kornwestheim;Südhessen;Kornwestheim;1;99;100
-24.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_SG Junior Löwen Braunschweig_Phoenix Hagen;24.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;SG Junior Löwen Braunschweig;Phoenix Hagen;Braunschweig;Phoenix Hagen;0;49;81
-24.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Rostock Seawolves_Metropol Baskets Ruhr;24.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Rostock Seawolves;Metropol Baskets Ruhr;Rostock;Metropol Ruhr;0;78;87
-24.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Phoenix Hagen_SG Junior Löwen Braunschweig;24.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Phoenix Hagen;SG Junior Löwen Braunschweig;Phoenix Hagen;Braunschweig;1;81;49
-24.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Metropol Baskets Ruhr_Rostock Seawolves;24.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Metropol Baskets Ruhr;Rostock Seawolves;Metropol Ruhr;Rostock;1;87;78
-24.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_HAKRO Merlins Crailsheim_TG Hanau;24.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;HAKRO Merlins Crailsheim;TG Hanau;Crailsheim;TG Hanau;0;80;88
-24.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_BBA Giants Kornwestheim_Team Südhessen;24.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;BBA Giants Kornwestheim;Team Südhessen;Kornwestheim;Südhessen;0;100;99
-24.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_Basketball Löwen Erfurt_ART Giants Düsseldorf;24.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;Basketball Löwen Erfurt;ART Giants Düsseldorf;Löwen Erfurt;Düsseldorf;0;67;50
-24.03.2024_2023-2024_NBBL_NBBL B_PLAY-DOWN_ART Giants Düsseldorf_Basketball Löwen Erfurt;24.03.2024;2023-2024;NBBL;NBBL B;PLAY-DOWN;ART Giants Düsseldorf;Basketball Löwen Erfurt;Düsseldorf;Löwen Erfurt;1;50;67
-14.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Young Rasta Dragons_Alba Berlin;14.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Young Rasta Dragons;Alba Berlin;Rasta Vechta;Alba Berlin;1;98;67
-14.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Team Urspring_Porsche BBA Ludwigsburg;14.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Team Urspring;Porsche BBA Ludwigsburg;Urspring;Ludwigsburg;0;80;92
-14.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Porsche BBA Ludwigsburg_Team Urspring;14.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Porsche BBA Ludwigsburg;Team Urspring;Ludwigsburg;Urspring;1;92;80
-14.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_KICKZ IBAM_FC Bayern München;14.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;KICKZ IBAM;FC Bayern München;IBAM;FC Bayern;1;66;86
-14.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_FC Bayern München_KICKZ IBAM;14.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;FC Bayern München;KICKZ IBAM;FC Bayern;IBAM;0;86;66
-14.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Bayer Giants Leverkusen_Baskets Juniors Oldenburg;14.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Bayer Giants Leverkusen;Baskets Juniors Oldenburg;Leverkusen;Oldenburg;0;61;79
-14.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Baskets Juniors Oldenburg_Bayer Giants Leverkusen;14.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Baskets Juniors Oldenburg;Bayer Giants Leverkusen;Oldenburg;Leverkusen;1;79;61
-14.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Alba Berlin_Young Rasta Dragons;14.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Alba Berlin;Young Rasta Dragons;Alba Berlin;Rasta Vechta;0;67;98
-21.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Young Rasta Dragons_Alba Berlin;21.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Young Rasta Dragons;Alba Berlin;Rasta Vechta;Alba Berlin;0;74;76
-21.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Bayer Giants Leverkusen_Baskets Juniors Oldenburg;21.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Bayer Giants Leverkusen;Baskets Juniors Oldenburg;Leverkusen;Oldenburg;1;65;64
-21.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Baskets Juniors Oldenburg_Bayer Giants Leverkusen;21.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Baskets Juniors Oldenburg;Bayer Giants Leverkusen;Oldenburg;Leverkusen;0;64;65
-21.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Alba Berlin_Young Rasta Dragons;21.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Alba Berlin;Young Rasta Dragons;Alba Berlin;Rasta Vechta;1;76;74
-23.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_KICKZ IBAM_FC Bayern München;23.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;KICKZ IBAM;FC Bayern München;IBAM;FC Bayern;0;87;96
-23.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_FC Bayern München_KICKZ IBAM;23.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;FC Bayern München;KICKZ IBAM;FC Bayern;IBAM;1;96;87
-28.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Young Rasta Dragons_Alba Berlin;28.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Young Rasta Dragons;Alba Berlin;Rasta Vechta;Alba Berlin;1;78;64
-28.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Bayer Giants Leverkusen_Baskets Juniors Oldenburg;28.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Bayer Giants Leverkusen;Baskets Juniors Oldenburg;Leverkusen;Oldenburg;0;75;78
-28.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Baskets Juniors Oldenburg_Bayer Giants Leverkusen;28.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Baskets Juniors Oldenburg;Bayer Giants Leverkusen;Oldenburg;Leverkusen;1;78;75
-28.04.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Alba Berlin_Young Rasta Dragons;28.04.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Alba Berlin;Young Rasta Dragons;Alba Berlin;Rasta Vechta;0;64;78
-11.05.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Young Rasta Dragons_FC Bayern München;11.05.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Young Rasta Dragons;FC Bayern München;Rasta Vechta;FC Bayern;1;78;71
-11.05.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Porsche BBA Ludwigsburg_Baskets Juniors Oldenburg;11.05.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Porsche BBA Ludwigsburg;Baskets Juniors Oldenburg;Ludwigsburg;Oldenburg;0;74;81
-11.05.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_FC Bayern München_Young Rasta Dragons;11.05.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;FC Bayern München;Young Rasta Dragons;FC Bayern;Rasta Vechta;0;71;78
-11.05.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Baskets Juniors Oldenburg_Porsche BBA Ludwigsburg;11.05.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Baskets Juniors Oldenburg;Porsche BBA Ludwigsburg;Oldenburg;Ludwigsburg;1;81;74
-12.05.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Young Rasta Dragons_Baskets Juniors Oldenburg;12.05.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Young Rasta Dragons;Baskets Juniors Oldenburg;Rasta Vechta;Oldenburg;1;89;54
-12.05.2024_2023-2024_NBBL_NBBL A_PLAYOFFS_Baskets Juniors Oldenburg_Young Rasta Dragons;12.05.2024;2023-2024;NBBL;NBBL A;PLAYOFFS;Baskets Juniors Oldenburg;Young Rasta Dragons;Oldenburg;Rasta Vechta;0;54;89
+06.10.2024_2024-2025_NBBL_NBBL B_REGULAR SEASON_ROTH Energie BBA GIESSEN 46ers_BBA Hagen;06.10.2024;2024-2025;NBBL;NBBL B;REGULAR SEASON;ROTH Energie BBA GIESSEN 46ers;BBA Hagen;Giessen;BBA Hagen;1;91;78
+06.10.2024_2024-2025_NBBL_NBBL B_REGULAR SEASON_BBA Hagen_ROTH Energie BBA GIESSEN 46ers;06.10.2024;2024-2025;NBBL;NBBL B;REGULAR SEASON;BBA Hagen;ROTH Energie BBA GIESSEN 46ers;BBA Hagen;Giessen;0;78;91
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
