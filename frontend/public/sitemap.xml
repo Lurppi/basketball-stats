@@ -6402,5 +6402,35 @@
           <changefreq>weekly</changefreq>
           <priority>0.80</priority>
         </url>
+        <url>
+          <loc>https://www.nbbl-stats.de/player/11058</loc>
+          <lastmod>2024-10-07</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.80</priority>
+        </url>
+        <url>
+          <loc>https://www.nbbl-stats.de/player/11059</loc>
+          <lastmod>2024-10-07</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.80</priority>
+        </url>
+        <url>
+          <loc>https://www.nbbl-stats.de/player/11060</loc>
+          <lastmod>2024-10-07</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.80</priority>
+        </url>
+        <url>
+          <loc>https://www.nbbl-stats.de/player/11061</loc>
+          <lastmod>2024-10-07</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.80</priority>
+        </url>
+        <url>
+          <loc>https://www.nbbl-stats.de/player/11062</loc>
+          <lastmod>2024-10-07</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.80</priority>
+        </url>
 
         </urlset>
