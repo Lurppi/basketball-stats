@@ -62,8 +62,11 @@ const Teams = () => {
         const data = await fetchTeams(filters.statsType); // Hole die Daten basierend auf dem aktuellen statsType
 
         if (data && data.length > 0) {
+          // Filtere die Daten, sodass nur Einträge mit einer nicht-leeren SEASON_YEAR behalten werden
+          const filteredData = data.filter(item => item.SEASON_YEAR && item.SEASON_YEAR.trim() !== "");
+
           // Dynamische Ermittlung der verfügbaren Seasons
-          const availableSeasons = [...new Set(data.map(item => item.SEASON_YEAR))].sort(); // Sortiere die Seasons
+          const availableSeasons = [...new Set(filteredData.map(item => item.SEASON_YEAR))].sort(); // Sortiere die Seasons
 
           // Speichere alle verfügbaren Seasons
           setSeasons(availableSeasons);
@@ -80,7 +83,8 @@ const Teams = () => {
           const selectedColumns = columnMappings[filters.statsType];
           setHeaders(selectedColumns);
 
-          const processedData = data.map((entry) =>
+          // Verarbeite nur die gefilterten Daten
+          const processedData = filteredData.map((entry) =>
             selectedColumns.map((column) => entry[column] || '')
           );
 
