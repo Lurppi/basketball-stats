@@ -74,7 +74,7 @@ const Players = () => {
     season: '20242025',
     league: 'NBBL',
     statsType: 'Advanced 1',
-    division: '',
+    division: 'NBBL B',
     team: 'All',
     position: 'All',
     offensiveRole: 'All',
