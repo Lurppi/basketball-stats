@@ -31,14 +31,17 @@ const Rankings = () => {
       try {
         const data = await fetchTeams();
         if (data && data.length > 0) {
-          setAllRankings(data);
-          setFilteredData(data);
+          // Filter: Nur Zeilen, bei denen SEASON_YEAR nicht leer ist
+          const filteredData = data.filter(item => item.SEASON_YEAR && item.SEASON_YEAR.trim() !== "");
+
+          setAllRankings(filteredData);
+          setFilteredData(filteredData);
 
           // Einzigartige Filteroptionen (Seasons, Leagues, Divisions, SeasonTypes) initialisieren
-          setSeasons([...new Set(data.map(item => formatSeason(item.SEASON_YEAR)))]);
-          setLeagues([...new Set(data.map(item => item.LEAGUE))]);
-          setDivisions([...new Set(data.map(item => item.DIV))]);
-          setSeasonTypes([...new Set(data.map(item => item.SEASON_TYPE))]);
+          setSeasons([...new Set(filteredData.map(item => formatSeason(item.SEASON_YEAR)))]);
+          setLeagues([...new Set(filteredData.map(item => item.LEAGUE))]);
+          setDivisions([...new Set(filteredData.map(item => item.DIV))]);
+          setSeasonTypes([...new Set(filteredData.map(item => item.SEASON_TYPE))]);
         }
         setLoading(false);
       } catch (error) {
