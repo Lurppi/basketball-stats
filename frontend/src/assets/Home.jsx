@@ -18,7 +18,7 @@ const Home = () => {
     { title: 'OFF. REBOUNDS PER GAME', apiField: 'ORPG' },
     { title: 'REBOUNDS PER GAME', apiField: 'RPG' },
     { title: 'ASSISTS PER GAME', apiField: 'APG' },
-    { title: 'BOXSCORE PLUS/MINUS', apiField: 'BPM' },
+    { title: 'EFFICIENCY PER GAME', apiField: 'EFPG' },
     { title: 'PLAYER EFFICIENCY RATING', apiField: 'PER' },
     { title: 'PLAYER IMPACT ESTIMATE', apiField: 'PIE' },
     { title: 'WIN SHARES / 40 MIN', apiField: 'WS_40' },
