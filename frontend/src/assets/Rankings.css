@@ -76,6 +76,8 @@
   width: 100%;
   margin: 0 auto;
   border-collapse: collapse;
+  table-layout: fixed;
+  /* Fixiert das Layout der Tabelle */
 }
 
 .rankings-table-container table {
@@ -90,9 +92,7 @@
   white-space: nowrap;
   border-bottom: 1px solid #ddd;
   font-size: 11px;
-  /* Standardgröße für die Schrift */
   position: relative;
-  /* Notwendig für die Fixierung */
 }
 
 /* Fixiere die Kopfzeile */
@@ -115,21 +115,28 @@
 
 .rankings-table-container th:nth-of-type(1),
 .rankings-table-container td:nth-of-type(1) {
-  width: 20px;
+  width: 30px;
   text-align: center;
 }
 
 .rankings-table-container th:nth-of-type(2),
 .rankings-table-container td:nth-of-type(2) {
   width: 50px;
+  max-width: 50px;
+  /* Begrenze die maximale Breite auf 50px */
+  min-width: 50px;
+  /* Begrenze die minimale Breite auf 50px */
   text-align: center;
 }
 
 .rankings-table-container th:nth-of-type(3),
 .rankings-table-container td:nth-of-type(3) {
   width: 250px;
+  max-width: 250px;
+  /* Begrenze die maximale Breite */
+  min-width: 250px;
+  /* Begrenze die minimale Breite */
   text-align: left;
-
 }
 
 .rankings-table-container td:nth-of-type(3) {
@@ -138,6 +145,7 @@
   word-wrap: break-word;
   /* Bricht lange Wörter, um Überlauf zu verhindern */
   font-weight: bold;
+  font-size: 11px;
 }
 
 .rankings-footer {

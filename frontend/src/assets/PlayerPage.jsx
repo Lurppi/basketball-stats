@@ -453,7 +453,7 @@ const PlayerPage = () => {
                 <h1 className="player-name">{playerInfo.PLAYER || 'Unknown Player'}</h1>
               </div>
               <div>
-                <h2 className="team-long">{playerInfo.TEAM_long || 'Unknown Team'}</h2>
+                <h2 className="team-long">{playerInfo.TEAM1 || 'Unknown Team'}</h2>
               </div>
 
               {/* League und Nationalität nebeneinander anzeigen */}

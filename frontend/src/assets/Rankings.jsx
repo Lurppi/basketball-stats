@@ -252,7 +252,7 @@ const Rankings = () => {
                       style={{ width: '30px', height: '30px' }}
                     />
                   </td> {/* Logo-Spalte */}
-                  <td>{team.TEAM_long}</td>
+                  <td>{team.TEAM1}</td>
                   <td>{team.GP}</td>
                   <td>{team.WINS}</td>
                   <td>{team.losses}</td>
