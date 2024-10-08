@@ -248,7 +248,7 @@ const Rankings = () => {
                     <img
                       src={teamImageMappings[team.TEAM]}
                       alt={`${team.TEAM} logo`}
-                      style={{ width: '40px', height: '40px' }}
+                      style={{ width: 'auto', height: '40px' }}
                     />
                   </td> {/* Logo-Spalte */}
                   <td>{team.TEAM1}</td>
