@@ -11,8 +11,8 @@ const Rankings = () => {
   const [filters, setFilters] = useState({
     season: '2024-2025',
     league: 'NBBL',
-    division: 'NBBL B',
-    seasonType: 'REGULAR SEASON',
+    division: '',
+    seasonType: '',
   });
 
   const [seasons, setSeasons] = useState([]);
@@ -65,10 +65,10 @@ const Rankings = () => {
   // Filter anwenden
   const applyFilters = (data) => {
     return data.filter(team => {
-      const seasonMatch = filters.season === 'All' || formatSeason(team.SEASON_YEAR) === filters.season;
-      const leagueMatch = filters.league === 'All' || team.LEAGUE === filters.league;
-      const divisionMatch = filters.division === 'All' || team.DIV === filters.division;
-      const seasonTypeMatch = filters.seasonType === 'All' || team.SEASON_TYPE === filters.seasonType;
+      const seasonMatch = !filters.season || formatSeason(team.SEASON_YEAR) === filters.season;
+      const leagueMatch = !filters.league || team.LEAGUE === filters.league;
+      const divisionMatch = !filters.division || team.DIV === filters.division;
+      const seasonTypeMatch = !filters.seasonType || team.SEASON_TYPE === filters.seasonType;
 
       return seasonMatch && leagueMatch && divisionMatch && seasonTypeMatch;
     });
@@ -78,19 +78,28 @@ const Rankings = () => {
     setFilteredData(applyFilters(allRankings));
   }, [filters, allRankings]);
 
-  // Berechnung und Sortierung nach Win%
   const displayedRankings = useMemo(() => {
     const filtered = applyFilters(filteredData);
 
-    const sortedByWinPercentage = filtered
+    const sortedByWinPercentageAndNRTG = filtered
       .map((team) => ({
         ...team,
         losses: team.GP - team.WINS, // Berechne die Verluste
         winPercentage: team.GP ? (100 * team.WINS / team.GP).toFixed(1) : '0.00', // Berechne Win%
       }))
-      .sort((a, b) => b.winPercentage - a.winPercentage); // Sortiere nach Win%
+      .sort((a, b) => {
+        // Vergleiche zuerst die Win%
+        const winPercentageDifference = b.winPercentage - a.winPercentage;
 
-    return sortedByWinPercentage;
+        if (winPercentageDifference !== 0) {
+          return winPercentageDifference; // Sortiere nach Win%, wenn es Unterschiede gibt
+        }
+
+        // Wenn Win% gleich ist, sortiere nach NRTG
+        return b.NRTG - a.NRTG;
+      });
+
+    return sortedByWinPercentageAndNRTG;
   }, [filteredData]);
 
   // Update Dropdown-Werte auf Basis der Filter
@@ -105,7 +114,7 @@ const Rankings = () => {
       // Leagues Dropdown aktualisieren
       const uniqueLeagues = [...new Set(
         allRankings
-          .filter(team => filters.season === 'All' || formatSeason(team.SEASON_YEAR) === filters.season)
+          .filter(team => !filters.season || formatSeason(team.SEASON_YEAR) === filters.season)
           .map(team => team.LEAGUE)
       )];
       setLeagues(uniqueLeagues);
@@ -114,8 +123,8 @@ const Rankings = () => {
       const uniqueDivisions = [...new Set(
         allRankings
           .filter(team =>
-            (filters.season === 'All' || formatSeason(team.SEASON_YEAR) === filters.season) &&
-            (filters.league === 'All' || team.LEAGUE === filters.league)
+            (!filters.season || formatSeason(team.SEASON_YEAR) === filters.season) &&
+            (!filters.league || team.LEAGUE === filters.league)
           )
           .map(team => team.DIV)
       )];
@@ -125,9 +134,9 @@ const Rankings = () => {
       const uniqueSeasonTypes = [...new Set(
         allRankings
           .filter(team =>
-            (filters.season === 'All' || formatSeason(team.SEASON_YEAR) === filters.season) &&
-            (filters.league === 'All' || team.LEAGUE === filters.league) &&
-            (filters.division === 'All' || team.DIV === filters.division)
+            (!filters.season || formatSeason(team.SEASON_YEAR) === filters.season) &&
+            (!filters.league || team.LEAGUE === filters.league) &&
+            (!filters.division || team.DIV === filters.division)
           )
           .map(team => team.SEASON_TYPE)
       )];
@@ -154,13 +163,12 @@ const Rankings = () => {
                 setFilters({
                   ...filters,
                   season: e.target.value,
-                  league: 'All', // Setze League zurück, wenn Season gewechselt wird
-                  division: 'All', // Setze Division zurück, wenn Season gewechselt wird
-                  seasonType: 'All', // Setze Season Type zurück, wenn Season gewechselt wird
+                  league: '', // Setze League zurück, wenn Season gewechselt wird
+                  division: '', // Setze Division zurück, wenn Season gewechselt wird
+                  seasonType: '', // Setze Season Type zurück, wenn Season gewechselt wird
                 })
               }
             >
-              <option value="All">All</option>
               {seasons.map((season, idx) => (
                 <option key={idx} value={season}>{season}</option>
               ))}
@@ -176,12 +184,11 @@ const Rankings = () => {
                 setFilters({
                   ...filters,
                   league: e.target.value,
-                  division: 'All', // Setze Division zurück, wenn League gewechselt wird
-                  seasonType: 'All', // Setze Season Type zurück, wenn League gewechselt wird
+                  division: '', // Setze Division zurück, wenn League gewechselt wird
+                  seasonType: '', // Setze Season Type zurück, wenn League gewechselt wird
                 })
               }
             >
-              <option value="All">All</option>
               {leagues.map((league, idx) => (
                 <option key={idx} value={league}>{league}</option>
               ))}
@@ -197,17 +204,16 @@ const Rankings = () => {
                 setFilters({
                   ...filters,
                   division: e.target.value,
-                  seasonType: 'All', // Setze Season Type zurück, wenn Division gewechselt wird
+                  seasonType: '', // Setze Season Type zurück, wenn Division gewechselt wird
                 });
               }}
             >
-              <option value="All">All</option>
               {divisions.map((division, idx) => (
                 <option key={idx} value={division}>{division}</option>
               ))}
             </select>
           </label>
-          
+
           <label>
             Season Type:
             <select
@@ -215,7 +221,6 @@ const Rankings = () => {
               value={filters.seasonType}
               onChange={e => setFilters({ ...filters, seasonType: e.target.value })}
             >
-              <option value="All">All</option>
               {seasonTypes.map((type, idx) => (
                 <option key={idx} value={type}>{type}</option>
               ))}
