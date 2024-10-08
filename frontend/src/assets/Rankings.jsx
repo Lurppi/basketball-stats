@@ -3,7 +3,7 @@ import { fetchTeams } from '../api'; // API-Aufruf für TEAMS.csv
 import Header from './Header';
 import Footer from './Footer';
 import './Rankings.css'; // Neue CSS-Datei für Rankings
-import { columnHeaderMapping, ToolheadersMapping } from './MappingList.jsx'; // Überschriften und Tooltips Mapping
+import { columnHeaderMapping, ToolheadersMapping, teamImageMappings } from './MappingList.jsx'; // Überschriften und Tooltips Mapping
 
 const Rankings = () => {
   const [allRankings, setAllRankings] = useState([]);
@@ -11,8 +11,8 @@ const Rankings = () => {
   const [filters, setFilters] = useState({
     season: '2024-2025',
     league: 'NBBL',
-    division: '',
-    seasonType: '',
+    division: 'NBBL B',
+    seasonType: 'REGULAR SEASON',
   });
 
   const [seasons, setSeasons] = useState([]);
@@ -23,7 +23,7 @@ const Rankings = () => {
   const [error, setError] = useState(null);
 
   // Definiere die Tabelle-Überschriften, die du anzeigen möchtest
-  const tableHeaders = ['#', 'Team', 'GP', 'W', 'L', 'Win%', 'ORTG', 'DRTG', 'NRTG'];
+  const tableHeaders = ['#', '', 'TEAM', 'GP', 'W', 'L', 'WIN%', 'ORTG', 'DRTG', 'NRTG'];
 
   // Teams CSV laden und Filter-Dropdowns initialisieren
   useEffect(() => {
@@ -245,7 +245,14 @@ const Rankings = () => {
               {displayedRankings.map((team, idx) => (
                 <tr key={idx}>
                   <td>{idx + 1}</td>
-                  <td>{team.TEAM}</td>
+                  <td>
+                    <img
+                      src={teamImageMappings[team.TEAM]}
+                      alt={`${team.TEAM} logo`}
+                      style={{ width: '30px', height: '30px' }}
+                    />
+                  </td> {/* Logo-Spalte */}
+                  <td>{team.TEAM_long}</td>
                   <td>{team.GP}</td>
                   <td>{team.WINS}</td>
                   <td>{team.losses}</td>
