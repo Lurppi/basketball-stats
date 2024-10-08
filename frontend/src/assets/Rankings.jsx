@@ -102,49 +102,48 @@ const Rankings = () => {
     return sortedByWinPercentageAndNRTG;
   }, [filteredData]);
 
-  // Update Dropdown-Werte auf Basis der Filter
   useEffect(() => {
     const updateDropdownValues = () => {
-      const filtered = applyFilters(allRankings);
+      const filteredBySeason = allRankings.filter(team => formatSeason(team.SEASON_YEAR) === filters.season);
 
-      // Seasons Dropdown aktualisieren
-      const uniqueSeasons = [...new Set(allRankings.map(team => formatSeason(team.SEASON_YEAR)))];
-      setSeasons(uniqueSeasons);
-
-      // Leagues Dropdown aktualisieren
-      const uniqueLeagues = [...new Set(
-        allRankings
-          .filter(team => !filters.season || formatSeason(team.SEASON_YEAR) === filters.season)
-          .map(team => team.LEAGUE)
-      )];
+      // League aktualisieren
+      const uniqueLeagues = [...new Set(filteredBySeason.map(team => team.LEAGUE))];
+      let updatedLeague = filters.league;
+      if (!uniqueLeagues.includes(filters.league)) {
+        updatedLeague = uniqueLeagues[0] || '';  // Setze auf erste gültige Option oder leer
+      }
       setLeagues(uniqueLeagues);
 
-      // Divisions Dropdown aktualisieren
-      const uniqueDivisions = [...new Set(
-        allRankings
-          .filter(team =>
-            (!filters.season || formatSeason(team.SEASON_YEAR) === filters.season) &&
-            (!filters.league || team.LEAGUE === filters.league)
-          )
-          .map(team => team.DIV)
-      )];
+      // Division aktualisieren
+      const filteredByLeague = filteredBySeason.filter(team => team.LEAGUE === updatedLeague);
+      const uniqueDivisions = [...new Set(filteredByLeague.map(team => team.DIV))];
+      let updatedDivision = filters.division;
+      if (!uniqueDivisions.includes(filters.division)) {
+        updatedDivision = uniqueDivisions[0] || '';  // Setze auf erste gültige Option oder leer
+      }
       setDivisions(uniqueDivisions);
 
-      // SeasonTypes Dropdown aktualisieren
-      const uniqueSeasonTypes = [...new Set(
-        allRankings
-          .filter(team =>
-            (!filters.season || formatSeason(team.SEASON_YEAR) === filters.season) &&
-            (!filters.league || team.LEAGUE === filters.league) &&
-            (!filters.division || team.DIV === filters.division)
-          )
-          .map(team => team.SEASON_TYPE)
-      )];
+      // Season Type aktualisieren
+      const filteredByDivision = filteredByLeague.filter(team => team.DIV === updatedDivision);
+      const uniqueSeasonTypes = [...new Set(filteredByDivision.map(team => team.SEASON_TYPE))];
+      let updatedSeasonType = filters.seasonType;
+      if (!uniqueSeasonTypes.includes(filters.seasonType)) {
+        updatedSeasonType = uniqueSeasonTypes[0] || '';  // Setze auf erste gültige Option oder leer
+      }
       setSeasonTypes(uniqueSeasonTypes);
+
+      // Aktualisiere die Filter
+      setFilters(filters => ({
+        ...filters,
+        league: updatedLeague,
+        division: updatedDivision,
+        seasonType: updatedSeasonType,
+      }));
     };
 
+    // Nur ausführen, wenn Season, League oder Division sich ändern
     updateDropdownValues();
-  }, [filters, allRankings]);
+  }, [filters.season, filters.league, filters.division, allRankings]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
