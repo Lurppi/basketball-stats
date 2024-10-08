@@ -165,8 +165,9 @@ const PlayerPage = () => {
       <table className="playerpage-table-container">
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Matchup</th>
+            <th>DATE</th>
+            <th>LEAGUE</th>
+            <th>MATCHUP</th>
             <th>W/L</th>
             <th>MP</th>
             <th>PT</th>
@@ -194,6 +195,7 @@ const PlayerPage = () => {
           {lastGames.map((game, index) => (
             <tr key={index}>
               <td>{game.Date}</td>
+              <td>{game.League}</td>
               <td>{`${game.Team} ${game.Location === '1' ? 'vs' : '@'} ${game.Opponent}`}</td>
               <td>{game.WIN === '1' ? 'W' : 'L'}</td>
               <td>{game.MP}</td>
