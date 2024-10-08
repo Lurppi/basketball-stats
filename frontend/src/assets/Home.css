@@ -218,12 +218,6 @@ body {
   align-items: center;
 }
 
-/* Spezifische Mindestbreite für Spalte 2 (Spielername-Spalte) */
-.leaderboard-table .leader-name {
-  min-width: 100px;
-  /* Mindestbreite für die Namen */
-}
-
 /* Tabelle: Flexibilität bei Zeilenumbrüchen */
 .leaderboard-content {
   height: 100%;
