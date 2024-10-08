@@ -60,6 +60,7 @@ import img158 from '../images/img158.png';
 import img159 from '../images/img159.png';
 import img160 from '../images/img160.png';
 import img161 from '../images/img161.png';
+import img162 from '../images/img162.png';
 import af from '../images/af.png';  // Afghanistan
 import al from '../images/al.png';  // Albanien
 import dz from '../images/dz.png';  // Algerien
@@ -694,6 +695,7 @@ export const teamImageMappings = {
   Wolfenbüttel: img159,
   Kornwestheim: img160,
   Trier: img161,
+  Crailsheim: img162,
 
 };
 
