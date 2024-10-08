@@ -74,7 +74,7 @@ body {
 }
 
 .league-switch img {
-  width: 80px;
+  width: 90px;
   /* Bildgröße verkleinert */
   cursor: pointer;
   margin: 0 10px;
@@ -241,6 +241,27 @@ body {
     /* Höhe der Logos anpassen */
     width: auto;
   }
+
+  .league-switch img {
+    width: 70px;
+    /* Bildgröße verkleinert */
+    cursor: pointer;
+    margin: 0 10px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  .breadcrumb button {
+    font-size: 14px;
+    /* Schriftgröße reduziert */
+    font-weight: bold;
+    margin: 0 8px;
+    /* Abstand zwischen Buttons verkleinert */
+    padding: 6px 14px;
+    /* Padding verkleinert */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
 }
 
 /* Für Bildschirmbreiten unter 1050px: 2 Spalten */
@@ -259,7 +280,29 @@ body {
     /* Höhe der Logos anpassen */
     width: auto;
   }
+
+  .league-switch img {
+    width: 70px;
+    /* Bildgröße verkleinert */
+    cursor: pointer;
+    margin: 0 10px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+  
+  .breadcrumb button {
+    font-size: 14px;
+    /* Schriftgröße reduziert */
+    font-weight: bold;
+    margin: 0 8px;
+    /* Abstand zwischen Buttons verkleinert */
+    padding: 6px 13px;
+    /* Padding verkleinert */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
 }
+
 
 /* Für Bildschirmbreiten unter 700px: 1 Spalte */
 @media (max-width: 700px) {
@@ -272,5 +315,26 @@ body {
     height: 30px;
     /* Höhe der Logos anpassen */
     width: auto;
+  }
+  
+  .league-switch img {
+    width: 70px;
+    /* Bildgröße verkleinert */
+    cursor: pointer;
+    margin: 0 10px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+  
+  .breadcrumb button {
+    font-size: 13px;
+    /* Schriftgröße reduziert */
+    font-weight: bold;
+    margin: 0 8px;
+    /* Abstand zwischen Buttons verkleinert */
+    padding: 5px 12px;
+    /* Padding verkleinert */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
   }
 }
