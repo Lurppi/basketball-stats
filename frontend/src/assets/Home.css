@@ -48,11 +48,12 @@ body {
 }
 
 .team-logo {
-  height: 47px;
+  height: 47px !important;
   /* Höhe der Logos anpassen */
-  width: auto;
+  width: auto !important;
   /* Proportionale Breite je nach Logo */
-  object-fit: contain;
+  max-width: 100% !important;
+  object-fit: contain !important;
   /* Logo proportional skalieren */
 }
 
@@ -237,9 +238,9 @@ body {
   }
 
   .team-logo {
-    height: 40px;
+    height: 40px !important;
     /* Höhe der Logos anpassen */
-    width: auto;
+    width: auto !important;
   }
 
   .league-switch img {
@@ -276,9 +277,9 @@ body {
   }
 
   .team-logo {
-    height: 40px;
+    height: 40px !important;
     /* Höhe der Logos anpassen */
-    width: auto;
+    width: auto !important;
   }
 
   .league-switch img {
@@ -312,9 +313,9 @@ body {
   }
 
   .team-logo {
-    height: 30px;
+    height: 30px !important;
     /* Höhe der Logos anpassen */
-    width: auto;
+    width: auto !important;
   }
   
   .league-switch img {
