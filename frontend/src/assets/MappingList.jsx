@@ -744,7 +744,7 @@ export const nbblTeams = [
 
 // JBBL Teams
 export const jbblTeams = [
-  'Alba Berlin',
+  'ALBA Berlin',
   'Düsseldorf',
   'Potsdam',
   'Oldenburg',
