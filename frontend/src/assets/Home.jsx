@@ -90,17 +90,6 @@ const Home = () => {
   // Ausgewählte Teams und deren Logos
   const currentTeams = getTeamsForLeague(selectedLeague);
 
-  useEffect(() => {
-    // Erzwinge einen Reflow der Logos nach dem Rendern der Home-Seite
-    const logos = document.querySelectorAll('.team-logo');
-    logos.forEach((logo) => {
-      logo.style.display = 'none'; // Temporäres Verstecken des Logos
-      setTimeout(() => {
-        logo.style.display = ''; // Zeigt das Logo wieder an, wodurch das Layout neu berechnet wird
-      }, 0);
-    });
-  }, [selectedLeague]); // Reagiere auf Änderungen der Liga oder Tab-Änderungen
-
   return (
     <div className="home-container">
       <Header />
