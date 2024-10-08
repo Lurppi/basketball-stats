@@ -121,7 +121,7 @@
 
 .rankings-table-container th:nth-of-type(3),
 .rankings-table-container td:nth-of-type(3) {
-  width: 250px;
+  width: 200px;
   text-align: left;
 
 }
