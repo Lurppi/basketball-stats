@@ -227,7 +227,7 @@ body {
 /* Media Queries für kleinere Ansichten */
 
 /* Für Bildschirmbreiten unter 1050px: 2 Spalten */
-@media (max-width: 1200px) {
+@media (max-width: 1250px) {
   .table-grid {
     grid-template-columns: repeat(2, 1fr);
     /* 2 gleich große Spalten */
