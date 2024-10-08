@@ -32,6 +32,30 @@ body {
   /* Hintergrundfarbe für den Content */
 }
 
+.team-logos {
+  display: flex;
+  /* Flexbox für horizontale Ausrichtung */
+  flex-wrap: wrap;
+  /* Falls die Logos den Platz überschreiten, umbrechen */
+  justify-content: flex-start;
+  /* Logos links ausrichten */
+  margin-top: 50px;
+  margin-bottom: -20px;
+  /* Platz zwischen den Umschaltknöpfen und den Logos */
+  gap: 10px;
+  /* Abstand zwischen den Logos */
+  width: 1200px;
+}
+
+.team-logo {
+  height: 47px;
+  /* Höhe der Logos anpassen */
+  width: auto;
+  /* Proportionale Breite je nach Logo */
+  object-fit: contain;
+  /* Logo proportional skalieren */
+}
+
 /* Links ausgerichteter Textcontainer, Liga-Logos und Breadcrumb-Menü */
 .header-container {
   width: 100%;
@@ -207,10 +231,33 @@ body {
 /* Media Queries für kleinere Ansichten */
 
 /* Für Bildschirmbreiten unter 1050px: 2 Spalten */
+@media (max-width: 1200px) {
+  .team-logos {
+    width: 100%;
+  }
+
+  .team-logo {
+    height: 40px;
+    /* Höhe der Logos anpassen */
+    width: auto;
+  }
+}
+
+/* Für Bildschirmbreiten unter 1050px: 2 Spalten */
 @media (max-width: 1050px) {
   .table-grid {
     grid-template-columns: repeat(2, 1fr);
     /* 2 gleich große Spalten */
+  }
+
+  .team-logos {
+    width: 100%;
+  }
+
+  .team-logo {
+    height: 40px;
+    /* Höhe der Logos anpassen */
+    width: auto;
   }
 }
 
@@ -219,5 +266,11 @@ body {
   .table-grid {
     grid-template-columns: 1fr;
     /* 1 Spalte pro Zeile */
+  }
+
+  .team-logo {
+    height: 30px;
+    /* Höhe der Logos anpassen */
+    width: auto;
   }
 }

@@ -5,7 +5,7 @@ import Header from './Header';
 import Footer from './Footer';
 import NBBLLogo from '../images/NBBL.png'; // Importiere NBBL-Logo
 import JBBLLogo from '../images/JBBL.png'; // Importiere JBBL-Logo
-import teamImageMappings from './MappingList';
+import { nbblTeams, jbblTeams, teamImageMappings } from './MappingList';
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState('players'); // Umschaltung zwischen Players und Teams
@@ -82,9 +82,18 @@ const Home = () => {
     ? 'https://www.nbbl-stats.de/players'
     : 'https://www.nbbl-stats.de/teams';
 
+  // Funktion zur Auswahl der richtigen Teams basierend auf der ausgewählten Liga
+  const getTeamsForLeague = (league) => {
+    return league === 'NBBL' ? nbblTeams : jbblTeams;
+  };
+
+  // Ausgewählte Teams und deren Logos
+  const currentTeams = getTeamsForLeague(selectedLeague);
+
   return (
     <div className="home-container">
       <Header />
+
       {/* Umschaltbare Logos für Ligen */}
       <div className="league-switch">
         <img
@@ -117,6 +126,18 @@ const Home = () => {
         </button>
       </nav>
 
+      {/* Team-Logos für die ausgewählte Liga */}
+      <div className="team-logos">
+        {currentTeams.map((team, index) => (
+          <img
+            key={index}
+            src={teamImageMappings[team]} // Mapping des Teams zum Logo
+            alt={team}
+            className="team-logo"
+          />
+        ))}
+      </div>
+
       <div className="content">
         <div className="text-container">
           <p>Here are the current top 10 players and teams in various categories, like Points per Game, Rebounds per Game or Assists per Game.</p>
@@ -129,18 +150,18 @@ const Home = () => {
             <StatsTable
               key={index}
               title={stat.title}
-              data={statsData[stat.apiField] || []} // Daten für das spezifische Statfeld
-              nameField={activeTab === 'players' ? 'PLAYER' : 'TEAM'} // Name-Feld: Spielername oder Teamname
-              gamesField="GP" // Feld für gespielte Spiele
-              statField={stat.apiField} // Das aktuelle Stat-Feld
-              logoField="TEAM" // Verwende das "TEAM"-Feld für das Logo
-              fullListUrl={fullListUrl} // Full List URL für Players oder Teams
-              teamLogoMap={teamImageMappings} // Map für die Team-Logos
+              data={statsData[stat.apiField] || []}
+              nameField={activeTab === 'players' ? 'PLAYER' : 'TEAM'}
+              gamesField="GP"
+              statField={stat.apiField}
+              logoField="TEAM"
+              fullListUrl={fullListUrl}
+              teamLogoMap={teamImageMappings}
             />
           ))}
         </div>
 
-        {/* Neuer Text unterhalb der Tabellen */}
+        {/* Text unterhalb der Tabellen */}
         <div className="text-container">
           <p>Feel free to use any stats from this site in articles, on podcasts, or on social media, as long as you say where you got them from.</p>
           <p>Any problems using the site? Ideas to improve it? Random interesting thoughts? Email dennis.uhlig@icloud.com</p>
