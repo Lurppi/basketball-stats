@@ -161,13 +161,10 @@ body {
   grid-template-columns: repeat(4, 1fr);
   /* 4 gleich große Spalten */
   grid-gap: 10px;
-  /* Reduzierter Abstand zwischen den Tabellen */
   margin-top: 20px;
   width: 100%;
   max-width: 1200px;
-  /* Begrenze die Gesamtbreite des Grids */
   justify-items: center;
-  /* Zentriere die Tabellen innerhalb des Grids */
 }
 
 /* Feste Höhe für die Tabellenüberschrift */
@@ -177,19 +174,16 @@ body {
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
-  /* Schriftgröße auf 12px reduziert */
   font-weight: bold;
   padding: 0 10px;
   background-color: #f0f0f0;
   border-bottom: 2px solid #ddd;
   white-space: normal;
-  /* Zeilenumbruch aktiviert */
 }
 
-/* Schriftgröße der "Full List"-Links auf 10px */
+/* Schriftgröße der "Full List"-Links */
 .leaderboard-table .full-list-link {
   font-size: 12px;
-  /* Schriftgröße auf 10px reduziert */
   color: blue;
   text-decoration: underline;
   cursor: pointer;
@@ -198,34 +192,41 @@ body {
 /* Feste Höhe für jede Tabellenzeile */
 .leaderboard-table .leader-item {
   min-height: 80px;
-  font-weight: bold;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
   border-bottom: 1px solid #ddd;
   white-space: normal;
-  /* Zeilenumbruch in den Tabellenzeilen */
   overflow: hidden;
   text-overflow: ellipsis;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 /* Kleinere Schriftgröße für den Spieler- und Teamnamen */
 .leaderboard-table .leader-name {
   font-size: 13px;
-  /* Verkleinert die Schriftgröße für die Namen */
   font-weight: bold;
   margin-left: 10px;
   white-space: normal;
-  /* Zeilenumbruch für die Namen */
   overflow: hidden;
   text-overflow: ellipsis;
+  word-wrap: break-word;
+  word-break: break-word;
+  display: flex;
+  align-items: center;
+}
+
+/* Spezifische Mindestbreite für Spalte 2 (Spielername-Spalte) */
+.leaderboard-table .leader-name {
+  min-width: 100px;
+  /* Mindestbreite für die Namen */
 }
 
 /* Tabelle: Flexibilität bei Zeilenumbrüchen */
 .leaderboard-content {
   height: 100%;
-  /* Feste Höhe für die Tabelleninhalte */
   overflow-y: auto;
 }
 
@@ -233,6 +234,11 @@ body {
 
 /* Für Bildschirmbreiten unter 1050px: 2 Spalten */
 @media (max-width: 1200px) {
+  .table-grid {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 gleich große Spalten */
+  }
+
   .team-logos {
     width: 100%;
   }
@@ -290,7 +296,7 @@ body {
     opacity: 0.5;
     transition: opacity 0.3s ease;
   }
-  
+
   .breadcrumb button {
     font-size: 14px;
     /* Schriftgröße reduziert */
@@ -317,7 +323,7 @@ body {
     /* Höhe der Logos anpassen */
     width: auto !important;
   }
-  
+
   .league-switch img {
     width: 70px;
     /* Bildgröße verkleinert */
@@ -326,7 +332,7 @@ body {
     opacity: 0.5;
     transition: opacity 0.3s ease;
   }
-  
+
   .breadcrumb button {
     font-size: 13px;
     /* Schriftgröße reduziert */
