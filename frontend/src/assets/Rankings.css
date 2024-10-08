@@ -126,6 +126,14 @@
 
 }
 
+.rankings-table-container td:nth-of-type(3) {
+  white-space: normal;
+  /* Ermöglicht den Zeilenumbruch innerhalb der Zelle */
+  word-wrap: break-word;
+  /* Bricht lange Wörter, um Überlauf zu verhindern */
+  font-weight: bold;
+}
+
 .rankings-footer {
   position: fixed;
   bottom: 0;
