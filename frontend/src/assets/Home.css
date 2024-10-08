@@ -204,6 +204,24 @@ body {
   word-break: break-all;
 }
 
+/* Feste Breite für die erste Spalte (z.B. für das Bild oder das Logo) */
+.leader-item .leader-image {
+  flex-shrink: 0;
+  /* Verhindert, dass die Spalte kleiner wird */
+  width: 50px;
+  /* Feste Breite für die erste Spalte */
+  height: auto;
+  margin-right: 0px;
+}
+
+/* Der Rest bleibt flexibel (z.B. der Name oder die weiteren Informationen) */
+.leader-item .leader-info {
+  flex-grow: 1;
+  /* Restlicher Platz wird flexibel genutzt */
+  display: flex;
+  align-items: center;
+}
+
 /* Kleinere Schriftgröße für den Spieler- und Teamnamen */
 .leaderboard-table .leader-name {
   font-size: 13px;
@@ -303,7 +321,6 @@ body {
     transition: background-color 0.3s ease;
   }
 }
-
 
 /* Für Bildschirmbreiten unter 700px: 1 Spalte */
 @media (max-width: 700px) {
