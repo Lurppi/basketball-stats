@@ -742,7 +742,6 @@ export const nbblTeams = [
   'Heidelberg',
   'Kirchheim',
   'Würzburg',
-  'MBA',
 ];
 
 // JBBL Teams
