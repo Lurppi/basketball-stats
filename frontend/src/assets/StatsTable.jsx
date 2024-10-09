@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './StatsTable.css'; // Importiere die spezifischen Stile
 
-const StatsTable = ({ title, data, nameField, gamesField, statField, fullListUrl, teamLogoMap, activeTab }) => {
+const StatsTable = ({ title, data, nameField, gamesField, statField, fullListUrl, teamLogoMap }) => {
   return (
     <div className="leaderboard-table">
       <div className="table-header">
@@ -31,11 +31,12 @@ const StatsTable = ({ title, data, nameField, gamesField, statField, fullListUrl
                   className="leader-image"
                 />
                 <div className="leader-name">
-                  {/* Spielername oder Teamname abhängig vom activeTab */}
-                  {activeTab === 'players' && item.PlayerID ? (
+                  {/* Spielername wird als Link zu seiner Detailseite */}
+                  {/* PlayerID ist nicht in der Tabelle, aber wir greifen darauf aus den API-Daten zu */}
+                  {item.PlayerID ? (
                     <Link to={`/player/${item.PlayerID}`}>{item[nameField]}</Link>
                   ) : (
-                    item[nameField] // Nur der Name ohne Link, z.B. für Teams
+                    item[nameField] // Falls PlayerID fehlt, nur Name anzeigen
                   )}
                 </div>
               </div>
