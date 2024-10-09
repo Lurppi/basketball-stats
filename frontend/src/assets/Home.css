@@ -174,7 +174,6 @@ body {
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
-  font-weight: bold;
   padding: 0 10px;
   background-color: #f0f0f0;
   border-bottom: 2px solid #ddd;
@@ -189,62 +188,7 @@ body {
   cursor: pointer;
 }
 
-/* Feste Höhe für jede Tabellenzeile */
-.leaderboard-table .leader-item {
-  min-height: 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-  border-bottom: 1px solid #ddd;
-  white-space: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-  word-break: break-all;
-}
-
-/* Feste Breite für die erste Spalte (z.B. für das Bild oder das Logo) */
-.leader-item .leader-image {
-  flex-shrink: 0;
-  /* Verhindert, dass die Spalte kleiner wird */
-  width: 50px;
-  /* Feste Breite für die erste Spalte */
-  height: auto;
-  margin-right: 0px;
-}
-
-/* Der Rest bleibt flexibel (z.B. der Name oder die weiteren Informationen) */
-.leader-item .leader-info {
-  flex-grow: 1;
-  /* Restlicher Platz wird flexibel genutzt */
-  display: flex;
-  align-items: center;
-}
-
-/* Kleinere Schriftgröße für den Spieler- und Teamnamen */
-.leaderboard-table .leader-name {
-  font-size: 13px;
-  font-weight: bold;
-  margin-left: 10px;
-  white-space: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-  word-break: break-word;
-  display: flex;
-  align-items: center;
-}
-
-/* Tabelle: Flexibilität bei Zeilenumbrüchen */
-.leaderboard-content {
-  height: 100%;
-  overflow-y: auto;
-}
-
 /* Media Queries für kleinere Ansichten */
-
-/* Für Bildschirmbreiten unter 1050px: 2 Spalten */
 @media (max-width: 1250px) {
   .table-grid {
     grid-template-columns: repeat(2, 1fr);
