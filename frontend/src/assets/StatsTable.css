@@ -82,6 +82,12 @@
   /* Nur der hervorgehobene Name fett */
 }
 
+/* Für den Fall, dass kein Link vorhanden ist (z. B. für Teams) */
+.leader-highlight .leader-name {
+  font-weight: bold;
+  /* Auch den Namen ohne Link fett machen */
+}
+
 .leader-highlight .games,
 .leader-highlight .average {
   font-weight: bold;
