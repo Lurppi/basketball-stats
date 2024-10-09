@@ -66,6 +66,8 @@
   padding: 15px 10px;
   border-bottom: 1px solid #e0e0e0;
   font-weight: normal;
+  height: 80px;
+  /* Feste Höhe für die Tabellenzeilen */
 }
 
 .leader-highlight {
@@ -74,10 +76,10 @@
   font-weight: bold;
 }
 
-/* Leader Highlight spezifisch */
+/* Erzwinge fetten Text nur für den Link im Highlight */
 .leader-highlight .leader-name a {
-  font-weight: bold !important;
-  /* Erzwinge fett nur für den führenden Spieler */
+  font-weight: bold;
+  /* Nur der hervorgehobene Name fett */
 }
 
 .leader-highlight .games,
@@ -107,7 +109,7 @@
   text-overflow: ellipsis;
   display: flex;
   align-items: center;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .leader-name a {
