@@ -61,12 +61,11 @@
   margin-bottom: 0px;
 }
 
-
-.team-logo {
+.playerpage-team-logo {
   margin: 0 auto;
   margin-bottom: 10px;
-  width: 100px;
-  height: 100px;
+  width: auto;
+  height: 160px;
 }
 
 .position {
@@ -542,11 +541,11 @@
     word-wrap: break-word;
   }
 
-  .team-logo {
+  .playerpage-team-logo {
     margin: 0 auto;
     margin-bottom: 0px;
-    width: 80px;
-    height: 80px;
+    width: auto;
+    height: 120px;
   }
 
   .league-nat-container {

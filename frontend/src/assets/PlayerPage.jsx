@@ -435,12 +435,13 @@ const PlayerPage = () => {
         <div className="playerpage-fixed-container">
           <div className="playerpage-profile-modern">
             {/* Team-Logo hinzufügen */}
-            <div className="team-logo-container">
+            <div className="playerpage-team-logo-container">
               {teamImageMappings[playerInfo.TEAM] ? (
                 <img
                   src={teamImageMappings[playerInfo.TEAM]}
                   alt={playerInfo.TEAM}
-                  className="team-logo"
+                  className="playerpage-team-logo"
+                  loading="eager"
                 />
               ) : (
                 <p>No logo available</p>
