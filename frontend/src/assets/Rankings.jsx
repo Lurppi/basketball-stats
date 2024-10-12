@@ -11,7 +11,7 @@ const Rankings = () => {
   const [filters, setFilters] = useState({
     season: '2024-2025',
     league: 'NBBL',
-    division: 'NBBL B',
+    division: 'NBBL A',
     seasonType: 'REGULAR SEASON',
   });
 
