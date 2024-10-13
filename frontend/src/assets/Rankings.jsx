@@ -106,26 +106,26 @@ const Rankings = () => {
     const updateDropdownValues = () => {
       const filteredBySeason = allRankings.filter(team => formatSeason(team.SEASON_YEAR) === filters.season);
 
-      // League aktualisieren
-      const uniqueLeagues = [...new Set(filteredBySeason.map(team => team.LEAGUE))];
+      // League aktualisieren und alphabetisch sortieren (A-Z)
+      const uniqueLeagues = [...new Set(filteredBySeason.map(team => team.LEAGUE))].sort(); // Sortiere Leagues alphabetisch
       let updatedLeague = filters.league;
       if (!uniqueLeagues.includes(filters.league)) {
         updatedLeague = uniqueLeagues[0] || '';  // Setze auf erste gültige Option oder leer
       }
       setLeagues(uniqueLeagues);
 
-      // Division aktualisieren
+      // Division aktualisieren und alphabetisch sortieren (A-Z)
       const filteredByLeague = filteredBySeason.filter(team => team.LEAGUE === updatedLeague);
-      const uniqueDivisions = [...new Set(filteredByLeague.map(team => team.DIV))];
+      const uniqueDivisions = [...new Set(filteredByLeague.map(team => team.DIV))].sort(); // Sortiere Divisions alphabetisch
       let updatedDivision = filters.division;
       if (!uniqueDivisions.includes(filters.division)) {
         updatedDivision = uniqueDivisions[0] || '';  // Setze auf erste gültige Option oder leer
       }
       setDivisions(uniqueDivisions);
 
-      // Season Type aktualisieren
+      // Season Type aktualisieren und alphabetisch sortieren (A-Z)
       const filteredByDivision = filteredByLeague.filter(team => team.DIV === updatedDivision);
-      const uniqueSeasonTypes = [...new Set(filteredByDivision.map(team => team.SEASON_TYPE))];
+      const uniqueSeasonTypes = [...new Set(filteredByDivision.map(team => team.SEASON_TYPE))].sort(); // Sortiere Season Types alphabetisch
       let updatedSeasonType = filters.seasonType;
       if (!uniqueSeasonTypes.includes(filters.seasonType)) {
         updatedSeasonType = uniqueSeasonTypes[0] || '';  // Setze auf erste gültige Option oder leer

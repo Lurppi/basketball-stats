@@ -127,19 +127,20 @@ const Teams = () => {
       // Debugging: Zeige gefilterte Teams nach Division-Änderung
       console.log("Gefilterte Teams:", filtered);
 
-      // Aktualisiere Leagues und prüfe den aktuellen Wert
+      // Aktualisiere Leagues und sortiere sie alphabetisch
       const uniqueLeagues = [...new Set(
         allTeams
           .filter(team => team[headers.indexOf('SEASON_YEAR')] === filters.season)
           .map(team => team[headers.indexOf('LEAGUE')])
-      )];
+      )].sort(); // Sortiere die Leagues alphabetisch
+
       setLeagues(uniqueLeagues);
 
       if (!uniqueLeagues.includes(filters.league)) {
         setFilters(prev => ({ ...prev, league: uniqueLeagues[0] }));
       }
 
-      // Aktualisiere Divisions und prüfe den aktuellen Wert
+      // Aktualisiere Divisions und sortiere alphabetisch (A-Z)
       const uniqueDivisions = [...new Set(
         allTeams
           .filter(team =>
@@ -147,14 +148,15 @@ const Teams = () => {
             team[headers.indexOf('LEAGUE')] === filters.league
           )
           .map(team => team[headers.indexOf('DIV')])
-      )];
+      )].sort(); // Sortiere die Divisions alphabetisch (A-Z)
+
       setDivisions(uniqueDivisions);
 
       if (!uniqueDivisions.includes(filters.division)) {
         setFilters(prev => ({ ...prev, division: uniqueDivisions[0] }));
       }
 
-      // Aktualisiere Season Types und prüfe den aktuellen Wert
+      // Aktualisiere Season Types und sortiere sie alphabetisch (A-Z)
       const uniqueSeasonTypes = [...new Set(
         allTeams
           .filter(team =>
@@ -163,7 +165,7 @@ const Teams = () => {
             team[headers.indexOf('DIV')] === filters.division
           )
           .map(team => team[headers.indexOf('SEASON_TYPE')])
-      )];
+      )].sort(); // Sortiere die Season Types alphabetisch (A-Z)
 
       console.log("uniqueSeasonTypes nach Division-Änderung:", uniqueSeasonTypes);
 
@@ -206,7 +208,7 @@ const Teams = () => {
     filters.season,
     filters.league,
     filters.division,
-    filters.seasonType,  // Füge dies hinzu
+    filters.seasonType,
     allTeams,
     headers
   ]);
