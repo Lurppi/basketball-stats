@@ -35,11 +35,11 @@ const Teams = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [headers, setHeaders] = useState([]);
   const [filters, setFilters] = useState({
-    season: '',
-    league: '',
+    season: '20242025',
+    league: 'NBBL',
     statsType: 'Averages',
-    division: '',
-    seasonType: '',
+    division: 'NBBL A',
+    seasonType: 'REGULAR SEASON',
     team: 'All',
     sortStat: 'WINS',
     sortDirection: 'desc',
