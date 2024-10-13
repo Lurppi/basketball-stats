@@ -131,8 +131,8 @@
 
 .rankings-table-container th:nth-of-type(3),
 .rankings-table-container td:nth-of-type(3) {
-  width: 200px;
-  max-width: 200px;
+  width: 300px;
+  max-width: 300px;
   /* Begrenze die maximale Breite */
   min-width: 180px;
   /* Begrenze die minimale Breite */
@@ -146,6 +146,21 @@
   /* Bricht lange Wörter, um Überlauf zu verhindern */
   font-weight: bold;
   font-size: 11px;
+}
+
+.rankings-table-container th:nth-of-type(4),
+.rankings-table-container td:nth-of-type(4) {
+  width: 40px;
+}
+
+.rankings-table-container th:nth-of-type(5),
+.rankings-table-container td:nth-of-type(5) {
+  width: 40px;
+}
+
+.rankings-table-container th:nth-of-type(6),
+.rankings-table-container td:nth-of-type(6) {
+  width: 40px;
 }
 
 .rankings-footer {
