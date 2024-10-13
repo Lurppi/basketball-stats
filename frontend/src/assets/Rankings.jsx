@@ -10,9 +10,9 @@ const Rankings = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [filters, setFilters] = useState({
     season: '2024-2025',
-    league: 'NBBL',
-    division: 'NBBL A',
-    seasonType: 'REGULAR SEASON',
+    league: 'JBBL',
+    division: 'JBBL',
+    seasonType: 'QUALIFICATION',
   });
 
   const [seasons, setSeasons] = useState([]);

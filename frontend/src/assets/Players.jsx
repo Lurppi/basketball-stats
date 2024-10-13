@@ -72,13 +72,13 @@ const Players = () => {
   const [headers, setHeaders] = useState([]);
   const defaultFilters = {
     season: '20242025',
-    league: 'NBBL',
+    league: 'JBBL',
     statsType: 'Advanced 1',
-    division: 'NBBL A',
+    division: 'JBBL',
     team: 'All',
     position: 'All',
     offensiveRole: 'All',
-    seasonType: 'REGULAR SEASON',
+    seasonType: 'QUALIFICATION',
     born: 'All',
     gamesPlayed: '',
     minutesPlayed: '',
@@ -109,19 +109,15 @@ const Players = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   // Speichere die Filtereinstellungen in SessionStorage, sobald sie sich ändern
-  useEffect(() => {
-    sessionStorage.setItem('filters', JSON.stringify(filters));
-  }, [filters]);
-
   const updateDropdownValues = () => {
     const filtered = applyFilters(allPlayers);
 
-    // Aktualisiere Leagues und prüfe den aktuellen Wert
+    // Aktualisiere Leagues und sortiere alphabetisch (A-Z)
     const uniqueLeagues = [...new Set(
       allPlayers
         .filter(player => player[headers.indexOf('SEASON_YEAR')] === filters.season)
         .map(player => player[headers.indexOf('LEAGUE')])
-    )];
+    )].sort(); // Sortiere die Leagues alphabetisch
     setLeagues(uniqueLeagues);
 
     if (!uniqueLeagues.includes(filters.league)) {
@@ -134,7 +130,7 @@ const Players = () => {
       }));
     }
 
-    // Aktualisiere Divisions und prüfe den aktuellen Wert
+    // Aktualisiere Divisions und sortiere alphabetisch (A-Z)
     const uniqueDivisions = [...new Set(
       allPlayers
         .filter(player =>
@@ -142,7 +138,7 @@ const Players = () => {
           player[headers.indexOf('LEAGUE')] === filters.league
         )
         .map(player => player[headers.indexOf('DIV')])
-    )];
+    )].sort(); // Sortiere die Divisions alphabetisch
     setDivisions(uniqueDivisions);
 
     if (!uniqueDivisions.includes(filters.division)) {
