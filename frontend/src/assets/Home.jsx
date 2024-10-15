@@ -29,7 +29,7 @@ const Home = () => {
     { title: 'POINTS PER GAME', apiField: 'PPG' },
     { title: 'OFFENSIVE RATING', apiField: 'ORTG' },
     { title: 'DEFENSIVE RATING', apiField: 'DRTG' },
-    { title: 'NET RATING', apiField: 'NRTG' },
+    { title: 'THREE POINT PCT', apiField: '3P%' },
     { title: 'EFFECTIVE FIELD GOAL PCT', apiField: 'EFG%' },
     { title: 'TURNOVER PCT', apiField: 'TOV%' },
     { title: 'OFFENSIVE REBOUND PCT', apiField: 'ORB%' },
