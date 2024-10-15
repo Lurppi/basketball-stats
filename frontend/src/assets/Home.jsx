@@ -27,13 +27,13 @@ const Home = () => {
   // Definierte Tabellenüberschriften und API-Felder für Teams
   const teamStatsConfig = [
     { title: 'POINTS PER GAME', apiField: 'PPG' },
-    { title: 'REBOUNDS PER GAME', apiField: 'RPG' },
-    { title: 'ASSISTS PER GAME', apiField: 'APG' },
-    { title: 'EFFICIENCY PER GAME', apiField: 'EFPG' },
     { title: 'OFFENSIVE RATING', apiField: 'ORTG' },
-    { title: 'DEFENSIVE RATING', apiField: 'DRTG' }, // Dieser Stat wird anders sortiert
+    { title: 'DEFENSIVE RATING', apiField: 'DRTG' },
     { title: 'NET RATING', apiField: 'NRTG' },
-    { title: 'TRUE SHOOTING', apiField: 'TS%' },
+    { title: 'EFFECTIVE FIELD GOAL PCT', apiField: 'EFG%' },
+    { title: 'TURNOVER PCT', apiField: 'TOV%' },
+    { title: 'OFFENSIVE REBOUND PCT', apiField: 'ORB%' },
+    { title: 'FREE THROW RATE', apiField: 'FT_RATE' },
   ];
 
   const getApiUrl = () => {
@@ -59,9 +59,10 @@ const Home = () => {
 
       const top10Data = statsConfig.reduce((acc, stat) => {
         const sorted = filteredData
-          .sort((a, b) => stat.apiField === 'DRTG'
-            ? parseFloat(a[stat.apiField]) - parseFloat(b[stat.apiField])
-            : parseFloat(b[stat.apiField]) - parseFloat(a[stat.apiField])
+          .sort((a, b) =>
+            (stat.apiField === 'DRTG' || stat.apiField === 'TOV%') // Überprüfen, ob es "DRTG" oder "TOV%" ist
+              ? parseFloat(a[stat.apiField]) - parseFloat(b[stat.apiField]) // Aufsteigende Sortierung
+              : parseFloat(b[stat.apiField]) - parseFloat(a[stat.apiField]) // Absteigende Sortierung für andere Felder
           )
           .slice(0, 10); // Top 10 filtern
 
