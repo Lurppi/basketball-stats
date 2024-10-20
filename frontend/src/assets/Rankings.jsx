@@ -74,14 +74,10 @@ const Rankings = () => {
     });
   };
 
-  useEffect(() => {
-    setFilteredData(applyFilters(allRankings));
-  }, [filters, allRankings]);
-
   const displayedRankings = useMemo(() => {
     const filtered = applyFilters(filteredData);
 
-    const sortedByWinPercentageAndNRTG = filtered
+    const sortedByWinPercentageGPAndNRTG = filtered
       .map((team) => ({
         ...team,
         losses: team.GP - team.WINS, // Berechne die Verluste
@@ -95,11 +91,17 @@ const Rankings = () => {
           return winPercentageDifference; // Sortiere nach Win%, wenn es Unterschiede gibt
         }
 
-        // Wenn Win% gleich ist, sortiere nach NRTG
+        // Wenn Win% gleich ist, sortiere nach GP (absteigend)
+        const gamesPlayedDifference = b.GP - a.GP;
+        if (gamesPlayedDifference !== 0) {
+          return gamesPlayedDifference; // Sortiere nach GP, wenn es Unterschiede gibt
+        }
+
+        // Wenn GP auch gleich ist, sortiere nach NRTG
         return b.NRTG - a.NRTG;
       });
 
-    return sortedByWinPercentageAndNRTG;
+    return sortedByWinPercentageGPAndNRTG;
   }, [filteredData]);
 
   useEffect(() => {
