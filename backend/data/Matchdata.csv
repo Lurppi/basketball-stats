@@ -1,4 +1,8 @@
 ﻿FormCurve-ID;Date;Season;League;Division;Season_Type;Team_long;Opponent_long;Team;Opponent;Home;PTS;OPP_PTS
+19.10.2024_2024-2025_NBBL_NBBL B_REGULAR SEASON_USC Academics Heidelberg_ratiopharm Ulm;19.10.2024;2024-2025;NBBL;NBBL B;REGULAR SEASON;USC Academics Heidelberg;ratiopharm Ulm;Heidelberg;Ulm;1;62;82
+19.10.2024_2024-2025_NBBL_NBBL B_REGULAR SEASON_ratiopharm Ulm_USC Academics Heidelberg;19.10.2024;2024-2025;NBBL;NBBL B;REGULAR SEASON;ratiopharm Ulm;USC Academics Heidelberg;Ulm;Heidelberg;0;82;62
+19.10.2024_2024-2025_NBBL_NBBL A_REGULAR SEASON_TEAM URSPRING_Niners Chemnitz Academy;19.10.2024;2024-2025;NBBL;NBBL A;REGULAR SEASON;TEAM URSPRING;Niners Chemnitz Academy;Urspring;Chemnitz;1;100;74
+19.10.2024_2024-2025_NBBL_NBBL A_REGULAR SEASON_Niners Chemnitz Academy_TEAM URSPRING;19.10.2024;2024-2025;NBBL;NBBL A;REGULAR SEASON;Niners Chemnitz Academy;TEAM URSPRING;Chemnitz;Urspring;0;74;100
 13.10.2024_2024-2025_NBBL_NBBL B_REGULAR SEASON_VfL Kirchheim Knights_Orange Academy;13.10.2024;2024-2025;NBBL;NBBL B;REGULAR SEASON;VfL Kirchheim Knights;Orange Academy;Kirchheim;Orange;1;49;116
 13.10.2024_2024-2025_NBBL_NBBL B_REGULAR SEASON_USC Academics Heidelberg_Rhein-Neckar Metropolitans;13.10.2024;2024-2025;NBBL;NBBL B;REGULAR SEASON;USC Academics Heidelberg;Rhein-Neckar Metropolitans;Heidelberg;Rhein-Neckar;0;78;57
 13.10.2024_2024-2025_NBBL_NBBL B_REGULAR SEASON_TS Jahn München_ratiopharm Ulm;13.10.2024;2024-2025;NBBL;NBBL B;REGULAR SEASON;TS Jahn München;ratiopharm Ulm;Jahn München;Ulm;1;55;82
@@ -29,6 +33,7 @@
 13.10.2024_2024-2025_NBBL_NBBL A_REGULAR SEASON_ALBA BERLIN_Baskets Juniors Oldenburg;13.10.2024;2024-2025;NBBL;NBBL A;REGULAR SEASON;ALBA BERLIN;Baskets Juniors Oldenburg;ALBA Berlin;Oldenburg;1;74;67
 13.10.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Young Tigers Tübingen_TEAM URSPRING;13.10.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Young Tigers Tübingen;TEAM URSPRING;Tübingen;Urspring;1;81;89
 13.10.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Young Rasta Dragons_RASTA Academy;13.10.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Young Rasta Dragons;RASTA Academy;Vechta;RASTA Academy;1;22;119
+13.10.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Young Lions Wuppertal_Team Bonn/Rhöndorf;13.10.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Young Lions Wuppertal;Team Bonn/Rhöndorf;Wuppertal;Bonn-Rhöndorf;1;85;110
 13.10.2024_2024-2025_JBBL_JBBL_QUALIFICATION_WITT Oberpfalz Hunters_FC Bayern München Basketball;13.10.2024;2024-2025;JBBL;JBBL;QUALIFICATION;WITT Oberpfalz Hunters;FC Bayern München Basketball;Oberpfalz;Bayern München;1;61;105
 13.10.2024_2024-2025_JBBL_JBBL_QUALIFICATION_VR-Bank Würzburg Baskets Akademie_Team Südhessen;13.10.2024;2024-2025;JBBL;JBBL;QUALIFICATION;VR-Bank Würzburg Baskets Akademie;Team Südhessen;Würzburg;Südhessen;1;59;42
 13.10.2024_2024-2025_JBBL_JBBL_QUALIFICATION_USC Academics Heidelberg_Rhein-Neckar Metropolitans;13.10.2024;2024-2025;JBBL;JBBL;QUALIFICATION;USC Academics Heidelberg;Rhein-Neckar Metropolitans;Heidelberg;Rhein-Neckar;1;77;57
@@ -38,6 +43,7 @@
 13.10.2024_2024-2025_JBBL_JBBL_QUALIFICATION_TEAM URSPRING_Young Tigers Tübingen;13.10.2024;2024-2025;JBBL;JBBL;QUALIFICATION;TEAM URSPRING;Young Tigers Tübingen;Urspring;Tübingen;0;89;81
 13.10.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Team Südhessen_VR-Bank Würzburg Baskets Akademie;13.10.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Team Südhessen;VR-Bank Würzburg Baskets Akademie;Südhessen;Würzburg;0;42;59
 13.10.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Team Frankfurt_Nürnberg Falcons;13.10.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Team Frankfurt;Nürnberg Falcons;Team Frankfurt;Nürnberg;0;63;85
+13.10.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Team Bonn/Rhöndorf_Young Lions Wuppertal;13.10.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Team Bonn/Rhöndorf;Young Lions Wuppertal;Bonn-Rhöndorf;Wuppertal;0;110;85
 13.10.2024_2024-2025_JBBL_JBBL_QUALIFICATION_SG Junior Löwen Braunschweig_ROCKETS;13.10.2024;2024-2025;JBBL;JBBL;QUALIFICATION;SG Junior Löwen Braunschweig;ROCKETS;Braunschweig;Rockets;1;84;86
 13.10.2024_2024-2025_JBBL_JBBL_QUALIFICATION_SG Bernau-Berlin-Nord_Friedenauer TSC;13.10.2024;2024-2025;JBBL;JBBL;QUALIFICATION;SG Bernau-Berlin-Nord;Friedenauer TSC;Bernau;Friedenau;1;77;56
 13.10.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Sartorius Youngsters_UBC Münster;13.10.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Sartorius Youngsters;UBC Münster;Göttingen;Münster;0;64;67
