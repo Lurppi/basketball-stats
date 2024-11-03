@@ -15,10 +15,10 @@ const Home = () => {
   // Definierte Tabellenüberschriften und API-Felder für Spieler
   const playerStatsConfig = [
     { title: 'POINTS PER GAME', apiField: 'PPG' },
-    { title: 'OFF. REBOUNDS PER GAME', apiField: 'ORPG' },
     { title: 'REBOUNDS PER GAME', apiField: 'RPG' },
     { title: 'ASSISTS PER GAME', apiField: 'APG' },
     { title: 'EFFICIENCY PER GAME', apiField: 'EFPG' },
+    { title: 'BOXSCORE PLUS/MINUS', apiField: 'BPM' },
     { title: 'PLAYER EFFICIENCY RATING', apiField: 'PER' },
     { title: 'PLAYER IMPACT ESTIMATE', apiField: 'PIE' },
     { title: 'WIN SHARES / 40 MIN', apiField: 'WS_40' },
