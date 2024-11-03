@@ -1,4 +1,44 @@
 ﻿FormCurve-ID;Date;Season;League;Division;Season_Type;Team_long;Opponent_long;Team;Opponent;Home;PTS;OPP_PTS
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Young Tigers Tübingen_Rhein-Neckar Metropolitans;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Young Tigers Tübingen;Rhein-Neckar Metropolitans;Tübingen;Rhein-Neckar;0;77;94
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Young Rasta Dragons_Northwestern Basketball Academy;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Young Rasta Dragons;Northwestern Basketball Academy;Vechta;Northwestern;0;38;114
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Young Lions Wuppertal_ROTH Energie BBA GIESSEN 46ers;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Young Lions Wuppertal;ROTH Energie BBA GIESSEN 46ers;Wuppertal;Giessen;0;85;51
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Young Gladiators Trier_Bayer Giants Leverkusen;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Young Gladiators Trier;Bayer Giants Leverkusen;Trier;Leverkusen;0;82;88
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_VR-Bank Würzburg Baskets Akademie_Team Frankfurt;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;VR-Bank Würzburg Baskets Akademie;Team Frankfurt;Würzburg;Team Frankfurt;0;80;78
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_USC Academics Heidelberg_Porsche BBA Ludwigsburg;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;USC Academics Heidelberg;Porsche BBA Ludwigsburg;Heidelberg;Ludwigsburg;0;40;87
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_UBC Münster_Phoenix Hagen;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;UBC Münster;Phoenix Hagen;Münster;Phoenix Hagen;0;80;70
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_TuS Lichterfelde_Friedenauer TSC;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;TuS Lichterfelde;Friedenauer TSC;Lichterfelde;Friedenau;0;67;66
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_TSV München-Ost_OrangeAcademy;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;TSV München-Ost;OrangeAcademy;München-Ost;Orange;0;70;43
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_TEAM URSPRING_PS Karlsruhe LIONS;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;TEAM URSPRING;PS Karlsruhe LIONS;Urspring;Karlsruhe;1;77;54
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Team Südhessen_Freak City Bamberg;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Team Südhessen;Freak City Bamberg;Südhessen;Bamberg;1;62;107
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Team Frankfurt_VR-Bank Würzburg Baskets Akademie;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Team Frankfurt;VR-Bank Würzburg Baskets Akademie;Team Frankfurt;Würzburg;1;78;80
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Team Bonn/Rhöndorf_BBV RheinStars;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Team Bonn/Rhöndorf;BBV RheinStars;Bonn-Rhöndorf;Köln;1;105;101
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_SG ALBASS Berlin_BG Zehlendorf;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;SG ALBASS Berlin;BG Zehlendorf;ALBASS;Zehlendorf;1;63;71
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Science City Jena_Mitteldeutsche Basketball Academy;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Science City Jena;Mitteldeutsche Basketball Academy;Jena;MBA;0;61;65
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Sartorius Youngsters_Metropol YoungStars;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Sartorius Youngsters;Metropol YoungStars;Göttingen;Metropol;1;72;91
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_ROTH Energie BBA GIESSEN 46ers_Young Lions Wuppertal;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;ROTH Energie BBA GIESSEN 46ers;Young Lions Wuppertal;Giessen;Wuppertal;1;51;85
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_ROSTOCK SEAWOLVES_Bramfelder SV;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;ROSTOCK SEAWOLVES;Bramfelder SV;Rostock;Bramfeld;0;78;76
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_ROCKETS_MTV Wolfenbüttel;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;ROCKETS;MTV Wolfenbüttel;Rockets;Wolfenbüttel;1;80;73
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Rhein-Neckar Metropolitans_Young Tigers Tübingen;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Rhein-Neckar Metropolitans;Young Tigers Tübingen;Rhein-Neckar;Tübingen;1;94;77
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_PS Karlsruhe LIONS_TEAM URSPRING;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;PS Karlsruhe LIONS;TEAM URSPRING;Karlsruhe;Urspring;0;54;77
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Porsche BBA Ludwigsburg_USC Academics Heidelberg;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Porsche BBA Ludwigsburg;USC Academics Heidelberg;Ludwigsburg;Heidelberg;1;87;40
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Phoenix Hagen_UBC Münster;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Phoenix Hagen;UBC Münster;Phoenix Hagen;Münster;1;70;80
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_OrangeAcademy_TSV München-Ost;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;OrangeAcademy;TSV München-Ost;Orange;München-Ost;1;43;70
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Nürnberg Falcons_Eintracht Frankfurt / SKYLINERS;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Nürnberg Falcons;Eintracht Frankfurt / SKYLINERS;Nürnberg;Frankfurt;0;56;48
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Northwestern Basketball Academy_Young Rasta Dragons;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Northwestern Basketball Academy;Young Rasta Dragons;Northwestern;Vechta;1;114;38
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_MTV Wolfenbüttel_ROCKETS;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;MTV Wolfenbüttel;ROCKETS;Wolfenbüttel;Rockets;0;73;80
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Mitteldeutsche Basketball Academy_Science City Jena;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Mitteldeutsche Basketball Academy;Science City Jena;MBA;Jena;1;65;61
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Metropol YoungStars_Sartorius Youngsters;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Metropol YoungStars;Sartorius Youngsters;Metropol;Göttingen;0;91;72
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Gartenzaun24 Baskets Paderborn_charisma young bulls;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Gartenzaun24 Baskets Paderborn;charisma young bulls;Paderborn;Young Bulls;1;82;81
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Friedenauer TSC_TuS Lichterfelde;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Friedenauer TSC;TuS Lichterfelde;Friedenau;Lichterfelde;1;66;67
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Freak City Bamberg_Team Südhessen;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Freak City Bamberg;Team Südhessen;Bamberg;Südhessen;0;107;62
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Eintracht Frankfurt / SKYLINERS_Nürnberg Falcons;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Eintracht Frankfurt / SKYLINERS;Nürnberg Falcons;Frankfurt;Nürnberg;1;48;56
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_charisma young bulls_Gartenzaun24 Baskets Paderborn;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;charisma young bulls;Gartenzaun24 Baskets Paderborn;Young Bulls;Paderborn;0;81;82
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Bramfelder SV_ROSTOCK SEAWOLVES;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Bramfelder SV;ROSTOCK SEAWOLVES;Bramfeld;Rostock;1;76;78
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_BG Zehlendorf_SG ALBASS Berlin;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;BG Zehlendorf;SG ALBASS Berlin;Zehlendorf;ALBASS;0;71;63
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_BBV RheinStars_Team Bonn/Rhöndorf;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;BBV RheinStars;Team Bonn/Rhöndorf;Köln;Bonn-Rhöndorf;0;101;105
+03.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Bayer Giants Leverkusen_Young Gladiators Trier;03.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Bayer Giants Leverkusen;Young Gladiators Trier;Leverkusen;Trier;1;88;82
+02.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_SG Bernau-Berlin-Nord_Basketball Talents Potsdam;02.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;SG Bernau-Berlin-Nord;Basketball Talents Potsdam;Bernau;Potsdam;0;95;66
+02.11.2024_2024-2025_JBBL_JBBL_QUALIFICATION_Basketball Talents Potsdam_SG Bernau-Berlin-Nord;02.11.2024;2024-2025;JBBL;JBBL;QUALIFICATION;Basketball Talents Potsdam;SG Bernau-Berlin-Nord;Potsdam;Bernau;1;66;95
 31.10.2024_2024-2025_NBBL_NBBL A_REGULAR SEASON_Porsche BBA Ludwigsburg_Nürnberg Falcons;31.10.2024;2024-2025;NBBL;NBBL A;REGULAR SEASON;Porsche BBA Ludwigsburg;Nürnberg Falcons;Ludwigsburg;Nürnberg;0;84;74
 31.10.2024_2024-2025_NBBL_NBBL A_REGULAR SEASON_Nürnberg Falcons_Porsche BBA Ludwigsburg;31.10.2024;2024-2025;NBBL;NBBL A;REGULAR SEASON;Nürnberg Falcons;Porsche BBA Ludwigsburg;Nürnberg;Ludwigsburg;1;74;84
 30.10.2024_2024-2025_NBBL_NBBL A_REGULAR SEASON_KICKZ IBAM_Eintracht Frankfurt / SKYLINERS;30.10.2024;2024-2025;NBBL;NBBL A;REGULAR SEASON;KICKZ IBAM;Eintracht Frankfurt / SKYLINERS;IBAM;Frankfurt;0;56;66
