@@ -490,6 +490,8 @@ export const ToolheadersMapping = {
   EST_POS: "Estimated Position",
   EST_ROLE: "Estimated Offensive Role",
   BORN: "Year of Birth",
+  W: "Wins",
+  L: "Losses",
   GP: "Games Played",
   MP: "Minutes Played",
   PT: "Points",
