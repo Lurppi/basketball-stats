@@ -56,7 +56,7 @@ const columnMappings = {
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'MP', 'PIE', 'TEAM_ID', 'PlayerID'
   ],
   'Advanced 3': [
-    'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'TS%', 'AS_RATIO', 'AS_RATE', 'AS_TO', 'ORB%', 'DRB%', 'REB%', 'FIC_Gm', 'FIC',
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'TS%', 'AS_RATIO', 'AS_RATE', 'AS_TO', 'ORB%', 'DRB%', 'REB%', 'FIC', 'FIC_Gm',
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM_ID', 'PlayerID'
   ],
 
