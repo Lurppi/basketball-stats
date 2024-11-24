@@ -73,7 +73,7 @@ const Players = () => {
   const defaultFilters = {
     season: '20242025',
     league: 'JBBL',
-    statsType: 'Advanced 1',
+    statsType: 'Per Game',
     division: 'JBBL',
     team: 'All',
     position: 'All',
