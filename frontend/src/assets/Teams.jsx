@@ -36,10 +36,10 @@ const Teams = () => {
   const [headers, setHeaders] = useState([]);
   const [filters, setFilters] = useState({
     season: '20242025',
-    league: 'NBBL',
+    league: 'JBBL',
     statsType: 'Averages',
-    division: 'NBBL A',
-    seasonType: 'REGULAR SEASON',
+    division: 'JBBL',
+    seasonType: 'QUALIFICATION',
     team: 'All',
     sortStat: 'WINS',
     sortDirection: 'desc',

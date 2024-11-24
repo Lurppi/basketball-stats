@@ -12,7 +12,7 @@ const columnMappings = {
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'PER', 'PIE', 'TEAM_ID', 'PlayerID'
   ],
   'Per Game': [
-    'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'PPG', 'RPG', 'APG', 'SPG', 'BPG', 'TOPG', 'PFPG', 'EFPG', 'PER', 'PIE',
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'PPG', 'RPG', 'APG', 'SPG', 'BPG', 'TOPG', 'PFPG', 'EFPG', 'PIE', 'PER',
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'FIC', 'MP', 'TEAM_ID', 'PlayerID'
   ],
 
@@ -48,15 +48,15 @@ const columnMappings = {
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM_ID', 'PlayerID'
   ],
   'Advanced 1': [
-    'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'ORTG_ADJ', 'DRTG_ADJ', 'NRTG_ADJ', 'PER', 'PIE', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE',
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'ORTG_ADJ', 'DRTG_ADJ', 'NRTG_ADJ', 'EFG%', 'TOV%', 'ORB%', 'FT_RATE', 'PIE', 'PER',
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM_ID', 'PlayerID'
   ],
   'Advanced 2': [
-    'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'PER', 'OBPM', 'DBPM', 'BPM', 'VORP', 'OWS', 'DWS', 'WS', 'WS_40',
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'OBPM', 'DBPM', 'BPM', 'VORP', 'OWS', 'DWS', 'WS', 'WS_40', 'PER',
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'MP', 'PIE', 'TEAM_ID', 'PlayerID'
   ],
   'Advanced 3': [
-    'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'FIC', 'FIC_Gm', 'TS%', 'AS_RATIO', 'AS_RATE', 'AS_TO', 'ORB%', 'DRB%', 'REB%',
+    'PLAYER', 'TEAM', 'POS', 'ROLE', 'GP', 'MPG', 'USAGE', 'TS%', 'AS_RATIO', 'AS_RATE', 'AS_TO', 'ORB%', 'DRB%', 'REB%', 'FIC_Gm', 'FIC',
     'SEASON_YEAR', 'LEAGUE', 'DIV', 'SEASON_TYPE', 'BORN', 'EFPG', 'MP', 'TEAM_ID', 'PlayerID'
   ],
 
