@@ -82,7 +82,7 @@ const Players = () => {
     born: 'All',
     gamesPlayed: '',
     minutesPlayed: '',
-    sortStat: 'MP',
+    sortStat: 'PER',
     sortDirection: 'desc',
   };
 
