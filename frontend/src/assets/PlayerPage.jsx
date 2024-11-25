@@ -255,9 +255,9 @@ const PlayerPage = () => {
             <th>{isTotals ? 'DR' : 'DR'}</th>
             <th>{isTotals ? 'RB' : 'RB'}</th>
             <th>{isTotals ? 'AS' : 'AS'}</th>
-            <th>{isTotals ? 'TO' : 'TO'}</th>
             <th>{isTotals ? 'ST' : 'ST'}</th>
             <th>{isTotals ? 'BS' : 'BS'}</th>
+            <th>{isTotals ? 'TO' : 'TO'}</th>
             <th>{isTotals ? 'PF' : 'PF'}</th>
             <th>{isTotals ? 'EF' : 'EF'}</th>
             <th>{isTotals ? 'FIC' : 'FIC'}</th>
