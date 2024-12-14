@@ -287,9 +287,9 @@ const PlayerPage = () => {
               <td>{isTotals ? stat.DR : stat.DRPG}</td>
               <td>{isTotals ? stat.RB : stat.RPG}</td>
               <td>{isTotals ? stat.AS : stat.APG}</td>
-              <td>{isTotals ? stat.TO : stat.TOPG}</td>
               <td>{isTotals ? stat.ST : stat.SPG}</td>
               <td>{isTotals ? stat.BS : stat.BPG}</td>
+              <td>{isTotals ? stat.TO : stat.TOPG}</td>
               <td>{isTotals ? stat.PF : stat.PFPG}</td>
               <td>{isTotals ? stat.EF : stat.EFPG}</td>
               <td>{isTotals ? stat.FIC : stat.FIC_Gm}</td>
