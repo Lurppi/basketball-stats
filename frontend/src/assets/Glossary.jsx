@@ -62,8 +62,8 @@ const Glossary = () => {
             <tr><td>FIC</td><td>Floor Impact Counter</td></tr>
             <tr><td>FIC/Gm</td><td>Floor Impact Counter per Game</td></tr>
             <tr><td>PIE</td><td>Player Impact Estimate</td></tr>
-            <tr><td>AS Ratio</td><td>Assist Ratio (Assists per 100 Possessions)</td></tr>
-            <tr><td>AS Rate</td><td>Assist Rate (High Value = High Passing Tendency)</td></tr>
+            <tr><td>ASR</td><td>Assist Ratio (Assists per 100 Possessions)</td></tr>
+            <tr><td>ASRA</td><td>Assist Rate (High Value = High Passing Tendency)</td></tr>
             <tr><td>AS/TO</td><td>Assist to Turnover Ratio</td></tr>
             <tr><td>REB%</td><td>Rebound Percentage</td></tr>
             <tr><td>ST%</td><td>Steal Percentage</td></tr>
