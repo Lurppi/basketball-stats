@@ -23,7 +23,7 @@ const Rankings = () => {
   const [error, setError] = useState(null);
 
   // Definiere die Tabelle-Überschriften, die du anzeigen möchtest
-  const tableHeaders = ['#', '', 'TEAM', 'GP', 'W', 'L', 'WIN%', 'NRTG', 'ORTG', 'DRTG'];
+  const tableHeaders = ['#', '', 'TEAM', 'GP', 'W', 'L', 'WIN%', 'ORTG', 'DRTG', 'NRTG'];
 
   // Teams CSV laden und Filter-Dropdowns initialisieren
   useEffect(() => {
