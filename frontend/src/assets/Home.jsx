@@ -141,7 +141,7 @@ const Home = () => {
 
       <div className="content">
         <div className="text-container">
-          <p>Here are the current top 10 players and teams in various categories, like Points per Game, Rebounds per Game or Assists per Game. Players with 100+ total minutes are qualified for the ranking. Choose between NBBL or JBBL and Players or Teams. </p>
+          <p>Here are the current top 10 players and teams in various categories, like Points per Game, Rebounds per Game or Assists per Game. Players with 150+ total minutes are qualified for the ranking. Choose between NBBL or JBBL and Players or Teams. </p>
           <h1>Top 10 Leaders</h1>
         </div>
 
