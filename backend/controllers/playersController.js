@@ -373,8 +373,8 @@ const getAllPlayers = (req, res) => {
 
       // Filtere nur Spieler mit mindestens X gespielten Minuten ("MP") und Saison-Daten
       if (
-        parseFloat(cleanedRow.MP) >= 150 &&
-        cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON'
+        parseFloat(cleanedRow.MP) >= 15 &&
+        cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'PLAYOFFS'
       ) {
         results.push(cleanedRow);
       }
