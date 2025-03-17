@@ -67,7 +67,7 @@ const getAllTeamsByStat = (req, res) => {
       }
 
       // Filtere Teams basierend auf dem SEASON_TYPE 'SEASON'
-      if (cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'SEASON' && cleanedRow.SEASON_YEAR.trim().match(/^\d{8}$/)) {
+      if (cleanedRow.SEASON_TYPE.trim().toUpperCase() === 'PLAYOFFS' && cleanedRow.SEASON_YEAR.trim().match(/^\d{8}$/)) {
         results.push(cleanedRow);
       }
     });
