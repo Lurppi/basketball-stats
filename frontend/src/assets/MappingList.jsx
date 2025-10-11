@@ -712,6 +712,7 @@ export const teamImageMappings = {
   Rendsburg: img167,
   'DJK München': img168,
   Wildcats: img169,
+  'DBV Berlin': img164,
 
 };
 
