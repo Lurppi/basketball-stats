@@ -712,7 +712,7 @@ export const teamImageMappings = {
   Rendsburg: img167,
   'DJK München': img168,
   Wildcats: img169,
-  'DBV Berlin': img164,
+  'Tiger Berlin': img164,
   'ALBA Wiesel': img108,
 
 };
@@ -1061,7 +1061,9 @@ export const nationalityImageMappings = {
   ESH: eh,
   YEM: ye,
   ZMB: zm,
-  ZWE: zw
+  ZWE: zw,
+  RKS: xk,
+
 };
 
 // League-Mapping für verschiedene Ligen
