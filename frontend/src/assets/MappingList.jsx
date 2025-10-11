@@ -713,6 +713,7 @@ export const teamImageMappings = {
   'DJK München': img168,
   Wildcats: img169,
   'DBV Berlin': img164,
+  'ALBA Wiesel': img108,
 
 };
 
