@@ -712,7 +712,6 @@ export const teamImageMappings = {
   Rendsburg: img167,
   'DJK München': img168,
   Wildcats: img169,
-  'Tiger Berlin': img164,
 
 };
 
@@ -777,7 +776,7 @@ export const jbblTeams = [
   'Young Bulls',
   'Münster',
   'Metropol',
-  'Tiger Berlin',
+  'Berlin Dreams',
   'Friedenau',
   'Potsdam',
   'ALBA Berlin',
