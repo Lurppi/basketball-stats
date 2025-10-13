@@ -68,6 +68,7 @@ import img166 from '../images/img166.png';
 import img167 from '../images/img167.png';
 import img168 from '../images/img168.png';
 import img169 from '../images/img169.png';
+import img170 from '../images/img170.png';
 import af from '../images/af.png';  // Afghanistan
 import al from '../images/al.png';  // Albanien
 import dz from '../images/dz.png';  // Algerien
@@ -713,7 +714,7 @@ export const teamImageMappings = {
   Rendsburg: img167,
   'DJK München': img168,
   Wildcats: img169,
-  'Tiger Berlin': img164,
+  'Tiger Berlin': img170,
   'ALBA Wiesel': img108,
 
 };
@@ -779,7 +780,7 @@ export const jbblTeams = [
   'Young Bulls',
   'Münster',
   'Metropol',
-  'Berlin Dreams',
+  'Tiger Berlin',
   'Friedenau',
   'Potsdam',
   'ALBA Berlin',
