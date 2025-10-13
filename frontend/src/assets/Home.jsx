@@ -141,7 +141,7 @@ const Home = () => {
 
       <div className="content">
         <div className="text-container">
-          <p>Here are the current top 10 players and teams in various categories, like Points per Game, Rebounds per Game or Assists per Game. Players with 200+ total minutes are qualified for the ranking. Choose between NBBL or JBBL and Players or Teams. Updates for the 2025/2026 season will follow as soon as the box score data on the official NBBL website is clean after the database migration. </p>
+          <p>Here are the current top 10 players and teams in various categories, like Points per Game, Rebounds per Game or Assists per Game. Players with 200+ total minutes are qualified for the ranking. Choose between NBBL or JBBL and Players or Teams. Updates for the 2025/2026 season will follow as soon as the boxscore data on the official NBBL website is clean after the database migration. </p>
           <h1>2024-2025 Season Leaders</h1>
         </div>
 
