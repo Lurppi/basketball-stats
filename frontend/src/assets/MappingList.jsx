@@ -303,6 +303,7 @@ import eh from '../images/eh.png';  // Westsahara
 import ye from '../images/ye.png';  // Jemen
 import zm from '../images/zm.png';  // Sambia
 import zw from '../images/zw.png';  // Simbabwe
+import xk from '../images/xk.png';  // Kosovo
 import nbblLogo from '../images/NBBL QUER.png';
 import jbblLogo from '../images/JBBL QUER.png';
 import Badge1 from '../images/Badge1.png';
