@@ -69,6 +69,7 @@ import img167 from '../images/img167.png';
 import img168 from '../images/img168.png';
 import img169 from '../images/img169.png';
 import img170 from '../images/img170.png';
+import img171 from '../images/img171.png';
 import af from '../images/af.png';  // Afghanistan
 import al from '../images/al.png';  // Albanien
 import dz from '../images/dz.png';  // Algerien
@@ -715,7 +716,7 @@ export const teamImageMappings = {
   'DJK München': img168,
   Wildcats: img169,
   'Tiger Berlin': img170,
-  'ALBA Wiesel': img108,
+  'ALBA Wiesel': img171,
 
 };
 
